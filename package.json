@@ -1,0 +1,27 @@
+{
+  "name": "d1css",
+  "version": "1.0.0",
+  "description": "Functional CSS micro framework",
+  "main": "js/d1.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vvvkor/d1.git"
+  },
+  "keywords": [
+    "css",
+    "micro",
+    "framework"
+  ],
+  "author": "Vadim Korolev <vadimkor@yandex.ru> (https://github.com/vvvkor)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vvvkor/d1/issues"
+  },
+  "homepage": "https://github.com/vvvkor/d1#readme"
+}
