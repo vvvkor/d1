@@ -24,7 +24,7 @@ Standard components
 	a.btn.lite.hover.act.pad.ib.close
 Custom components
 	.hide
-	.row.flip.mar.gap .col-1|2|3 .wide
+	.row.flip.mar.gap .col-1|2|3
 	.nav.flip.bg.hover.hor .gap !toggle
 	a#hash .hide[id] !toggle
 	a.slide .c #cancel
