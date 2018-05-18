@@ -6,8 +6,8 @@ var app = new(function() {
 	"use strict";
 
 	this.togglable = '.hide.toggle, ul.toggle ul, .tabs>.hide';
-	this.escapable = '.rel>.hide, ul.nav.toggle ul';
-	this.mem = '.hide.toggle, ul.toggle:not(.nav) ul';
+	this.escapable = '.pop>.hide, ul.nav.toggle ul';
+	this.forget = '.pop>.hide, ul.toggle.nav ul, .tabs>.hide';
 	this.unhover = 'ul.nav.toggle ul';
 
 	//common
@@ -26,7 +26,7 @@ var app = new(function() {
 
 	this.b = function(n, sel, type, fn) {
 		var ref = this;
-		var a = (typeof sel == 'string') ? (n || document).querySelectorAll(sel) : sel;
+		var a = (typeof sel === 'string') ? (n || document).querySelectorAll(sel) : sel;
 		if (a.length) [].forEach.call(a, this.handle.bind(this, type, fn));
 	}
 
@@ -105,7 +105,7 @@ var app = new(function() {
 			this.setLinks(on, n);
 			if (on) this.hideSiblings(n);
 			if (e) { //mem, hash change
-				if (localStorage && n.matches(this.mem)) {
+				if (localStorage && !n.matches(this.forget)) {
 					localStorage[on ? 'setItem' : 'removeItem']('vis#' + n.id, 1);
 				}
 				e.preventDefault();
@@ -118,9 +118,9 @@ var app = new(function() {
 	}
 
 	this.hideSiblings = function(n) {
-		if (this.par('ul.nav.toggle', n)) this.b(this.par('ul', n), 'ul:not([id="' + n.id + '"])', '', this.hide);
-		else if (n.parentNode.matches('.tabs')) this.b(n.parentNode, ':scope>.hide:not([id="' + n.id + '"])', '', this.hide);
-		//:scope for nested tabs
+		if (this.par('ul.nav.toggle, ul.accordion', n)) this.b(this.par('ul', n), 'ul:not([id="' + n.id + '"])', '', this.hide);
+		else if (n.parentNode.matches('.tabs')) this.b(n.parentNode, '.hide:not([id="' + n.id + '"])', '', this.hide);
+		//:scope>.hide... - for nested tabs - fails in ie
 	}
 
 	this.setLinks = function(on, n) {
@@ -167,6 +167,7 @@ var app = new(function() {
 	this.hide = function(n) {
 		n.classList.remove('js-show');
 		this.setLinks(0, n);
+		if (n.id) localStorage.removeItem('vis#' + n.id);
 	}
 
 	this.control = function(d) {
@@ -207,7 +208,6 @@ var app = new(function() {
 		if (!n) this.b('', [window], 'keydown', this.esc);
 		//close on click out
 		if (!n) this.b('', 'html', 'mousedown', this.esc);
-
 	}
 
 })();
