@@ -1,6 +1,6 @@
 {
   "name": "d1css",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Functional CSS micro framework",
   "main": "js/d1.js",
   "directories": {
@@ -23,5 +23,7 @@
   "bugs": {
     "url": "https://github.com/vvvkor/d1/issues"
   },
-  "homepage": "https://github.com/vvvkor/d1#readme"
+  "homepage": "https://github.com/vvvkor/d1#readme",
+  "dependencies": {
+  }
 }
