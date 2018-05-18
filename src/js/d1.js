@@ -207,7 +207,7 @@ var app = new(function() {
 		//escape closes targeted elements
 		if (!n) this.b('', [window], 'keydown', this.esc);
 		//close on click out
-		if (!n) this.b('', 'html', 'mousedown', this.esc);
+		if (!n) this.b('', 'html', 'click', this.esc);//mousedown
 	}
 
 })();
