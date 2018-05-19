@@ -104,9 +104,13 @@ input,select,textarea{max-width:100%;}
 	form table.gap tr>*:first-child{min-width:8em;}
 	input[type="checkbox"], input[type="radio"]{border:none;}
 	.req:after{content:"*";color:#d00;}
-	/*form [name]:required:not([class*="bg-"]){background-color:#ffd;}*/
-	form [name]:invalid:not([class*="bg-"]){background-color:#ff9;} 
-	/*[disabled]{border:thin solid #ccc;color:#000;background:none;}*/
+		/*[disabled]{border:thin solid #ccc;color:#000;background:none;}*/
+		/*form [name]:required:not([class*="bg-"]){background-color:#ffd;}*/
+	/*form [name]:invalid:not([class*="bg-"]){background-color:#ff9;}*/
+		.btn:not(.hover):hover, .btn:focus, input:focus, select:focus, textarea:focus{box-shadow:0 0 0 .15em rgba(0,0,0,.1);outline:none;}
+			/*input[type="radio"]:checked:focus{box-shadow:none;}*/
+		/*input:invalid{box-shadow:0 0 0 .15em rgba(255,140,140,.8);}*/
+		input:invalid{box-shadow:0 0 0 .15em rgba(255,200,80,.8);}
 	
 /* table, border */
 table{border-collapse:collapse;}
@@ -240,7 +244,7 @@ a.slide:target:after{content:attr(data-info);left:0;right:auto;}
 .nav+.tabs>div:target{margin-top:-3em;padding-top:3em;}
 
 /* yellow fade */
-@keyframes yellowfade { 0% {} 30% {background-color:#ff0;} 100% {} }
+@keyframes yellowfade { 0% {} 30% {background-color:#ffc;} 100% {} }
 .yel:target{animation-name:yellowfade;animation-duration:2s;}
 
 

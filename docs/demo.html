@@ -232,9 +232,65 @@ All components using <b>target</b> are: single-active, not-nesable, (no-mem, no-
 				</div>
 
 				
+				<h3><a href="#typ">Typography</a></h3>
+
+				<div class="hide toggle pad bord yel" id="typ">
+				<div class="row gap">
+					<div>
+						<h1>Heading 1</h1>
+						<h2>Heading 2</h2>
+						<h3>Heading 3</h3>
+						<h4>Heading 4</h4>
+						<h5>Heading 5</h5>
+						<h6>Heading 6</h6>
+						<p>Paragraph</p>
+					</div>
+					<div>
+						<p>Paragraph<br>New line</p>
+						<p>Paragraph</p>
+						<pre>Preformatted</pre>
+						<blockquote>Blockqoute</blockquote>
+						<hr>
+
+						<b>b</b>
+						<i>i</i>
+						<s>s</s>
+						<ins>ins</ins>
+						<del>del</del>
+						<sub>sub</sub>
+						<sup>sup</sup>
+						<time datetime="1970-01-01">time</time>
+						
+						<br>
+						<abbr title="Abbreviation">Abbr</abbr>
+						<q>quote</q>
+						<cite>cite</cite>
+						<mark>mark</mark>
+						<dfn>dfn</dfn>
+						
+						<br>
+						<code>code</code>
+						<var>var</var>
+						<kbd>kbd</kbd>
+						<samp>samp</samp>
+						
+						<br>
+						<a href="http://ya.ru">Link</a>
+						<a href="http://ya.ru" class="btn inv bg-i">Invert</a>
+						
+						<a href="#" class="hover">
+							<svg class="c-i icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
+								<path d="m477 162c0 7-2 14-8 19l-206 207l-39 39c-6 5-12 8-20 8c-7 0-14-3-19-8l-142-142c-6-6-8-12-8-20c0-7 2-14 8-19l38-39c6-5 12-8 20-8c7 0 14 3 19 8l84 84l188-188c5-5 12-8 19-8c8 0 14 3 20 8l38 39c6 6 8 12 8 20z"/>
+							</svg>SVG icon
+						</a>
+					</div>
+				</div>
+				</div>
+				
+				
 				<h3 id="form">Form</h3>
 				
-				<form action="?" class="bg pad">
+				<form action="?" class="-bg pad">
 					<table class=" gap flip -bord -mar -wide">
 					<tr>
 						<td><label class="req" for="nm">Name</label>
@@ -432,11 +488,27 @@ All components using <b>target</b> are: single-active, not-nesable, (no-mem, no-
 					
 				<div class="row flip mar">
 					<div class="bord pad bg">1</div>
-					<div class="bord pad bg col-2">2</div>
+					<div class="bord pad bg">2</div>
+				</div>
+				<div class="row flip gap mar">
+					<div class="bord pad bg">1</div>
+					<div class="bord pad bg">2</div>
 				</div>
 				<div class="row flip gap mar">
 					<div class="bord pad bg">1</div>
 					<div class="bord pad bg col-2">2</div>
+				</div>
+				<div class="row flip gap mar">
+					<div class="bord pad bg">1</div>
+					<div class="bord pad bg col-3">3</div>
+				</div>
+				<div class="row flip gap mar">
+					<div class="bord pad bg">1</div>
+					<div class="bord pad bg">1</div>
+					<div class="bord pad bg">1</div>
+					<div class="bord pad bg">1</div>
+					<div class="bord pad bg">1</div>
+					<div class="bord pad bg">1</div>
 				</div>
 		
 				<h3>Horizontal nav</h3>
@@ -447,6 +519,7 @@ All components using <b>target</b> are: single-active, not-nesable, (no-mem, no-
 					<li><a href="#p3" title="Page 2">3</a>
 				</ul>
 				
+	
 				<h2>Pure CSS hacks</h2>
 				
 				<div>
@@ -579,31 +652,24 @@ All components using <b>target</b> are: single-active, not-nesable, (no-mem, no-
 						<td class="inv c-n bg-n">.inv
 				</table>
 
-			<h3>Typography</h3>
-				<abbr title="Abbreviation">Abbr</abbr>
-				<a href="http://ya.ru">Link</a>
-				<a href="http://ya.ru" class="btn inv bg-i">Invert</a>
-				
-				<a href="#" class="hover">
-					<svg class="c-i icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
-						<path d="m477 162c0 7-2 14-8 19l-206 207l-39 39c-6 5-12 8-20 8c-7 0-14-3-19-8l-142-142c-6-6-8-12-8-20c0-7 2-14 8-19l38-39c6-5 12-8 20-8c7 0 14 3 19 8l84 84l188-188c5-5 12-8 19-8c8 0 14 3 20 8l38 39c6 6 8 12 8 20z"/>
-					</svg>SVG icon
-				</a>
-				<pre>Preformatted</pre>
-				<blockquote>Blockqoute</blockquote>
-				<hr>
-				<div class="row gap -bg">
+				<div class="row gap mar -bg">
 					<a href="#media"><img alt="pic" src="data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAQUlEQVR4nGNkaPjPQApgIkk1AwMDC6bQ/3oEm7GRYhuo4SRMZ+DTgOwBrJop9gN+91DDBrprQAs0cmwgOeJItgEAkbkIq9GVLncAAAAASUVORK5CYII="></a>
 					<div>
 						Media object with description
-						<p class="-right">
+						<div class="-right">
 							<time class="c-n" datetime="1970-01-01">January 1970</time>
 							&bull;
 							<a href="#media" class="-btn -inv">Link</a>
-						</p>
+						</div>
 					</div>
 				</div>
 				
+				<figure class="bg pad c">
+					<img alt="figure" src="data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAQUlEQVR4nGNkaPjPQApgIkk1AwMDC6bQ/3oEm7GRYhuo4SRMZ+DTgOwBrJop9gN+91DDBrprQAs0cmwgOeJItgEAkbkIq9GVLncAAAAASUVORK5CYII=">
+					<figcaption>
+						Figure caption
+					</figcaption>
+				</figure>
 			</div>
 			
 			
