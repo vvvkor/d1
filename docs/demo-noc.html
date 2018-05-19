@@ -321,6 +321,11 @@ All components using <b>target</b> are: single-active, not-nesable, (no-mem, no-
 				
 				<h3>Toggle</h3>
 				
+				<details id="det1">
+					<summary class="hover">Summary</summary>
+					<div class="pad bord">Details</div>
+				</details>
+				
 				<div class="mar">
 					<a href="#t1" class="hover">Link-div toggle (jumpy), yel</a> <a href="#t1" class="hover">Alt link</a>
 					<div id="t1" class="hide box pad toggle yel">
@@ -340,21 +345,42 @@ All components using <b>target</b> are: single-active, not-nesable, (no-mem, no-
 				
 				<h3>Tree / Accordion</h3>
 				
-				<h4>Open one branch</h4>
-				<ul class="-lite toggle accordion">
-					<li><a href="#acc1" class="hover">Link sublist (jumpy)</a> <a href="#acc1" class="hover">Alt link</a>
-						<ul class="hide" id="acc1">
-							<li><a href="#acc11">A1</a>
-							<li><a href="#acc12">A2</a>
-							<li><a href="#acc13">A3</a>
+				<section class="row gap">
+					<div>
+						<h4>Open one branch</h4>
+						<ul class="-lite toggle accordion">
+							<li><a href="#acc1" class="hover">Link sublist (jumpy)</a> <a href="#acc1" class="hover">Alt link</a>
+								<ul class="hide" id="acc1">
+									<li><a href="#acc11">A1</a>
+									<li><a href="#acc12">A2</a>
+									<li><a href="#acc13">A3</a>
+								</ul>
+							<li><a href="#acc2" class="hover">Link sublist (jumpy)</a>
+								<ul class="hide" id="acc2">
+									<li><a href="#acc21">B1</a>
+									<li><a href="#acc22">B2</a>
+									<li><a href="#acc23">B3</a>
+								</ul>
 						</ul>
-					<li><a href="#acc2" class="hover">Link sublist (jumpy)</a>
-						<ul class="hide" id="acc2">
-							<li><a href="#acc21">B1</a>
-							<li><a href="#acc22">B2</a>
-							<li><a href="#acc23">B3</a>
-						</ul>
-				</ul>
+					</div>
+				
+					<div>
+						<h4>Details</h4>
+						<details id="it1"><summary>Item 1 <a href="#cancel">link</a></summary>
+							<details id="it11"><summary>Subitem 1.1</summary><div>AA</div></details>
+							<details id="it12"><summary>Subitem 1.2</summary><div>AB</div></details>
+							<details id="it13"><summary>Subitem 1.3</summary><div>AC</div></details>
+						</details>
+						<details id="it2" open><summary>BItem 2</summary>
+							<ul>
+								<li><a href="#it21">B1</a>
+								<li><a href="#it22">B2</a>
+								<li><a href="#it23">B3</a>
+							</ul>
+						</details>
+					</div>
+				</section>
+				
 				
 				<h3>Grid</h3>
 					
@@ -536,6 +562,13 @@ All components using <b>target</b> are: single-active, not-nesable, (no-mem, no-
 						</p>
 					</div>
 				</section>
+				
+				<figure class="bg pad c">
+					<img alt="figure" src="data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAQUlEQVR4nGNkaPjPQApgIkk1AwMDC6bQ/3oEm7GRYhuo4SRMZ+DTgOwBrJop9gN+91DDBrprQAs0cmwgOeJItgEAkbkIq9GVLncAAAAASUVORK5CYII=">
+					<figcaption>
+						Figure caption
+					</figcaption>
+				</figure>
 				
 			</aside>
 			

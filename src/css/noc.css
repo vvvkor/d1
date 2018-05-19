@@ -76,7 +76,7 @@ button, input[type="submit"]{color:#fff;background-color:#03c;background-color:v
 button *{color:#fff;}
 button, input[type="submit"]{padding:.5em 1em;border-radius:.2em;}
 pre{overflow:auto;max-height:80vh;}
-blockquote,pre,code,thead,tfoot,nav{background-color:#f6f6f6;background-color:var(--back,#f6f6f6);}
+blockquote,pre,code,thead,tfoot,nav,figure{background-color:#f6f6f6;background-color:var(--back,#f6f6f6);}
 ul,ol,dl,blockquote,pre,hr,p,figure,form{margin:.75em 0;}
 blockquote,pre,fieldset{padding:.5em 1em;}
 abbr{text-decoration:underline #ccc;/*dotted*/}
@@ -84,14 +84,18 @@ h1,h2,h3,h4,h5,h6{margin:1.5rem 0 1rem 0;line-height:1.2;}
 
 /* list */
 ul{list-style:disc outside;}
-ul, ol{padding:0 0 0 1.5em;}
-li ul, li ol, fieldset{margin:.5em 0;}
+ul, ol{padding:0 0 0 1.1em;}
+li ul, li ol, summary+ul, fieldset{margin:.2em 0;}
+
+details details, summary+div{padding-left:1.1em;}
+summary+ul{padding-left:2.2em;}
 
 /* form */
 input,select,textarea{max-width:100%;}
 	/*form table tr>*:first-child{min-width:8em;}*/
 	input[type="checkbox"], input[type="radio"]{border:none;}
-	form [name]:invalid{background-color:#ff9;} 
+		button:hover, input[type="submit"]:hover, button:focus, input:focus, select:focus, textarea:focus{box-shadow:0 0 0 .15em rgba(0,0,0,.1);outline:none;}
+		input:invalid{box-shadow:0 0 0 .15em rgba(255,200,80,.8);}
 	
 /* table, border */
 table{border-collapse:collapse;}
@@ -140,8 +144,9 @@ div[id]:not(:target){display:none;}
 /* hover */
 a:hover,
 a:target,
-table>tbody>tr:hover,
-[id]:checked+label, [id]+label:hover,
+/*table>tbody>tr:hover,*/
+input[id]:checked+label, input[id]+label:hover,
+summary:hover, summary:focus, details[open]>summary,
 nav li:hover>a
 {
 	background-color:#eee;background-color:var(--hilite,#eee);

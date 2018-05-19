@@ -97,7 +97,9 @@ var app = new(function() {
 	//n = #hash|link|target
 	this.toggle = function(n, e) {
 		if (n.hash || !n.tagName) n = this.q(n.hash || n, 0);
-		if (n && n.matches(this.togglable)) {
+		if (!n) ;
+		else if (n.tagName=='DETAILS') n.open = (e!==false);
+		else if (n && n.matches(this.togglable)) {
 			var on = 1;
 			n.classList.add('js-control');
 			if (e && !n.parentNode.matches('.tabs')) on = n.classList.toggle('js-show');
@@ -105,9 +107,7 @@ var app = new(function() {
 			this.setLinks(on, n);
 			if (on) this.hideSiblings(n);
 			if (e) { //mem, hash change
-				if (localStorage && !n.matches(this.forget)) {
-					localStorage[on ? 'setItem' : 'removeItem']('vis#' + n.id, 1);
-				}
+				this.store(n, on);
 				e.preventDefault();
 				if (!n.matches(this.unhover)) {
 					if (on) this.addHistory('#' + n.id);
@@ -135,10 +135,21 @@ var app = new(function() {
 		history.go(-1);
 	}
 
+	this.store = function(n, on) {
+		if (!n.matches(this.forget)) {
+			if (on.type) on = n.open; //event on details
+			//if (n.id && localStorage) localStorage[on ? 'setItem' : 'removeItem']('vis#' + n.id, 1); //store only shown
+			if (n.id && localStorage) localStorage.setItem('vis#' + n.id, on ? 1 : 0); //also store hidden
+		}
+	}
+	
 	this.restore = function(n, e) {
-		for (var i = 0; i < localStorage.length; i++) {
-			var k = localStorage.key(i);
-			if (k.substr(0, 4) == 'vis#') this.toggle(k.substr(3));
+		if (localStorage) {
+			for (var i = 0; i < localStorage.length; i++) {
+				var k = localStorage.key(i);
+				//if (k.substr(0, 4) == 'vis#') this.toggle(k.substr(3)); //store only shown
+				if (k.substr(0, 4) == 'vis#') this.toggle(k.substr(3), localStorage.getItem(k)==1); //also store hidden
+			}
 		}
 	}
 
@@ -167,7 +178,7 @@ var app = new(function() {
 	this.hide = function(n) {
 		n.classList.remove('js-show');
 		this.setLinks(0, n);
-		if (n.id) localStorage.removeItem('vis#' + n.id);
+		this.store(n, 0);
 	}
 
 	this.control = function(d) {
@@ -198,11 +209,12 @@ var app = new(function() {
 		//prepare tabs (hilite first)
 		this.b(n, '.tabs>.hide:last-child', '', this.toggle);
 		//prepare mem
-		if (localStorage) this.restore();
+		this.restore();
 		//prepare hash
 		if (location.hash) this.toggle(location.hash);
 		//toggle
 		this.b(n, 'a[href^="#"]', 'click', this.toggle);
+		this.b(n, 'details[id]', 'toggle', this.store);
 
 		//escape closes targeted elements
 		if (!n) this.b('', [window], 'keydown', this.esc);
