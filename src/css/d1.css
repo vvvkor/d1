@@ -193,7 +193,7 @@ summary.hover:hover, summary.hover:focus, details[open]>summary.hover,
 .nav, .nav ul{list-style:none;padding:0;}
 .nav:not(.mar), .nav ul{margin:0;}
 .nav ul{position:absolute;top:90%;left:3em;width:12em;}
-.nav ul ul{z-index:10;}
+.nav ul{z-index:10;}
 .nav li{position:relative;}
 /* box */
 .nav ul, .box{background-color:#fff;box-shadow:0 .2em .8em  rgba(0,0,0,.4);}

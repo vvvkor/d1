@@ -99,35 +99,42 @@ var app = new(function() {
 		//target
 		if (n.hash || !n.tagName) n = this.q(n.hash || n, 0);
 		if(!n) return;
-		if (e && on === undefined) on = true;
+		var chg = (e && on === undefined);
 		//
 		if (n.tagName=='DETAILS'){
-			if(e) on = n.open;
-			else n.open = on;
+			if(e && e.type=='toggle') on = n.open;
+			else if (chg) on = !n.open;
+			n.open = on;
 		}
 		else if (n && n.matches(this.togglable)) {
 			n.classList.add('js-control');
-			if (e && !n.parentNode.matches('.tabs')) on = n.classList.toggle('js-show');
-			else n.classList[on ? 'add' : 'remove']('js-show');
-			if (on) this.hideSiblings(n);
-			if (e) { //hash change
-				e.preventDefault();
-				if (!n.matches(this.unhover)) {
-					if (on) this.addHistory('#' + n.id);
-					else location.hash = '#cancel';
-				}
+			if (chg && !n.parentNode.matches('.tabs')){
+				on = n.classList.toggle('js-show');
+			}
+			else{
+				on = on || chg;
+				n.classList[on ? 'add' : 'remove']('js-show');
 			}
 		}
+		if (on) this.hideSiblings(n);
 		if (e) this.store(n, on); //mem
 		this.setLinks(on, n);
+		//hash change
+		if (e && e.type=='click') {
+			e.preventDefault();
+			if (!n.matches(this.unhover)) {
+				if (on) this.addHistory('#' + n.id);
+				else location.hash = '#cancel';
+			}
+		}
 	}
 
-	this.show = function(n) {
-		this.toggle(n, null, true);
+	this.show = function(n, e) {
+		this.toggle(n, e, true);
 	}
 
-	this.hide = function(n) {
-		this.toggle(n, null, false);
+	this.hide = function(n, e) {
+		this.toggle(n, e, false);
 	}
 
 	this.hideSiblings = function(n) {
