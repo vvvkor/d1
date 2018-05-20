@@ -3,8 +3,9 @@
 
 /*
 fix:
-- .accordion
+- .accordion - mem siblings
 - closest()
+- use togglable
 */
 
 var app = new(function() {
