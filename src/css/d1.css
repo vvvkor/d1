@@ -141,7 +141,7 @@ a:visited:not([class]):not([href^="#"]){color:var(--visited,#538);}
 /*a[href^="#"]{text-decoration:underline #ccc;}*//*dashed*/
 a.lite, a.pad, a.btn, body.lite a, div.lite a, .nav a, a.slide, a.slide~a/*, abbr*/{text-decoration:none;}
 .close:before{content:"\d7";}
-ul a:not([href]){cursor:pointer;}
+ul a:not([href]), summary{cursor:pointer;}
 
 /* image */
 img,audio{vertical-align:middle;}

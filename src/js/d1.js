@@ -6,7 +6,7 @@ var app = new(function() {
 	"use strict";
 
 	this.togglable = '.hide.toggle, ul.toggle ul, .tabs>.hide';
-	this.escapable = '.pop>.hide, ul.nav.toggle ul';
+	this.escapable = '.pop>.hide, ul.nav.toggle ul, details.pop';
 	this.forget = '.pop>.hide, ul.toggle.nav ul, .tabs>.hide';
 	this.unhover = 'ul.nav.toggle ul';
 
@@ -96,18 +96,22 @@ var app = new(function() {
 
 	//n = #hash|link|target
 	this.toggle = function(n, e) {
+		//target
 		if (n.hash || !n.tagName) n = this.q(n.hash || n, 0);
-		if (!n) ;
-		else if (n.tagName=='DETAILS') n.open = (e!==false);
+		if(!n) return;
+		//
+		var on = (e !== false);
+		if (!e || !e.type) e = null;
+		if (n.tagName=='DETAILS'){
+			if(e) on = n.open;
+			else n.open = on;
+		}
 		else if (n && n.matches(this.togglable)) {
-			var on = 1;
 			n.classList.add('js-control');
 			if (e && !n.parentNode.matches('.tabs')) on = n.classList.toggle('js-show');
 			else n.classList[on ? 'add' : 'remove']('js-show');
-			this.setLinks(on, n);
 			if (on) this.hideSiblings(n);
-			if (e) { //mem, hash change
-				this.store(n, on);
+			if (e) { //hash change
 				e.preventDefault();
 				if (!n.matches(this.unhover)) {
 					if (on) this.addHistory('#' + n.id);
@@ -115,6 +119,12 @@ var app = new(function() {
 				}
 			}
 		}
+		if (e) this.store(n, on); //mem
+		this.setLinks(on, n);
+	}
+
+	this.hide = function(n) {
+		this.toggle(n, false);
 	}
 
 	this.hideSiblings = function(n) {
@@ -137,7 +147,6 @@ var app = new(function() {
 
 	this.store = function(n, on) {
 		if (!n.matches(this.forget)) {
-			if (on.type) on = n.open; //event on details
 			//if (n.id && localStorage) localStorage[on ? 'setItem' : 'removeItem']('vis#' + n.id, 1); //store only shown
 			if (n.id && localStorage) localStorage.setItem('vis#' + n.id, on ? 1 : 0); //also store hidden
 		}
@@ -161,7 +170,7 @@ var app = new(function() {
 			//ext: click out
 			var p = null;
 			if (e.button === 0) {
-				var q = 'a, .hide, .drawer, .nav';
+				var q = 'a, .hide, .drawer, .nav, details.pop'; //active elements
 				var t = e.target;
 				var p = (t.matches(q))
 					? t
@@ -173,12 +182,6 @@ var app = new(function() {
 				location.hash = '#cancel';
 			}
 		}
-	}
-
-	this.hide = function(n) {
-		n.classList.remove('js-show');
-		this.setLinks(0, n);
-		this.store(n, 0);
 	}
 
 	this.control = function(d) {
@@ -211,10 +214,10 @@ var app = new(function() {
 		//prepare mem
 		this.restore();
 		//prepare hash
-		if (location.hash) this.toggle(location.hash);
+		if (location.hash) this.toggle(location.hash/*, true*/);
 		//toggle
 		this.b(n, 'a[href^="#"]', 'click', this.toggle);
-		this.b(n, 'details[id]', 'toggle', this.store);
+		this.b(n, 'details[id]', 'toggle', this.toggle);//store
 
 		//escape closes targeted elements
 		if (!n) this.b('', [window], 'keydown', this.esc);
