@@ -95,13 +95,12 @@ var app = new(function() {
 	//toggle
 
 	//n = #hash|link|target
-	this.toggle = function(n, e) {
+	this.toggle = function(n, e, on) {
 		//target
 		if (n.hash || !n.tagName) n = this.q(n.hash || n, 0);
 		if(!n) return;
+		if (e && on === undefined) on = true;
 		//
-		var on = (e !== false);
-		if (!e || !e.type) e = null;
 		if (n.tagName=='DETAILS'){
 			if(e) on = n.open;
 			else n.open = on;
@@ -123,8 +122,12 @@ var app = new(function() {
 		this.setLinks(on, n);
 	}
 
+	this.show = function(n) {
+		this.toggle(n, null, true);
+	}
+
 	this.hide = function(n) {
-		this.toggle(n, false);
+		this.toggle(n, null, false);
 	}
 
 	this.hideSiblings = function(n) {
@@ -156,8 +159,8 @@ var app = new(function() {
 		if (localStorage) {
 			for (var i = 0; i < localStorage.length; i++) {
 				var k = localStorage.key(i);
-				//if (k.substr(0, 4) == 'vis#') this.toggle(k.substr(3)); //store only shown
-				if (k.substr(0, 4) == 'vis#') this.toggle(k.substr(3), localStorage.getItem(k)==1); //also store hidden
+				//if (k.substr(0, 4) == 'vis#') this.show(k.substr(3)); //store only shown
+				if (k.substr(0, 4) == 'vis#') this.toggle(k.substr(3), null, localStorage.getItem(k)==1); //also store hidden
 			}
 		}
 	}
@@ -210,14 +213,14 @@ var app = new(function() {
 		//prepere nav (unhover)
 		this.b(n, this.unhover, '', function(n) { n.classList.add('js-control'); });
 		//prepare tabs (hilite first)
-		this.b(n, '.tabs>.hide:last-child', '', this.toggle);
+		this.b(n, '.tabs>.hide:last-child', '', this.show);
 		//prepare mem
 		this.restore();
 		//prepare hash
-		if (location.hash) this.toggle(location.hash/*, true*/);
+		if (location.hash) this.show(location.hash);
 		//toggle
 		this.b(n, 'a[href^="#"]', 'click', this.toggle);
-		this.b(n, 'details[id]', 'toggle', this.toggle);//store
+		this.b(n, 'details[id]', 'toggle', this.toggle);
 
 		//escape closes targeted elements
 		if (!n) this.b('', [window], 'keydown', this.esc);
