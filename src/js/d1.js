@@ -1,6 +1,12 @@
 // (c) Vadim Korolev (vadimkor@yandex.ru) 2018
 // uglifyjs --verbose d1.js > d1.min.js
 
+/*
+fix:
+- .accordion
+- closest()
+*/
+
 var app = new(function() {
 
 	"use strict";
@@ -36,7 +42,8 @@ var app = new(function() {
 			: fn.call(this, n);
 	}
 
-	this.par = function(q, n) {
+	this.ancestor = function(q, n) {
+		//return n.parentNode.closest(q); //-ie
 		while (n = n.parentNode){
 			if (n.matches && n.matches(q)) return n; //ie-
 		}
@@ -61,7 +68,7 @@ var app = new(function() {
 		})
 	}
 
-	this.tabAlign = function(n) {
+	this.alignCells = function(n) {
 		var m = n.className.match(/\b[lcr]\d\d?\b/g);
 		if (m) {
 			for (var i = 0; i < m.length; i++) {
@@ -83,7 +90,7 @@ var app = new(function() {
 	}
 
 	//inspired by https://picnicss.com/documentation#dropimage
-	this.dropImg = function(n, e) {
+	this.dropImage = function(n, e) {
 		var f = new FileReader();
 		f.onloadend = function() {
 			n.style['background-image'] = 'url(' + f.result + ')';
@@ -93,6 +100,29 @@ var app = new(function() {
 	}
 
 	//toggle
+	
+	this.getState = function(n) {
+		return (n.tagName == 'DETAILS')
+			? n.open
+			: n.classList.contains('js-show');
+	}
+	
+	this.setState = function(n, on) {
+		if (n.tagName == 'DETAILS') n.open = on;
+		else{
+			n.classList.add('js-control');
+			n.classList[on ? 'add' : 'remove']('js-show');
+		}
+	}
+	
+	this.targetState = function(n, e, on){
+		if (e && on === undefined){
+			if (n.parentNode.matches('.tabs')) on = true; //tabs: on
+			else if (e.type == 'toggle') on = this.getState(n); //details: keep
+			else on = !this.getState(n); //toggle
+		}
+		return on;
+	}
 
 	//n = #hash|link|target
 	this.toggle = function(n, e, on) {
@@ -101,24 +131,11 @@ var app = new(function() {
 		if(!n) return;
 		var chg = (e && on === undefined);
 		//
-		if (n.tagName=='DETAILS'){
-			if(e && e.type=='toggle') on = n.open;
-			else if (chg) on = !n.open;
-			n.open = on;
-		}
-		else if (n && n.matches(this.togglable)) {
-			n.classList.add('js-control');
-			if (chg && !n.parentNode.matches('.tabs')){
-				on = n.classList.toggle('js-show');
-			}
-			else{
-				on = on || chg;
-				n.classList[on ? 'add' : 'remove']('js-show');
-			}
-		}
+		on = this.targetState(n, e, on);
+		this.setState(n, on);
 		if (on) this.hideSiblings(n);
 		if (e) this.store(n, on); //mem
-		this.setLinks(on, n);
+		this.updateLinks(on, n);
 		//hash change
 		if (e && e.type=='click') {
 			e.preventDefault();
@@ -129,21 +146,25 @@ var app = new(function() {
 		}
 	}
 
-	this.show = function(n, e) {
-		this.toggle(n, e, true);
+	this.show = function(n) {
+		this.toggle(n, null, true);
 	}
 
-	this.hide = function(n, e) {
-		this.toggle(n, e, false);
+	this.hide = function(n) {
+		this.toggle(n, null, false);
 	}
 
 	this.hideSiblings = function(n) {
-		if (this.par('ul.nav.toggle, ul.accordion', n)) this.b(this.par('ul', n), 'ul:not([id="' + n.id + '"])', '', this.hide);
-		else if (n.parentNode.matches('.tabs')) this.b(n.parentNode, '.hide:not([id="' + n.id + '"])', '', this.hide);
-		//:scope>.hide... - for nested tabs - fails in ie
+		if (this.ancestor('ul.nav.toggle, ul.accordion', n)){
+			this.b(this.ancestor('ul', n), 'ul:not([id="' + n.id + '"])', '', this.hide);
+		}
+		else if (n.parentNode.matches('.tabs')){
+			this.b(n.parentNode, '.hide:not([id="' + n.id + '"])', '', this.hide);
+			//:scope>.hide... - for nested tabs - fails in ie
+		}
 	}
 
-	this.setLinks = function(on, n) {
+	this.updateLinks = function(on, n) {
 		if (n.id) this.b('', 'a[href="#' + n.id + '"]', '', function(n) {
 			n.classList[on ? 'add' : 'remove']('act')
 		});
@@ -184,7 +205,7 @@ var app = new(function() {
 				var t = e.target;
 				var p = (t.matches(q))
 					? t
-					: this.par(q, t);
+					: this.ancestor(q, t);
 			}
 			//escape
 			if (!p) {
@@ -211,11 +232,11 @@ var app = new(function() {
 		//check all checkbox [data-group] to [class]
 		this.b(n, 'input[data-group]', 'click', this.checks);
 		//table cells align
-		this.b(n, 'table[class]', '', this.tabAlign);
+		this.b(n, 'table[class]', '', this.alignCells);
 		//gallery back
 		this.b(n, 'a.slide[id]', 'click', this.gotoPrev);
 		//drop image
-		this.b(n, '.drop', 'change', this.dropImg);
+		this.b(n, '.drop', 'change', this.dropImage);
 
 		//prepere nav (unhover)
 		this.b(n, this.unhover, '', function(n) { n.classList.add('js-control'); });
