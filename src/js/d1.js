@@ -14,7 +14,7 @@ var app = new(function() {
 
 	this.init = function(func) {
 		if (document.addEventListener //ie9
-			&&'classList' in document.createElement('p') //ie10
+			&& ('classList' in document.createElement('p')) //ie10
 		) {
 			this.b('', [document], 'DOMContentLoaded', func);
 		}
