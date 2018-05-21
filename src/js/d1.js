@@ -13,7 +13,11 @@ var app = new(function() {
 	//common
 
 	this.init = function(func) {
-		if (document.addEventListener) this.b('', [document], 'DOMContentLoaded', func);
+		if (document.addEventListener //ie9
+			&&'classList' in document.createElement('p') //ie10
+		) {
+			this.b('', [document], 'DOMContentLoaded', func);
+		}
 	}
 
 	this.q = function(s, i, n) {
