@@ -20,7 +20,7 @@ Priorities
 - enhanced with javascript
 - style agnostic, not opinionated
 
-IE support
+IE support: ie9 (mobile only, no js), ie10+
 - desktop layout: ie10+ (@media: ie9, flex: ie10*,11)
 - javascript enhancements: ie10+ (querySelector: ie9, classList: ie10)
 - togglers: ie9 (:not)
