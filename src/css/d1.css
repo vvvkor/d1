@@ -119,6 +119,7 @@ input,select,textarea{max-width:100%;}
 		/*form [name]:required:not([class*="bg-"]){background-color:#ffd;}*/
 	/*form [name]:invalid:not([class*="bg-"]){background-color:#ff9;}*/
 		.btn:not(.hover):hover, .btn:focus, input:focus, select:focus, textarea:focus{box-shadow:0 0 0 .15em rgba(0,0,0,.1);outline:none;}
+		.btn[disabled]{opacity:.5;}
 			/*input[type="radio"]:checked:focus{box-shadow:none;}*/
 		/*input:invalid{box-shadow:0 0 0 .15em rgba(255,140,140,.8);}*/
 		input:invalid{box-shadow:0 0 0 .15em rgba(255,200,80,.8);}
