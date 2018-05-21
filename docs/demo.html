@@ -124,16 +124,22 @@ JS:
 									<li><a>Slide</a>
 									<li><a>Inline-block</a>
 								</ul>
-							<li><a>Dropdown (hover)</a>
-							<li><a>Toggle (hash)</a>
-							<li><a>Modal (hash)</a>
-							<li><a>Tabs (hash)</a>
-							<li><a>Popup (hover, hash)</a>
-							<li><a>Gallery (IMG or BG)</a>
+							<li><a href="#interact">Interactions</a>
+								<ul id="interact">
+									<li><a>Dropdown (hover)</a>
+									<li><a>Tree (hash, detail)</a>
+									<li><a>Toggle (hash, detail)</a>
+									<li><a>Popup (hover, hash, detail)</a>
+									<li><a>Tooltip</a>
+									<li><a>Modal (hash)</a>
+									<li><a>Drawer (hash)</a>
+									<li><a>Tabs (hash)</a>
+									<li><a>Gallery (IMG or BG)</a>
+								</ul>
 							<li><a>Printable</a>
 							<li><a>Adaptive</a>
-							<li><a class="c-e">No</a>
-								<ul>
+							<li><a href="#css-no" class="c-e">No</a>
+								<ul id="css-no">
 									<li><a>Icons</a>
 									<li><a>Flags</a>
 								</ul>
@@ -412,7 +418,7 @@ All components using <b>target</b> are: single-active, not-nesable, (no-mem, no-
 				<h3>Popup</h3>
 		
 				<div class="ib pop">
-					<a href="#p2" class="hover">Link div (jumpy)</a>
+					<a href="#p2" class="hover">Link div</a>
 					|
 					<a href="#p2" class="hover">Alt link</a>
 					<div id="p2" class="hide toggle box bord pad">
@@ -427,10 +433,13 @@ All components using <b>target</b> are: single-active, not-nesable, (no-mem, no-
 					</div>
 				</div>
 				|
+				<span data-tooltip="This is a long tooltip text" class="-r">Data-tooltip</span>
+				|
 				<details class="pop ib">
 					<summary class="hover">Summary</summary>
 					<div class="pad box right">Details</div>
 				</details>
+				
 				
 				.
 				
