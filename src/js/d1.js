@@ -1,18 +1,11 @@
 // (c) Vadim Korolev (vadimkor@yandex.ru) 2018
 // uglifyjs --verbose d1.js > d1.min.js
 
-/*
-fix:
-- .accordion - mem siblings
-- closest()
-- use togglable
-*/
-
 var app = new(function() {
 
 	"use strict";
 
-	this.togglable = '.hide.toggle, ul.toggle ul, .tabs>.hide';
+	this.togglable = '.hide.toggle, ul.toggle ul, .tabs>.hide, details';
 	this.escapable = '.pop>.hide, ul.nav.toggle ul, details.pop';
 	this.forget = '.pop>.hide, ul.toggle.nav ul, .tabs>.hide';
 	this.unhover = 'ul.nav.toggle ul';
@@ -45,25 +38,25 @@ var app = new(function() {
 
 	this.ancestor = function(q, n) {
 		//return n.parentNode.closest(q); //-ie
-		while (n = n.parentNode){
-			if (n.matches && n.matches(q)) return n; //ie-
-		}
+		do{
+			if (n.matches && n.matches(q)) return n;
+		} while (n = n.parentNode);
 	}
 
 	//basic
 
-	this.confirm = function(n, e) {
+	this.askConfirm = function(n, e) {
 		if (n.form && !n.form.checkValidity());
 		else if (!confirm(n.title)) e.preventDefault();
 	}
 
-	this.prompt = function(n, e) {
+	this.askPrompt = function(n, e) {
 		var x = prompt(n.title + ':', n.getAttribute('data-default') || '');
 		if (x != null) location.href = n.href + x;
 		e.preventDefault();
 	}
 
-	this.checks = function(b) {
+	this.checkBoxes = function(b) {
 		this.b(b.form, 'input[type="checkbox"][class~="' + b.getAttribute('data-group') + '"]', '', function(n, e) {
 			n.checked = b.checked;
 		})
@@ -126,41 +119,40 @@ var app = new(function() {
 	}
 
 	//n = #hash|link|target
-	this.toggle = function(n, e, on) {
-		//target
-		if (n.hash || !n.tagName) n = this.q(n.hash || n, 0);
-		if(!n) return;
-		var chg = (e && on === undefined);
-		//
-		on = this.targetState(n, e, on);
-		this.setState(n, on);
-		if (on) this.hideSiblings(n);
-		if (e) this.store(n, on); //mem
-		this.updateLinks(on, n);
-		//hash change
-		if (e && e.type=='click') {
-			e.preventDefault();
-			if (!n.matches(this.unhover)) {
-				if (on) this.addHistory('#' + n.id);
-				else location.hash = '#cancel';
+	this.handleState = function(n, e, on) {
+		if (n.hash || !n.tagName) n = this.q(n.hash || n, 0); //target
+		if (n && n.matches(this.togglable)){
+			on = this.targetState(n, e, on);
+			this.setState(n, on);
+			if (on) this.hideSiblings(n);
+			this.store(n, on); //mem
+			this.updateLinks(on, n);
+			//hash change
+			if (e && e.type=='click') {
+				e.preventDefault();
+				if (!n.matches(this.unhover)) {
+					if (on) this.addHistory('#' + n.id);
+					else location.hash = '#cancel';
+				}
 			}
 		}
 	}
 
 	this.show = function(n) {
-		this.toggle(n, null, true);
+		this.handleState(n, null, true);
 	}
 
 	this.hide = function(n) {
-		this.toggle(n, null, false);
+		this.handleState(n, null, false);
 	}
 
 	this.hideSiblings = function(n) {
-		if (this.ancestor('ul.nav.toggle, ul.accordion', n)){
-			this.b(this.ancestor('ul', n), 'ul:not([id="' + n.id + '"])', '', this.hide);
+		var p = n.parentNode;
+		if (this.ancestor('ul.nav.toggle, ul.accordion', p)){
+			this.b(this.ancestor('ul', p), 'ul:not([id="' + n.id + '"])', '', this.hide);
 		}
-		else if (n.parentNode.matches('.tabs')){
-			this.b(n.parentNode, '.hide:not([id="' + n.id + '"])', '', this.hide);
+		else if (p.matches('.tabs')){
+			this.b(p, '.hide:not([id="' + n.id + '"])', '', this.hide);
 			//:scope>.hide... - for nested tabs - fails in ie
 		}
 	}
@@ -189,7 +181,10 @@ var app = new(function() {
 			for (var i = 0; i < localStorage.length; i++) {
 				var k = localStorage.key(i);
 				//if (k.substr(0, 4) == 'vis#') this.show(k.substr(3)); //store only shown
-				if (k.substr(0, 4) == 'vis#') this.toggle(k.substr(3), null, localStorage.getItem(k)==1); //also store hidden
+				if (k.substr(0, 4) == 'vis#'){
+					var d = this.q(k.substr(3), 0);
+					if (d && !d.matches(this.forget)) this.handleState(d, null, localStorage.getItem(k)==1); //also store hidden
+				}
 			}
 		}
 	}
@@ -197,19 +192,9 @@ var app = new(function() {
 	//esc
 
 	this.esc = function(n, e) {
-		if (e.keyCode == 27 
-			|| (e.button === 0)) {
-			//ext: click out
-			var p = null;
-			if (e.button === 0) {
-				var q = 'a, .hide, .drawer, .nav, details.pop'; //active elements
-				var t = e.target;
-				var p = (t.matches(q))
-					? t
-					: this.ancestor(q, t);
-			}
-			//escape
-			if (!p) {
+		if (e.keyCode == 27 || e.button === 0) {
+			//escape or click with no active ancestor
+			if( e.keyCode || !this.ancestor('a, .hide, .drawer, .nav, details.pop', e.target)) {
 				this.b('', this.escapable, '', this.hide);
 				location.hash = '#cancel';
 			}
@@ -227,11 +212,11 @@ var app = new(function() {
 		if (!n) this.b('', 'body', '', function(n) { n.classList.add('js'); });
 
 		//a.confirm[href][title], input.confirm [title]
-		this.b(n, 'a.confirm[href], .confirm[name]', 'click', this.confirm);
+		this.b(n, 'a.confirm[href], .confirm[name]', 'click', this.askConfirm);
 		//a.prompt[href] [title] [data-default]
-		this.b(n, 'a.prompt[href]', 'click', this.prompt);
+		this.b(n, 'a.prompt[href]', 'click', this.askPrompt);
 		//check all checkbox [data-group] to [class]
-		this.b(n, 'input[data-group]', 'click', this.checks);
+		this.b(n, 'input[data-group]', 'click', this.checkBoxes);
 		//table cells align
 		this.b(n, 'table[class]', '', this.alignCells);
 		//gallery back
@@ -248,8 +233,8 @@ var app = new(function() {
 		//prepare hash
 		if (location.hash) this.show(location.hash);
 		//toggle
-		this.b(n, 'a[href^="#"]', 'click', this.toggle);
-		this.b(n, 'details[id]', 'toggle', this.toggle);
+		this.b(n, 'a[href^="#"]', 'click', this.handleState);
+		this.b(n, 'details[id]', 'toggle', this.handleState);
 
 		//escape closes targeted elements
 		if (!n) this.b('', [window], 'keydown', this.esc);
