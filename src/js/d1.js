@@ -7,7 +7,7 @@ var app = new(function() {
 
 	this.togglable = '.hide.toggle, ul.toggle ul, .tabs>.hide, details';
 	this.escapable = '.pop>.hide, ul.nav.toggle ul, details.pop';
-	this.forget = '.pop>.hide, ul.toggle.nav ul, .tabs>.hide';
+	this.forget = '.pop>.hide, ul.toggle.nav ul'; //.tabs>.hide
 	this.unhover = 'ul.nav.toggle ul';
 
 	//common
@@ -196,6 +196,7 @@ var app = new(function() {
 	//esc
 
 	this.esc = function(n, e) {
+		if (e.keyCode==90 && e.ctrlKey) localStorage.clear(); //ctrl+z
 		if (e.keyCode == 27 || e.button === 0) {
 			//escape or click with no active ancestor
 			if( e.keyCode || !this.ancestor('a, .hide, .drawer, .nav, details.pop', e.target)) {
@@ -230,10 +231,10 @@ var app = new(function() {
 
 		//prepere nav (unhover)
 		this.b(n, this.unhover, '', function(n) { n.classList.add('js-control'); });
-		//prepare tabs (hilite first)
-		this.b(n, '.tabs>.hide:last-child', '', this.show);
 		//prepare mem
 		this.restore();
+		//prepare tabs (hilite first if not remembered)
+		this.b(n, '.tabs>.hide:last-child:not(.js-control)', '', this.show);
 		//prepare hash
 		if (location.hash) this.show(location.hash);
 		//toggle
