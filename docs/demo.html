@@ -27,8 +27,8 @@
 
 <div class="pad bg-w">
 JS:
-<a href="?disable#disable-js" id="disable-js" class="hover c-e">disable</a>
-<a href="?enable#enable-js" id="enable-js" class="hover c-y">enable</a>
+<a href="?disable#disable-js" id="disable-js" class="hover text-e">disable</a>
+<a href="?enable#enable-js" id="enable-js" class="hover text-y">enable</a>
 </div>
 
 <!--progress value="450" max="1000"></progress-->
@@ -108,11 +108,11 @@ JS:
 							<li><a>Table</a>
 							<li><a href="#status">Status</a>
 								<ul id="status">
-									<li><a class="c-e">Error</a>
-									<li><a class="c-w">Warning</a>
-									<li><a class="c-i">Info</a>
-									<li><a class="c-y">Success</a>
-									<li><a class="c-n">Note</a>
+									<li><a class="text-e">Error</a>
+									<li><a class="text-w">Warning</a>
+									<li><a class="text-i">Info</a>
+									<li><a class="text-y">Success</a>
+									<li><a class="text-n">Note</a>
 								</ul>
 							<li><a href="#box">Box</a>
 								<ul id="box">
@@ -138,7 +138,7 @@ JS:
 								</ul>
 							<li><a>Printable</a>
 							<li><a>Adaptive</a>
-							<li><a href="#css-no" class="c-e">No</a>
+							<li><a href="#css-no" class="text-e">No</a>
 								<ul id="css-no">
 									<li><a>Icons</a>
 									<li><a>Flags</a>
@@ -169,7 +169,7 @@ JS:
 									<li><a>Wisiwyg</a>
 									<li><a>Sort table</a>
 								</ul>
-							<li><a href="#no" class="bg-w c-e">&#10008; No</a>
+							<li><a href="#no" class="bg-w text-e">&#10008; No</a>
 								<ul id="no">
 									<li><a>Dialogs</a>
 									<li><a>Set value</a>
@@ -252,7 +252,7 @@ X - checkbox hack<br>
 
 
 						<p>
-							<a href="http://ya.ru" class="btn pad c-y bg-y hover">Yandex</a>
+							<a href="http://ya.ru" class="btn pad text-y bg-y hover">Yandex</a>
 							<a href="#cancel" class="btn pad lite hover">Cancel</a>
 						</p>
 					</div>
@@ -306,7 +306,7 @@ X - checkbox hack<br>
 						<a href="http://ya.ru" class="btn inv bg-i">Invert</a>
 						
 						<a href="#" class="hover">
-							<svg class="c-i icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
+							<svg class="text-i icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
 								<path d="m477 162c0 7-2 14-8 19l-206 207l-39 39c-6 5-12 8-20 8c-7 0-14-3-19-8l-142-142c-6-6-8-12-8-20c0-7 2-14 8-19l38-39c6-5 12-8 20-8c7 0 14 3 19 8l84 84l188-188c5-5 12-8 19-8c8 0 14 3 20 8l38 39c6 6 8 12 8 20z"/>
 							</svg>SVG icon
 						</a>
@@ -669,49 +669,49 @@ X - checkbox hack<br>
 				<h2 class="print">Aside</h2>
 				
 				<h3>Status colors</h3>
-				<p class="bg-e c-e pad bord"><span class="c-e">&#10008;</span> Error / Danger</p>
-				<p class="bg-w c-w pad bord"><span class="c-w">&#9888;</span> Warning</p>
-				<p class="bg-i c-i pad bord"><span class="c-i">&#9432;</span> Info</p>
-				<p class="bg-y c-y pad bord"><span class="c-y">&#10004;</span> Success / Yes</p>
-				<p class="bg-n c-n pad bord"><span class="c-n">&#9993;</span> Note / No</p>
+				<p class="bg-e text-e pad bord"><span class="text-e">&#10008;</span> Error / Danger</p>
+				<p class="bg-w text-w pad bord"><span class="text-w">&#9888;</span> Warning</p>
+				<p class="bg-i text-i pad bord"><span class="text-i">&#9432;</span> Info</p>
+				<p class="bg-y text-y pad bord"><span class="text-y">&#10004;</span> Success / Yes</p>
+				<p class="bg-n text-n pad bord"><span class="text-n">&#9993;</span> Note / No</p>
 				
 				<table class="hover -lite wide bord">
 					<tr class="bg">
 						<!--th>Status</th-->
 						<th>Text
 						<th>Bg
-						<th>Text & Bg
+						<th>Both
 						<th>Invert
 					<tr>
 						<!--th>Error</th-->
-						<td class="c-e">.c-e
+						<td class="text-e">.text-e
 						<td class="bg-e">.bg-e
-						<td class="c-e bg-e">.c-e.bg-e
-						<td class="inv c-e bg-e">.inv <a href="#">a</a>
+						<td class="text-e bg-e">both
+						<td class="inv text-e bg-e">.inv <a href="#">a</a>
 					<tr>
 						<!--th>Warning</th-->
-						<td class="c-w">.c-w
+						<td class="text-w">.text-w
 						<td class="bg-w">.bg-w
-						<td class="c-w bg-w">.c-w.bg-w
-						<td class="inv c-w bg-w">.inv
+						<td class="text-w bg-w">both
+						<td class="inv text-w bg-w">.inv
 					<tr>
 						<!--th>Info</th-->
-						<td class="c-i">.c-i
+						<td class="text-i">.text-i
 						<td class="bg-i">.bg-i
-						<td class="c-i bg-i">.c-i.bg-i
-						<td class="inv c-i bg-i">.inv
+						<td class="text-i bg-i">both
+						<td class="inv text-i bg-i">.inv
 					<tr>
 						<!--th>Yes</th-->
-						<td class="c-y">.c-y
+						<td class="text-y">.text-y
 						<td class="bg-y">.bg-y
-						<td class="c-y bg-y">.c-y.bg-y
-						<td class="inv c-y bg-y">.inv
+						<td class="text-y bg-y">both
+						<td class="inv text-y bg-y">.inv
 					<tr>
 						<!--th>No</th-->
-						<td class="c-n">.c-n
+						<td class="text-n">.text-n
 						<td class="bg-n">.bg-n
-						<td class="c-n bg-n">.c-n.bg-n
-						<td class="inv c-n bg-n">.inv
+						<td class="text-n bg-n">both
+						<td class="inv text-n bg-n">.inv
 				</table>
 
 				<div class="row gap mar -bg">
@@ -719,7 +719,7 @@ X - checkbox hack<br>
 					<div>
 						Media object with description
 						<div class="-right">
-							<time class="c-n" datetime="1970-01-01">January 1970</time>
+							<time class="text-n" datetime="1970-01-01">January 1970</time>
 							&bull;
 							<a href="#media" class="-btn -inv">Link</a>
 						</div>
