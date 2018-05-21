@@ -27,7 +27,7 @@ IE support: ie9 (mobile only, no js), ie10+
 - details / summary: no
 
 Standard components
-	form table .req .btn
+	form.lite table .req .btn
 	table.flip.lite.bord.pad.wide.bg.hover.gap .scroll
 	ul.lite
 	a.btn.lite.hover.act.pad.ib.close
@@ -103,7 +103,7 @@ ul,ol,dl,blockquote,pre,hr,p,figure,form,.mar{margin:.75em 0;}
 blockquote,pre,fieldset,.pad{padding:.5em 1em;}
 abbr{text-decoration:underline #ccc;/*dotted*/}
 h1,h2,h3,h4,h5,h6{margin:1.5rem 0 1rem 0;line-height:1.2;}
-h1.lite,h2.lite,h3.lite,h4.lite{margin:0;}
+h1.lite,h2.lite,h3.lite,h4.lite,form.lite{margin:0;}
 
 /* list */
 ul{list-style:disc outside;}
@@ -204,7 +204,7 @@ summary.hover:hover, summary.hover:focus, details[open]>summary.hover,
 .nav li{position:relative;}
 /* box */
 .nav ul, .box{background-color:#fff;box-shadow:0 .2em .8em  rgba(0,0,0,.4);}
-.nav a{display:block;padding:.5em 1em;}
+.nav a, .nav form{display:block;padding:.5em 1em;margin:0;}
 /* hover */
 .nav li:not(:hover) > a~ul{display:none;}
 /* subnav arrow */
@@ -242,7 +242,7 @@ summary.hover:hover, summary.hover:focus, details[open]>summary.hover,
 .pop>.hide, .pop>summary+*, [data-tooltip]:after {position:absolute;left:0;top:100%;min-width:12em;z-index:5;background-color:#fff;}
 .pop>.hide.right, [data-tooltip].r:after{left:initial;right:0;}
 .pop.hover:hover>.hide{display:block;}
-[data-tooltip]:hover:after{content:attr(data-tooltip);min-width:8em;text-align:left;top:initial;bottom:100%;font-size:85%;line-height:1.2;padding:.2em .5em;}
+[data-tooltip]:hover:after{content:attr(data-tooltip);max-width:20em;text-align:left;top:initial;bottom:100%;font-size:85%;line-height:1.2;padding:.2em .5em;white-space:pre;}
 
 /* slide */
 .slide, a.slide>img{display:block;width:100%;height:100vh;object-fit:contain;background:#000 50% 50% / cover no-repeat;}
