@@ -5,10 +5,10 @@ var app = new(function() {
 
 	"use strict";
 
-	this.togglable = '.hide.toggle, ul.toggle ul, .tabs>.hide, details';
-	this.escapable = '.pop>.hide, ul.nav.toggle ul, details.pop';
-	this.forget = '.pop>.hide, ul.toggle.nav ul'; //.tabs>.hide
-	this.unhover = 'ul.nav.toggle ul';
+	this.togglable = '.hide.toggle, ul.toggle ul[id], .tabs>.hide, details';
+	this.escapable = '.pop>.hide, ul.nav.toggle ul, details.pop, .esc';
+	this.mem = '.mem, .tabs.mem>.hide, ul.mem ul[id], details.mem details';
+	this.unhover = 'ul.nav.toggle ul[id]';
 
 	//common
 
@@ -174,9 +174,9 @@ var app = new(function() {
 	}
 
 	this.store = function(n, on) {
-		if (!n.matches(this.forget)) {
-			//if (n.id && localStorage) localStorage[on ? 'setItem' : 'removeItem']('vis#' + n.id, 1); //store only shown
-			if (n.id && localStorage) localStorage.setItem('vis#' + n.id, on ? 1 : 0); //also store hidden
+		if (n && n.id && localStorage && n.matches(this.mem)) {
+			localStorage[on ? 'setItem' : 'removeItem']('vis#' + n.id, 1); //store only shown
+			localStorage.setItem('vis#' + n.id, on ? 1 : 0); //also store hidden
 		}
 	}
 	
@@ -187,7 +187,7 @@ var app = new(function() {
 				//if (k.substr(0, 4) == 'vis#') this.show(k.substr(3)); //store only shown
 				if (k.substr(0, 4) == 'vis#'){
 					var d = this.q(k.substr(3), 0);
-					if (d && !d.matches(this.forget)) this.handleState(d, null, localStorage.getItem(k)==1); //also store hidden
+					if (d && d.matches(this.mem)) this.handleState(d, null, localStorage.getItem(k)==1); //also store hidden
 				}
 			}
 		}

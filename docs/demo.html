@@ -25,10 +25,15 @@
 <!--i class="mdi mdi-account"></i-->
 <!--i class="fa fa-bars"></i-->
 
-<div class="pad bg-w">
-JS:
-<a href="?disable#disable-js" id="disable-js" class="hover text-e">disable</a>
-<a href="?enable#enable-js" id="enable-js" class="hover text-y">enable</a>
+
+<div class="stick"><a href="#draw" class="right pad -bg hover" accesskey="c">&equiv;</a></div>
+<div class="pad bg-w -stick">
+	<div class="">
+		JS:
+		<a href="?disable#disable-js" id="disable-js" class="hover text-e">disable</a>
+		<a href="?enable#enable-js" id="enable-js" class="hover text-y">enable</a>
+		<!--a href="#draw" class="lite right -pad hover" accesskey="c">&nbsp;&equiv;&nbsp;</a-->
+	</div>
 </div>
 
 <!--progress value="450" max="1000"></progress-->
@@ -97,8 +102,10 @@ JS:
 		<div class="gap row flip">
 			<div class="col-2">
 				<h3 class="screen">Dropdown nav</h3>
-				<!--a href="#menu" class="pad hover hide-desktop">&equiv;</a-->
-				<nav id="menu" class="-hide-mobile">
+				
+				<div class="hide show-mobile"><a href="#menu" class="pad hover">&equiv;</a></div>
+				
+				<nav id="menu" class="hide show-desktop toggle -mem esc">
 				<ul class="nav -mem hor flip hover bg screen toggle fx">
 					<li><a href="#" accesskey="1">Home</a>
 					<li><a href="#css">CSS</a>
@@ -138,8 +145,8 @@ JS:
 								</ul>
 							<li><a>Printable</a>
 							<li><a>Adaptive</a>
-							<li><a href="#css-no" class="text-e">No</a>
-								<ul id="css-no">
+							<li><a class="text-e">No (no ID, hover only)</a>
+								<ul>
 									<li><a>Icons</a>
 									<li><a>Flags</a>
 								</ul>
@@ -185,7 +192,7 @@ JS:
 						</ul>
 					<li class="gap"><a href="#m2">Dialog</a>
 					<li class=""><a href="#m1" class="" >Modal</a>
-					<li><form><input type="search" size="3"> <input type="submit" class="btn inv bg-n" value="Find"></form>
+					<li><form><input type="search" size="3"> <input type="submit" class="btn inv -bg-n" value="Find"></form>
 				</ul>
 				</nav>
 				
@@ -237,7 +244,8 @@ All components using <b>target</b> are: single-active, not-nesable, (no-mem, no-
 	<tr><th>Dropdown	<td>H	<td>T	<td>H
 	<tr><th>Tree		<td>TDX	<td>TD	<td>tD
 	<tr><th>Toggle		<td>TDX	<td>TD	<td>tD
-	<tr><th>Popup		<td>HTDX<td>TD	<td>tD
+	<tr><th>Popup		<td>HFTDX<td>TD	<td>tD
+	<tr><th>Tooltip		<td>HF	<td>HF	<td>HF
 	<tr><th>Tabs		<td>TX	<td>T	<td>T
 	<tr><th>Modal		<td>T	<td>T	<td>T
 	<tr><th>Drawer		<td>T	<td>T	<td>-
@@ -246,6 +254,7 @@ All components using <b>target</b> are: single-active, not-nesable, (no-mem, no-
 
 <p>
 H - hover<br>
+F - focus<br>
 T - toggle<br>
 D - details<br>
 X - checkbox hack<br>
@@ -262,7 +271,7 @@ X - checkbox hack<br>
 				
 				<h3><a href="#typ">Typography</a></h3>
 
-				<div class="hide toggle pad bord yel" id="typ">
+				<div class="hide toggle mem pad bord yel" id="typ">
 				<div class="row gap">
 					<div>
 						<h1>Heading 1</h1>
@@ -322,7 +331,8 @@ X - checkbox hack<br>
 					<table class=" gap flip -bord -mar -wide">
 					<tr>
 						<td><label class="req" for="nm">Name</label>
-						<td><input type="text" name="nm" id="nm" required pattern="[A-Za-z]{2,}" title="Two or more letters">
+						<td><input type="text" name="nm" id="nm" required pattern="[A-Za-z]{2,}" title="Two or more letters"><span data-tooltip="Tooltip for input:
+Enter two or more letters"></span>
 						<!--
 						set: 
 						<a href="#nm" data-value="test">test</a>,
@@ -333,7 +343,7 @@ X - checkbox hack<br>
 					<tr><td colspan="2">
 					<fieldset>
 						<legend><a href="#fs1">Input types</a></legend>
-						<table id="fs1" class="hide toggle">
+						<table id="fs1" class="hide toggle mem">
 						
 						<tr>
 							<td><label for="lng">Select</label>
@@ -375,7 +385,7 @@ X - checkbox hack<br>
 					<!--tr><td colspan="2"-->
 					<fieldset>
 						<legend><a href="#fs2">Switches</a></legend>
-						<table id="fs2" class="hide toggle">
+						<table id="fs2" class="hide toggle mem">
 							<tr>
 								<td>Box
 								<td>
@@ -394,7 +404,7 @@ X - checkbox hack<br>
 						<td>
 						<td>
 							<input type="submit" value="Submit" class="btn inv bg-i pad" >
-							<button type="submit" value="Button" class="btn inv bg-y pad" disabled>
+							<button type="submit" value="Button" class="btn inv bg-y pad" disabled data-tooltip="Tip">
 								<svg class="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
 									<path d="m477 162c0 7-2 14-8 19l-206 207l-39 39c-6 5-12 8-20 8c-7 0-14-3-19-8l-142-142c-6-6-8-12-8-20c0-7 2-14 8-19l38-39c6-5 12-8 20-8c7 0 14 3 19 8l84 84l188-188c5-5 12-8 19-8c8 0 14 3 20 8l38 39c6 6 8 12 8 20z"/>
 								</svg>
@@ -413,7 +423,7 @@ X - checkbox hack<br>
 						<li><a href="#tb2">Jumpy</a>
 						<li><a href="#tb3">Tabs</a>
 					</ul>
-					<div class="bord pad tabs">
+					<div class="bord pad tabs mem">
 						<div id="tb2" class="hide">2<br>2</div>
 						<div id="tb3" class="hide">3<br>3<br>3
 							<!--
@@ -454,8 +464,8 @@ X - checkbox hack<br>
 					</div>
 				</div>
 				|
-				<span data-tooltip="This is a long tooltip text
-new line" class="-r">Data-tooltip</span>
+				<a href="#none" data-tooltip="This is a long tooltip text to overflow element's 
+new line" class="-r">Data-tooltip</a>
 				|
 				<details class="pop ib">
 					<summary class="hover">Summary</summary>
@@ -472,14 +482,14 @@ new line" class="-r">Data-tooltip</span>
 				</dialog-->
 				
 				<a href="#det1">Link to details</a>
-				<details id="det1">
+				<details id="det1" class="mem">
 					<summary class="hover">Summary</summary>
 					<div class="pad bord">Details</div>
 				</details>
 				
 				<div class="mar">
 					<a href="#t1" class="hover">Link-div toggle (jumpy), yel</a> <a href="#t1" class="hover">Alt link</a>
-					<div id="t1" class="hide box pad toggle yel">
+					<div id="t1" class="hide box pad toggle mem yel">
 						&#128683; &#10008; &#9888; &#10004; &#128196; &#9998; &#128269; &#128274; &#9873; &#128338; &#128100;
 						<br>
 						&#8801;	&#8942; &#167; &#8226; &#9679; &#10005; &#10006; &#10010; &#9638; &#9636; &#9637; &#9680; &#10064;
@@ -499,7 +509,7 @@ new line" class="-r">Data-tooltip</span>
 				<div class="row gap">
 					<div>
 						<h4>Open multiple branches</h4>
-						<ul class="-lite toggle">
+						<ul class="-lite toggle mem">
 							<li><a href="#tree1" class="hover">Link sublist (jumpy)</a> <a href="#tree1" class="hover">Alt link</a>
 								<ul class="hide" id="tree1">
 									<li><a href="#tree11">A1</a>
@@ -516,7 +526,7 @@ new line" class="-r">Data-tooltip</span>
 					</div>
 					<div>
 						<h4>Open one branch</h4>
-						<ul class="-lite toggle accordion">
+						<ul class="-lite toggle mem accordion">
 							<li><a href="#acc1" class="hover">Link sublist (jumpy)</a> <a href="#acc1" class="hover">Alt link</a>
 								<ul class="hide" id="acc1">
 									<li><a href="#acc11">A1</a>
@@ -533,12 +543,12 @@ new line" class="-r">Data-tooltip</span>
 					</div>
 					<div>
 						<h4>Details</h4>
-						<details id="it1"><summary>Item 1 <a href="#cancel">link</a></summary>
+						<details id="it1" class="mem"><summary>Item 1 <a href="#cancel">link</a></summary>
 							<details id="it11"><summary>Subitem 1.1</summary><div>AA</div></details>
 							<details id="it12"><summary>Subitem 1.2</summary><div>AB</div></details>
 							<details id="it13"><summary>Subitem 1.3</summary><div>AC</div></details>
 						</details>
-						<details id="it2" open><summary>BItem 2</summary>
+						<details id="it2" open class="mem"><summary>BItem 2</summary>
 							<ul>
 								<li><a href="#it21">B1</a>
 								<li><a href="#it22">B2</a>
@@ -666,11 +676,14 @@ new line" class="-r">Data-tooltip</span>
 				
 			</div>
 			
-			<div class="stick">
-				<div class="mar"><a href="#draw" class="pad hover right" accesskey="c">&equiv;</a></div>
+			<!--div class="slide stick bg-i bord">slide</div-->
+			
+			<div class="stick -slide -bg-i -bord">
+				<!--div class="mar"><a href="#draw" class="pad hover right r" accesskey="c" data-tooltip="access key: C">&equiv;</a></div-->
+				<!--div class="-mar right"><a href="#draw" class="pad hover" accesskey="c">&equiv;</a></div-->
 				<h2 class="print">Aside</h2>
 				
-				<h3>Status colors</h3>
+				<h3><!--a href="#draw" class="right lite -pad hover" accesskey="c">&nbsp;&equiv;&nbsp;</a-->Status colors</h3>
 				<p class="bg-e text-e pad bord"><span class="text-e">&#10008;</span> Error / Danger</p>
 				<p class="bg-w text-w pad bord"><span class="text-w">&#9888;</span> Warning</p>
 				<p class="bg-i text-i pad bord"><span class="text-i">&#9432;</span> Info</p>
