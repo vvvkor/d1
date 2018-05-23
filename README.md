@@ -1,4 +1,4 @@
-# d1
+# d1 - Functional CSS Micro Framework
 
 ## Features
 
@@ -17,11 +17,11 @@
 
 ### CDN
 
-[https://www.jsdelivr.com/package/npm/d1css]
+https://www.jsdelivr.com/package/npm/d1css
 
 ```html
 <link href="https://cdn.jsdelivr.net/npm/d1css@1/dist/d1.min.css" rel="stylesheet">
-<script defer src="https://cdn.jsdelivr.net/npm/d1css@1/dist/d1.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/d1css@1/dist/d1.min.js"></script><!-- optional -->
 ```
 
 ### NPM
@@ -31,10 +31,17 @@ npm install d1css --save
 ```
 
 ```
-@import "../node_modules/d1css/d1.min.css";
+@import "../node_modules/d1css/dist/d1.min.css";
 ```
 
 ### Install manually
+
+Download minified [https://github.com/vvvkor/d1/tree/master/dist](d1 files).
+
+```html
+<link href="d1.min.css" rel="stylesheet">
+<script defer src="d1.min.js"></script><!-- optional -->
+```
 
 ## Browser Support
 
