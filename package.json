@@ -1,14 +1,18 @@
 {
   "name": "d1css",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "Functional CSS micro framework",
-  "main": "js/d1.js",
+  "main": "dist/d1.css",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
     "test": "",
-    "prepublishOnly": "echo Prepare dist... && cleancss -f beautify -o ./dist/d1.css ./src/css/d1.css && uglifyjs --verbose --beautify --output ./dist/d1.js ./src/js/d1.js && uglifyjs --output ./dist/d1.min.js ./src/js/d1.js && uglifycss --debug ./src/css/d1.css > ./dist/d1.min.css && echo Prepared dist."
+		"css-pub": "cleancss -f beautify -o ./dist/d1.css ./src/css/d1.css",
+		"css-min": "uglifycss --debug ./src/css/d1.css > ./dist/d1.min.css",
+		"js-pub": "uglifyjs --verbose --beautify --output ./dist/d1.js ./src/js/d1.js",
+		"js-min": "uglifyjs --output ./dist/d1.min.js ./src/js/d1.js",
+    "prepublishOnly": "echo Prepare dist... && npm run css-pub && npm run css-min && npm run js-pub && npm run js-min && echo Prepared dist."
   },
   "repository": {
     "type": "git",
