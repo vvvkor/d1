@@ -1,8 +1,10 @@
-# d1 - Functional CSS Micro Framework
+# d1
+
+Functional CSS micro framework
 
 ## Features
 
-* lightweight / minimalist
+* lightweight / minimalist (minified, gzipped: CSS ~3 KB, optional JS ~2 KB)
 * functional
 * responsive (flexbox, mobile first)
 * performant
