@@ -6,9 +6,6 @@ References
 - https: //github.com/troxler/awesome-css-frameworks
 - http: //usablica.github.io/front-end-frameworks/compare.html
 - https: //www.webpagefx.com/blog/web-design/small-css-frameworks/
-- https: //jgthms.com/minireset.css/
-- https: //picturepan2.github.io/spectre/getting-started.html
-- uglifycss --debug d1.css > d1.min.css
 
 Priorities
 - functional
@@ -57,7 +54,7 @@ Media
 	.show-mobile .show-desktop
 Js
 	.toggle .mem .esc
-Propositions
+Experimental
 	.drop
 	.stick
 	.fix
@@ -334,7 +331,7 @@ a:target+.hide{display:block;}
 .tabs>div{width:100%; /*ie10*/-ms-flex-order:2;}
 
 
-/* propositions */
+/* experimental */
 
 /* drop image */
 .drop{display:inline-block;background:50% 50% / cover no-repeat;}
