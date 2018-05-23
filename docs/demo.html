@@ -155,7 +155,7 @@
 						<ul id="js">
 							<li><a href="http://ya.ru" class="confirm" title="Go to Yandex?">Confirm dialog</a>
 							<li><a href="http://ya.ru?q=" class="prompt" title="Search:" data-default="...">Prompt dialog</a>
-							<li><a>Check all</a>
+							<li><a>Check <span class="btn inv bg-y">all</span></a>
 							<li><a>Column align</a>
 							<li><a>Escape (Alt+X)</a>
 							<li><a>Click out (Alt+X)</a>
@@ -206,17 +206,18 @@
 					<div class="pad">
 						<p>Hello.</p>
 						<p class="c">
-							<a href="http://ya.ru" class="btn pad inv bg-i">Yandex</a>
-							<a href="#cancel" class="btn pad inv bg-n">Cancel</a>
+							<a href="#form" class="btn pad inv bg-i">Form</a>
+							<a href="#cancel" class="btn pad lite hover -inv -bg-n">Cancel</a>
 						</p>
 					</div>
 				</div>
 				
-				<div class="modal pad hide wide" id="m1">
+				<div class="modal pad hide wide -wrap" id="m1">
 					<a href="#cancel" class="right pad nodec hover close"></a>
 					<div class="pad">
 						<h3>Interactive components</h3>
-<div class="scroll">
+						<div class="scroll">
+<div class="roll">
 <table class="-r wide hover bord r1 sort">
 <!--caption>Interactive components <input name="_q" type="search" placeholder="search"></caption-->
 	<tr><th class="bg-i">Component	<th>Markup<th>Event<th>Pure CSS<th>With JS
@@ -261,6 +262,7 @@ X - checkbox hack<br>
 </p>
 
 
+						</div>
 						<p>
 							<a href="http://ya.ru" class="btn pad text-y bg-y hover">Yandex</a>
 							<a href="#cancel" class="btn pad lite hover">Cancel</a>
@@ -331,8 +333,8 @@ X - checkbox hack<br>
 					<table class=" gap flip -bord -mar -wide">
 					<tr>
 						<td><label class="req" for="nm">Name</label>
-						<td><input type="text" name="nm" id="nm" required pattern="[A-Za-z]{2,}" title="Two or more letters"><span data-tooltip="Tooltip for input:
-Enter two or more letters"></span>
+						<td><div class="ib pop"><input type="text" name="nm" id="nm" required pattern="[A-Za-z]{2,}" title="Two or more letters"><span class="hide tip left">Tooltip for input:
+Enter two or more letters</span></div>
 						<!--
 						set: 
 						<a href="#nm" data-value="test">test</a>,
@@ -404,12 +406,15 @@ Enter two or more letters"></span>
 						<td>
 						<td>
 							<input type="submit" value="Submit" class="btn inv bg-i pad" >
-							<button type="submit" value="Button" class="btn inv bg-y pad" disabled data-tooltip="Tip">
-								<svg class="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
-									<path d="m477 162c0 7-2 14-8 19l-206 207l-39 39c-6 5-12 8-20 8c-7 0-14-3-19-8l-142-142c-6-6-8-12-8-20c0-7 2-14 8-19l38-39c6-5 12-8 20-8c7 0 14 3 19 8l84 84l188-188c5-5 12-8 19-8c8 0 14 3 20 8l38 39c6 6 8 12 8 20z"/>
-								</svg>
-								Button
-							</button>
+							<div class="ib pop hover">
+								<button type="submit" value="Button" class="btn inv bg-y pad" disabled>
+									<svg class="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
+										<path d="m477 162c0 7-2 14-8 19l-206 207l-39 39c-6 5-12 8-20 8c-7 0-14-3-19-8l-142-142c-6-6-8-12-8-20c0-7 2-14 8-19l38-39c6-5 12-8 20-8c7 0 14 3 19 8l84 84l188-188c5-5 12-8 19-8c8 0 14 3 20 8l38 39c6 6 8 12 8 20z"/>
+									</svg>
+									Button
+								</button>
+								<div class="hide tip">Tip</div>
+							</div>
 							<input type="submit" value="Confirm" class="btn inv bg-w pad confirm" name="btn2" title="Confirm?">
 							<a href="#" class="btn pad lite hover">Link</a>
 					</table>
@@ -459,20 +464,19 @@ Enter two or more letters"></span>
 				|
 				<div class="ib pop hover">
 					<a href="#hover" class="hover">Hover right</a> without link
-					<div class="hide box pad right">
+					<div class="hide box pad right bg-w">
 						Popup box 2 right
 					</div>
 				</div>
 				|
-				<a href="#none" data-tooltip="This is a long tooltip text to overflow element's 
-new line" class="-r">Data-tooltip</a>
+				<div class="ib pop hover"><a href="#tip">Tooltip</a><div class="hide tip">This is a long tooltip text to overflow element's<br>new line</div></div>
 				|
 				<details class="pop ib">
 					<summary class="hover">Summary</summary>
 					<div class="pad box right">Details</div>
 				</details>
-				
-				
+				|
+				<span class="btn inv bg-w">Badge</span>
 				.
 				
 				<h3>Toggle</h3>
@@ -679,11 +683,12 @@ new line" class="-r">Data-tooltip</a>
 			<!--div class="slide stick bg-i bord">slide</div-->
 			
 			<div class="stick -slide -bg-i -bord">
-				<!--div class="mar"><a href="#draw" class="pad hover right r" accesskey="c" data-tooltip="access key: C">&equiv;</a></div-->
+				<!--div class="mar"><a href="#draw" class="pad hover right r" accesskey="c">&equiv;</a></div-->
 				<!--div class="-mar right"><a href="#draw" class="pad hover" accesskey="c">&equiv;</a></div-->
 				<h2 class="print">Aside</h2>
 				
-				<h3><!--a href="#draw" class="right lite -pad hover" accesskey="c">&nbsp;&equiv;&nbsp;</a-->Status colors</h3>
+				<h3><!--a href="#draw" class="right lite -pad hover" accesskey="c">&nbsp;&equiv;&nbsp;</a-->
+				Status colors</h3>
 				<p class="bg-e text-e pad bord"><span class="text-e">&#10008;</span> Error / Danger</p>
 				<p class="bg-w text-w pad bord"><span class="text-w">&#9888;</span> Warning</p>
 				<p class="bg-i text-i pad bord"><span class="text-i">&#9432;</span> Info</p>

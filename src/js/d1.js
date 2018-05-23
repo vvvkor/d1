@@ -5,7 +5,7 @@ var app = new(function() {
 
 	"use strict";
 
-	this.togglable = '.hide.toggle, ul.toggle ul[id], .tabs>.hide, details';
+	this.togglable = '.hide.toggle[id], ul.toggle ul[id], .tabs>.hide, details';
 	this.escapable = '.pop>.hide, ul.nav.toggle ul, details.pop, .esc';
 	this.mem = '.mem, .tabs.mem>.hide, ul.mem ul[id], details.mem details';
 	this.unhover = 'ul.nav.toggle ul[id]';
