@@ -147,7 +147,7 @@ input,select,textarea{max-width:100%;}
 table{border-collapse:collapse;border-spacing:0;}
 th,td{padding:.2em .8em;text-align:left;vertical-align:top;background-clip:padding-box;}
 /*th{font-weight:bold;}*/
-	table.bord tr>*, table.lite tr>*, .bord,fieldset,hr/*,.btn*/{border:thin solid #ddd;border:var(--border,thin solid #ddd);}
+	table.bord tr>*, table.lite tr>*, .bord,fieldset,hr{border:thin solid #ddd;border:var(--border,thin solid #ddd);}
 	table.lite tr>*{border-width:0 0 thin 0;}
 hr{border-width:thin 0 0 0;}
 .roll{overflow-x:auto;}
