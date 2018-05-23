@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "",
-    "prepublishOnly": "echo Prepare dist... && cssbeautify-cli -f ./src/css/d1.css -w ./dist/d1.css && uglifyjs --verbose --beautify --output ./dist/d1.js ./src/js/d1.js && uglifyjs --output ./dist/d1.min.js ./src/js/d1.js && uglifycss --debug ./src/css/d1.css > ./dist/d1.min.css && echo Prepared dist."
+    "prepublishOnly": "echo Prepare dist... && cleancss -f beautify -o ./dist/d1.css ./src/css/d1.css && uglifyjs --verbose --beautify --output ./dist/d1.js ./src/js/d1.js && uglifyjs --output ./dist/d1.min.js ./src/js/d1.js && uglifycss --debug ./src/css/d1.css > ./dist/d1.min.css && echo Prepared dist."
   },
   "repository": {
     "type": "git",
@@ -30,6 +30,6 @@
   "devDependencies": {
     "uglify-js": "~3",
     "uglifycss": "~0",
-    "cssbeautify-cli": "~0"
+    "clean-css-cli": "~4"
   }
 }
