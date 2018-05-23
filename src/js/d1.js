@@ -1,5 +1,4 @@
 // (c) Vadim Korolev (vadimkor@yandex.ru) 2018
-// uglifyjs --verbose d1.js > d1.min.js
 
 var app = new(function() {
 
@@ -87,7 +86,6 @@ var app = new(function() {
 		}
 	}
 
-	//inspired by https://picnicss.com/documentation#dropimage
 	this.dropImage = function(n, e) {
 		var f = new FileReader();
 		f.onloadend = function() {
