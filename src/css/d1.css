@@ -89,7 +89,7 @@ pre,code/*,textarea*/{font-family:monospace;white-space:pre-wrap;}
 	.row.gap{margin-right:-1em;}
 	.row.gap>*{margin-right:1em;}
 .row>*{flex:1;}
-	/* media object */
+/* media object */
 	.row>a{flex:none;}
 	.row>a>img{width:5em;}
 .row>.col-2{flex:2;}
