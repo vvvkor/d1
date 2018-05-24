@@ -40,6 +40,11 @@ Then use in your CSS file:
 ```
 @import "../node_modules/d1css/dist/d1.min.css";
 ```
+and optionally in your JS file:
+```
+var d1 = require("d1css");
+d1.run();
+```
 
 ### Install manually
 
@@ -47,7 +52,11 @@ Download minified [d1 files](https://github.com/vvvkor/d1/tree/master/dist).
 
 ```html
 <link href="d1.min.css" rel="stylesheet">
-<script src="d1.min.js"></script><!-- optional -->
+<!-- optional -->
+<script src="d1.min.js"></script>
+<script>
+  d1.run();
+</script>
 ```
 
 ## Browser Support
