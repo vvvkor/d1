@@ -23,7 +23,7 @@ Its aim is to implement most widely used components with less code.
 
 ### CDN
 
-#### [jsdelivr](https://www.jsdelivr.com/package/npm/d1css)
+#### [jsDelivr](https://www.jsdelivr.com/package/npm/d1css)
 
 ```html
 <link href="https://cdn.jsdelivr.net/npm/d1css@1/dist/d1.min.css" rel="stylesheet">
