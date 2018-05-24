@@ -91,8 +91,8 @@ Download minified [d1 files](https://github.com/vvvkor/d1/tree/master/dist).
 
 ## Thanks
 
-[List of CSS frameworks](https://github.com/troxler/awesome-css-frameworks)
-[Small CSS Frameworks](https://www.webpagefx.com/blog/web-design/small-css-frameworks/)
+* [List of CSS frameworks](https://github.com/troxler/awesome-css-frameworks)
+* [Small CSS Frameworks](https://www.webpagefx.com/blog/web-design/small-css-frameworks/)
 
 ## License
 
