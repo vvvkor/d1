@@ -1,6 +1,6 @@
 # d1
 
-Functional CSS micro framework with optional JS enhancements.
+Functional CSS micro framework with optional JS enhancements.  
 Its aim is to implement most widely used components with less code.
 
 ## Features
