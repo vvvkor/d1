@@ -27,7 +27,7 @@ https://www.jsdelivr.com/package/npm/d1css
 
 ```html
 <link href="https://cdn.jsdelivr.net/npm/d1css@1/dist/d1.min.css" rel="stylesheet">
-<script defer src="https://cdn.jsdelivr.net/npm/d1css@1/dist/d1.min.js"></script><!-- optional -->
+<script src="https://cdn.jsdelivr.net/npm/d1css@1/dist/d1.min.js"></script><!-- optional -->
 ```
 
 ### NPM
@@ -47,7 +47,7 @@ Download minified [d1 files](https://github.com/vvvkor/d1/tree/master/dist).
 
 ```html
 <link href="d1.min.css" rel="stylesheet">
-<script defer src="d1.min.js"></script><!-- optional -->
+<script src="d1.min.js"></script><!-- optional -->
 ```
 
 ## Browser Support
