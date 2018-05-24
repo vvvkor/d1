@@ -84,14 +84,14 @@ Download minified [d1 files](https://github.com/vvvkor/d1/tree/master/dist).
 
 ### Components
 
-## Thanks
-
-[List of CSS frameworks](https://github.com/troxler/awesome-css-frameworks)
-
 ## Plans
 
 * more confiuaration options, compile from SASS
 * version without class names
+
+## Thanks
+
+[List of CSS frameworks](https://github.com/troxler/awesome-css-frameworks)
 
 ## License
 
