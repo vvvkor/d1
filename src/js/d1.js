@@ -17,8 +17,8 @@ var main = new(function() {
 
 	"use strict";
 
-	this.togglable = '.hide.toggle[id], ul.toggle ul[id], .tabs>.hide, details';
-	this.escapable = '.pop>.hide, ul.nav.toggle ul, details.pop, .esc';
+	this.togglable = '.hide.toggle[id], ul.toggle ul[id], .tabs>.hide, details'; //.drawer.toggle
+	this.escapable = '.pop>.hide, ul.nav.toggle ul, details.pop, .esc'; //.drawer.toggle
 	this.mem = '.mem, .tabs.mem>.hide, ul.mem ul[id], details.mem details';
 	this.unhover = 'ul.nav.toggle ul[id]';
 
@@ -217,7 +217,10 @@ var main = new(function() {
 		if (e.keyCode==90 && e.ctrlKey) localStorage.clear(); //ctrl+z
 		if (e.keyCode == 27 || e.button === 0) {
 			//escape or click with no active ancestor
-			if( e.keyCode || !this.ancestor('a, .hide, .drawer, .nav, details.pop', e.target)) {
+			if( e.keyCode 
+				|| this.ancestor('a.close', e.target)
+				|| !this.ancestor('a, .hide, .drawer, .nav, details.pop', e.target)
+			) {
 				this.b('', this.escapable, '', this.hide);
 				location.hash = '#cancel';
 			}
@@ -247,8 +250,8 @@ var main = new(function() {
 		//drop image
 		this.b(n, '.drop', 'change', this.dropImage);
 
-		//prepere nav (unhover)
-		this.b(n, this.unhover, '', function(n) { n.classList.add('js-control'); });
+		//prepere nav
+		this.b(n, this.unhover + ', .accordion ul', '', function(n) { n.classList.add('js-control'); });
 		//prepare mem
 		this.restore();
 		//prepare tabs (hilite first if not remembered)
@@ -263,7 +266,7 @@ var main = new(function() {
 		//escape closes targeted elements
 		if (!n) this.b('', [window], 'keydown', this.esc);
 		//close on click out
-		if (!n) this.b('', 'html', 'click', this.esc);//mousedown
+		if (!n) this.b('', 'html, .close', 'click', this.esc);//mousedown
 	}
 
 	this.init = function() {

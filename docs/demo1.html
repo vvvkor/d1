@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>d1.css - demo</title>
+	<title>d1.css - Docs and Demo</title>
 
 	<!-- CDN --><!--
 	<link href="https://cdn.jsdelivr.net/npm/d1css@1/dist/d1.min.css" rel="stylesheet">
@@ -15,22 +15,195 @@
 	<script src="../src/js/d1.js"></script>
 	<script> d1.run(); </script>
 	
-	<!--
-	dialog - use standard alerts
-	sort
-	calendar - use standard inputs
-	gallery - use from cdn
-	wysiwyg - use from cdn
-	icons - use from cdn
-	-->
-	
-	<!--link rel="stylesheet" href="http://cdn.materialdesignicons.com/2.1.19/css/materialdesignicons.min.css"--><!-- font -->
-	<!--link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"--><!-- font, works without js -->
-	<!--script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script--><!-- svg! -->
 </head>
-<body class="-bg -pad -nodec">
+<body class="lite">
 
-<a target="_blank" href="https://github.com/vvvkor/d1" title="GitHub" class="btn inv pad -hover"><svg class="icon" width="32" height="32" viewBox="0 0 16 16" version="1.1" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg> GitHub</a>
+<!--div class="stick"><a class="pad hover" href="#menu">&equiv;</a></div-->
+
+<div class="row gap">
+	<div class="col-0 pad box stick slide">
+	<div id="menu" class="pad -hide -show-desktop -toggle -drawer -toggle">
+
+		<!--a href="#cancel" class="close pad hover right"></a-->
+		<h1 class="lite c">d1.css</h1>
+		
+		<p class="c">
+		<a target="_blank" href="https://github.com/vvvkor/d1" title="GitHub" class="btn text-n -inv pad"><svg class="icon" width="32" height="32" viewBox="0 0 16 16" version="1.1" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg> GitHub</a>
+		</p>
+		
+		<p class="c"><code class="pad">npm install d1css</code></p>
+		
+		<hr>
+		
+		<div class="mar -scroll -lite">
+		<ul class="toggle accordion mem -hover">
+			<li><a href="#ul-start">Getting started</a>
+			<ul id="ul-start">
+				<li><a href="#intro">Intro</a>
+				<li><a href="#installation">Installation</a>
+				<li><a href="#customization">Customization</a>
+				<li><a href="#support">Browser support</a>
+			</ul>
+
+			<li><a href="#ul-layout">Layout</a>
+			<ul id="ul-layout">
+				<li><a href="#grid">Grid</a>
+				<li><a href="#responsive">Responsive</a>
+				<li><a href="#boxes">Boxes</a>
+			</ul>
+
+			<li><a href="#ul-elements">Elements</a>
+			<ul id="ul-elements">
+				<li><a href="#typography">Typography</a>
+				<li><a href="#tables">Tables</a>
+				<li><a href="#links">Links</a>
+				<li><a href="#buttons">Buttons</a>
+				<li><a href="#forms">Forms</a>
+				<li><a href="#images">Images</a>
+			</ul>
+
+			<li><a href="#ul-components">Components</a>
+			<ul id="ul-components">
+				<li><a href="#navigation">Navigation</a>
+				<li><a href="#dropdown">Dropdown</a>
+				<li><a href="#tree">Tree</a>
+				<li><a href="#accordion">Accordion</a>
+				<li><a href="#toggle">Toggle</a>
+				<li><a href="#popup">Popup</a>
+				<li><a href="#tooltip">Tooltip</a>
+				<li><a href="#tabs">Tabs</a>
+				<li><a href="#modal">Modal</a>
+				<li><a href="#drawer">Drawer</a>
+				<li><a href="#gallery">Gallery</a>
+			</ul>
+
+			<li><a href="#ul-modifiers">Modifiers</a>
+			<ul id="ul-modifiers">
+				<li><a href="#colors">Colors</a>
+			</ul>
+
+			<li><a href="#printing">Printing</a>
+
+			<li><a href="#ul-combined">Combined examples</a>
+			<ul id="ul-combined">
+				<li><a href="#media">Media object</a>
+				<li><a href="#empty">Empty</a>
+			</ul>
+		</ul>
+		</div>
+	</div>
+	</div>
+	
+	<div class="col-3 pad">
+		<div class="read pad -bg">
+			
+			<h1 id="start" class="lite">d1.css</h1>
+			
+			<h2 id="start">Getting Started</h2>
+			<h3 id="intro">Intro</h3>
+			<h3 id="installation">Installation</h3>
+			<h3 id="customization">Customization</h3>
+			<h3 id="support">Browser support</h3>
+
+			<h2 id="layout">Layout</h2>
+			<h3 id="grid">Grid</h3>
+
+				<div class="row flip mar">
+					<div class="bord pad bg-i">no gap</div>
+					<div class="bord pad bg-i">no gap</div>
+				</div>
+				<div class="row flip gap mar">
+					<div class="bord pad bg">gap</div>
+					<div class="bord pad bg">gap</div>
+				</div>
+				<div class="row gap mar">
+					<div class="bord pad bg-y col-2">.col-2 keep</div>
+					<div class="bord pad bg-w col-3">.col-3 keep</div>
+				</div>
+				<div class="row flip gap mar">
+					<div class="bord pad bg">div</div>
+					<div class="bord pad bg col-2">.col-2</div>
+				</div>
+				<div class="row gap mar">
+					<div class="bord pad bg-y">div keep</div>
+					<div class="bord pad bg-w col-3">.col-3 keep</div>
+				</div>
+				<div class="row flip gap mar">
+					<div class="bord pad bg">div</div>
+					<div class="bord pad bg">div</div>
+					<div class="bord pad bg">div</div>
+					<div class="bord pad bg">div</div>
+					<div class="bord pad bg">div</div>
+					<div class="bord pad bg">div</div>
+				</div>
+
+			<h3 id="responsive">Responsive</h3>
+			grid, nav, table, form
+			<h3 id="boxes">Boxes</h3>
+
+			<h2 id="elements">Elements</h2>
+			<h3 id="typography">Typography</h3>
+			<h3 id="tables">Tables</h3>
+			<h3 id="links">Links</h3>
+			<h3 id="buttons">Buttons</h3>
+			<h3 id="forms">Forms</h3>
+			<h3 id="images">Images</h3>
+
+			<h2 id="ul-components">Components</h2>
+			<h3 id="navigation">Navigation</h3>
+			<h3 id="dropdown">Dropdown</h3>
+			<h3 id="tree">Tree</h3>
+			<h3 id="accordion">Accordion</h3>
+			<h3 id="toggle">Toggle</h3>
+			<h3 id="popup">Popup</h3>
+			<h3 id="tooltip">Tooltip</h3>
+			<h3 id="tabs">Tabs</h3>
+			<h3 id="modal">Modal</h3>
+			<h3 id="drawer">Drawer</h3>
+			<h3 id="gallery">Gallery</h3>
+
+			<h2 id="ul-modifiers">Modifiers</h2>
+			<h3 id="colors">Colors</h3>
+
+			<h2 id="printing">Printing</h2>
+
+			<h2 id="ul-combined">Combined examples</h2>
+			<h3 id="media">Media object</h3>
+			<h3 id="empty">Empty</h3>
+			
+			W w w w w w w w w w w w w w w w w w w w w w w w w w w w.
+			W w w w w w w w w w w w w w w w w w w w w w w w w w w w.
+			W w w w w w w w w w w w w w w w w w w w w w w w w w w w.
+			W w w w w w w w w w w w w w w w w w w w w w w w w w w w.
+			W w w w w w w w w w w w w w w w w w w w w w w w w w w w.
+			
+	<div class="center box pad c">
+		<svg class="mar text-n" width="132" height="132" viewBox="0 0 16 16" version="1.1" aria-hidden="true"><path  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+		<h2 class="lite">No items yet</h2>
+		<p>Click the button to create new item
+		<p><a href="#add" class="btn pad inv bg-i">Add new item</a>
+	</div>
+
+	<div class="center box pad c">
+		<svg class="mar text-n" width="132" height="132" viewBox="0 0 16 16" version="1.1" aria-hidden="true"><path  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+		<h2 class="lite">No items yet</h2>
+		<p>Click the button to create new item
+		<p><a href="#add" class="btn pad inv bg-i">Add new item</a>
+	</div>
+
+	<div class="center box pad c">
+		<svg class="mar text-n" width="132" height="132" viewBox="0 0 16 16" version="1.1" aria-hidden="true"><path  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+		<h2 class="lite">No items yet</h2>
+		<p>Click the button to create new item
+		<p><a href="#add" class="btn pad inv bg-i">Add new item</a>
+	</div>
+
+	
+		</div>
+	</div>
+</div>
+
+
 
 <!--i class="mdi mdi-account"></i-->
 <!--i class="fa fa-bars"></i-->
@@ -113,9 +286,9 @@
 			<div class="col-2">
 				<h3 class="screen">Dropdown nav</h3>
 				
-				<div class="hide show-mobile"><a href="#menu" class="pad hover">&equiv;</a></div>
+				<div class="hide show-mobile"><a href="#menu1" class="pad hover">&equiv;</a></div>
 				
-				<nav id="menu" class="hide show-desktop toggle -mem esc">
+				<nav id="menu1" class="hide show-desktop toggle -mem esc">
 				<ul class="nav -mem hor flip hover bg screen toggle fx">
 					<li><a href="#" accesskey="1">Home</a>
 					<li><a href="#css">CSS</a>
@@ -808,10 +981,9 @@ Enter two or more letters</span></div>
 		<h2 class="lite">No items yet</h2>
 		<p>Click the button to create new item
 		<p><a href="#add" class="btn pad inv bg-i">Add new item</a>
-			
 	</div>
 	
-	<footer class="stick pad bg-n">
+	<footer class="-stick pad bg-n">
 		Sticky footer
 	</footer>
 	

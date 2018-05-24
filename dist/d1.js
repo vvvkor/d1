@@ -1,6 +1,8 @@
 (function(window, document, Element) {
     var name = "d1";
-    if (window && window[name]) {} else {
+    if (window && window[name]) {
+        console.log(name + " already included");
+    } else {
         var main = new function() {
             "use strict";
             this.togglable = ".hide.toggle[id], ul.toggle ul[id], .tabs>.hide, details";
@@ -8,7 +10,6 @@
             this.mem = ".mem, .tabs.mem>.hide, ul.mem ul[id], details.mem details";
             this.unhover = "ul.nav.toggle ul[id]";
             this.run = function(func) {
-                console.log("run", func || "d1");
                 if (document.addEventListener && "classList" in document.createElement("p")) {
                     this.b("", [ document ], "DOMContentLoaded", func || this.init);
                 }
@@ -110,6 +111,11 @@
             this.hide = function(n) {
                 this.handleState(n, null, false);
             };
+            this.showFirstTab = function(n) {
+                var a = this.q('a[href^="#"]', 0, n.parentNode);
+                var d = this.q(a.hash, 0, n);
+                if (d && !d.matches(".js-control")) this.show(d);
+            };
             this.hideSiblings = function(n) {
                 var p = n.parentNode;
                 if (this.ancestor("ul.nav.toggle, ul.accordion", p)) {
@@ -148,7 +154,7 @@
             this.esc = function(n, e) {
                 if (e.keyCode == 90 && e.ctrlKey) localStorage.clear();
                 if (e.keyCode == 27 || e.button === 0) {
-                    if (e.keyCode || !this.ancestor("a, .hide, .drawer, .nav, details.pop", e.target)) {
+                    if (e.keyCode || this.ancestor("a.close", e.target) || !this.ancestor("a, .hide, .drawer, .nav, details.pop", e.target)) {
                         this.b("", this.escapable, "", this.hide);
                         location.hash = "#cancel";
                     }
@@ -167,16 +173,16 @@
                 this.b(n, "table[class]", "", this.alignCells);
                 this.b(n, "a.slide[id]", "click", this.gotoPrev);
                 this.b(n, ".drop", "change", this.dropImage);
-                this.b(n, this.unhover, "", function(n) {
+                this.b(n, this.unhover + ", .accordion ul", "", function(n) {
                     n.classList.add("js-control");
                 });
                 this.restore();
-                this.b(n, ".tabs>.hide:last-child:not(.js-control)", "", this.show);
+                this.b(n, ".nav+.tabs", "", this.showFirstTab);
                 if (location.hash) this.show(location.hash);
                 this.b(n, 'a[href^="#"]', "click", this.handleState);
                 this.b(n, "details[id]", "toggle", this.handleState);
                 if (!n) this.b("", [ window ], "keydown", this.esc);
-                if (!n) this.b("", "html", "click", this.esc);
+                if (!n) this.b("", "html, .close", "click", this.esc);
             };
             this.init = function() {
                 if (location.hash == "#disable-js") return;

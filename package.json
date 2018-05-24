@@ -1,6 +1,6 @@
 {
   "name": "d1css",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "Functional CSS micro framework",
   "main": "dist/d1.js",
   "directories": {

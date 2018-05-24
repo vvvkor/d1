@@ -45,10 +45,7 @@ pre {
 .row {
   display: flex
 }
-.row.gap {
-  margin-right: -1em
-}
-.row.gap > * {
+.row.gap > :not(:last-child) {
   margin-right: 1em
 }
 .row > * {
@@ -59,6 +56,10 @@ pre {
 }
 .row > a > img {
   width: 5em
+}
+.row > .col-0 {
+  flex: initial;
+  width: 16em
 }
 .row > .col-2 {
   flex: 2
@@ -99,9 +100,28 @@ img[src$="#r"] {
 img[src$="#l"] {
   float: left
 }
+.center,
 img[src$="#c"] {
   display: block;
   margin: 1em auto
+}
+.center {
+  width: 50%;
+  min-width: 15em;
+  max-width: 30em
+}
+.r[class],
+table.r tr > * {
+  text-align: right
+}
+.l[class],
+fieldset,
+table.l tr > * {
+  text-align: left
+}
+.c[class],
+table.c tr > * {
+  text-align: center
 }
 .btn,
 .tip {
@@ -130,13 +150,18 @@ ol,
 p,
 pre,
 ul {
-  margin: .75em 0
+  margin: 1em 0
 }
 .pad,
 blockquote,
 fieldset,
 pre {
   padding: .5em 1em
+}
+.modal.pad,
+body.pad,
+form.pad {
+  padding: 1em
 }
 abbr {
   text-decoration: underline #ccc
@@ -230,7 +255,8 @@ th {
 fieldset,
 hr,
 table.bord tr > *,
-table.lite tr > * {
+table.lite tr > *,
+table[border] tr > * {
   border: thin solid #ddd;
   border: var(--border,thin solid #ddd)
 }
@@ -282,9 +308,11 @@ img,
 video {
   max-width: 100%
 }
+svg {
+  fill: currentColor
+}
 .icon {
   vertical-align: -.2em;
-  fill: currentColor;
   margin-right: .2em;
   width: 1.2em;
   height: 1.2em
@@ -299,6 +327,9 @@ video {
   display: block!important
 }
 @media screen and (max-width:49.99em) {
+  .hide-mobile[class] {
+    display: none
+  }
   .show-mobile[class] {
     display: block!important
   }
@@ -313,10 +344,21 @@ video {
     padding: 0
   }
   .row.flip {
-    display: block
+    display: block;
+    margin-right: 0
+  }
+  .row.flip > * {
+    margin-right: 0!important
+  }
+  .row.flip.gap > * {
+    margin-top: 1em;
+    margin-bottom: 1em
   }
 }
 @media screen and (min-width:50em) {
+  .hide-desktop[class] {
+    display: none
+  }
   .show-desktop[class] {
     display: block!important
   }
@@ -324,18 +366,8 @@ video {
     max-width: 60em;
     margin: 0 auto
   }
-  .r[class],
-  table.r tr > * {
-    text-align: right
-  }
-  .l[class],
-  fieldset,
-  table.l tr > * {
-    text-align: left
-  }
-  .c[class],
-  table.c tr > * {
-    text-align: center
+  .read[class] {
+    max-width: 45em
   }
 }
 .nav.hover a.act,
@@ -367,14 +399,11 @@ ul.hover a:hover {
   transform: translate(-50%,-50%);
   overflow: auto;
   z-index: 30;
-  border: 200em solid rgba(0,0,0,.7)
+  border: 2em solid rgba(0,0,0,.7);
+  border-width: 100vh 100vw
 }
 .modal.wide {
   max-width: initial
-}
-.modal.pad,
-form.pad {
-  padding: 1em
 }
 .nav,
 .nav ul {
@@ -547,6 +576,7 @@ a.slide:target:after {
   overflow-y: auto;
   z-index: 15
 }
+.drawer.js-show,
 .drawer:target {
   left: 0
 }
@@ -556,6 +586,7 @@ a.slide:target:after {
   right: -17em;
   text-align: initial
 }
+.drawer.right.js-show,
 .drawer.right:target {
   right: 0
 }
@@ -701,7 +732,9 @@ a:target + .hide {
   position: sticky;
   top: 0;
   align-self: flex-start;
-  z-index: 3
+  z-index: 3;
+  max-height: 100vh;
+  overflow: auto
 }
 .row .stick {
   z-index: 2
