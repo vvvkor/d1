@@ -1,11 +1,14 @@
 # d1
 
-Functional CSS micro framework with optional JS enhancements
+Functional CSS micro framework with optional JS enhancements.
+Its aim is to implement most widely used components with less code.
 
 ## Features
 
 * lightweight (minified, gzipped: CSS ~3 KB, optional JS ~2 KB)
+* not bloated with class names
 * functional
+* modern
 * responsive (flexbox, mobile first)
 * performant
 * semantic (use native elements)
@@ -13,7 +16,8 @@ Functional CSS micro framework with optional JS enhancements
 * cross-browser
 * javascript not required
 * enhanced with javascript
-* style agnostic (not opinionated)
+* neutral style, configurable
+* accessibility is not much covered
 
 ## Getting Started
 
@@ -38,7 +42,7 @@ npm install d1css --save
 
 ### Install manually
 
-Download minified [https://github.com/vvvkor/d1/tree/master/dist](d1 files).
+Download minified [d1 files](https://github.com/vvvkor/d1/tree/master/dist).
 
 ```html
 <link href="d1.min.css" rel="stylesheet">
@@ -62,6 +66,15 @@ Download minified [https://github.com/vvvkor/d1/tree/master/dist](d1 files).
 ### Elements
 
 ### Components
+
+## Thanks
+
+[List of CSS frameworks](https://github.com/troxler/awesome-css-frameworks)
+
+## Plans
+
+* more confiuaration options, compile from SASS
+* version without class names
 
 ## License
 
