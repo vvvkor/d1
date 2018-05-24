@@ -32,10 +32,11 @@ https://www.jsdelivr.com/package/npm/d1css
 
 ### NPM
 
+Install to your repository:
 ```
 npm install d1css --save
 ```
-
+Then use in your CSS file:
 ```
 @import "../node_modules/d1css/dist/d1.min.css";
 ```
