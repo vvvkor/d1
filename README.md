@@ -6,7 +6,7 @@ Its aim is to implement most widely used components with less code.
 ## Features
 
 * lightweight (minified, gzipped: CSS ~3 KB, optional JS ~2 KB)
-* not bloated with class names
+* non-bloated combinable class names
 * functional
 * modern
 * responsive (flexbox, mobile first)
