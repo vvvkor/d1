@@ -23,11 +23,18 @@ Its aim is to implement most widely used components with less code.
 
 ### CDN
 
-https://www.jsdelivr.com/package/npm/d1css
+#### [jsdelivr](https://www.jsdelivr.com/package/npm/d1css)
 
 ```html
 <link href="https://cdn.jsdelivr.net/npm/d1css@1/dist/d1.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/d1css@1/dist/d1.min.js"></script><!-- optional -->
+```
+
+#### [GitCDN](https://gitcdn.link/)
+
+```html
+<link href="https://gitcdn.link/repo/vvvkor/d1/master/dist/d1.min.css" rel="stylesheet">
+<script src="https://gitcdn.link/repo/vvvkor/d1/master/dist/d1.min.js"></script><!-- optional -->
 ```
 
 ### NPM
