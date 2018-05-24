@@ -7,7 +7,7 @@
 
 	//check single instance
 	if (window && window[name]) {
-		//console.log(name + ' already included');
+		console.log(name + ' already included');
 	}
 	else {
 
@@ -25,7 +25,7 @@ var main = new(function() {
 	//common
 
 	this.run = function(func) {
-		console.log('run', func ||'d1');
+		//console.log('run', func ||'d1');
 		if (document.addEventListener //ie9
 			&& ('classList' in document.createElement('p')) //ie10
 		) {
@@ -161,6 +161,12 @@ var main = new(function() {
 	this.hide = function(n) {
 		this.handleState(n, null, false);
 	}
+	
+	this.showFirstTab = function(n) {
+		var a = this.q('a[href^="#"]', 0, n.parentNode); //first link
+		var d = this.q(a.hash, 0, n); //corresponding tab
+		if(d && !d.matches('.js-control')) this.show(d);
+	}
 
 	this.hideSiblings = function(n) {
 		var p = n.parentNode;
@@ -246,7 +252,8 @@ var main = new(function() {
 		//prepare mem
 		this.restore();
 		//prepare tabs (hilite first if not remembered)
-		this.b(n, '.tabs>.hide:last-child:not(.js-control)', '', this.show);
+		//this.b(n, '.tabs>.hide:last-child:not(.js-control)', '', this.show);
+		this.b(n, '.nav+.tabs', '', this.showFirstTab);
 		//prepare hash
 		if (location.hash) this.show(location.hash);
 		//toggle
