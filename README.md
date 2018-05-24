@@ -47,7 +47,7 @@ Then use in your CSS file:
 ```css
 @import "../node_modules/d1css/dist/d1.min.css";
 ```
-and optionally in your JS file:
+and optionally bundle into your JS file:
 ```javascript
 var d1 = require("d1css");
 d1.run();
