@@ -6,7 +6,7 @@ Its aim is to implement most widely used components with less code.
 ## Features
 
 * lightweight (minified, gzipped: CSS ~3 KB, optional JS ~2 KB)
-* not bloated with class names
+* non-bloated combinable class names
 * functional
 * modern
 * responsive (flexbox, mobile first)
@@ -91,7 +91,8 @@ Download minified [d1 files](https://github.com/vvvkor/d1/tree/master/dist).
 
 ## Thanks
 
-[List of CSS frameworks](https://github.com/troxler/awesome-css-frameworks)
+* [List of CSS frameworks](https://github.com/troxler/awesome-css-frameworks)
+* [Small CSS Frameworks](https://www.webpagefx.com/blog/web-design/small-css-frameworks/)
 
 ## License
 
