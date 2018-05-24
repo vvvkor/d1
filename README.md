@@ -21,7 +21,7 @@ Its aim is to implement most widely used components with less code.
 
 ## Getting Started
 
-### CDN
+### Use from CDN
 
 #### [jsDelivr](https://www.jsdelivr.com/package/npm/d1css)
 
@@ -37,7 +37,7 @@ Its aim is to implement most widely used components with less code.
 <script src="https://gitcdn.link/repo/vvvkor/d1/master/dist/d1.min.js"></script><!-- optional -->
 ```
 
-### NPM
+### Install with NPM
 
 Install to your repository:
 ```
@@ -69,8 +69,8 @@ Download minified [d1 files](https://github.com/vvvkor/d1/tree/master/dist).
 ## Browser Support
 
 * IE 9 (mobile style only, no js enhancements)
-* IE 10+
-* Latest Stable: Chrome, Firefox, Opera, Safari, Edge
+* IE 10+, Edge (except details/summary component)
+* Latest Stable: Chrome, Firefox, Opera, Safari
 * iOS 6-8
 * Android 4.x
 
