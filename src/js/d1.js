@@ -1,6 +1,19 @@
 // (c) Vadim Korolev (vadimkor@yandex.ru) 2018
 
-var app = new(function() {
+(function(window, document, Element){
+	
+	//module name
+	var name = 'd1';
+
+	//check single instance
+	if (window && window[name]) {
+		//console.log(name + ' already included');
+	}
+	else {
+
+// begin module
+
+var main = new(function() {
 
 	"use strict";
 
@@ -11,14 +24,15 @@ var app = new(function() {
 
 	//common
 
-	this.init = function(func) {
+	this.run = function(func) {
+		console.log('run', func ||'d1');
 		if (document.addEventListener //ie9
 			&& ('classList' in document.createElement('p')) //ie10
 		) {
-			this.b('', [document], 'DOMContentLoaded', func);
+			this.b('', [document], 'DOMContentLoaded', func || this.init);
 		}
 	}
-
+	
 	this.q = function(s, i, n) {
 		if (!s) return i === undefined ? [] : null;
 		var f = (i === 0) ? 'querySelector' : 'querySelectorAll';
@@ -245,10 +259,25 @@ var app = new(function() {
 		if (!n) this.b('', 'html', 'click', this.esc);//mousedown
 	}
 
+	this.init = function() {
+		if (location.hash == '#disable-js') return;
+		if (!Element.prototype.matches) Element.prototype.matches = Element.prototype.msMatchesSelector; //ie9+
+		this.refresh();
+	}
 })();
 
-app.init(function() {
-	if (location.hash == '#disable-js') return;
-	if (!Element.prototype.matches) Element.prototype.matches = Element.prototype.msMatchesSelector; //ie9+
-	app.refresh();
-});
+
+// end module
+
+		if (typeof module !== 'undefined') {
+			//console.log('npm require ' + name);
+			module.exports/*[name]*/ = main;
+		}
+		else if(window) {
+			//console.log('browser include ' + name);
+			window[name] = main;
+			//main.run();
+		}
+	}
+
+})(window, document, Element);
