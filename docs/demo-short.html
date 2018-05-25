@@ -14,7 +14,7 @@
 
 <h2>Navigation</h2>
 
-	<ul class="nav">
+	<ul class="nav bg">
 		<li><a href="#typography">Typography</a>
 		<li><a href="#layout">Layout</a>
 			<ul id="layout">
@@ -50,7 +50,7 @@
 			</ul>
 		<li><a href="#status">Status</a>
 		<li><a href="#enhance">Javascript</a>
-		<li>
+		<li class="shift">
 			<form>
 				<input type="search" size="5">
 				<input type="submit" value="Find">
@@ -64,22 +64,21 @@
 
 <h2>Toggle</h2>
 
-Text
-<div class="pop">
-	<a href="#pop1">Popup</a>
-	<div>Pop</div>
-</div>
-<a href="#tog1">Toggle</a>
-<a href="#dlg1">Dialog</a>
-<a href="#mod1">Modal</a>
-text.
-	<div id="tog1" class="hide">Toggle</div>
-	<div id="dlg1" class="hide modal"><a href="#cancel"></a>Dialog</div>
-	<div id="mod1" class="hide modal full"><a href="#cancel"></a>
-	Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal 
-	ModalModalModalModalModalModalModalModalModalModalModalModalModalModalModalModalModal
+<div class="wrap bg">
+	Text
+	<div class="pop">
+		<a href="#pop1">Popup</a>
+		<div>Pop</div>
 	</div>
-
+	<a href="#tog1">Toggle</a>
+	<a href="#dlg1">Dialog</a>
+	<a href="#mod1">Modal</a>
+	text.
+		<div id="tog1" class="hide">Toggle</div>
+		<div id="dlg1" class="hide dialog"><a href="#cancel"></a>Dialog</div>
+		<div id="mod1" class="hide full"><a href="#cancel"></a>Full</div>
+</div>
+		
 <h2>Form</h2>
 
 <h3>Inline form</h3>
@@ -185,40 +184,115 @@ text.
 	</fieldset>
 	<tr>
 		<td>
-			<input type="submit" value="Disabled" class="bg-i" disabled>
 		<td>
-			<input type="submit" value="Submit" class="bg-i">
-			<button type="submit" value="Button" class="bg-y">
+			<input type="submit" value="Submit">
+			<input type="submit" value="Disabled" disabled>
+			<button type="submit" value="Button" class="btn bg-e">
 				<svg class="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
 					<path d="m477 162c0 7-2 14-8 19l-206 207l-39 39c-6 5-12 8-20 8c-7 0-14-3-19-8l-142-142c-6-6-8-12-8-20c0-7 2-14 8-19l38-39c6-5 12-8 20-8c7 0 14 3 19 8l84 84l188-188c5-5 12-8 19-8c8 0 14 3 20 8l38 39c6 6 8 12 8 20z"/>
 				</svg>
 				Button
 			</button>
-			<input type="submit" value="Confirm" class="bg-w confirm" name="btn2" title="Confirm?">
-			<a href="#" class="btn">Btn</a>
+			<input type="submit" value="Confirm" class="btn bg-w confirm" name="btn2" title="Confirm?">
+			<br>
+			<a href="#" class="btn">Link-btn</a>
+			<span class="btn bg-n">Span-btn</span>
 			<a href="#">Link</a>
-			<span class="btn">Span</span>
+			<br>
+			<input type="submit" value="Error" class="btn bg-e">
+			<input type="submit" value="Warning" class="btn bg-w">
+			<input type="submit" value="Info" class="btn bg-i">
+			<input type="submit" value="Success" class="btn bg-y">
+			<input type="submit" value="Secondary" class="btn bg-n">
+			<br>
+			<a href="#" class="text-e">Error</a>
+			<a href="#" class="text-w">Warning</a>
+			<a href="#" class="text-i">Info</a>
+			<a href="#" class="text-y">Success</a>
+			<a href="#" class="text-n">Secondary</a>
+			<br>
+			<a href="#" class="bg-e">Error</a>
+			<a href="#" class="bg-w">Warning</a>
+			<a href="#" class="bg-i">Info</a>
+			<a href="#" class="bg-y">Success</a>
+			<a href="#" class="bg-n">Secondary</a>
+			<br>
+			<a href="#" class="text-e bg-e">Error</a>
+			<a href="#" class="text-w bg-w">Warning</a>
+			<a href="#" class="text-i bg-i">Info</a>
+			<a href="#" class="text-y bg-y">Success</a>
+			<a href="#" class="text-n bg-n">Secondary</a>
+			<br>
+			<span href="#" class="bg-e">Error</span>
+			<span href="#" class="bg-w">Warning</span>
+			<span href="#" class="bg-i">Info</span>
+			<span href="#" class="bg-y">Success</span>
+			<span href="#" class="bg-n">Secondary</span>
 	</table>
 </form>
 
 <h2>Common table</h2>
 
-<div class="roll">
+<div class="roll read bg">
 <table>
-	<tr><th>Component	<th>d1.css<th>d1.js<th>n0.css
-	<tr><th>Dropdown	<td>H	<td>T	<td>H wwwwwwwwwwwwwwwwwwwww w wwwwww wwwwwwwwwwwwwwwwwwwww w wwwwww wwwwwwwwwwwwwwwwwwwww w wwwwww
-	<tr><th>Tree		<td>tDX	<td>TD	<td>tDX
-	<tr><th>Toggle		<td>tDX	<td>TD	<td>tDX
-	<tr><th>Popup		<td>HFtDX<td>TD	<td>tDX
-	<tr><th>Tooltip		<td>HF	<td>HF	<td>HF
-	<tr><th>Tabs		<td>tX	<td>T	<td>tX
-	<tr><th>Modal		<td>T	<td>T	<td>T
-	<tr><th>Drawer		<td>T	<td>T	<td>-
-	<tr><th>Gallery		<td>T	<td>T	<td>T
+	<tr>				<th>Component	<th>d1.css<th>d1.js<th>n0.css
+	<tr>				<th>Dropdown	<td>H	<td>T	<td>H
+	<tr>				<th>Tree		<td>tDX	<td>TD	<td>tDX
+	<tr>				<th>Toggle		<td>tDX	<td>TD	<td>tDX
+	<tr>				<th>Popup		<td>HFtDX<td>TD	<td>tDX
+	<tr>				<th>Tooltip		<td>HF	<td>HF	<td>HF
+	<tr>				<th>Tabs		<td>tX	<td>T	<td>tX
+	<tr class="bg-i">	<th>Modal		<td>T	<td>T	<td>T
+	<tr>				<th>Drawer		<td>T	<td>T	<td>-
+	<tr>	<th class="bg-w">Gallery	<td>T	<td>T	<td>T
 </table>
 </div>
 
 
+<h3>Grid</h3>
+	
+<div class="row">
+	<div class="bg wrap">wrap</div>
+</div>
+<div class="row">
+	<div class="bg narrow">narrow</div>
+	<div class="bg read">read</div>
+</div>
+<div class="row">
+	<div class="bg">div</div>
+	<div class="bg">div</div>
+</div>
+<div class="row">
+	<div class="bg col-2">.col-2</div>
+	<div class="bg col-3">.col-3</div>
+</div>
+<div class="row">
+	<div class="bg">div</div>
+	<div class="bg col-2">.col-2</div>
+</div>
+<div class="row">
+	<div class="bg">div</div>
+	<div class="bg col-3">.col-3</div>
+</div>
+<div class="row">
+	<div class="bg">div</div>
+	<div class="bg">div</div>
+	<div class="bg">div</div>
+	<div class="bg">div</div>
+	<div class="bg">div</div>
+	<div class="bg">div</div>
+</div>
+
+<h2>Blocks</h2>
+
+<div class="dialog">
+	<svg class="mar text-n" width="80" height="80" viewBox="0 0 16 16" version="1.1" aria-hidden="true"><path  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+	<p><b>No items yet</b>
+	<p>Click the button to create new item</p>
+	<a href="#add" class="btn bg-i">Add new item</a>
+</div>
+
+<div class="full">Full</div>
 
 </body>
 </html>
