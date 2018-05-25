@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>d1.css - demo</title>
+
+	<link href="../src/css/d1-short.css" rel="stylesheet">
+	<!--script src="../src/d1.js"></script>
+	<script> d1.run(); </script-->
+	
+</head>
+<body>
+
+<h2>Navigation</h2>
+
+	<ul class="nav">
+		<li><a href="#typography">Typography</a>
+		<li><a href="#layout">Layout</a>
+			<ul id="layout">
+				<li><a href="#grid">Grid</a>
+				<li><a href="#respensive">Responsive</a>
+				<li><a href="#boxes">Boxes</a>
+			</ul>
+		<li><a href="#form">Form</a>
+			<ul>
+				<li><a href="#form-inline">Inline</a>
+				<li><a href="#form-stacked">Stacked</a>
+				<li><a href="#form-aligned">Aligned</a>
+				<li><a href="#drop">Drop image</a>
+			</ul>
+		<li><a href="#table">Table</a>
+		<li><a href="#nav">Navigation</a>
+			<ul id="nav">
+				<li><a href="#dropdown">Dropdown</a>
+				<li><a href="#drawer">Drawer</a>
+				<li><a href="#drawer">Pagination</a>
+			</ul>
+		<li><a href="#show-hide">Toggle</a>
+			<ul id="show-hide">
+				<li><a href="#popup">Popup</a>
+				<li><a href="#toggle">Toggle</a>
+				<li><a href="#tree">Tree</a>
+				<li><a href="#tabs">Tabs</a>
+				<li><a href="#fullscreen">Fullscreen</a>
+					<ul id="fullscreen">
+						<li><a href="#modal">Modal</a>
+						<li><a href="#gallery">Gallery</a>
+					</ul>
+			</ul>
+		<li><a href="#status">Status</a>
+		<li><a href="#enhance">Javascript</a>
+		<li>
+			<form>
+				<input type="search" size="5">
+				<input type="submit" value="Find">
+				<a href="#" class="btn">Btn</a>
+				<a href="#">Link</a>
+				<span class="btn">Span</span>
+			</form>
+	</ul>
+
+			
+
+<h2>Toggle</h2>
+
+Text
+<div class="pop">
+	<a href="#pop1">Popup</a>
+	<div>Pop</div>
+</div>
+<a href="#tog1">Toggle</a>
+<a href="#dlg1">Dialog</a>
+<a href="#mod1">Modal</a>
+text.
+	<div id="tog1" class="hide">Toggle</div>
+	<div id="dlg1" class="hide modal"><a href="#cancel"></a>Dialog</div>
+	<div id="mod1" class="hide modal full"><a href="#cancel"></a>
+	Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal Modal 
+	ModalModalModalModalModalModalModalModalModalModalModalModalModalModalModalModalModal
+	</div>
+
+<h2>Form</h2>
+
+<h3>Inline form</h3>
+
+<form>
+	<input type="search" size="5">
+	<input type="submit" value="Find">
+	<a href="#" class="btn">Btn</a>
+	<a href="#">Link</a>
+	<span class="btn">Span</span>
+</form>
+
+<h3>Stacked form</h3>
+
+	<form action="?">
+		<p>
+		<label "for="nm1">Name</label><br>
+		<input type="text" name="nm1" id="nm1" required pattern="[A-Za-z]{2,}" title="Two or more letters"><br>
+		<p>
+		<label "for="age1">Age</label><br>
+		<input type="number" name="age1" id="age1"><br>
+		<p>
+		<input type="submit" value="OK">
+		<a href="#" class="btn">Btn</a>
+		<a href="#">Link</a>
+		<span class="btn">Span</span>
+	</form>
+
+
+<h3>Aligned form</h3>
+
+<form action="?">
+	<table>
+	<tr>
+		<td><label "for="nm">Name</label>
+		<td><input type="text" name="nm" id="nm" required pattern="[A-Za-z]{2,}" title="Two or more letters">
+		<!--
+		set: 
+		<a href="#nm" data-value="test">test</a>,
+		<a href="#nm" data-value="default">default</a>
+		<a href="?val=~" class="prompt" title="Value" data-src="#nm">goto</a>
+		-->
+		
+	<tr><td colspan="2">
+	<fieldset>
+		<legend><a href="#fs1">Input types</a></legend>
+		<table id="fs1" class="hide toggle mem">
+		
+		<tr>
+			<td><label for="lng">Select</label>
+			<td>
+			<select name="lng" id="lng">
+				<option value="en" selected>English</option>
+				<option value="ru">Russian</option>
+			</select>
+		<tr>
+			<td><label for="dis">Disabled</label>
+			<td><input type="text" name="dis" id="dis" disabled>
+		<tr>
+			<td><label for="dt">Date</label>
+			<td><input type="date" name="dt" id="dt">
+		<tr>
+			<td><label for="tm">Time</label>
+			<td><input type="time" name="tm" id="tm">
+		<tr>
+			<td><label for="dtl">Datetime</label>
+			<td><input type="datetime-local" name="dtl" id="dtl">
+		<tr>
+			<td><label for="num">Number</label>
+			<td><input type="number" name="num" id="num">
+		<tr>
+			<td><label for="rng">Range</label>
+			<td><input type="range" name="rng" id="rng">
+		<tr>
+			<td><label for="clrn">Color</label>
+			<td><input type="color" name="clrn" id="clrn">
+		<tr>
+			<td><label for="msg">Textarea</label>
+			<td><textarea class="wys" name="msg" id="msg" cols="20" rows="5">text<b></textarea>
+		<tr>
+			<td>Upload
+			<td><label class="drop" title="Drop image"><input type="file" name="up[]" multiple></label>
+			
+		</table>
+	</fieldset>
+	<!--tr><td colspan="2"-->
+	<fieldset>
+		<legend><a href="#fs2">Switches</a></legend>
+		<table id="fs2" class="hide toggle mem">
+			<tr>
+				<td>Box
+				<td>
+					<label><input type="checkbox" class="" name="colors" value="1" data-group="colors"> <b>All</b></label><br>
+					<label><input type="checkbox" class="colors" name="color[]" value="red"> Red</label><br>
+					<label><input type="checkbox" class="colors" name="color[]" value="green"> Green</label><br>
+					<label><input type="checkbox" class="colors" name="color[]" value="blue"> Blue</label><br>
+			<tr>
+				<td>Radio
+				<td>
+					<label><input type="radio" name="ra1" value="sun"> Sun</label><br>
+					<label><input type="radio" name="ra1" value="moon"> Moon</label><br>
+		</table>
+	</fieldset>
+	<tr>
+		<td>
+			<input type="submit" value="Disabled" class="bg-i" disabled>
+		<td>
+			<input type="submit" value="Submit" class="bg-i">
+			<button type="submit" value="Button" class="bg-y">
+				<svg class="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
+					<path d="m477 162c0 7-2 14-8 19l-206 207l-39 39c-6 5-12 8-20 8c-7 0-14-3-19-8l-142-142c-6-6-8-12-8-20c0-7 2-14 8-19l38-39c6-5 12-8 20-8c7 0 14 3 19 8l84 84l188-188c5-5 12-8 19-8c8 0 14 3 20 8l38 39c6 6 8 12 8 20z"/>
+				</svg>
+				Button
+			</button>
+			<input type="submit" value="Confirm" class="bg-w confirm" name="btn2" title="Confirm?">
+			<a href="#" class="btn">Btn</a>
+			<a href="#">Link</a>
+			<span class="btn">Span</span>
+	</table>
+</form>
+
+<h2>Common table</h2>
+
+<div class="roll">
+<table>
+	<tr><th>Component	<th>d1.css<th>d1.js<th>n0.css
+	<tr><th>Dropdown	<td>H	<td>T	<td>H wwwwwwwwwwwwwwwwwwwww w wwwwww wwwwwwwwwwwwwwwwwwwww w wwwwww wwwwwwwwwwwwwwwwwwwww w wwwwww
+	<tr><th>Tree		<td>tDX	<td>TD	<td>tDX
+	<tr><th>Toggle		<td>tDX	<td>TD	<td>tDX
+	<tr><th>Popup		<td>HFtDX<td>TD	<td>tDX
+	<tr><th>Tooltip		<td>HF	<td>HF	<td>HF
+	<tr><th>Tabs		<td>tX	<td>T	<td>tX
+	<tr><th>Modal		<td>T	<td>T	<td>T
+	<tr><th>Drawer		<td>T	<td>T	<td>-
+	<tr><th>Gallery		<td>T	<td>T	<td>T
+</table>
+</div>
+
+
+
+</body>
+</html>
