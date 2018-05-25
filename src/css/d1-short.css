@@ -1,11 +1,28 @@
 /*
+todo
+	tabs
+	gallery
+	media object
+	pagenav
+	switch drawer
+	dropimage
+	js toggle
+	hamburger
 classes
-	.roll
-	a.btn, span.btn
-	.icon
-	.hide .nav .pop .dialog .full .close
-	.bg .text-x .bg-x
-	.row .wrap .read .narrow .shift
+	main
+		.row .col-2 .col-3
+		.nav .act
+		a.btn, span.btn
+	action
+		.hide .pop .dialog .full
+	decorative
+		.bg .text-x .bg-x
+		.wrap .read .narrow .shift
+		.roll
+		.icon
+	optional
+		.small .r .c .l .yel
+		.print .screen
 tags
 	form>table
 	form>button
@@ -18,14 +35,15 @@ tags
 --bg: #fff;
 --bg-pane: rgba(0,0,0,.05);
 --border: thin solid rgba(0,0,0,.16);
-	--bg-hilite: rgba(0,0,0,.05);
-	--text-hilite: inherit;
+--bg-hilite: rgba(0,0,0,.05);
+--text-hilite: inherit;
 --link: #03b;
 --hover: #000;
 --visited:#888;
---radius:.25em;
+--radius:.2em;
 }
 
+/* https://github.com/jgthms/minireset.css/ */
 button,input,select,textarea{margin:0;}
 html{box-sizing:border-box;}
 *,*:before,*:after{box-sizing:inherit;}
@@ -41,27 +59,40 @@ td,th{padding:0;text-align:left}
 
 /* common */
 body{color:var(--text);background-color:var(--bg);font:120%/1.5 "pt sans",sans-serif;margin:0;padding:1em;}
+main{display:block;}/*ie*/
 
 /* layout */
 /**{box-sizing:border-box;}*/
 
 /* typo */
-p{margin:1em 0;}
+ul,ol,dl,blockquote,pre,hr,p,figure{margin:1em 0;}
+h1,h2,h3,h4,h5,h6{margin:1.5rem 0 1rem 0;line-height:1.2;}
 pre,code{font-family:monospace;white-space:pre-wrap;}
+pre{overflow:auto;max-height:80vh;}
+blockquote,pre,fieldset{padding:.5em 1em;}
+.small{font-size:85%;}
+.r{text-align:right;}
+.c{text-align:center;}
+.l{text-align:left;}
 
 /* link */
 a{color:var(--link);}
 a:visited{color:var(--visited);}
 a:hover{color:var(--hover);}
 a.btn, .nav a, a:empty[href^="#"]{text-decoration:none;}
-.nav li>a:hover, tr:hover{background-color:var(--bg-hilite);}
+a.act, .nav li>a:hover, tr:hover{color:var(--text-hilite);background-color:var(--bg-hilite);}
 	form>table tr:hover{background:none;}
-a:empty[href^="#"]{float:right;}
+a:empty[href^="#"]{float:right;} /* .close */
 a:empty[href^="#"]:before{content:"\d7";}
 
 /* image */
 svg{fill:currentColor;}
-.icon{vertical-align:-.2em;margin-right:.2em;width:1.2em;height:1.2em;}
+.icon{display:inline-block;vertical-align:-.2em;margin-right:.2em;width:1.2em;height:1.2em;}
+
+/* list */
+ul{list-style:disc outside;}
+ul, ol{padding:0 0 0 1.5em;}
+li ul, li ol{margin:.2em 0;}
 
 /* table */
 table{border-collapse:collapse;border-spacing:0;}
@@ -111,9 +142,9 @@ div.hide, .nav ul, .pop>div, .dialog{background:var(--bg);background-clip:paddin
 	.nav ul, .pop>div{position:absolute;left:0;top:100%;min-width:12em;}
 	div.hide, .pop>div{padding:.5em 1em;}
 	
-	.dialog{width:80%;max-width:24em;margin:1em auto;text-align:center;box-sizing:content-box}
+	.dialog{width:80%;min-width:10em;max-width:24em;margin:1em auto;text-align:center;box-sizing:content-box;}
 	.full{left:0;top:0;width:100%;height:100vh;border:1em solid #eee;box-sizing:border-box;overflow:auto;}
-	.dialog,.full{padding:2em;}
+	.dialog[class],.full{padding:2em;}
 		.dialog.hide{border:200vw solid rgba(0,0,0,.85);left:50%;top:50%;transform:translate(-50%,-50%);min-width:20em;max-width:80vw;max-height:80vh;width:auto;}
 		.dialog.hide,.full.hide{position:fixed;z-index:40;}
 /* z-index */	
@@ -127,7 +158,7 @@ div.hide{z-index:10;}
 .shift{margin-left:auto;order:99;}
 
 /* color */
-.bg{background-color:var(--bg-pane);}
+.bg,blockquote,pre,code,thead,tfoot{background-color:var(--bg-pane);}
 .btn[class],button,[type="submit"]{background-color:var(--link);color:var(--bg);}
 
 .text-e[class]{color:#d00;}
@@ -145,6 +176,11 @@ div.hide{z-index:10;}
 .bg-i.btn{background-color:#08b;}
 .bg-y.btn{background-color:#292;}
 .bg-n.btn{background-color:#999;}
+
+/* yellow fade */
+@keyframes yellowfade { 0% {} 30% {background-color:#ffc;} 100% {} }
+.yel:target{animation-name:yellowfade;animation-duration:2s;}
+
 /* media */
 
 @media (max-width: 44.99em){
@@ -153,8 +189,6 @@ div.hide{z-index:10;}
 	form>table tr, form>table tr>*{display:block;padding:0;}
 	form>table tr{padding-bottom:.5em;}
 	ul.nav ul{left:3em;top:90%;}
-	.modal{min-width:10em;}
-
 }
 
 @media (min-width: 45em){
@@ -169,3 +203,13 @@ div.hide{z-index:10;}
 	.nav ul li>a:nth-last-child(2):after{position:absolute;right:.5em;top:.5em;} /* subnav arrow */
 	.nav{display:flex;flex-wrap:wrap;}
 }
+
+@media screen{
+	.print{display:none !important;}
+}
+
+@media print{
+	.screen{display:none !important;}
+	.full{page-break-before:always;}
+}
+
