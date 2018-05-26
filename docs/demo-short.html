@@ -75,8 +75,8 @@
 	<a href="#mod1">Modal</a>
 	text.
 		<div id="tog1" class="hide yel">Toggle</div>
-		<div id="dlg1" class="hide dialog"><a href="#cancel"></a>Dialog</div>
-		<div id="mod1" class="hide full"><a href="#cancel"></a>Full</div>
+		<div id="dlg1" class="hide dialog"><a class="close" href="#cancel"></a>Dialog</div>
+		<div id="mod1" class="hide full"><a class="close" href="#cancel"></a>Full</div>
 </div>
 		
 <h2>Form</h2>
@@ -294,6 +294,24 @@
 </div>
 
 <div class="full">Full</div>
+
+<h2>Gallery</h2>
+
+Pure CSS, lazy load, preload next, next on enter
+<a href="#ga1">Show</a>
+<div class="gal">
+	<a id="ga1" href="#ga2" class="full hide" style="--img:url(http://vadimkor.ru/src/ir.png)"></a>
+	<a id="ga2" href="#ga3" class="full hide" style="--img:url(http://vadimkor.ru/src/ig.png)"></a>
+	<a id="ga3" href="#ga1" class="full hide" style="--img:url(http://vadimkor.ru/src/ib.png)"></a>
+	<a class="close" href="#cancel"></a> <!-- link to close -->
+</div>
+
+<div class="hide">
+	Hidden non-CSS fallback
+	<a href="http://vadimkor.ru/src/ir.png">#1</a>
+	<a href="http://vadimkor.ru/src/ir.png">#2</a>
+	<a href="http://vadimkor.ru/src/ir.png">#3</a>
+</div>
 
 </body>
 </html>

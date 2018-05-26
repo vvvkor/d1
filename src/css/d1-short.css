@@ -88,8 +88,12 @@ a:hover{color:var(--hover);}
 a.btn, .nav a, a:empty[href^="#"]{text-decoration:none;}
 a.act, .nav li>a:hover, tr:hover{color:var(--text-hilite);background-color:var(--bg-hilite);}
 	form>table tr:hover{background:none;}
-a:empty[href^="#"]{float:right;} /* .close */
+/*
+a:empty[href^="#"]{float:right;}
 a:empty[href^="#"]:before{content:"\d7";}
+*/
+a.close{float:right;}
+a.close:before{content:"\d7";}
 
 /* image */
 svg{fill:currentColor;}
@@ -219,3 +223,20 @@ div.hide{z-index:10;}
 	.full{page-break-before:always;}
 }
 
+/* experimental */
+
+.gal{display:flex;/*align-items:center;*/}
+.gal a{display:none;/*vertical-align:top;*/}
+.gal a:not(.close){background:#ddd 50% 50% / contain no-repeat;}
+.gal a[id]:target{background-image:var(--img);height:100vh;flex:auto;} /* current */
+	.gal a:target+a{background-image:var(--img);background-position:999em 999em;} /* preload next */
+.gal a:target, .gal a:target~a.close {display:inline-block;}
+	/*
+	.gal a:target{order:1;}
+	.gal a:target+a+a{order:-1;}
+	.gal a.close{order:9;}
+	*/
+/*
+.gal a:target:before{content:"<";}
+.gal a:target+a+a:after{content:">";}
+*/
