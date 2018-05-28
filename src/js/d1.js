@@ -17,10 +17,10 @@ var main = new(function() {
 
 	"use strict";
 
-	this.togglable = '.hide.toggle[id], ul.toggle ul[id], .tabs>.hide, details'; //.drawer.toggle
-	this.escapable = '.pop>.hide, ul.nav.toggle ul, details.pop, .esc'; //.drawer.toggle
-	this.mem = '.mem, .tabs.mem>.hide, ul.mem ul[id], details.mem details';
-	this.unhover = 'ul.nav.toggle ul[id]';
+	this.togglable = '.hide.toggle[id], .pop>div.toggle[id], ul.toggle ul[id], .tabs>.hide[id]';
+	this.escapable = '.pop>div, ul.nav.toggle ul, .esc';
+	this.mem = '.mem, .tabs.mem>.hide, ul.mem ul[id]';
+	this.unhover = 'ul.toggle ul[id], .pop>div.toggle[id]';
 
 	//common
 
@@ -112,23 +112,17 @@ var main = new(function() {
 	//toggle
 	
 	this.getState = function(n) {
-		return (n.tagName == 'DETAILS')
-			? n.open
-			: n.classList.contains('js-show');
+		return n.classList.contains('js-show');
 	}
 	
 	this.setState = function(n, on) {
-		if (n.tagName == 'DETAILS') n.open = on;
-		else{
-			n.classList.add('js-control');
-			n.classList[on ? 'add' : 'remove']('js-show');
-		}
+		n.classList.add('js-control');
+		n.classList[on ? 'add' : 'remove']('js-show');
 	}
 	
 	this.targetState = function(n, e, on){
 		if (e && on === undefined){
 			if (n.parentNode.matches('.tabs')) on = true; //tabs: on
-			else if (e.type == 'toggle') on = this.getState(n); //details: keep
 			else on = !this.getState(n); //toggle
 		}
 		return on;
@@ -219,7 +213,7 @@ var main = new(function() {
 			//escape or click with no active ancestor
 			if( e.keyCode 
 				|| this.ancestor('a.close', e.target)
-				|| !this.ancestor('a, .hide, .drawer, .nav, details.pop', e.target)
+				|| !this.ancestor('a, .hide, .nav, .pop>div', e.target)
 			) {
 				this.b('', this.escapable, '', this.hide);
 				location.hash = '#cancel';
@@ -246,22 +240,20 @@ var main = new(function() {
 		//table cells align
 		this.b(n, 'table[class]', '', this.alignCells);
 		//gallery back
-		this.b(n, 'a.slide[id]', 'click', this.gotoPrev);
+		this.b(n, '.gal a[id]', 'click', this.gotoPrev);
 		//drop image
 		this.b(n, '.drop', 'change', this.dropImage);
 
 		//prepere nav
-		this.b(n, this.unhover + ', .accordion ul', '', function(n) { n.classList.add('js-control'); });
+		this.b(n, this.unhover, '', function(n) { n.classList.add('js-control'); });
 		//prepare mem
 		this.restore();
 		//prepare tabs (hilite first if not remembered)
-		//this.b(n, '.tabs>.hide:last-child:not(.js-control)', '', this.show);
 		this.b(n, '.nav+.tabs', '', this.showFirstTab);
 		//prepare hash
 		if (location.hash) this.show(location.hash);
 		//toggle
 		this.b(n, 'a[href^="#"]', 'click', this.handleState);
-		this.b(n, 'details[id]', 'toggle', this.handleState);
 
 		//escape closes targeted elements
 		if (!n) this.b('', [window], 'keydown', this.esc);

@@ -8,814 +8,477 @@
 	<!-- CDN -->
 	<link href="https://cdn.jsdelivr.net/npm/d1css/dist/d1.min.css" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/d1css/dist/d1.min.js"></script>
-	
+
 	<!-- local -->
 	<!--
 	<link href="../src/css/d1.css" rel="stylesheet">
 	<script src="../src/js/d1.js"></script>
 	<script> d1.run(); </script>
 	-->
-	
-	<!--
-	dialog - use standard alerts
-	sort
-	calendar - use standard inputs
-	gallery - use from cdn
-	wysiwyg - use from cdn
-	icons - use from cdn
-	-->
-	
-	<!--link rel="stylesheet" href="http://cdn.materialdesignicons.com/2.1.19/css/materialdesignicons.min.css"--><!-- font -->
-	<!--link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"--><!-- font, works without js -->
-	<!--script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script--><!-- svg! -->
 </head>
-<body class="-bg -pad -nodec">
+<body>
 
-<a target="_blank" href="https://github.com/vvvkor/d1" title="GitHub" class="btn inv pad -hover"><svg class="icon" width="32" height="32" viewBox="0 0 16 16" version="1.1" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg> GitHub</a>
+<div class="row wrap center flip">
+<div class="stick bg">
+	<h1>d1.css</h1>
+	<p class="">
+		<a target="_blank" href="https://github.com/vvvkor/d1" title="GitHub" class="btn bg-n"><svg class="icon" width="32" height="32" viewBox="0 0 16 16" version="1.1" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg> GitHub</a>
+	</p>
+	<p class=""><code class="pad">npm install d1css</code></p>
 
-<!--i class="mdi mdi-account"></i-->
-<!--i class="fa fa-bars"></i-->
-
-
-<div class="stick"><a href="#draw" class="right pad -bg hover" accesskey="c">&equiv;</a></div>
-<div class="pad bg-w -stick">
-	<div class="">
-		JS:
-		<a href="?disable#disable-js" id="disable-js" class="hover text-e">disable</a>
-		<a href="?enable#enable-js" id="enable-js" class="hover text-y">enable</a>
-		<!--a href="#draw" class="lite right -pad hover" accesskey="c">&nbsp;&equiv;&nbsp;</a-->
-	</div>
+	<ul>
+		<li><a href="#nav">Navigation</a>
+		<li><a href="#toggle">Toggle</a>
+		<li><a href="#form">Form</a>
+		<li><a href="#table">Table</a>
+		<li><a href="#grid">Grid</a>
+		<li><a href="#blocks">Blocks</a>
+		<li><a href="#typo">Typography</a>
+		<li><a href="#colors">Colors</a>
+	</ul>
 </div>
+<div class="col-2 pad">
 
-<!--progress value="450" max="1000"></progress-->
+<h2 id="nav">Navigation</h2>
 
-<!--offset-->
-<!--
-<p class="screen pad"></p>
-<ul class="screen box fix wide nav hor hover toggle">
-	<li><a href="#"><strong>d1</strong> &mdash; <i>micro CSS framework</i></a>
-	<li class="gap">
-</ul>
--->
-<!--a href="#draw" class="stick right pad bg hover">&equiv;</a-->
-
-	<nav class="screen">
-
-		<!--div class="pad right"><a href="#draw" class="pad hover" accesskey="c">&equiv;</a></div-->
-
-		<div class="drawer box right bg-w pad" id="draw">
-			<a href="#cancel" class="pad hover right close"></a>
-			<h3>Navigation</h3>
-			<div class="lite">
-			<ul class="-lite hover">
-				<li><a href="#typography">Typography</a>
-				<li><a href="#layout">Layout</a>
-					<ul id="layout">
-						<li><a href="#grid">Grid</a>
-						<li><a href="#respensive">Responsive</a>
-						<li><a href="#boxes">Boxes</a>
-					</ul>
-				<li><a href="#form">Form</a>
-					<ul>
-						<li><a href="#form-inline">Inline</a>
-						<li><a href="#form-stacked">Stacked</a>
-						<li><a href="#form-aligned">Aligned</a>
-						<li><a href="#drop">Drop image</a>
-					</ul>
-				<li><a href="#table">Table</a>
-				<li><a href="#nav">Navigation</a>
-					<ul id="nav">
-						<li><a href="#dropdown">Dropdown</a>
-						<li><a href="#drawer">Drawer</a>
-						<li><a href="#drawer">Pagination</a>
-					</ul>
-				<li><a href="#show-hide">Show / Hide</a>
-					<ul id="show-hide">
-						<li><a href="#popup">Popup</a>
-						<li><a href="#toggle">Toggle</a>
-						<li><a href="#tree">Tree</a>
-						<li><a href="#tabs">Tabs</a>
-					</ul>
-				<li><a href="#fullscreen">Fullscreen</a>
-					<ul id="fullscreen">
-						<li><a href="#modal">Modal</a>
-						<li><a href="#gallery">Gallery</a>
-						<li><a href="#slide">Slide</a>
-					</ul>
-				<li><a href="#status">Status</a>
-				<li><a href="#enhance">Javascript enhancements</a>
+	<div class="hide show-mobile"><a href="#menu" class="pad hover">&equiv;</a></div>
+	<nav class="hide show-desktop toggle" id="menu">
+	<ul class="nav bg toggle flip">
+		<li><a href="#typography" class="act">Typography</a>
+		<li><a href="#layout">Layout</a>
+			<ul id="layout">
+				<li><a href="#grid">Grid (responsive)</a>
+				<!--li><a href="#boxes">Boxes</a-->
 			</ul>
-			</div>
-		</div>
+		<li><a href="#forms">Forms</a>
+			<ul id="forms">
+				<li><a href="#form-inline">Inline</a>
+				<li><a href="#form-stacked">Stacked</a>
+				<li><a href="#form-aligned">Aligned (responsive)</a>
+				<li><a href="#drop">Drop image</a>
+			</ul>
+		<li><a href="#table">Table</a>
+		<li><a href="#navs">Navigation</a>
+			<ul id="navs">
+				<li><a href="#dropdown">Dropdown (responsive)</a>
+				<!--li><a href="#drawer">Drawer</a-->
+				<li><a href="#drawer">Pagination</a>
+			</ul>
+		<li><a href="#show-hide">Toggle</a>
+			<ul id="show-hide">
+				<li><a href="#popup">Popup</a>
+				<li><a href="#toggle">Toggle</a>
+				<li><a href="#tree">Tree</a>
+				<li><a href="#tabs">Tabs</a>
+				<li><a href="#dialog">Dialog</a>
+				<li><a href="#fullscreen">Fullscreen</a>
+				<li><a href="#gallery">Gallery</a>
+			</ul>
+		<li><a href="#status">Status</a>
+		<li><a href="#enhance">Javascript</a>
+		<li class="shift">
+			<form>
+				<input type="search" size="5">
+				<input type="submit" value="Find">
+				<!--a href="#" class="btn">Btn</a>
+				<a href="#">Link</a>
+				<span class="btn">Span</span-->
+			</form>
+	</ul>
 	</nav>
 
-	<main class="wrap pad -pane">
-		<div class="gap row flip">
-			<div class="col-2">
-				<h3 class="screen">Dropdown nav</h3>
-				
-				<div class="hide show-mobile"><a href="#menu" class="pad hover">&equiv;</a></div>
-				
-				<nav id="menu" class="hide show-desktop toggle -mem esc">
-				<ul class="nav -mem hor flip hover bg screen toggle fx">
-					<li><a href="#" accesskey="1">Home</a>
-					<li><a href="#css">CSS</a>
-						<ul id="css">
-							<li><a>Grid</a>
-							<li><a>Form</a>
-							<li><a>Table</a>
-							<li><a href="#status">Status</a>
-								<ul id="status">
-									<li><a class="text-e">Error</a>
-									<li><a class="text-w">Warning</a>
-									<li><a class="text-i">Info</a>
-									<li><a class="text-y">Success</a>
-									<li><a class="text-n">Note</a>
-								</ul>
-							<li><a href="#box">Box</a>
-								<ul id="box">
-									<li><a>Border</a>
-									<li><a>Margin</a>
-									<li><a>Padding</a>
-									<li><a>Wrap</a>
-									<li><a>Wide</a>
-									<li><a>Slide</a>
-									<li><a>Inline-block</a>
-								</ul>
-							<li><a href="#interact">Interactions</a>
-								<ul id="interact">
-									<li><a>Dropdown (hover)</a>
-									<li><a>Tree (hash, detail)</a>
-									<li><a>Toggle (hash, detail)</a>
-									<li><a>Popup (hover, hash, detail)</a>
-									<li><a>Tooltip</a>
-									<li><a>Modal (hash)</a>
-									<li><a>Drawer (hash)</a>
-									<li><a>Tabs (hash)</a>
-									<li><a>Gallery (IMG or BG)</a>
-								</ul>
-							<li><a>Printable</a>
-							<li><a>Adaptive</a>
-							<li><a class="text-e">No (no ID, hover only)</a>
-								<ul>
-									<li><a>Icons</a>
-									<li><a>Flags</a>
-								</ul>
-						</ul>
-					<li><a href="#js">JS</a>
-						<ul id="js">
-							<li><a href="http://ya.ru" class="confirm" title="Go to Yandex?">Confirm dialog</a>
-							<li><a href="http://ya.ru?q=" class="prompt" title="Search:" data-default="...">Prompt dialog</a>
-							<li><a>Check <span class="btn inv bg-y">all</span></a>
-							<li><a>Column align</a>
-							<li><a>Escape (Alt+X)</a>
-							<li><a>Click out (Alt+X)</a>
-							<li><a>Drop image</a>
-							<li><a href="#enhance" class="bg-y">&#10004; Enhance</a>
-								<ul id="enhance">
-									<li><a>Toggle (multi, mem, hilite)</a>
-									<li><a>Tabs (optional)</a>
-									<li><a>Popup (multi, esc)</a>
-									<li><a>Gallery (back)</a>
-									<li><a>Dropdown (click, mem)</a>
-									<li><a>Drop file</a>
-								</ul>
-							<li><a href="#add" class="bg-i">&hellip; Additional</a>
-								<ul id="add">
-									<li><a>Ajax</a>
-									<li><a>Calendar</a>
-									<li><a>Wisiwyg</a>
-									<li><a>Sort table</a>
-								</ul>
-							<li><a href="#no" class="bg-w text-e">&#10008; No</a>
-								<ul id="no">
-									<li><a>Dialogs</a>
-									<li><a>Set value</a>
-									<li><a>Slide</a>
-									<li><a>Validation</a>
-								</ul>
-						</ul>
+	<ul class="nav bg screen mar">
+		<li><b>Pages</b>
+		<li><a href="#p1" title="Page 1">1</a>
+		<li><a href="#p2" title="Page 1">2</a>
+		<li><a href="#p3" title="Page 2">3</a>
+	</ul>
 
-					<li><a href="#gal">Gallery</a>
-						<ul id="gal">
-							<li><a href="#gale1">Bg, lazy load</a>
-							<li><a href="#gal1">Img, load all</a>
-						</ul>
-					<li class="gap"><a href="#m2">Dialog</a>
-					<li class=""><a href="#m1" class="" >Modal</a>
-					<li><form><input type="search" size="3"> <input type="submit" class="btn inv -bg-n" value="Find"></form>
-				</ul>
-				</nav>
-				
-				<h2 class="print">Main</h2>
-				
-				<h3 class="hide">Hidden</h3>
-				
-				<div class="modal hide" id="m2">
-					<a href="#cancel" class="right pad hover close"></a>
-					<h3 class="lite pad bg">Modal dialog</h3>
-					<div class="pad">
-						<p>Hello.</p>
-						<p class="c">
-							<a href="#form" class="btn pad inv bg-i">Form</a>
-							<a href="#cancel" class="btn pad lite hover -inv -bg-n">Cancel</a>
-						</p>
-					</div>
-				</div>
-				
-				<div class="modal pad hide wide -wrap" id="m1">
-					<a href="#cancel" class="right pad nodec hover close"></a>
-					<div class="pad">
-						<h3>Interactive components</h3>
-						<div class="scroll">
-<div class="roll">
-<table class="-r wide hover bord r1 sort">
-<!--caption>Interactive components <input name="_q" type="search" placeholder="search"></caption-->
-	<tr><th class="bg-i">Component	<th>Markup<th>Event<th>Pure CSS<th>With JS
-	<tr class="bg-i"><th>Menu hover	<td><b>ul.nav</b><td>hover, target ul<td>hovers<td>top-<b>ul.toggle</b>: toggle, esc
-	<!--tr><th>Menu toggle	<td>ul.nav.toggle<td>hover, click<td>sub-ul<td>toggle, click-out<td>...</tr-->
-	<tr><th>Toggle		<td>a[hash], <b>.hide[id]</b><td>target<td>jumps, no hilite<td><b>div.toggle</b>: multi, unjump, hilite, mem
-	<tr class="bg-w"><th>Toggle unjump		<td>a[self]+.hide<td>target self<td><td>esc
-	<tr><th>Tree toggle	<td>ul (a[hash] + ul.hide[id])<td>target<td>jumps, no hilite<td>top-<b>ul.toggle</b>:multi, unjump, hilite, mem
-	<tr class="bg-w"><th>Tree toggle unjump	<td>ul (a[self] + ul.hide)<td>target self<td><td>esc
-	<tr class="bg-i"><th>Popup hover	<td><b>div.pop.hover</b> &gt; * + div.hide<td>hover<td>hovers<td>-
-	<tr><th>Popup toggle<td><b>div.pop</b> &gt; a[hash] + div.box[id]<td>target<td>jumps, no hilite<td>esc, <b>div.toggle</b>: multi, unjump, hilite
-	<tr class="bg-w"><th>Popup toggle unjump<td><b>div.pop</b> &gt; a[self] + div.box<td>target self<td><td>esc
-	<tr class="bg-y"><th>Details / summary<td><b>details(.pop)</b> &gt; summary + (div|ul)<td>native<td>-ie<td>[id] mem
-	<tr><th>Modal		<td>a[hash], div<b>.modal.hide[id]</b><td>target<td><td>esc
-	<tr><th>Drawer		<td>a[hash], <b>div.drawer[id]</b><td>target<td><td>esc
-	<tr><th>Gallery		<td>a[hash], div &gt; <b>a.slide[id]</b>[hash][data-info]({bg}|img)<td>target<td>no prev<td>esc, prev
-	<tr><th>Tabs		<td>(ul a[hash])+(div.tabs &gt; div.hide[id])<td>target, default<td>jumps, no hilite, source order<td>multi, unjump, hilite, nested
-	<tr class="bg-w"><th>Tabs unjump		<td><b>.tabs &gt; radio.switch</b> + label[for]+div<td>label for<td><td>-
-</table>
-All components using <b>target</b> are: single-active, not-nesable, (no-mem, no-esc, no-click-out).
-</div>
+<h2 id="toggle">Toggle</h2>
 
-<table class="bord mar hover">
-	<tr><th>Component	<th>d1.css<th>d1.js<th>n0.css
-	<tr><th>Dropdown	<td>H	<td>T	<td>H
-	<tr><th>Tree		<td>tDX	<td>TD	<td>tDX
-	<tr><th>Toggle		<td>tDX	<td>TD	<td>tDX
-	<tr><th>Popup		<td>HFtDX<td>TD	<td>tDX
-	<tr><th>Tooltip		<td>HF	<td>HF	<td>HF
-	<tr><th>Tabs		<td>tX	<td>T	<td>tX
-	<tr><th>Modal		<td>T	<td>T	<td>T
-	<tr><th>Drawer		<td>T	<td>T	<td>-
-	<tr><th>Gallery		<td>T	<td>T	<td>T
-</table>
-
-<p>
-H - hover<br>
-F - focus<br>
-T - toggle<br>
-D - details<br>
-X - checkbox hack<br>
-</p>
-
-
-						</div>
-						<p>
-							<a href="http://ya.ru" class="btn pad text-y bg-y hover">Yandex</a>
-							<a href="#cancel" class="btn pad lite hover">Cancel</a>
-						</p>
-					</div>
-				</div>
-
-				
-				<h3><a href="#typ">Typography</a></h3>
-
-				<div class="hide toggle mem pad bord yel" id="typ">
-				<div class="row gap">
-					<div>
-						<h1>Heading 1</h1>
-						<h2>Heading 2</h2>
-						<h3>Heading 3</h3>
-						<h4>Heading 4</h4>
-						<h5>Heading 5</h5>
-						<h6>Heading 6</h6>
-						<p>Paragraph</p>
-					</div>
-					<div>
-						<p>Paragraph<br>New line</p>
-						<p>Paragraph</p>
-						<pre>Preformatted</pre>
-						<blockquote>Blockqoute</blockquote>
-						<hr>
-
-						<b>b</b>
-						<i>i</i>
-						<s>s</s>
-						<ins>ins</ins>
-						<del>del</del>
-						<sub>sub</sub>
-						<sup>sup</sup>
-						<time datetime="1970-01-01">time</time>
-						
-						<br>
-						<abbr title="Abbreviation">Abbr</abbr>
-						<q>quote</q>
-						<cite>cite</cite>
-						<mark>mark</mark>
-						<dfn>dfn</dfn>
-						
-						<br>
-						<code>code</code>
-						<var>var</var>
-						<kbd>kbd</kbd>
-						<samp>samp</samp>
-						
-						<br>
-						<a href="http://ya.ru">Link</a>
-						<a href="http://ya.ru" class="btn inv bg-i">Invert</a>
-						
-						<a href="#" class="hover">
-							<svg class="text-i icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
-								<path d="m477 162c0 7-2 14-8 19l-206 207l-39 39c-6 5-12 8-20 8c-7 0-14-3-19-8l-142-142c-6-6-8-12-8-20c0-7 2-14 8-19l38-39c6-5 12-8 20-8c7 0 14 3 19 8l84 84l188-188c5-5 12-8 19-8c8 0 14 3 20 8l38 39c6 6 8 12 8 20z"/>
-							</svg>SVG icon
-						</a>
-					</div>
-				</div>
-				</div>
-				
-				
-				<h3 id="form">Form</h3>
-				
-				<form action="?" class="bg pad -mar">
-					<table class=" gap flip -bord -mar -wide">
-					<tr>
-						<td><label class="req" for="nm">Name</label>
-						<td><div class="ib pop"><input type="text" name="nm" id="nm" required pattern="[A-Za-z]{2,}" title="Two or more letters"><span class="hide tip left">Tooltip for input:
-Enter two or more letters</span></div>
-						<!--
-						set: 
-						<a href="#nm" data-value="test">test</a>,
-						<a href="#nm" data-value="default">default</a>
-						<a href="?val=~" class="prompt" title="Value" data-src="#nm">goto</a>
-						-->
-						
-					<tr><td colspan="2">
-					<fieldset>
-						<legend><a href="#fs1">Input types</a></legend>
-						<table id="fs1" class="hide toggle mem">
-						
-						<tr>
-							<td><label for="lng">Select</label>
-							<td>
-							<select name="lng" id="lng">
-								<option value="en" selected>English</option>
-								<option value="ru">Russian</option>
-							</select>
-						<tr>
-							<td><label for="dis">Disabled</label>
-							<td><input type="text" name="dis" id="dis" disabled>
-						<tr>
-							<td><label for="dt">Date</label>
-							<td><input type="date" name="dt" id="dt">
-						<tr>
-							<td><label for="tm">Time</label>
-							<td><input type="time" name="tm" id="tm">
-						<tr>
-							<td><label for="dtl">Datetime</label>
-							<td><input type="datetime-local" name="dtl" id="dtl">
-						<tr>
-							<td><label for="num">Number</label>
-							<td><input type="number" name="num" id="num">
-						<tr>
-							<td><label for="rng">Range</label>
-							<td><input type="range" name="rng" id="rng">
-						<tr>
-							<td><label for="clrn">Color</label>
-							<td><input type="color" name="clrn" id="clrn">
-						<tr>
-							<td><label for="msg">Textarea</label>
-							<td><textarea class="wys" name="msg" id="msg" cols="20" rows="5">text<b></textarea>
-						<tr>
-							<td>Upload
-							<td><label class="drop bg-n bord" title="Drop image"><input type="file" name="up[]" multiple></label>
-							
-						</table>
-					</fieldset>
-					<!--tr><td colspan="2"-->
-					<fieldset>
-						<legend><a href="#fs2">Switches</a></legend>
-						<table id="fs2" class="hide toggle mem">
-							<tr>
-								<td>Box
-								<td>
-									<label><input type="checkbox" class="" name="colors" value="1" data-group="colors"> <b>All</b></label><br>
-									<label><input type="checkbox" class="colors" name="color[]" value="red"> Red</label><br>
-									<label><input type="checkbox" class="colors" name="color[]" value="green"> Green</label><br>
-									<label><input type="checkbox" class="colors" name="color[]" value="blue"> Blue</label><br>
-							<tr>
-								<td>Radio
-								<td>
-									<label><input type="radio" name="ra1" value="sun"> Sun</label><br>
-									<label><input type="radio" name="ra1" value="moon"> Moon</label><br>
-						</table>
-					</fieldset>
-					<tr>
-						<td>
-							<input type="submit" value="Disabled" class="btn inv bg-i pad" disabled>
-						<td>
-							<input type="submit" value="Submit" class="btn inv bg-i pad">
-							<div class="ib pop hover">
-								<button type="submit" value="Button" class="btn inv bg-y pad">
-									<svg class="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
-										<path d="m477 162c0 7-2 14-8 19l-206 207l-39 39c-6 5-12 8-20 8c-7 0-14-3-19-8l-142-142c-6-6-8-12-8-20c0-7 2-14 8-19l38-39c6-5 12-8 20-8c7 0 14 3 19 8l84 84l188-188c5-5 12-8 19-8c8 0 14 3 20 8l38 39c6 6 8 12 8 20z"/>
-									</svg>
-									Button
-								</button>
-								<div class="hide tip">Tip</div>
-							</div>
-							<input type="submit" value="Confirm" class="btn inv bg-w pad confirm" name="btn2" title="Confirm?">
-							<a href="#" class="btn pad lite hover">Link</a>
-					</table>
-				</form>
-				
-				<h3>Tabs</h3>
-				
-				<div class="mar">
-					<ul class="nav hor hover">
-						<li><a href="#tb1">Simple</a>
-						<li><a href="#tb2">Jumpy</a>
-						<li><a href="#tb3">Tabs</a>
-					</ul>
-					<div class="bord pad tabs mem">
-						<div id="tb2" class="hide">2<br>2</div>
-						<div id="tb3" class="hide">3<br>3<br>3
-							<!--
-							<div class="mar">
-								<ul class="nav hor hover">
-									<li><a href="#stb1">Simple</a>
-									<li><a href="#stb2">Jumpy</a>
-									<li><a href="#stb3">Tabs</a>
-								</ul>
-								<div class="bord pad tabs">
-									<div id="stb2" class="hide">2<br>2</div>
-									<div id="stb3" class="hide">3<br>3<br>3</div>
-									<div id="stb1" class="hide">1</div>
-								</div>
-							</div>
-							-->
-						
-						</div>
-						<div id="tb1" class="hide">1</div>
-					</div>
-				</div>
-		
-				<h3>Popup</h3>
-		
-				<div class="ib pop">
-					<a href="#p2" class="hover">Link div</a>
-					|
-					<a href="#p2" class="hover">Alt link</a>
-					<div id="p2" class="hide toggle box bord pad">
-						Popup box <i>1</i>
-					</div>
-				</div>
-				|
-				<div class="ib pop hover">
-					<a href="#hover" class="hover">Hover right</a> without link
-					<div class="hide box pad right bg-w">
-						Popup box 2 right
-					</div>
-				</div>
-				|
-				<div class="ib pop hover"><a href="#tip">Tooltip</a><div class="hide tip">This is a long tooltip text to overflow element's<br>new line</div></div>
-				|
-				<details class="pop ib">
-					<summary class="hover">Summary</summary>
-					<div class="pad box right">Details</div>
-				</details>
-				|
-				<span class="btn inv bg-w">Badge</span>
-				.
-				
-				<h3>Toggle</h3>
-				
-				<!--dialog open>
-					<p>Greetings, one and all!</p>
-				</dialog-->
-				
-				<a href="#det1">Link to details</a>
-				<details id="det1" class="mem">
-					<summary class="hover">Summary</summary>
-					<div class="pad bord">Details</div>
-				</details>
-				
-				<div class="mar">
-					<a href="#t1" class="hover">Link-div toggle (jumpy), yel</a> <a href="#t1" class="hover">Alt link</a>
-					<div id="t1" class="hide box pad toggle mem yel">
-						&#128683; &#10008; &#9888; &#10004; &#128196; &#9998; &#128269; &#128274; &#9873; &#128338; &#128100;
-						<br>
-						&#8801;	&#8942; &#167; &#8226; &#9679; &#10005; &#10006; &#10010; &#9638; &#9636; &#9637; &#9680; &#10064;
-						<br>
-						&#9786; &#9733; &#10026; &#9728; &#9788; &#9889; &#9990; &#9993; &#9834; &#128179; &#9917; &#128200; &#128202;
-						<br>
-						&#36; &#8364; &#162; &#163; &#165; &#8381;
-						<br>
-						&#9650; &#9654; &#9660; &#9664;
-						&#9652; &#9656; &#9662; &#9666;
-						&#10148; &#10226; &#10227; &#10094; &#10095;
-					</div>
-				</div>
-				
-				<h3>Tree / Accordion</h3>
-				
-				<div class="row gap">
-					<div>
-						<h4>Open multiple branches</h4>
-						<ul class="-lite toggle mem">
-							<li><a href="#tree1" class="hover">Link sublist (jumpy)</a> <a href="#tree1" class="hover">Alt link</a>
-								<ul class="hide" id="tree1">
-									<li><a href="#tree11">A1</a>
-									<li><a href="#tree12">A2</a>
-									<li><a href="#tree13">A3</a>
-								</ul>
-							<li><a href="#tree2" class="hover">Link sublist (jumpy)</a>
-								<ul class="hide" id="tree2">
-									<li><a href="#tree21">B1</a>
-									<li><a href="#tree22">B2</a>
-									<li><a href="#tree23">B3</a>
-								</ul>
-						</ul>
-					</div>
-					<div>
-						<h4>Open one branch</h4>
-						<ul class="-lite toggle mem accordion">
-							<li><a href="#acc1" class="hover">Link sublist (jumpy)</a> <a href="#acc1" class="hover">Alt link</a>
-								<ul class="hide" id="acc1">
-									<li><a href="#acc11">A1</a>
-									<li><a href="#acc12">A2</a>
-									<li><a href="#acc13">A3</a>
-								</ul>
-							<li><a href="#acc2" class="hover">Link sublist (jumpy)</a>
-								<ul class="hide" id="acc2">
-									<li><a href="#acc21">B1</a>
-									<li><a href="#acc22">B2</a>
-									<li><a href="#acc23">B3</a>
-								</ul>
-						</ul>
-					</div>
-					<div>
-						<h4>Details</h4>
-						<details id="it1" class="mem"><summary>Item 1 <a href="#cancel">link</a></summary>
-							<details id="it11"><summary>Subitem 1.1</summary><div>AA</div></details>
-							<details id="it12"><summary>Subitem 1.2</summary><div>AB</div></details>
-							<details id="it13"><summary>Subitem 1.3</summary><div>AC</div></details>
-						</details>
-						<details id="it2" open class="mem"><summary>BItem 2</summary>
-							<ul>
-								<li><a href="#it21">B1</a>
-								<li><a href="#it22">B2</a>
-								<li><a href="#it23">B3</a>
-							</ul>
-						</details>
-					</div>
-				</div>
-				
-				<h3>Grid</h3>
-					
-				<div class="row flip mar">
-					<div class="bord pad bg">div</div>
-					<div class="bord pad bg">div</div>
-				</div>
-				<div class="row flip gap mar">
-					<div class="bord pad bg">div</div>
-					<div class="bord pad bg">div</div>
-				</div>
-				<div class="row flip gap mar">
-					<div class="bord pad bg col-2">.col-2</div>
-					<div class="bord pad bg col-3">.col-3</div>
-				</div>
-				<div class="row flip gap mar">
-					<div class="bord pad bg">div</div>
-					<div class="bord pad bg col-2">.col-2</div>
-				</div>
-				<div class="row flip gap mar">
-					<div class="bord pad bg">div</div>
-					<div class="bord pad bg col-3">.col-3</div>
-				</div>
-				<div class="row flip gap mar">
-					<div class="bord pad bg">div</div>
-					<div class="bord pad bg">div</div>
-					<div class="bord pad bg">div</div>
-					<div class="bord pad bg">div</div>
-					<div class="bord pad bg">div</div>
-					<div class="bord pad bg">div</div>
-				</div>
-		
-				<h3>Horizontal nav</h3>
-				
-				<ul class="nav hor hover bg screen mar">
-					<li><a href="#p1" title="Page 1">1</a>
-					<li><a href="#p2" title="Page 1">2</a>
-					<li><a href="#p3" title="Page 2">3</a>
-				</ul>
-				
-	
-				<h2>Pure CSS hacks</h2>
-				
-				<div>
-					Popup: <a href="#p1" class="hover">Alternative link</a>
-					<div class="ib pop">
-						<a href="#p1" id="p1" class="hover">Link self (highlighted)</a> 
-						<div class="hide box pad -bg-y">
-							Popup box 1
-						</div>
-					</div>
-				</div>
-				
-				<div>
-					Checkbox popup:
-					<div class="ib pop">
-						<input type="checkbox" class="switch" id="px1">
-						<label for="px1">Label</label>
-						<div class="box pad">
-							Popup box 1
-						</div>
-					</div>
-				</div>
-				
-				<div>
-					Toggle: <a href="#t2" class="hover">Alternative link</a>
-					<a href="#t2" id="t2" class="hover">Link self (highlighted)</a> 
-					<div class="hide box pad toggle yel">Togglable div</div>
-				</div>
-
-				<div>
-					Checkbox toggle: 
-					<input class="switch" type="checkbox" id="rt1" name="rt">
-					<label for="rt1">Label</label>
-					<div class="box pad">Wow</div>
-				</div>
-					
-				<ul class="-lite">
-					<li><a href="#treex1" id="treex1" class="hover">Link self (highlighted)</a>
-						<ul class="hide">
-							<li><a href="#treex11">A1</a>
-							<li><a href="#treex12">A2</a>
-							<li><a href="#treex13">A3</a>
-						</ul>
-					<li>
-						<input type="checkbox" class="switch" id="trx2">
-						<label for="trx2">Label</label>
-						<ul class="-hide">
-							<li><a href="#treex21">B1</a>
-							<li><a href="#treex22">B2</a>
-							<li><a href="#treex23">B3</a>
-						</ul>
-				</ul>
-				
-				<div class="mar tabs">
-					<input class="switch" type="radio" id="r1" name="rad" checked>
-						<label for="r1">Radio</label>
-						<div class="bord pad">1<br>1</div>
-					<input class="switch" type="radio" id="r2" name="rad">
-						<label for="r2">Hack</label>
-						<div class="bord pad">2<br>2</div>
-					<input class="switch" type="radio" id="r3" name="rad">
-						<label for="r3">Tabs</label>
-						<div class="bord pad">3<br>3</div>
-				</div>
-				
-				<!--
-				<div class="mar tabs">
-					<a id="tbx2"></a>
-						<a href="#tbx2" class="pad hover">Hacky</a>
-						<div class="bord pad hide">2<br>2</div>
-					<a id="tbx3"></a>
-						<a href="#tbx3" class="pad hover">Tabs</a>
-						<div class="bord pad hide">3<br>3<br>3</div>
-					<a id="tbx1"></a>
-						<a href="#tbx1" class="pad hover">Pure CSS</a>
-						<div class="bord pad hide">1</div>
-				</div>
-				-->
-
-				
+	<div class="row flip">
+	<div>
+		Show/hide: 
+		<div class="pop">
+			<a href="#pop1">Popup</a>
+			<div id="pop1" class="toggle">Pop</div>
+		</div>
+		<a href="#tog1">Toggle</a>
+		<a href="#dlg1">Dialog</a>
+		<a href="#mod1">Fullscreen</a>
+		<a href="#gal1">Gallery</a> (pure CSS, lazy load, preload next, next on enter)
+		.
+			<div id="tog1" class="hide bord yel toggle mem">Toggle</div>
+			<div id="dlg1" class="hide dialog"><a class="close" href="#cancel"></a>Dialog</div>
+			<div id="mod1" class="hide full"><a class="close" href="#cancel"></a>Full</div>
+			<div class="gal">
+				<a id="gal1" href="#gal2" data-info="1/3 - ir.png" style="--img:url(http://vadimkor.ru/src/ir.png)"></a>
+				<a id="gal2" href="#gal3" data-info="2/3 - ig.png" style="--img:url(http://vadimkor.ru/src/ig.png)"></a>
+				<a id="gal3" href="#gal1" data-info="3/3 - ib.png" style="--img:url(http://vadimkor.ru/src/ib.png)"></a>
+				<a class="close" href="#cancel"></a> <!-- link to close -->
 			</div>
-			
-			<!--div class="slide stick bg-i bord">slide</div-->
-			
-			<div class="stick -slide -bg-i -bord">
-				<!--div class="mar"><a href="#draw" class="pad hover right r" accesskey="c">&equiv;</a></div-->
-				<!--div class="-mar right"><a href="#draw" class="pad hover" accesskey="c">&equiv;</a></div-->
-				<h2 class="print">Aside</h2>
-				
-				<h3><!--a href="#draw" class="right lite -pad hover" accesskey="c">&nbsp;&equiv;&nbsp;</a-->
-				Status colors</h3>
-				<p class="bg-e text-e pad bord"><span class="text-e">&#10008;</span> Error / Danger</p>
-				<p class="bg-w text-w pad bord"><span class="text-w">&#9888;</span> Warning</p>
-				<p class="bg-i text-i pad bord"><span class="text-i">&#9432;</span> Info</p>
-				<p class="bg-y text-y pad bord"><span class="text-y">&#10004;</span> Success / Yes</p>
-				<p class="bg-n text-n pad bord"><span class="text-n">&#9993;</span> Note / No</p>
-				
-				<table class="hover -lite wide bord">
-					<tr class="bg">
-						<!--th>Status</th-->
-						<th>Text
-						<th>Bg
-						<th>Both
-						<th>Invert
-					<tr>
-						<!--th>Error</th-->
-						<td class="text-e">.text-e
-						<td class="bg-e">.bg-e
-						<td class="text-e bg-e">both
-						<td class="inv text-e bg-e">.inv <a href="#">a</a>
-					<tr>
-						<!--th>Warning</th-->
-						<td class="text-w">.text-w
-						<td class="bg-w">.bg-w
-						<td class="text-w bg-w">both
-						<td class="inv text-w bg-w">.inv
-					<tr>
-						<!--th>Info</th-->
-						<td class="text-i">.text-i
-						<td class="bg-i">.bg-i
-						<td class="text-i bg-i">both
-						<td class="inv text-i bg-i">.inv
-					<tr>
-						<!--th>Yes</th-->
-						<td class="text-y">.text-y
-						<td class="bg-y">.bg-y
-						<td class="text-y bg-y">both
-						<td class="inv text-y bg-y">.inv
-					<tr>
-						<!--th>No</th-->
-						<td class="text-n">.text-n
-						<td class="bg-n">.bg-n
-						<td class="text-n bg-n">both
-						<td class="inv text-n bg-n">.inv
-				</table>
-
-				<div class="row gap mar -bg">
-					<a href="#media"><img alt="pic" src="data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAQUlEQVR4nGNkaPjPQApgIkk1AwMDC6bQ/3oEm7GRYhuo4SRMZ+DTgOwBrJop9gN+91DDBrprQAs0cmwgOeJItgEAkbkIq9GVLncAAAAASUVORK5CYII="></a>
-					<div>
-						Media object with description
-						<div class="-right">
-							<time class="text-n" datetime="1970-01-01">January 1970</time>
-							&bull;
-							<a href="#media" class="-btn -inv">Link</a>
-						</div>
-					</div>
-				</div>
-				
-				<figure class="bg pad c">
-					<img alt="figure" src="data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAQUlEQVR4nGNkaPjPQApgIkk1AwMDC6bQ/3oEm7GRYhuo4SRMZ+DTgOwBrJop9gN+91DDBrprQAs0cmwgOeJItgEAkbkIq9GVLncAAAAASUVORK5CYII=">
-					<figcaption>
-						Figure caption
-					</figcaption>
-				</figure>
-				
-				<!--iframe src="http://ya.ru"></iframe-->
+			<div class="hide">
+				Hidden gallery: non-CSS fallback
+				<a href="http://vadimkor.ru/src/ir.png">#1</a>
+				<a href="http://vadimkor.ru/src/ir.png">#2</a>
+				<a href="http://vadimkor.ru/src/ir.png">#3</a>
 			</div>
-			
-			
+		<details class="mar">
+			<summary class="hover">Summary</summary>
+			<div class="bg">Details</div>
+		</details>
+	</div>
+	<div class="col-2">
+		<ul class="nav">
+			<li><a href="#tab1">Tab1</a>
+			<li><a href="#tab2">Tab2</a>
+			<li><a href="#tab3">Tab3</a>
+		</ul>
+		<div class="tabs mem bord">
+			<div id="tab2" class="hide">2<br>2</div>
+			<div id="tab3" class="hide">3<br>3<br>3</div>
+			<div id="tab1" class="hide">1</div>
 		</div>
-		
-		<!-- /row -->
-		
-		
-		<!-- gallery sources -->
-		
-		<div>
-			<a class="slide" id="gale1" href="#gale2" data-info="1/3 - Red bg" 
-				style="background-image:url(data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAP0lEQVR4nGO8y0AaYCJRPQMLppDS//9w9j1GRkptIFkDI6meRvcDsgcYaOIHTCOpbQPdNaAFGjk2kBxxJNsAAOoRC7muO9qQAAAAAElFTkSuQmCC);"></a>
-			<a class="slide" id="gale2" href="#gale3" data-info="2/3 - Green bg" 
-				style="background-image:url(data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAQUlEQVR4nGNkOMJAEmAiTTkDAwum0H/r/3A241FGSm0gWQMjqZ5G9wOyBxho4gdMI6ltA901oAUaOTaQHHEk2wAAS1MLbtABcV8AAAAASUVORK5CYII=);"></a>
-			<a class="slide" id="gale3" href="#gale1" data-info="3/3 - Blue bg" 
-				style="background-image:url(data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAQUlEQVR4nGNkaPjPQApgIkk1AwMDC6bQ/3oEm7GRYhuo4SRMZ+DTgOwBrJop9gN+91DDBrprQAs0cmwgOeJItgEAkbkIq9GVLncAAAAASUVORK5CYII=);"></a>
-			<a href="#cancel" title="Close" class="close"></a>
-		</div>
-		<div>
-			<a class="slide" id="gal1" href="#gal2" data-info="1/3 - Red img"><img alt="" 
-				src="data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAP0lEQVR4nGO8y0AaYCJRPQMLppDS//9w9j1GRkptIFkDI6meRvcDsgcYaOIHTCOpbQPdNaAFGjk2kBxxJNsAAOoRC7muO9qQAAAAAElFTkSuQmCC"></a>
-			<a class="slide" id="gal2" href="#gal3" data-info="2/3 - Green img"><img alt="" 
-				src="data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAQUlEQVR4nGNkOMJAEmAiTTkDAwum0H/r/3A241FGSm0gWQMjqZ5G9wOyBxho4gdMI6ltA901oAUaOTaQHHEk2wAAS1MLbtABcV8AAAAASUVORK5CYII="></a>
-			<a class="slide" id="gal3" href="#gal1" data-info="3/3 - Blue img"><img alt="" 
-				src="data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAQUlEQVR4nGNkaPjPQApgIkk1AwMDC6bQ/3oEm7GRYhuo4SRMZ+DTgOwBrJop9gN+91DDBrprQAs0cmwgOeJItgEAkbkIq9GVLncAAAAASUVORK5CYII="></a>
-			<a href="#cancel" title="Close" class="close"></a>
-		</div>
-		
-	
-	</main>
-
-	<div id="slide1" class="slide c bg-w"><p>Warning<br><a href="#slide2">Next</a></div>
-	<div id="slide2" class="slide c inv bg-y"><p>Yes<br><a href="#slide1" class="">Previous</a></div>
-	<div class="center box pad c">
-		<svg class="mar text-n" width="132" height="132" viewBox="0 0 16 16" version="1.1" aria-hidden="true"><path  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
-		<h2 class="lite">No items yet</h2>
-		<p>Click the button to create new item
-		<p><a href="#add" class="btn pad inv bg-i">Add new item</a>
-			
+	</div>
+	<div>
+		<ul class="toggle mem accordion">
+			<li><a href="#ul1">List 1</a>
+				<ul id="ul1">
+					<li><a href="#li11">Item 1.1</a>
+					<li><a href="#li12">Item 1.2</a>
+				</ul>
+			<li><a href="#ul2">List 2</a>
+				<ul id="ul2">
+					<li><a href="#li11">Item 1.1</a>
+					<li><a href="#li12">Item 1.2</a>
+				</ul>
+		</ul>
+	</div>
 	</div>
 	
-	<footer class="stick pad bg-n">
-		Sticky footer
-	</footer>
+<h2 id="form">Form</h2>
+
+<h3>Inline form</h3>
+
+	<form>
+		<input type="search" size="5">
+		<input type="submit" value="Find">
+		<a href="#" class="btn">Btn</a>
+		<a href="#">Link</a>
+		<span class="btn">Span</span>
+	</form>
+
+<h3>Stacked form</h3>
+
+	<form action="?">
+		<p>
+		<label for="nm1">Name</label><br>
+		<input type="text" name="nm1" id="nm1" required pattern="[A-Za-z]{2,}" title="Two or more letters"><br>
+		<p>
+		<label for="age1">Age</label><br>
+		<input type="number" name="age1" id="age1"><br>
+		<p>
+		<input type="submit" value="OK">
+		<a href="#" class="btn">Btn</a>
+		<a href="#" class="pad hover">Link</a>
+		<span class="btn">Span</span>
+	</form>
+
+
+<h3>Aligned form</h3>
+
+	<form action="?">
+		<table>
+		<tr>
+			<td><label for="nm">Name</label>
+			<td><input type="text" name="nm" id="nm" required pattern="[A-Za-z]{2,}" title="Two or more letters">
+			<!--
+			set: 
+			<a href="#nm" data-value="test">test</a>,
+			<a href="#nm" data-value="default">default</a>
+			<a href="?val=~" class="prompt" title="Value" data-src="#nm">goto</a>
+			-->
+			
+		<tr><td colspan="2">
+		<fieldset>
+			<legend><a href="#fs1">Input types</a></legend>
+			<table id="fs1" class="hide toggle mem">
+			
+			<tr>
+				<td><label for="lng">Select</label>
+				<td>
+				<select name="lng" id="lng">
+					<option value="en" selected>English</option>
+					<option value="ru">Russian</option>
+				</select>
+			<tr>
+				<td><label for="dis">Disabled</label>
+				<td><input type="text" name="dis" id="dis" disabled>
+			<tr>
+				<td><label for="dt">Date</label>
+				<td><input type="date" name="dt" id="dt">
+			<tr>
+				<td><label for="tm">Time</label>
+				<td><input type="time" name="tm" id="tm">
+			<tr>
+				<td><label for="dtl">Datetime</label>
+				<td><input type="datetime-local" name="dtl" id="dtl">
+			<tr>
+				<td><label for="num">Number</label>
+				<td><input type="number" name="num" id="num">
+			<tr>
+				<td><label for="rng">Range</label>
+				<td><input type="range" name="rng" id="rng">
+			<tr>
+				<td><label for="clrn">Color</label>
+				<td><input type="color" name="clrn" id="clrn">
+			<tr>
+				<td><label for="msg">Textarea</label>
+				<td><textarea class="wys" name="msg" id="msg" cols="20" rows="5">text<b></textarea>
+			<tr>
+				<td>Upload
+				<td><label class="drop" title="Drop image"><input type="file" name="up[]" multiple></label>
+				
+			</table>
+		</fieldset>
+		<!--tr><td colspan="2"-->
+		<fieldset>
+			<legend><a href="#fs2">Switches</a></legend>
+			<table id="fs2" class="hide toggle mem">
+				<tr>
+					<td>Box
+					<td>
+						<label><input type="checkbox" class="" name="colors" value="1" data-group="colors"> <b>All</b></label><br>
+						<label><input type="checkbox" class="colors" name="color[]" value="red"> Red</label><br>
+						<label><input type="checkbox" class="colors" name="color[]" value="green"> Green</label><br>
+						<label><input type="checkbox" class="colors" name="color[]" value="blue"> Blue</label><br>
+				<tr>
+					<td>Radio
+					<td>
+						<label><input type="radio" name="ra1" value="sun"> Sun</label><br>
+						<label><input type="radio" name="ra1" value="moon"> Moon</label><br>
+			</table>
+		</fieldset>
+		<tr>
+			<td>
+			<td>
+				<input type="submit" value="Submit">
+				<input type="submit" value="Disabled" disabled>
+				<button type="submit" value="Button" class="bg-e">
+					<svg class="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
+						<path d="m477 162c0 7-2 14-8 19l-206 207l-39 39c-6 5-12 8-20 8c-7 0-14-3-19-8l-142-142c-6-6-8-12-8-20c0-7 2-14 8-19l38-39c6-5 12-8 20-8c7 0 14 3 19 8l84 84l188-188c5-5 12-8 19-8c8 0 14 3 20 8l38 39c6 6 8 12 8 20z"/>
+					</svg>
+					Button
+				</button>
+				<input type="submit" value="Confirm" class="bg-w confirm" name="btn2" title="Confirm?">
+				<br>
+				<a href="#" class="btn">Link-btn</a>
+				<span class="btn bg-n">Span-btn</span>
+				<a href="#" class="pad hover">Link-btn</a>
+				<a href="#">Link</a>
+		</table>
+	</form>
+
+<h2 id="table">Table</h2>
+
+	<div class="roll bg">
+	<table class="hover r1">
+		<caption>Read</caption>
+		<tr>				<th>Component	<th>css	<th>js	<th>mem	<th>esc	<th>mod
+		<tr>				<th>Dropdown	<td>H	<td>H/T	<td>-	<td>+	<td>
+		<tr>				<th>Tree		<td>t	<td>T	<td>+	<td>-	<td><abbr title="accordion">acc</abbr>
+		<tr>				<th>Toggle		<td>t	<td>T	<td>+	<td>-	<td>
+		<tr>				<th>Popup		<td>HFt	<td>HF/T<td>-	<td>+	<td>
+		<tr>				<th>Tabs		<td>t	<td>T!	<td>+	<td>-	<td>
+		<tr class="bg-w">	<th>Tooltip		<td>HF	<td>HF	<td>-	<td>+	<td>
+		<tr>				<th>Modal		<td>T	<td>=	<td>-	<td>=+	<td><abbr title="fullscreen">full</abbr>
+		<tr class="bg-w">	<th>Drawer		<td>T	<td>=	<td>	<td>	<td>
+		<tr>				<th>Gallery		<td>T	<td>=	<td>-	<td>=+	<td>
+	</table>
+	</div>
+
+
+<h2 id="grid">Grid</h2>
 	
-<a accesskey="x" href="#cancel" class="hide">Hide modals and gallery</a>
+	<!--
+	<div class="row flip">
+		<div class="bg wrap center">wrap</div>
+	</div>
+	<div class="row">
+		<div class="bg-w narrow">narrow</div>
+		<div class="bg-y read center">read</div>
+	</div>
+	-->
+	<div class="row mar flip">
+		<div class="bg">div</div>
+		<div class="bg">div</div>
+	</div>
+	<div class="row mar">
+		<div class="bg-w col-2">.col-2</div>
+		<div class="bg-y col-3">.col-3</div>
+	</div>
+	<div class="row mar flip">
+		<div class="bg">div</div>
+		<div class="bg col-2">.col-2</div>
+	</div>
+	<div class="row mar">
+		<div class="bg-w">div</div>
+		<div class="bg-y col-3">.col-3</div>
+	</div>
+	<div class="row mar flip">
+		<div class="bg">div</div>
+		<div class="bg">div</div>
+		<div class="bg">div</div>
+		<div class="bg">div</div>
+		<div class="bg">div</div>
+		<div class="bg">div</div>
+	</div>
+
+<h2 id="blocks">Blocks</h2>
+
+	<div class="row mar">
+		<a href="#media" class="col-0"><img alt="pic" width="80" src="data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAQUlEQVR4nGNkaPjPQApgIkk1AwMDC6bQ/3oEm7GRYhuo4SRMZ+DTgOwBrJop9gN+91DDBrprQAs0cmwgOeJItgEAkbkIq9GVLncAAAAASUVORK5CYII="></a>
+		<div>
+			Media object with description
+			<div>
+				<time class="text-n" datetime="1970-01-01">January 1970</time>
+				&bull;
+				<a href="#media" class="-btn -inv">Link</a>
+			</div>
+		</div>
+	</div>
+
+	<figure class="bg c pad">
+		<img alt="figure" src="data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAQUlEQVR4nGNkaPjPQApgIkk1AwMDC6bQ/3oEm7GRYhuo4SRMZ+DTgOwBrJop9gN+91DDBrprQAs0cmwgOeJItgEAkbkIq9GVLncAAAAASUVORK5CYII=">
+		<figcaption>
+			Figure caption
+		</figcaption>
+	</figure>
+
+	<div class="dialog">
+		<svg class="text-n" width="80" height="80" viewBox="0 0 16 16" version="1.1" aria-hidden="true"><path  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+		<p><b>No items yet</b>
+		<p>Click the button to create new item</p>
+		<a href="#add" class="btn bg-i">Add new item</a>
+	</div>
+
+	<div class="full bg-w c">Full</div>
+
+
+<h2 id="typo"><a href="#typ">Typography</a></h2>
+
+	<div class="hide toggle mem yel" id="typ">
+	<div class="row gap">
+		<div>
+			<h1>Heading 1</h1>
+			<h2>Heading 2</h2>
+			<h3>Heading 3</h3>
+			<h4>Heading 4</h4>
+			<h5>Heading 5</h5>
+			<h6>Heading 6</h6>
+			<p>Paragraph</p>
+		</div>
+		<div>
+			<p>Paragraph<br>New line</p>
+			<p>Paragraph</p>
+			<pre>Preformatted</pre>
+			<blockquote>Blockqoute</blockquote>
+			<hr>
+
+			<b>b</b>
+			<i>i</i>
+			<s>s</s>
+			<ins>ins</ins>
+			<del>del</del>
+			<sub>sub</sub>
+			<sup>sup</sup>
+			<time datetime="1970-01-01">time</time>
+			
+			<br>
+			<abbr title="Abbreviation">Abbr</abbr>
+			<q>quote</q>
+			<cite>cite</cite>
+			<mark>mark</mark>
+			<dfn>dfn</dfn>
+			
+			<br>
+			<code>code</code>
+			<var>var</var>
+			<kbd>kbd</kbd>
+			<samp>samp</samp>
+			
+			<br>
+			<a href="http://ya.ru">Link</a>
+			<a href="http://ya.ru" class="btn bg-i">Button</a>
+			
+			<a href="#">
+				<svg class="text-i icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
+					<path d="m477 162c0 7-2 14-8 19l-206 207l-39 39c-6 5-12 8-20 8c-7 0-14-3-19-8l-142-142c-6-6-8-12-8-20c0-7 2-14 8-19l38-39c6-5 12-8 20-8c7 0 14 3 19 8l84 84l188-188c5-5 12-8 19-8c8 0 14 3 20 8l38 39c6 6 8 12 8 20z"/>
+				</svg>svg
+			</a>
+		</div>
+		<div>
+			<ul>
+				<li>One
+				<li>Two
+					<ol>
+						<li>Alpha
+						<li>Beta
+					</ol>
+			</ul>
+			<dl>
+				<dt>One</dt>
+				<dd>Uno</dd>
+				<dt>Two</dt>
+				<dd>Dos</dd>
+			</dl>
+		</div>
+	</div>
+	</div>
+
+<h2 id="colors">Colors</h2>
+
+	<p class="bg-e">Danger	<span class="text-e">Danger</span></p>
+	<p class="bg-w">Warning	<span class="text-w">Warning</span></p>
+	<p class="bg-i">Info	<span class="text-i">Info</span></p>
+	<p class="bg-y">Success	<span class="text-y">Success</span></p>
+	<p class="bg-n">Secondary <span class="text-n">Secondary</span></p>
+	<p class="bg">Bg</p>
+	<p class="bord">Border</p>
+	<p class="bg bord">Bg+Border</p>
+	<p class="bg-i bord">Status+Border</p>
+	
+	<input type="submit" value="Error" class="bg-e">
+	<input type="submit" value="Warning" class="bg-w">
+	<input type="submit" value="Info" class="bg-i">
+	<input type="submit" value="Success" class="bg-y">
+	<input type="submit" value="Secondary" class="bg-n">
+
+	<p>
+	<a href="#" class="text-e">Error</a>
+	<a href="#" class="text-w">Warning</a>
+	<a href="#" class="text-i">Info</a>
+	<a href="#" class="text-y">Success</a>
+	<a href="#" class="text-n">Secondary</a>
+	<br>
+	<a href="#" class="bg-e">Error</a>
+	<a href="#" class="bg-w">Warning</a>
+	<a href="#" class="bg-i">Info</a>
+	<a href="#" class="bg-y">Success</a>
+	<a href="#" class="bg-n">Secondary</a>
+	<br>
+	<a href="#" class="text-e bg-e">Error</a>
+	<a href="#" class="text-w bg-w">Warning</a>
+	<a href="#" class="text-i bg-i">Info</a>
+	<a href="#" class="text-y bg-y">Success</a>
+	<a href="#" class="text-n bg-n">Secondary</a>
+	<br>
+	<span tabindex="0" class="bg-e">Error</span>
+	<span class="bg-w">Warning</span>
+	<span class="bg-i">Info</span>
+	<span class="bg-y">Success</span>
+	<span class="bg-n">Secondary</span>
+</div>
+</div>
 </body>
 </html>
