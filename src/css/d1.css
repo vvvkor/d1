@@ -56,7 +56,7 @@ unclass
 support ie
 	no ie/edge:  details/summary
 	ie11: flex
-	ie10: classList, flex*
+	ie10: javascript enhancements, classList, flex*
 	ie9: :not, querySelector, @media
 */
 
