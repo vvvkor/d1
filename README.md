@@ -31,7 +31,8 @@ Its aim is to implement most widely used components with less code.
 <script src="https://cdn.jsdelivr.net/npm/d1css@1/dist/d1.min.js"></script>
 <script>
   d1.run();
-</script>```
+</script>
+```
 
 #### [GitCDN](https://gitcdn.link/)
 
@@ -41,7 +42,8 @@ Its aim is to implement most widely used components with less code.
 <script src="https://gitcdn.link/repo/vvvkor/d1/master/dist/d1.min.js"></script>
 <script>
   d1.run();
-</script>```
+</script>
+```
 
 ### Install with NPM
 
