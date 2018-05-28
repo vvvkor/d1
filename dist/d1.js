@@ -5,10 +5,10 @@
     } else {
         var main = new function() {
             "use strict";
-            this.togglable = ".hide.toggle[id], ul.toggle ul[id], .tabs>.hide, details";
-            this.escapable = ".pop>.hide, ul.nav.toggle ul, details.pop, .esc";
-            this.mem = ".mem, .tabs.mem>.hide, ul.mem ul[id], details.mem details";
-            this.unhover = "ul.nav.toggle ul[id]";
+            this.togglable = ".hide.toggle[id], .pop>div.toggle[id], ul.toggle ul[id], .tabs>.hide[id]";
+            this.escapable = ".pop>div, ul.nav.toggle ul, .esc";
+            this.mem = ".mem, .tabs.mem>.hide, ul.mem ul[id]";
+            this.unhover = "ul.toggle ul[id], .pop>div.toggle[id]";
             this.run = function(func) {
                 if (document.addEventListener && "classList" in document.createElement("p")) {
                     this.b("", [ document ], "DOMContentLoaded", func || this.init);
@@ -75,17 +75,15 @@
                 f.readAsDataURL(e.target.files[0]);
             };
             this.getState = function(n) {
-                return n.tagName == "DETAILS" ? n.open : n.classList.contains("js-show");
+                return n.classList.contains("js-show");
             };
             this.setState = function(n, on) {
-                if (n.tagName == "DETAILS") n.open = on; else {
-                    n.classList.add("js-control");
-                    n.classList[on ? "add" : "remove"]("js-show");
-                }
+                n.classList.add("js-control");
+                n.classList[on ? "add" : "remove"]("js-show");
             };
             this.targetState = function(n, e, on) {
                 if (e && on === undefined) {
-                    if (n.parentNode.matches(".tabs")) on = true; else if (e.type == "toggle") on = this.getState(n); else on = !this.getState(n);
+                    if (n.parentNode.matches(".tabs")) on = true; else on = !this.getState(n);
                 }
                 return on;
             };
@@ -154,7 +152,7 @@
             this.esc = function(n, e) {
                 if (e.keyCode == 90 && e.ctrlKey) localStorage.clear();
                 if (e.keyCode == 27 || e.button === 0) {
-                    if (e.keyCode || this.ancestor("a.close", e.target) || !this.ancestor("a, .hide, .drawer, .nav, details.pop", e.target)) {
+                    if (e.keyCode || this.ancestor("a.close", e.target) || !this.ancestor("a, .hide, .nav, .pop>div", e.target)) {
                         this.b("", this.escapable, "", this.hide);
                         location.hash = "#cancel";
                     }
@@ -171,16 +169,15 @@
                 this.b(n, "a.prompt[href]", "click", this.askPrompt);
                 this.b(n, "input[data-group]", "click", this.checkBoxes);
                 this.b(n, "table[class]", "", this.alignCells);
-                this.b(n, "a.slide[id]", "click", this.gotoPrev);
+                this.b(n, ".gal a[id]", "click", this.gotoPrev);
                 this.b(n, ".drop", "change", this.dropImage);
-                this.b(n, this.unhover + ", .accordion ul", "", function(n) {
+                this.b(n, this.unhover, "", function(n) {
                     n.classList.add("js-control");
                 });
                 this.restore();
                 this.b(n, ".nav+.tabs", "", this.showFirstTab);
                 if (location.hash) this.show(location.hash);
                 this.b(n, 'a[href^="#"]', "click", this.handleState);
-                this.b(n, "details[id]", "toggle", this.handleState);
                 if (!n) this.b("", [ window ], "keydown", this.esc);
                 if (!n) this.b("", "html, .close", "click", this.esc);
             };

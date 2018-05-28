@@ -53,6 +53,11 @@ unclass
 	details = .hide
 	[style*="--img"] = .gal
 	mark ~ .bg-, .text-
+support ie
+	no ie/edge:  details/summary
+	ie11: flex
+	ie10: classList, flex*
+	ie9: :not, querySelector, @media
 */
 
 
@@ -109,7 +114,7 @@ a.btn, .nav a, a.close, a.pad, abbr{text-decoration:none;}
 a.pad{display:inline-block;}
 
 /* hilite */
-a.hover:hover, .nav li>a:hover, table.hover tr:hover{color:var(--text-hilite);background-color:var(--bg-hilite);}
+.nav .act, a.hover:hover, .nav li>a:hover, table.hover tr:hover{color:var(--text-hilite);background-color:var(--bg-hilite);}
 
 /* image */
 svg{fill:currentColor;}
