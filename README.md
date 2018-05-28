@@ -28,7 +28,7 @@ Its aim is to implement most widely used components with less code.
 ```html
 <link href="https://cdn.jsdelivr.net/npm/d1css@1/dist/d1.min.css" rel="stylesheet">
 <!-- optional -->
-<script src="https://cdn.jsdelivr.net/npm/d1css@1/dist/d1.min.js"></script><!-- optional -->
+<script src="https://cdn.jsdelivr.net/npm/d1css@1/dist/d1.min.js"></script>
 <script>
   d1.run();
 </script>```
@@ -38,7 +38,7 @@ Its aim is to implement most widely used components with less code.
 ```html
 <link href="https://gitcdn.link/repo/vvvkor/d1/master/dist/d1.min.css" rel="stylesheet">
 <!-- optional -->
-<script src="https://gitcdn.link/repo/vvvkor/d1/master/dist/d1.min.js"></script><!-- optional -->
+<script src="https://gitcdn.link/repo/vvvkor/d1/master/dist/d1.min.js"></script>
 <script>
   d1.run();
 </script>```
