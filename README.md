@@ -17,6 +17,8 @@ Its aim is to implement most widely used components with less code.
 * javascript not required
 * enhanced with javascript
 * neutral style, configurable
+* no floats
+* no hacks
 * accessibility is not much covered
 
 ## Getting Started

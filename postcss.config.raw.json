@@ -1,0 +1,11 @@
+{
+  "use": ["postcss-discard-comments", "perfectionist"],
+  "input": "src/css/d1.css",
+  "output": "dist/d1.raw.css",
+  "local-plugins": "true",
+  "postcss-discard-comments": {
+  },
+  "perfectionist": {
+    "format": "expanded"
+  }
+}

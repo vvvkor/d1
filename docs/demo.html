@@ -6,15 +6,13 @@
 	<title>d1.css - demo</title>
 
 	<!-- CDN -->
-	<!--
-	<link href="https://cdn.jsdelivr.net/npm/d1css@1.1.2/dist/d1.min.css" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/npm/d1css@1.1.2/dist/d1.min.js"></script>
-	-->
+	<link href="https://cdn.jsdelivr.net/npm/d1css@1.1.3/dist/d1.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/d1css@1.1.3/dist/d1.min.js"></script>
 	<!-- local -->
-	
+	<!--
 	<link href="../src/css/d1.css" rel="stylesheet">
 	<script src="../src/js/d1.js"></script>
-	
+	-->
 	
 	<script> d1.run(); </script>
 </head>
@@ -29,135 +27,155 @@
 	<p class=""><code class="pad">npm install d1css</code></p>
 
 	<ul>
+		<li><a href="#typo">Typography</a>
+		<li><a href="#grid">Grid</a>
+		<li><a href="#table">Table</a>
+		<li><a href="#button">Button</a>
+		<li><a href="#form">Form</a>
 		<li><a href="#nav">Navigation</a>
 		<li><a href="#toggle">Toggle</a>
-		<li><a href="#form">Form</a>
-		<li><a href="#table">Table</a>
-		<li><a href="#grid">Grid</a>
-		<li><a href="#blocks">Blocks</a>
-		<li><a href="#typo">Typography</a>
 		<li><a href="#colors">Colors</a>
+		<li><a href="#blocks">Blocks</a>
 	</ul>
 </div>
 <div class="col-2 pad">
 
-<h2 id="nav">Navigation</h2>
+<h2 id="typo">Typography</h2>
 
-	<div class="hide show-mobile"><a href="#menu" class="pad hover">&equiv;</a></div>
-	<nav class="hide show-desktop toggle" id="menu">
-	<ul class="nav bg toggle flip">
-		<li><a href="#typography" class="act">Typography</a>
-		<li><a href="#layout">Layout</a>
-			<ul id="layout">
-				<li><a href="#grid">Grid (responsive)</a>
-				<!--li><a href="#boxes">Boxes</a-->
-			</ul>
-		<li><a href="#forms">Forms</a>
-			<ul id="forms">
-				<li><a href="#form-inline">Inline</a>
-				<li><a href="#form-stacked">Stacked</a>
-				<li><a href="#form-aligned">Aligned (responsive)</a>
-				<li><a href="#drop">Drop image</a>
-			</ul>
-		<li><a href="#table">Table</a>
-		<li><a href="#navs">Navigation</a>
-			<ul id="navs">
-				<li><a href="#dropdown">Dropdown (responsive)</a>
-				<!--li><a href="#drawer">Drawer</a-->
-				<li><a href="#drawer">Pagination</a>
-			</ul>
-		<li><a href="#show-hide">Toggle</a>
-			<ul id="show-hide">
-				<li><a href="#popup">Popup</a>
-				<li><a href="#toggle">Toggle</a>
-				<li><a href="#tree">Tree</a>
-				<li><a href="#tabs">Tabs</a>
-				<li><a href="#dialog">Dialog</a>
-				<li><a href="#fullscreen">Fullscreen</a>
-				<li><a href="#gallery">Gallery</a>
-			</ul>
-		<li><a href="#status">Status</a>
-		<li><a href="#enhance">Javascript</a>
-		<li class="shift">
-			<form>
-				<input type="search" size="5">
-				<input type="submit" value="Find">
-				<!--a href="#" class="btn">Btn</a>
-				<a href="#">Link</a>
-				<span class="btn">Span</span-->
-			</form>
-	</ul>
-	</nav>
-
-	<ul class="nav bg screen mar">
-		<li><b>Pages</b>
-		<li><a href="#p1" title="Page 1">1</a>
-		<li><a href="#p2" title="Page 1">2</a>
-		<li><a href="#p3" title="Page 2">3</a>
-	</ul>
-
-<h2 id="toggle">Toggle</h2>
-
-	<div class="row flip">
-	<div>
-		Show/hide: 
-		<div class="pop">
-			<a href="#pop1">Popup</a>
-			<div id="pop1" class="toggle">Pop</div>
+	<div class="row gap">
+		<div>
+			<h1>Heading 1</h1>
+			<h2>Heading 2</h2>
+			<h3>Heading 3</h3>
+			<h4>Heading 4</h4>
+			<h5>Heading 5</h5>
+			<h6>Heading 6</h6>
+			<p>Paragraph</p>
 		</div>
-		<a href="#tog1">Toggle</a>
-		<a href="#dlg1">Dialog</a>
-		<a href="#mod1">Fullscreen</a>
-		<a href="#gal1">Gallery</a> (pure CSS, lazy load, preload next, next on enter)
-		.
-			<div id="tog1" class="hide bord yel toggle mem">Toggle</div>
-			<div id="dlg1" class="hide dialog"><a class="close" href="#cancel"></a>Dialog</div>
-			<div id="mod1" class="hide full"><a class="close" href="#cancel"></a>Full</div>
-			<div class="gal">
-				<a id="gal1" href="#gal2" data-info="1/3 - ir.png" style="--img:url(http://vadimkor.ru/src/ir.png)"></a>
-				<a id="gal2" href="#gal3" data-info="2/3 - ig.png" style="--img:url(http://vadimkor.ru/src/ig.png)"></a>
-				<a id="gal3" href="#gal1" data-info="3/3 - ib.png" style="--img:url(http://vadimkor.ru/src/ib.png)"></a>
-				<a class="close" href="#cancel"></a> <!-- link to close -->
-			</div>
-			<div class="hide">
-				Hidden gallery: non-CSS fallback
-				<a href="http://vadimkor.ru/src/ir.png">#1</a>
-				<a href="http://vadimkor.ru/src/ir.png">#2</a>
-				<a href="http://vadimkor.ru/src/ir.png">#3</a>
-			</div>
-		<details class="mar">
-			<summary class="hover">Summary</summary>
-			<div class="bg">Details</div>
-		</details>
-	</div>
-	<div class="col-2">
-		<ul class="nav">
-			<li><a href="#tab1">Tab1</a>
-			<li><a href="#tab2">Tab2</a>
-			<li><a href="#tab3">Tab3</a>
-		</ul>
-		<div class="tabs mem bord">
-			<div id="tab2" class="hide">2<br>2</div>
-			<div id="tab3" class="hide">3<br>3<br>3</div>
-			<div id="tab1" class="hide">1</div>
+		<div>
+			<p>Paragraph<br>New line</p>
+			<p>Paragraph</p>
+			<pre>Preformatted</pre>
+			<blockquote>Blockqoute</blockquote>
+			<hr>
+
+			<b>b</b>
+			<i>i</i>
+			<s>s</s>
+			<ins>ins</ins>
+			<del>del</del>
+			<sub>sub</sub>
+			<sup>sup</sup>
+			<time datetime="1970-01-01">time</time>
+			
+			<br>
+			<abbr title="Abbreviation">Abbr</abbr>
+			<q>quote</q>
+			<cite>cite</cite>
+			<mark>mark</mark>
+			<dfn>dfn</dfn>
+			
+			<br>
+			<code>code</code>
+			<var>var</var>
+			<kbd>kbd</kbd>
+			<samp>samp</samp>
+			
+			<br>
+			<a href="http://ya.ru">Link</a>
+			<a href="http://ya.ru" class="btn bg-i">Button</a>
+			
+			<a href="#">
+				<svg class="text-i icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
+					<path d="m477 162c0 7-2 14-8 19l-206 207l-39 39c-6 5-12 8-20 8c-7 0-14-3-19-8l-142-142c-6-6-8-12-8-20c0-7 2-14 8-19l38-39c6-5 12-8 20-8c7 0 14 3 19 8l84 84l188-188c5-5 12-8 19-8c8 0 14 3 20 8l38 39c6 6 8 12 8 20z"/>
+				</svg>svg
+			</a>
+		</div>
+		<div>
+			<ul>
+				<li>One
+				<li>Two
+					<ol>
+						<li>Alpha
+						<li>Beta
+					</ol>
+			</ul>
+			<dl>
+				<dt>One</dt>
+				<dd>Uno</dd>
+				<dt>Two</dt>
+				<dd>Dos</dd>
+			</dl>
 		</div>
 	</div>
-	<div>
-		<ul class="toggle mem -accordion">
-			<li><a href="#ul1">List 1</a>
-				<ul id="ul1">
-					<li><a href="#li11">Item 1.1</a>
-					<li><a href="#li12">Item 1.2</a>
-				</ul>
-			<li><a href="#ul2">List 2</a>
-				<ul id="ul2">
-					<li><a href="#li11">Item 1.1</a>
-					<li><a href="#li12">Item 1.2</a>
-				</ul>
-		</ul>
-	</div>
-	</div>
+
 	
+<h2 id="grid">Grid</h2>
+	
+	<!--
+	<div class="row flip">
+		<div class="bg wrap center">wrap</div>
+	</div>
+	<div class="row">
+		<div class="bg-w narrow">narrow</div>
+		<div class="bg-y read center">read</div>
+	</div>
+	-->
+	<div class="row mar flip">
+		<div class="bg">div</div>
+		<div class="bg">div</div>
+	</div>
+	<div class="row mar">
+		<div class="bg-w col-2">.col-2</div>
+		<div class="bg-y col-3">.col-3</div>
+	</div>
+	<div class="row mar flip">
+		<div class="bg">div</div>
+		<div class="bg col-2">.col-2</div>
+	</div>
+	<div class="row mar">
+		<div class="bg-w">div</div>
+		<div class="bg-y col-3">.col-3</div>
+	</div>
+	<div class="row mar flip">
+		<div class="bg">div</div>
+		<div class="bg">div</div>
+		<div class="bg">div</div>
+		<div class="bg">div</div>
+		<div class="bg">div</div>
+		<div class="bg">div</div>
+	</div>
+
+<h2 id="table">Table</h2>
+
+	<div class="roll bg">
+	<table class="hover r1">
+		<caption>Read</caption>
+		<tr>				<th>Component	<th>css	<th>js	<th>mem	<th>esc	<th>mod
+		<tr>				<th>Dropdown	<td>H	<td>H/T	<td>-	<td>+	<td>
+		<tr>				<th>Tree		<td>t	<td>T	<td>+	<td>-	<td><abbr title="accordion">acc</abbr>
+		<tr>				<th>Toggle		<td>t	<td>T	<td>+	<td>-	<td>
+		<tr>				<th>Popup		<td>HFt	<td>HF/T<td>-	<td>+	<td>
+		<tr>				<th>Tabs		<td>t	<td>T!	<td>+	<td>-	<td>
+		<tr class="bg-w">	<th>Tooltip		<td>HF	<td>HF	<td>-	<td>+	<td>
+		<tr>				<th>Modal		<td>T	<td>=	<td>-	<td>=+	<td><abbr title="fullscreen">full</abbr>
+		<tr class="bg-w">	<th>Drawer		<td>T	<td>=	<td>	<td>	<td>
+		<tr>				<th>Gallery		<td>T	<td>=	<td>-	<td>=+	<td>
+	</table>
+	</div>
+
+
+<h2 id="button">Button</h2>
+
+	<input type="submit" value="Submit">
+	<input type="submit" value="Disabled" disabled>
+	<button type="submit" value="Button">Button</button>
+	<a href="#" class="btn">Link</a>
+	<span class="btn bg-n">Span</span>
+	
+	<p>For color options see <a href="#colors">Colors</a> section.
+
+
 <h2 id="form">Form</h2>
 
 <h3>Inline form</h3>
@@ -276,65 +294,178 @@
 				<br>
 				<a href="#" class="btn">Link-btn</a>
 				<span class="btn bg-n">Span-btn</span>
-				<a href="#" class="pad hover">Link-btn</a>
+				<a href="#" class="pad hover">Link-pad</a>
 				<a href="#">Link</a>
 		</table>
 	</form>
 
-<h2 id="table">Table</h2>
 
-	<div class="roll bg">
-	<table class="hover r1">
-		<caption>Read</caption>
-		<tr>				<th>Component	<th>css	<th>js	<th>mem	<th>esc	<th>mod
-		<tr>				<th>Dropdown	<td>H	<td>H/T	<td>-	<td>+	<td>
-		<tr>				<th>Tree		<td>t	<td>T	<td>+	<td>-	<td><abbr title="accordion">acc</abbr>
-		<tr>				<th>Toggle		<td>t	<td>T	<td>+	<td>-	<td>
-		<tr>				<th>Popup		<td>HFt	<td>HF/T<td>-	<td>+	<td>
-		<tr>				<th>Tabs		<td>t	<td>T!	<td>+	<td>-	<td>
-		<tr class="bg-w">	<th>Tooltip		<td>HF	<td>HF	<td>-	<td>+	<td>
-		<tr>				<th>Modal		<td>T	<td>=	<td>-	<td>=+	<td><abbr title="fullscreen">full</abbr>
-		<tr class="bg-w">	<th>Drawer		<td>T	<td>=	<td>	<td>	<td>
-		<tr>				<th>Gallery		<td>T	<td>=	<td>-	<td>=+	<td>
-	</table>
-	</div>
+<h2 id="nav">Navigation</h2>
+
+	<div class="hide show-mobile"><a href="#menu" class="pad hover">&equiv;</a></div>
+	<nav class="hide show-desktop toggle" id="menu">
+	<ul class="nav bg toggle flip">
+		<li><a href="#typography" class="act">Typography</a>
+		<li><a href="#layout">Layout</a>
+			<ul id="layout">
+				<li><a href="#grid">Grid (responsive)</a>
+				<!--li><a href="#boxes">Boxes</a-->
+			</ul>
+		<li><a href="#forms">Forms</a>
+			<ul id="forms">
+				<li><a href="#form-inline">Inline</a>
+				<li><a href="#form-stacked">Stacked</a>
+				<li><a href="#form-aligned">Aligned (responsive)</a>
+				<li><a href="#drop">Drop image</a>
+			</ul>
+		<li><a href="#table">Table</a>
+		<li><a href="#navs">Navigation</a>
+			<ul id="navs">
+				<li><a href="#dropdown">Dropdown (responsive)</a>
+				<!--li><a href="#drawer">Drawer</a-->
+				<li><a href="#drawer">Pagination</a>
+			</ul>
+		<li><a href="#show-hide">Toggle</a>
+			<ul id="show-hide">
+				<li><a href="#popup">Popup</a>
+				<li><a href="#toggle">Toggle</a>
+				<li><a href="#tree">Tree</a>
+				<li><a href="#tabs">Tabs</a>
+				<li><a href="#dialog">Dialog</a>
+				<li><a href="#fullscreen">Fullscreen</a>
+				<li><a href="#gallery">Gallery</a>
+			</ul>
+		<li><a href="#status">Status</a>
+		<li><a href="#enhance">Javascript</a>
+		<li class="shift">
+			<form>
+				<input type="search" size="5">
+				<input type="submit" value="Find">
+				<!--a href="#" class="btn">Btn</a>
+				<a href="#">Link</a>
+				<span class="btn">Span</span-->
+			</form>
+	</ul>
+	</nav>
+
+	<ul class="nav bg screen mar">
+		<li><b>Pages</b>
+		<li><a href="#p1" title="Page 1">1</a>
+		<li><a href="#p2" title="Page 1">2</a>
+		<li><a href="#p3" title="Page 2">3</a>
+	</ul>
 
 
-<h2 id="grid">Grid</h2>
-	
-	<!--
+<h2 id="toggle">Toggle</h2>
+
 	<div class="row flip">
-		<div class="bg wrap center">wrap</div>
+	<div>
+		Show/hide: 
+		<div class="pop">
+			<a href="#pop1">Popup</a>
+			<div id="pop1" class="toggle">Pop</div>
+		</div>
+		<a href="#tog1">Toggle</a>
+		<a href="#dlg1">Dialog</a>
+		<a href="#mod1">Fullscreen</a>
+		<a href="#gal1">Gallery</a> (pure CSS, lazy load, preload next, next on enter)
+		.
+			<div id="tog1" class="hide bord yel toggle mem">Toggle</div>
+			<div id="dlg1" class="hide dialog"><a class="close" href="#cancel"></a>Dialog</div>
+			<div id="mod1" class="hide full"><a class="close" href="#cancel"></a>Full</div>
+			<div class="gal">
+				<a id="gal1" href="#gal2" data-info="1/3 - ir.png" style="--img:url(http://vadimkor.ru/src/ir.png)"></a>
+				<a id="gal2" href="#gal3" data-info="2/3 - ig.png" style="--img:url(http://vadimkor.ru/src/ig.png)"></a>
+				<a id="gal3" href="#gal1" data-info="3/3 - ib.png" style="--img:url(http://vadimkor.ru/src/ib.png)"></a>
+				<a class="close" href="#cancel"></a>
+			</div>
+			<div class="hide">
+				Hidden gallery: non-CSS fallback
+				<a href="http://vadimkor.ru/src/ir.png">#1</a>
+				<a href="http://vadimkor.ru/src/ir.png">#2</a>
+				<a href="http://vadimkor.ru/src/ir.png">#3</a>
+			</div>
+		<details class="mar">
+			<summary class="hover">Summary</summary>
+			<div class="bg">Details</div>
+		</details>
 	</div>
-	<div class="row">
-		<div class="bg-w narrow">narrow</div>
-		<div class="bg-y read center">read</div>
+	<div class="col-2">
+		<ul class="nav">
+			<li><a href="#tab1">Tab1</a>
+			<li><a href="#tab2">Tab2</a>
+			<li><a href="#tab3">Tab3</a>
+		</ul>
+		<div class="tabs mem bord">
+			<div id="tab2" class="hide">2<br>2</div>
+			<div id="tab3" class="hide">3<br>3<br>3</div>
+			<div id="tab1" class="hide">1</div>
+		</div>
 	</div>
-	-->
-	<div class="row mar flip">
-		<div class="bg">div</div>
-		<div class="bg">div</div>
+	<div>
+		<ul class="toggle mem -accordion">
+			<li><a href="#ul1">List 1</a>
+				<ul id="ul1">
+					<li><a href="#li11">Item 1.1</a>
+					<li><a href="#li12">Item 1.2</a>
+				</ul>
+			<li><a href="#ul2">List 2</a>
+				<ul id="ul2">
+					<li><a href="#li11">Item 1.1</a>
+					<li><a href="#li12">Item 1.2</a>
+				</ul>
+		</ul>
 	</div>
-	<div class="row mar">
-		<div class="bg-w col-2">.col-2</div>
-		<div class="bg-y col-3">.col-3</div>
 	</div>
-	<div class="row mar flip">
-		<div class="bg">div</div>
-		<div class="bg col-2">.col-2</div>
-	</div>
-	<div class="row mar">
-		<div class="bg-w">div</div>
-		<div class="bg-y col-3">.col-3</div>
-	</div>
-	<div class="row mar flip">
-		<div class="bg">div</div>
-		<div class="bg">div</div>
-		<div class="bg">div</div>
-		<div class="bg">div</div>
-		<div class="bg">div</div>
-		<div class="bg">div</div>
-	</div>
+
+
+<h2 id="colors">Colors</h2>
+
+<h3>Inline</h3>
+
+	<a href="#" class="text-e">Error</a>
+	<a href="#" class="text-w">Warning</a>
+	<a href="#" class="text-i">Info</a>
+	<a href="#" class="text-y">Success</a>
+	<a href="#" class="text-n">Secondary</a>
+	<br>
+	<a href="#" class="bg-e">Error</a>
+	<a href="#" class="bg-w">Warning</a>
+	<a href="#" class="bg-i">Info</a>
+	<a href="#" class="bg-y">Success</a>
+	<a href="#" class="bg-n">Secondary</a>
+	<br>
+	<a href="#" class="text-e bg-e">Error</a>
+	<a href="#" class="text-w bg-w">Warning</a>
+	<a href="#" class="text-i bg-i">Info</a>
+	<a href="#" class="text-y bg-y">Success</a>
+	<a href="#" class="text-n bg-n">Secondary</a>
+	<br>
+	<span tabindex="0" class="bg-e">Error</span>
+	<span class="bg-w">Warning</span>
+	<span class="bg-i">Info</span>
+	<span class="bg-y">Success</span>
+	<span class="bg-n">Secondary</span>
+	
+<h3>Buttons</h3>
+	
+	<input type="submit" value="Error" class="bg-e">
+	<input type="submit" value="Warning" class="bg-w">
+	<input type="submit" value="Info" class="bg-i">
+	<input type="submit" value="Success" class="bg-y">
+	<input type="submit" value="Secondary" class="bg-n">
+
+<h3>Blocks</h3>
+	
+	<p class="bg-e">Danger	<span class="text-e">Danger</span></p>
+	<p class="bg-w">Warning	<span class="text-w">Warning</span></p>
+	<p class="bg-i">Info	<span class="text-i">Info</span></p>
+	<p class="bg-y">Success	<span class="text-y">Success</span></p>
+	<p class="bg-n">Secondary <span class="text-n">Secondary</span></p>
+	<p class="bg">Bg</p>
+	<p class="bord">Border</p>
+	<p class="bg bord">Bg+Border</p>
+	<p class="bg-i bord">Status+Border</p>
 
 <h2 id="blocks">Blocks</h2>
 
@@ -366,118 +497,6 @@
 
 	<div class="full bg-w c">Full</div>
 
-
-<h2 id="typo">Typography</h2>
-
-	<div class="row gap">
-		<div>
-			<h1>Heading 1</h1>
-			<h2>Heading 2</h2>
-			<h3>Heading 3</h3>
-			<h4>Heading 4</h4>
-			<h5>Heading 5</h5>
-			<h6>Heading 6</h6>
-			<p>Paragraph</p>
-		</div>
-		<div>
-			<p>Paragraph<br>New line</p>
-			<p>Paragraph</p>
-			<pre>Preformatted</pre>
-			<blockquote>Blockqoute</blockquote>
-			<hr>
-
-			<b>b</b>
-			<i>i</i>
-			<s>s</s>
-			<ins>ins</ins>
-			<del>del</del>
-			<sub>sub</sub>
-			<sup>sup</sup>
-			<time datetime="1970-01-01">time</time>
-			
-			<br>
-			<abbr title="Abbreviation">Abbr</abbr>
-			<q>quote</q>
-			<cite>cite</cite>
-			<mark>mark</mark>
-			<dfn>dfn</dfn>
-			
-			<br>
-			<code>code</code>
-			<var>var</var>
-			<kbd>kbd</kbd>
-			<samp>samp</samp>
-			
-			<br>
-			<a href="http://ya.ru">Link</a>
-			<a href="http://ya.ru" class="btn bg-i">Button</a>
-			
-			<a href="#">
-				<svg class="text-i icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
-					<path d="m477 162c0 7-2 14-8 19l-206 207l-39 39c-6 5-12 8-20 8c-7 0-14-3-19-8l-142-142c-6-6-8-12-8-20c0-7 2-14 8-19l38-39c6-5 12-8 20-8c7 0 14 3 19 8l84 84l188-188c5-5 12-8 19-8c8 0 14 3 20 8l38 39c6 6 8 12 8 20z"/>
-				</svg>svg
-			</a>
-		</div>
-		<div>
-			<ul>
-				<li>One
-				<li>Two
-					<ol>
-						<li>Alpha
-						<li>Beta
-					</ol>
-			</ul>
-			<dl>
-				<dt>One</dt>
-				<dd>Uno</dd>
-				<dt>Two</dt>
-				<dd>Dos</dd>
-			</dl>
-		</div>
-	</div>
-
-<h2 id="colors">Colors</h2>
-
-	<p class="bg-e">Danger	<span class="text-e">Danger</span></p>
-	<p class="bg-w">Warning	<span class="text-w">Warning</span></p>
-	<p class="bg-i">Info	<span class="text-i">Info</span></p>
-	<p class="bg-y">Success	<span class="text-y">Success</span></p>
-	<p class="bg-n">Secondary <span class="text-n">Secondary</span></p>
-	<p class="bg">Bg</p>
-	<p class="bord">Border</p>
-	<p class="bg bord">Bg+Border</p>
-	<p class="bg-i bord">Status+Border</p>
-	
-	<input type="submit" value="Error" class="bg-e">
-	<input type="submit" value="Warning" class="bg-w">
-	<input type="submit" value="Info" class="bg-i">
-	<input type="submit" value="Success" class="bg-y">
-	<input type="submit" value="Secondary" class="bg-n">
-
-	<p>
-	<a href="#" class="text-e">Error</a>
-	<a href="#" class="text-w">Warning</a>
-	<a href="#" class="text-i">Info</a>
-	<a href="#" class="text-y">Success</a>
-	<a href="#" class="text-n">Secondary</a>
-	<br>
-	<a href="#" class="bg-e">Error</a>
-	<a href="#" class="bg-w">Warning</a>
-	<a href="#" class="bg-i">Info</a>
-	<a href="#" class="bg-y">Success</a>
-	<a href="#" class="bg-n">Secondary</a>
-	<br>
-	<a href="#" class="text-e bg-e">Error</a>
-	<a href="#" class="text-w bg-w">Warning</a>
-	<a href="#" class="text-i bg-i">Info</a>
-	<a href="#" class="text-y bg-y">Success</a>
-	<a href="#" class="text-n bg-n">Secondary</a>
-	<br>
-	<span tabindex="0" class="bg-e">Error</span>
-	<span class="bg-w">Warning</span>
-	<span class="bg-i">Info</span>
-	<span class="bg-y">Success</span>
-	<span class="bg-n">Secondary</span>
 </div>
 </div>
 </body>

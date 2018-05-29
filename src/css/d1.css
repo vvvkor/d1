@@ -1,3 +1,4 @@
+/*! https://github.com/vvvkor/d1 */
 /*
 todo
 	= tooltip
@@ -54,11 +55,11 @@ unclass
 	[style*="--img"] = .gal
 	mark ~ .bg-, .text-
 support ie
-	no ie/edge: details/summary
-	edge: var()
-	ie11: flex
-	ie10: javascript enhancements, classList, flex*
-	ie9: querySelector, @media, :not, calc
+	- no ie/edge: details/summary
+	+ edge: var()
+	+ ie11: flex
+	+ ie10: javascript enhancements, classList, flex*
+	- ie9: querySelector, @media, :not, calc
 */
 
 
@@ -167,7 +168,7 @@ input,button,select,textarea{border:thin solid rgba(0,0,0,.3);}
 .hide:target, .nav li:hover>ul, .pop:hover>div,
 .nav a:focus~ul, .pop> a:focus+div
 {display:block;}
-	a.close{float:right;}
+	a.close{position:absolute;right:0;top:0;padding:var(--gap-s) var(--gap);}
 	a.close:before{content:"\d7";}
 	
 /* js toggle */

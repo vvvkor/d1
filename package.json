@@ -1,19 +1,18 @@
 {
   "name": "d1css",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "Functional CSS micro framework",
   "main": "dist/d1.js",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-    "test": "",
-		"css-pub": "cleancss -f beautify -o ./dist/d1.css ./src/css/d1.css",
-		"css-min": "uglifycss --debug ./src/css/d1.css > ./dist/d1.min.css",
-		"css-pre": "prepare.js",
-		"js-pub": "uglifyjs --verbose --beautify --output ./dist/d1.js ./src/js/d1.js",
-		"js-min": "uglifyjs --output ./dist/d1.min.js ./src/js/d1.js",
-    "prepublishOnly": "echo Prepare dist... && npm run css-pub && npm run css-min && npm run js-pub && npm run js-min && npm run css-pre && echo Prepared dist."
+    "build:css.raw": "postcss -c postcss.config.raw.json",
+    "build:css": "postcss -c postcss.config.json",
+    "minify:css": "postcss -u cssnano dist/d1.css -o dist/d1.min.css",
+    "build:js": "uglifyjs --verbose --beautify --output ./dist/d1.js ./src/js/d1.js",
+    "minify:js": "uglifyjs --output ./dist/d1.min.js ./src/js/d1.js",
+    "build": "npm run build:css.raw && npm run build:css && npm run minify:css && npm run build:js && npm run minify:js"
   },
   "repository": {
     "type": "git",
@@ -30,11 +29,13 @@
     "url": "https://github.com/vvvkor/d1/issues"
   },
   "homepage": "https://github.com/vvvkor/d1#readme",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
-    "uglify-js": "~3",
-    "uglifycss": "~0",
-    "clean-css-cli": "~4"
+    "cssnano": "^3.10.0",
+    "perfectionist": "^2.4.0",
+    "postcss-cli": "^2.6.0",
+    "postcss-cssnext": "^2.11.0",
+    "postcss-discard-comments": "^2.0.4",
+    "uglify-js": "^3.3.27"
   }
 }
