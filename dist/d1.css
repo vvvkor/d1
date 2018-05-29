@@ -8,7 +8,11 @@
   --link: #03b;
   --hover: #000;
   --visited: #888;
-  --radius: .2em
+  --radius: .2em;
+  --gap: 1em;
+  --gap-s: calc(var(--gap)/2);
+  --gap-xs: calc(var(--gap)*.2);
+  --gap-l: calc(var(--gap)*2)
 }
 button,
 input,
@@ -64,7 +68,7 @@ ol,
 p,
 pre,
 ul {
-  margin: 1em 0
+  margin: var(--gap) 0
 }
 h1,
 h2,
@@ -87,7 +91,7 @@ pre {
 blockquote,
 fieldset,
 pre {
-  padding: .5em 1em
+  padding: var(--gap-s) var(--gap)
 }
 abbr {
   border-bottom: thin dotted
@@ -125,7 +129,7 @@ svg {
 .icon {
   display: inline-block;
   vertical-align: -.2em;
-  margin-right: .2em;
+  margin-right: var(--gap-xs);
   width: 1.2em;
   height: 1.2em
 }
@@ -134,17 +138,17 @@ ul {
 }
 ol,
 ul {
-  padding: 0 0 0 1.5em
+  padding: 0 0 0 calc(var(--gap)*1.5)
 }
 li ol,
 li ul {
-  margin: .2em 0
+  margin: var(--gap-xs) 0
 }
 dt {
   font-weight: 700
 }
 dd {
-  margin-bottom: .5em
+  margin-bottom: var(--gap-s)
 }
 table {
   border-collapse: collapse;
@@ -152,7 +156,7 @@ table {
 }
 td,
 th {
-  padding: .2em .8em;
+  padding: var(--gap-xs) var(--gap-s);
   text-align: left;
   vertical-align: top;
   background-clip: padding-box
@@ -176,7 +180,7 @@ hr {
   border-width: medium
 }
 form > p {
-  margin: .5em 0
+  margin: var(--gap-s) 0
 }
 .btn,
 button,
@@ -184,7 +188,7 @@ input,
 select,
 textarea {
   font: inherit;
-  padding: .2em;
+  padding: var(--gap-xs);
   line-height: normal;
   display: inline-block
 }
@@ -197,15 +201,15 @@ textarea {
 .btn,
 [type=submit],
 button {
-  padding: .5em 1em;
+  padding: var(--gap-s) var(--gap);
   border-radius: var(--radius);
-  margin: .1em 0;
+  margin: var(--gap-xs) 0;
   border-color: transparent
 }
 form > .btn,
 form > button,
 form >[type=submit] {
-  padding: .2em .5em;
+  padding: var(--gap-xs) var(--gap-s);
   margin: 0
 }
 [type=submit]:hover:not([disabled]),
@@ -258,10 +262,10 @@ a.close:before {
 }
 .nav li > :not(ul) {
   display: block;
-  padding: .5em 1em
+  padding: var(--gap-s) var(--gap)
 }
 .nav li > form {
-  padding: .3em 1em
+  padding: calc(var(--gap-s) - var(--gap-xs)) var(--gap)
 }
 .nav li > a:nth-last-child(2):after {
   position: static;
@@ -295,13 +299,13 @@ a.close:before {
   min-width: 12em
 }
 .pop > div {
-  padding: .5em 1em
+  padding: var(--gap-s) var(--gap)
 }
 .dialog {
   width: 80%;
   min-width: 10em;
   max-width: 24em;
-  margin: 1em auto;
+  margin: var(--gap) auto;
   text-align: center;
   box-sizing: content-box
 }
@@ -318,7 +322,7 @@ a.close:before {
 }
 .dialog[class],
 .full {
-  padding: 2em;
+  padding: var(--gap-l);
   overflow: auto
 }
 .dialog.hide {
@@ -371,7 +375,7 @@ div.hide {
 .gal a.close,
 .gal a:target:after {
   background: rgba(0,0,0,.3);
-  padding: .5em 1em;
+  padding: var(--gap-s) var(--gap);
   z-index: 41
 }
 .gal a.close {
@@ -389,8 +393,8 @@ div.hide {
   display: none
 }
 .nav + .tabs > div:target {
-  margin-top: -3em;
-  padding-top: 3em
+  margin-top: calc(-3 * var(--gap));
+  padding-top: calc(3*var(--gap))
 }
 .bg,
 blockquote,
@@ -477,7 +481,7 @@ div[class*=bg-],
 p.bg,
 p.bord,
 p[class*=bg-] {
-  padding: .5em 1em
+  padding: var(--gap-s) var(--gap)
 }
 .row {
   display: flex
@@ -486,7 +490,7 @@ p[class*=bg-] {
   flex: 1
 }
 .row > :not(:last-child):not(.center) {
-  margin-right: 1em
+  margin-right: var(--gap)
 }
 .row > .col-0 {
   flex: initial
@@ -508,7 +512,7 @@ p[class*=bg-] {
     margin-right: 0
   }
   .row.flip.mar[class] > * {
-    margin: 1em 0
+    margin: var(--gap) 0
   }
   form > table tr,
   form > table tr > * {
@@ -516,7 +520,7 @@ p[class*=bg-] {
     padding: 0
   }
   form > table tr {
-    padding-bottom: .5em
+    padding-bottom: var(--gap-s)
   }
   ul.nav ul {
     left: 3em;
@@ -573,10 +577,10 @@ p[class*=bg-] {
   margin: 0 auto
 }
 .mar {
-  margin: 1em 0
+  margin: var(--gap) 0
 }
 .pad {
-  padding: .5em 1em
+  padding: var(--gap-s) var(--gap)
 }
 .bord {
   border: thin solid rgba(0,0,0,.2)
