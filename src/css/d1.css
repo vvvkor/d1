@@ -272,7 +272,7 @@ div.bord, p.bord, div.bg, p.bg, div[class*="bg-"], p[class*="bg-"]{padding:var(-
 	.nav ul li>a:nth-last-child(2):after{position:absolute;right:.5em;top:.5em;} /* subnav arrow */
 	.nav{display:flex;flex-wrap:wrap;}
 	.shift{margin-left:auto;}
-	.stick{position:sticky;top:0;height:100vh;align-self:flex-start;z-index:3;max-height:100vh;overflow:auto;}
+	.stick{position:sticky;top:0;height:100vh;align-self:flex-start;z-index:3;overflow:auto;}
 }
 
 @media screen{
