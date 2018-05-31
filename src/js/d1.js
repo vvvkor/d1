@@ -108,6 +108,14 @@ var main = new(function() {
 		}
 		f.readAsDataURL(e.target.files[0]);
 	}
+	
+	this.prepareCode = function(n) {
+		var s = this.q(n.getAttribute('data-src'), 0);
+		if(s){
+			n.textContent = s.innerHTML.replace(/^\s*\r?\n|\s+$/g, '').replace(/\t/g, '  ');
+			n.classList.remove('hide');
+		}
+	}
 
 	//toggle
 	
@@ -231,6 +239,8 @@ var main = new(function() {
 		//set js
 		if (!n) this.b('', 'body', '', function(n) { n.classList.add('js'); });
 
+		//pre
+		this.b(n, 'pre[data-src]', '', this.prepareCode);
 		//a.confirm[href][title], input.confirm [title]
 		this.b(n, 'a.confirm[href], .confirm[name]', 'click', this.askConfirm);
 		//a.prompt[href] [title] [data-default]

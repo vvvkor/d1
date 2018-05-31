@@ -38,6 +38,7 @@
 		<li><a href="#toggle">Toggle</a>
 		<li><a href="#colors">Colors</a>
 		<li><a href="#blocks">Blocks</a>
+		<!--li><a href="#blocks">Images and icons</a-->
 	</ul>
 </div>
 <div class="col-2 pad">
@@ -85,6 +86,7 @@
 			
 			<br>
 			<a href="http://ya.ru">Link</a>
+			<!--
 			<a href="http://ya.ru" class="btn bg-i">Button</a>
 			
 			<a href="#">
@@ -92,6 +94,7 @@
 					<path d="m477 162c0 7-2 14-8 19l-206 207l-39 39c-6 5-12 8-20 8c-7 0-14-3-19-8l-142-142c-6-6-8-12-8-20c0-7 2-14 8-19l38-39c6-5 12-8 20-8c7 0 14 3 19 8l84 84l188-188c5-5 12-8 19-8c8 0 14 3 20 8l38 39c6 6 8 12 8 20z"/>
 				</svg>svg
 			</a>
+			-->
 		</div>
 		<div>
 			<ul>
@@ -123,14 +126,16 @@
 		<div class="bg-y read center">read</div>
 	</div>
 	-->
-	<div class="row mar flip">
-		<div class="bg">div</div>
-		<div class="bg">div</div>
-	</div>
-	<div class="row mar">
-		<div class="bg-w col-2">.col-2</div>
-		<div class="bg-y col-3">.col-3</div>
-	</div>
+<div id="s-grid">
+<div class="row mar flip">
+	<div class="bg">div</div>
+	<div class="bg">div</div>
+</div>
+<div class="row mar">
+	<div class="bg-w col-2">.col-2</div>
+	<div class="bg-y col-3">.col-3</div>
+</div>
+</div>
 	<div class="row mar flip">
 		<div class="bg">div</div>
 		<div class="bg col-2">.col-2</div>
@@ -147,13 +152,18 @@
 		<div class="bg">div</div>
 		<div class="bg">div</div>
 	</div>
+	
+	<pre class="hide bg-i" data-src="#s-grid"></pre>
 
 <h2 id="table">Table</h2>
 
-	<div class="roll bg">
+	<div class="roll">
 	<table class="hover r1">
 		<caption>Read</caption>
+		<thead>
 		<tr>				<th>Component	<th>css	<th>js	<th>mem	<th>esc	<th>mod
+		</thead>
+		<tbody>
 		<tr>				<th>Dropdown	<td>H	<td>H/T	<td>-	<td>+	<td>
 		<tr>				<th>Tree		<td>t	<td>T	<td>+	<td>-	<td><abbr title="accordion">acc</abbr>
 		<tr>				<th>Toggle		<td>t	<td>T	<td>+	<td>-	<td>
@@ -163,53 +173,86 @@
 		<tr>				<th>Modal		<td>T	<td>=	<td>-	<td>=+	<td><abbr title="fullscreen">full</abbr>
 		<tr class="bg-w">	<th>Drawer		<td>T	<td>=	<td>	<td>	<td>
 		<tr>				<th>Gallery		<td>T	<td>=	<td>-	<td>=+	<td>
+		</tbody>
 	</table>
 	</div>
+	
+<div id="s-table" class="hide">
+<div class="roll">
+	<table class="hover r1">
+		<caption>Read</caption>
+		<thead>
+			<tr><th>...</th></tr>
+		</thead>
+		<tbody>
+			<tr><td>...</td></tr>
+		</tbody>
+	</table>
+</div>
+</div>
+	<pre class="hide bg-i" data-src="#s-table"></pre>
 
 
 <h2 id="button">Button</h2>
 
-	<input type="submit" value="Submit">
-	<input type="submit" value="Disabled" disabled>
-	<button type="submit" value="Button">Button</button>
-	<a href="#" class="btn">Link</a>
-	<span class="btn bg-n">Span</span>
-	
+<div id="s-button">
+<input type="submit" value="Submit">
+<input type="submit" value="Disabled" disabled>
+<button type="submit" value="Button">Button</button>
+<a href="#" class="btn">Link</a>
+<span class="btn bg-n">Span</span>
+</div>
 	<p>For color options see <a href="#colors">Colors</a> section.
+	
+	<pre class="hide bg-i" data-src="#s-button"></pre>
 
 
 <h2 id="form">Form</h2>
 
 <h3>Inline form</h3>
 
-	<form>
-		<input type="search" size="5">
-		<input type="submit" value="Find">
+<div id="s-form-inline">
+<form>
+	<input type="search" size="10">
+	<input type="submit" value="Find">
+</form>
+</div>	
+		<!--
 		<a href="#" class="btn">Btn</a>
 		<a href="#">Link</a>
 		<span class="btn">Span</span>
-	</form>
+		-->
+
+	<pre class="hide bg-i" data-src="#s-form-inline"></pre>
 
 <h3>Stacked form</h3>
 
-	<form action="?">
-		<p>
-		<label for="nm1">Name</label><br>
-		<input type="text" name="nm1" id="nm1" required pattern="[A-Za-z]{2,}" title="Two or more letters"><br>
-		<p>
-		<label for="age1">Age</label><br>
-		<input type="number" name="age1" id="age1"><br>
-		<p>
+<div id="s-form-stacked">
+<form method="post">
+	<p>
+		<label for="name">Name</label><br>
+		<input type="text" name="name" id="name" required>
+	</p>
+	<p>
+		<label for="age">Age</label><br>
+		<input type="number" name="age" id="age">
+	</p>
+	<p>
 		<input type="submit" value="OK">
-		<a href="#" class="btn">Btn</a>
 		<a href="#" class="pad hover">Link</a>
+	</p>
+</form>
+</div>
+		<!--
+		<input type="text" name="nm1" id="nm1" required pattern="[A-Za-z]{2,}" title="Two or more letters"><br>
+		<a href="#" class="btn">Btn</a>
 		<span class="btn">Span</span>
-	</form>
-
+		-->
+	<pre class="hide bg-i" data-src="#s-form-stacked"></pre>
 
 <h3>Aligned form</h3>
 
-	<form action="?">
+	<form method="post">
 		<table>
 		<tr>
 			<td><label for="nm">Name</label>
@@ -300,9 +343,44 @@
 				<a href="#">Link</a>
 		</table>
 	</form>
+	
+
+<div id="s-form-aligned" class="hide">
+<form method="post">
+	<table>
+		<tbody>
+			<tr>
+				<td><label for="nom">Name</label></td>
+				<td><input type="text" name="nom" id="nom"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="submit" value="Submit"></td>
+			</tr>
+		</tbody>
+	</table>
+</form>
+</div>
+			<!--tr>
+				<td colspan="2">
+					<fieldset>
+						<legend>Switches</legend>
+						<table>
+							<tr>
+								<td><label for="city">City</label>
+								<td><input type="text" name="city" id="city">
+							</tr>
+						</table>
+					</fieldset>
+				</td>
+			</tr-->
+
+	<pre class="hide bg-i" data-src="#s-form-aligned"></pre>
 
 
 <h2 id="navs">Navigation</h2>
+
+<h3>Dropdown</h3>
 
 	<div class="hide show-mobile"><a href="#menu" class="pad hover">&equiv;</a></div>
 	<nav class="hide show-desktop toggle" id="menu">
@@ -350,12 +428,43 @@
 	</ul>
 	</nav>
 
-	<ul class="nav bg screen mar">
-		<li><b>Pages</b>
-		<li><a href="#p1" title="Page 1">1</a>
-		<li><a href="#p2" title="Page 1">2</a>
-		<li><a href="#p3" title="Page 2">3</a>
+<div id="s-nav" class="hide">
+<div class="hide show-mobile">
+	<a href="#navi" class="pad hover">&equiv;</a>
+</div>
+<nav class="hide show-desktop toggle" id="navi">
+	<ul class="nav bg toggle flip">
+		<li>
+			<a href="#">First</a>
+		</li>
+		<li>
+			<a href="#sub">Second</a>
+			<ul id="sub">
+				<li><a href="#grid">Subitem</a></li>
+			</ul>
+		</li>
+		<li class="shift">
+			<form>
+				<input type="search" size="5">
+				<input type="submit" value="Find">
+			</form>
+		</li>
 	</ul>
+</nav>
+</div>
+	<pre class="hide bg-i" data-src="#s-nav"></pre>
+
+<h3>Pagination</h3>
+	
+<div id="s-pagenav">
+<ul class="nav bg mar">
+	<li><b>Pages</b></li>
+	<li><a href="?p=1">1</a></li>
+	<li><a href="?p=2">2</a></li>
+	<li><a href="?p=3">3</a></li>
+</ul>
+</div>
+	<pre class="hide bg-i" data-src="#s-pagenav"></pre>
 
 
 <h2 id="toggle">Toggle</h2>
@@ -428,53 +537,65 @@
 	<a href="#" class="text-e">Error</a>
 	<a href="#" class="text-w">Warning</a>
 	<a href="#" class="text-i">Info</a>
-	<a href="#" class="text-y">Success</a>
-	<a href="#" class="text-n">Secondary</a>
+	<a href="#" class="text-y">Yes</a>
+	<a href="#" class="text-n">No</a>
 	<br>
 	<a href="#" class="bg-e">Error</a>
 	<a href="#" class="bg-w">Warning</a>
 	<a href="#" class="bg-i">Info</a>
-	<a href="#" class="bg-y">Success</a>
-	<a href="#" class="bg-n">Secondary</a>
-	<br>
-	<a href="#" class="text-e bg-e">Error</a>
-	<a href="#" class="text-w bg-w">Warning</a>
-	<a href="#" class="text-i bg-i">Info</a>
-	<a href="#" class="text-y bg-y">Success</a>
-	<a href="#" class="text-n bg-n">Secondary</a>
-	<br>
+	<a href="#" class="bg-y">Yes</a>
+	<a href="#" class="bg-n">No</a>
+<div id="s-colors-text">
+<a href="#" class="text-e bg-e">Error</a>
+<a href="#" class="text-w bg-w">Warning</a>
+<a href="#" class="text-i bg-i">Info</a>
+<a href="#" class="text-y bg-y">Yes</a>
+<a href="#" class="text-n bg-n">No</a>
+</div>
 	<span tabindex="0" class="bg-e">Error</span>
 	<span class="bg-w">Warning</span>
 	<span class="bg-i">Info</span>
-	<span class="bg-y">Success</span>
-	<span class="bg-n">Secondary</span>
+	<span class="bg-y">Yes</span>
+	<span class="bg-n">No</span>
+	
+	<pre data-src="#s-colors-text" class="bg-i hide"></pre>
 	
 <h3>Buttons</h3>
 	
-	<input type="submit" value="Error" class="bg-e">
-	<input type="submit" value="Warning" class="bg-w">
-	<input type="submit" value="Info" class="bg-i">
-	<input type="submit" value="Success" class="bg-y">
-	<input type="submit" value="Secondary" class="bg-n">
+<div id="s-colors-buttons">
+<input type="submit" value="Error" class="bg-e">
+<input type="submit" value="Warning" class="bg-w">
+<input type="submit" value="Info" class="bg-i">
+<input type="submit" value="Yes" class="bg-y">
+<input type="submit" value="No" class="bg-n">
+</div>
+	
+	<pre data-src="#s-colors-buttons" class="bg-i hide"></pre>
 
 <h3>Blocks</h3>
+
+<div id="s-colors-blocks">
+<p class="bg-e">Error	<span class="text-e">Error</span></p>
+<p class="bg-w">Warning	<span class="text-w">Warning</span></p>
+<p class="bg-i">Info	<span class="text-i">Info</span></p>
+<p class="bg-y">Yes	<span class="text-y">Yes</span></p>
+<p class="bg-n">No <span class="text-n">No</span></p>
+<p class="bg">Bg</p>
+<p class="bord">Border</p>
+<p class="bg bord">Bg+Border</p>
+<p class="bg-i bord">Status+Border</p>
+</div>
 	
-	<p class="bg-e">Danger	<span class="text-e">Danger</span></p>
-	<p class="bg-w">Warning	<span class="text-w">Warning</span></p>
-	<p class="bg-i">Info	<span class="text-i">Info</span></p>
-	<p class="bg-y">Success	<span class="text-y">Success</span></p>
-	<p class="bg-n">Secondary <span class="text-n">Secondary</span></p>
-	<p class="bg">Bg</p>
-	<p class="bord">Border</p>
-	<p class="bg bord">Bg+Border</p>
-	<p class="bg-i bord">Status+Border</p>
+	<pre data-src="#s-colors-blocks" class="bg-i hide"></pre>
 
 <h2 id="blocks">Blocks</h2>
+
+<h3>Media object</h3>
 
 	<div class="row mar">
 		<a href="#media" class="col-0"><img alt="pic" width="80" src="data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAQUlEQVR4nGNkaPjPQApgIkk1AwMDC6bQ/3oEm7GRYhuo4SRMZ+DTgOwBrJop9gN+91DDBrprQAs0cmwgOeJItgEAkbkIq9GVLncAAAAASUVORK5CYII="></a>
 		<div>
-			Media object with description
+			Some description
 			<div>
 				<time class="text-n" datetime="1970-01-01">January 1970</time>
 				&bull;
@@ -483,12 +604,34 @@
 		</div>
 	</div>
 
+<div id="s-media" class="hide">
+<div class="row mar">
+	<a href="#media" class="col-0">
+		<img alt="pic" width="80" src="">
+	</a>
+	<div>Some description</div>
+</div>
+</div>
+	<pre data-src="#s-media" class="bg-i hide"></pre>
+	
+<h3>Figure</h3>
+
 	<figure class="bg c pad">
 		<img alt="figure" src="data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAQUlEQVR4nGNkaPjPQApgIkk1AwMDC6bQ/3oEm7GRYhuo4SRMZ+DTgOwBrJop9gN+91DDBrprQAs0cmwgOeJItgEAkbkIq9GVLncAAAAASUVORK5CYII=">
 		<figcaption>
 			Figure caption
 		</figcaption>
 	</figure>
+
+<div id="s-fig" class="hide">
+<figure class="bg c pad">
+	<img alt="figure" src="">
+	<figcaption>Figure caption</figcaption>
+</figure>
+</div>
+	<pre data-src="#s-fig" class="bg-i hide"></pre>
+	
+<h3>Empty filler</h3>
 
 	<div class="dialog">
 		<svg class="text-n" width="80" height="80" viewBox="0 0 16 16" version="1.1" aria-hidden="true"><path  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
@@ -497,7 +640,21 @@
 		<a href="#add" class="btn bg-i">Add new item</a>
 	</div>
 
-	<div class="full bg-w c">Full</div>
+<div id="s-dlg" class="hide">
+<div class="dialog">
+	<svg>...</svg>
+	<p>No items yet</p>
+</div>
+</div>
+	<pre data-src="#s-dlg" class="bg-i hide"></pre>
+	
+<h3>Full height</h3>
+	
+<div id="s-full">
+<div class="full bg-w c">Full</div>
+</div>
+	<pre data-src="#s-full" class="bg-i hide"></pre>
+
 
 </div>
 </div>
