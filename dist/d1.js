@@ -74,6 +74,13 @@
                 };
                 f.readAsDataURL(e.target.files[0]);
             };
+            this.prepareCode = function(n) {
+                var s = this.q(n.getAttribute("data-src"), 0);
+                if (s) {
+                    n.textContent = s.innerHTML.replace(/^\s*\r?\n|\s+$/g, "").replace(/\t/g, "  ");
+                    n.classList.remove("hide");
+                }
+            };
             this.getState = function(n) {
                 return n.classList.contains("js-show");
             };
@@ -165,6 +172,7 @@
                 if (!n) this.b("", "body", "", function(n) {
                     n.classList.add("js");
                 });
+                this.b(n, "pre[data-src]", "", this.prepareCode);
                 this.b(n, "a.confirm[href], .confirm[name]", "click", this.askConfirm);
                 this.b(n, "a.prompt[href]", "click", this.askPrompt);
                 this.b(n, "input[data-group]", "click", this.checkBoxes);

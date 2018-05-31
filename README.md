@@ -1,7 +1,7 @@
 # d1
 
-Functional CSS micro framework with optional JS enhancements.  
-Its aim is to implement most widely used components with less code.
+**d1** is lightweight yet functional CSS micro framework with optional JS enhancements.
+It aims to implement most widely used interface components with less code.
 
 ## Features
 

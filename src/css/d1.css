@@ -16,19 +16,20 @@ modules
 	+button
 	+form [table, button]
 	+nav (shift hor)
-	+hide (toggle, modal, tabs, pop) + close
+	+hide (toggle, modal, tabs, pop, gal) + close
 	+color (text-, bg-, bg, yel) [button]
 	+helpers (mar, pad, c, center, wrap, shift, small...)
 	+js
 	
 classes
 	main
-		.row .col-0 .col-2 .col-3 .flip
-		.nav .act .hover .flip
+		.row .col-0 .col-2 .col-3 .flip .stick
+		.nav .act .hover .flip .shift
 		a.btn, span.btn
 	action
-		.hide .pop .dialog .full(.c) .tabs .gal .close
-		.js-control .js-show .drop
+		.hide .pop .dlg .full(.c) .gal .tabs .close
+	js
+		.toggle .js-control .js-show .drop pre[data-src]
 	decorative
 		.bg .text-x .bg-x
 		.wrap .read .narrow .shift .stick
@@ -38,6 +39,7 @@ classes
 		.small .r .c .l .center .yel
 		.mar .pad .bord .rad
 		.print .screen
+		.show-mobile .show-desktop
 tags
 	form>button - inline
 	form>p - stacked
@@ -50,7 +52,7 @@ unclass
 	section:not([id]) = .row
 	section:not([id])>* = .col-2
 	section:not([id])>aside = .col-1
-	section[id] = .dialog
+	section[id] = .dlg
 	details = .hide
 	[style*="--img"] = .gal
 	mark ~ .bg-, .text-
@@ -185,38 +187,27 @@ input,button,select,textarea{border:thin solid rgba(0,0,0,.3);}
 /* box */
 .pop{display:inline;}
 .nav li, .pop{position:relative;}
-/*div.hide,*/ .nav ul, .pop>div, .dialog, .full.hide{background:var(--bg);background-clip:padding-box;box-shadow:0 .2em .8em  rgba(0,0,0,.5);}
+/*div.hide,*/ .nav ul, .pop>div, .dlg, .full.hide{background:var(--bg);background-clip:padding-box;box-shadow:0 .2em .8em  rgba(0,0,0,.5);}
 	.nav ul, .pop>div{position:absolute;left:0;top:100%;min-width:12em;}
 	/*div.hide,*/ .pop>div{padding:var(--gap-s) var(--gap);}
 	
-	.dialog{width:80%;min-width:10em;max-width:24em;margin:var(--gap) auto;text-align:center;box-sizing:content-box;}
+	.dlg{width:80%;min-width:10em;max-width:24em;margin:var(--gap) auto;text-align:center;box-sizing:content-box;}
 	.full{left:0;top:0;width:100%;height:100vh;/*border:1em solid #eee;*//*box-sizing:border-box;*/}
 	.full.c{display:flex;align-items:center;justify-content:center;}
-	.dialog[class],.full{padding:var(--gap-l);overflow:auto;}
-		.dialog.hide{border:200vw solid rgba(0,0,0,.85);left:50%;top:50%;transform:translate(-50%,-50%);min-width:20em;max-width:80vw;max-height:80vh;width:auto;}
-		.dialog.hide, .full.hide{position:fixed;z-index:50;}
+	.dlg[class],.full{padding:var(--gap-l);overflow:auto;}
+		.dlg.hide{border:200vw solid rgba(0,0,0,.85);left:50%;top:50%;transform:translate(-50%,-50%);min-width:20em;max-width:80vw;max-height:80vh;width:auto;}
+		.dlg.hide, .full.hide{position:fixed;z-index:50;}
 /* z-index */	
 div.hide{z-index:10;}
 .pop>div{z-index:20;}
 .nav ul{z-index:30;}
 
 /* gallery */
-.gal a, .gal a:target:after{position:fixed;left:0;top:0;display:none;color:#fff;background:#000 50% 50% / contain no-repeat;/*outline:none;*/z-index:40;}
-.gal a[id]:target{background-image:var(--img);width:100%;height:100vh;} /* current */
+.gal a{display:none;}
+.gal a:target{color:#fff;background:#000 50% 50% / contain no-repeat;background-image:var(--img);z-index:40;display:block;position:fixed;left:0;top:0;width:100%;height:100vh;box-shadow:inset 0 3em 3em -1.5em rgba(0,0,0,.3);} /* current */
 	.gal a:target+a{background-image:var(--img);background-position:999em 999em;} /* preload next */
-.gal a:target, .gal a:target~a.close {display:block;}
-	.gal a.close, .gal a:target:after{background:rgba(0,0,0,.3);padding:var(--gap-s) var(--gap);z-index:41;}
-	.gal a.close{left:auto;right:0;}
-	.gal a[data-info]:target:after{content:attr(data-info);display:block;}
-	
-	
-a.hide.full{position:fixed;left:0;top:0;background:#000 50% 50% / contain no-repeat;z-index:40;}
-a.hide.full[id]:target{background-image:var(--img);width:100%;height:100vh;box-shadow:inset 0 3em 3em -1.5em rgba(0,0,0,.3);} /* current */
-a.hide.full:target+a{background-image:var(--img);background-position:999em 999em;} /* preload next */
-
-a.hide.full:target~a.close, a.hide.full[data-info]:target:after{display:block;z-index:41;position:fixed;color:#fff;padding:0 var(--gap-s);font-weight:bold;}
-a.hide.full:target~a.close{}
-a.hide.full[data-info]:target:after{content:attr(data-info);left:0;top:0;}
+	.gal a:target~a.close, .gal a[data-info]:after{display:block;z-index:41;position:fixed;color:#fff;padding:0 var(--gap-s);}
+	.gal a[data-info]:after{content:attr(data-info);left:0;top:0;}
 
 /* tabs */
 .nav+.tabs>div:last-child{display:block;}

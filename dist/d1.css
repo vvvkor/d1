@@ -258,7 +258,7 @@ a.close:before {
     position: relative;
 }
 
-.nav ul, .pop>div, .dialog, .full.hide {
+.nav ul, .pop>div, .dlg, .full.hide {
     background: #fff;
     background-clip: padding-box;
     box-shadow: 0 .2em .8em rgba(0, 0, 0, .5);
@@ -275,7 +275,7 @@ a.close:before {
     padding: .5em 1em;
 }
 
-.dialog {
+.dlg {
     width: 80%;
     min-width: 10em;
     max-width: 24em;
@@ -300,12 +300,12 @@ a.close:before {
     justify-content: center;
 }
 
-.dialog[class], .full {
+.dlg[class], .full {
     padding: 2em;
     overflow: auto;
 }
 
-.dialog.hide {
+.dlg.hide {
     border: 200vw solid rgba(0, 0, 0, .85);
     left: 50%;
     top: 50%;
@@ -316,7 +316,7 @@ a.close:before {
     width: auto;
 }
 
-.dialog.hide, .full.hide {
+.dlg.hide, .full.hide {
     position: fixed;
     z-index: 50;
 }
@@ -333,20 +333,22 @@ div.hide {
     z-index: 30;
 }
 
-.gal a, .gal a:target:after {
+.gal a {
+    display: none;
+}
+
+.gal a:target {
+    color: #fff;
+    background: #000 50% 50% / contain no-repeat;
+    background-image: var(--img);
+    z-index: 40;
+    display: block;
     position: fixed;
     left: 0;
     top: 0;
-    display: none;
-    color: #fff;
-    background: #000 50% 50% / contain no-repeat;
-    z-index: 40;
-}
-
-.gal a[id]:target {
-    background-image: var(--img);
     width: 100%;
     height: 100vh;
+    box-shadow: inset 0 3em 3em -1.5em rgba(0, 0, 0, .3);
 }
 
 .gal a:target+a {
@@ -354,24 +356,18 @@ div.hide {
     background-position: 999em 999em;
 }
 
-.gal a:target, .gal a:target~a.close {
+.gal a:target~a.close, .gal a[data-info]:after {
     display: block;
-}
-
-.gal a.close, .gal a:target:after {
-    background: rgba(0, 0, 0, .3);
-    padding: .5em 1em;
     z-index: 41;
+    position: fixed;
+    color: #fff;
+    padding: 0 .5em;
 }
 
-.gal a.close {
-    left: auto;
-    right: 0;
-}
-
-.gal a[data-info]:target:after {
+.gal a[data-info]:after {
     content: attr(data-info);
-    display: block;
+    left: 0;
+    top: 0;
 }
 
 .nav+.tabs>div:last-child {
@@ -577,7 +573,6 @@ div.bord, p.bord, div.bg, p.bg, div[class*="bg-"], p[class*="bg-"] {
         -ms-flex-item-align: start;
         align-self: flex-start;
         z-index: 3;
-        max-height: 100vh;
         overflow: auto;
     }
 }
