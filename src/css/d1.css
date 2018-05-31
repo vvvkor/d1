@@ -208,6 +208,16 @@ div.hide{z-index:10;}
 	.gal a.close, .gal a:target:after{background:rgba(0,0,0,.3);padding:var(--gap-s) var(--gap);z-index:41;}
 	.gal a.close{left:auto;right:0;}
 	.gal a[data-info]:target:after{content:attr(data-info);display:block;}
+	
+	
+a.hide.full{position:fixed;left:0;top:0;background:#000 50% 50% / contain no-repeat;z-index:40;}
+a.hide.full[id]:target{background-image:var(--img);width:100%;height:100vh;box-shadow:inset 0 3em 3em -1.5em rgba(0,0,0,.3);} /* current */
+a.hide.full:target+a{background-image:var(--img);background-position:999em 999em;} /* preload next */
+
+a.hide.full:target~a.close, a.hide.full[data-info]:target:after{display:block;z-index:41;position:fixed;color:#fff;padding:0 var(--gap-s);font-weight:bold;}
+a.hide.full:target~a.close{}
+a.hide.full[data-info]:target:after{content:attr(data-info);left:0;top:0;}
+
 /* tabs */
 .nav+.tabs>div:last-child{display:block;}
 .nav+.tabs>div:target~div{display:none;}

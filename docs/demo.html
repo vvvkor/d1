@@ -27,14 +27,14 @@
 	</p>
 	<p class=""><code class="pad">npm install d1css</code></p>
 
-	<div class="hide show-mobile"><a href="#nav" class="pad hover">&equiv;</a></div>
-	<ul id="nav" class="hide show-desktop toggle">
+	<div class="hide show-mobile"><a href="#menu" class="pad hover">&equiv;</a></div>
+	<ul id="menu" class="hide show-desktop toggle">
 		<li><a href="#typo">Typography</a>
 		<li><a href="#grid">Grid</a>
 		<li><a href="#table">Table</a>
 		<li><a href="#button">Button</a>
 		<li><a href="#form">Form</a>
-		<li><a href="#navs">Navigation</a>
+		<li><a href="#nav">Navigation</a>
 		<li><a href="#toggle">Toggle</a>
 		<li><a href="#colors">Colors</a>
 		<li><a href="#blocks">Blocks</a>
@@ -45,75 +45,73 @@
 
 <h2 id="typo">Typography</h2>
 
-	<div class="row gap">
-		<div>
-			<h1>Heading 1</h1>
-			<h2>Heading 2</h2>
-			<h3>Heading 3</h3>
-			<h4>Heading 4</h4>
-			<h5>Heading 5</h5>
-			<h6>Heading 6</h6>
-			<p>Paragraph</p>
-		</div>
-		<div>
-			<p>Paragraph<br>New line</p>
-			<p>Paragraph</p>
-			<pre>Preformatted</pre>
-			<blockquote>Blockqoute</blockquote>
-			<hr>
+<h3>Headings</h3>
 
-			<b>b</b>
-			<i>i</i>
-			<s>s</s>
-			<ins>ins</ins>
-			<del>del</del>
-			<sub>sub</sub>
-			<sup>sup</sup>
-			<time datetime="1970-01-01">time</time>
-			
-			<br>
-			<abbr title="Abbreviation">Abbr</abbr>
-			<q>quote</q>
-			<cite>cite</cite>
-			<mark>mark</mark>
-			<dfn>dfn</dfn>
-			
-			<br>
-			<code>code</code>
-			<var>var</var>
-			<kbd>kbd</kbd>
-			<samp>samp</samp>
-			
-			<br>
-			<a href="http://ya.ru">Link</a>
-			<!--
-			<a href="http://ya.ru" class="btn bg-i">Button</a>
-			
-			<a href="#">
-				<svg class="text-i icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
-					<path d="m477 162c0 7-2 14-8 19l-206 207l-39 39c-6 5-12 8-20 8c-7 0-14-3-19-8l-142-142c-6-6-8-12-8-20c0-7 2-14 8-19l38-39c6-5 12-8 20-8c7 0 14 3 19 8l84 84l188-188c5-5 12-8 19-8c8 0 14 3 20 8l38 39c6 6 8 12 8 20z"/>
-				</svg>svg
-			</a>
+	<h1>Heading 1</h1>
+	<h2>Heading 2</h2>
+	<h3>Heading 3</h3>
+	<h4>Heading 4</h4>
+	<h5>Heading 5</h5>
+	<h6>Heading 6</h6>
+
+<h3>Inline</h3>
+
+	<b>Bold</b>
+	<i>Italic</i>
+	<s>Strike</s>
+	<ins>Insert</ins>
+	<del>Delete</del>
+	<sub>Subscript</sub>
+	<sup>Superscript</sup>
+	
+	<br>
+	<time datetime="1970-01-01">Time</time>
+	<abbr title="Abbreviation">Abbr</abbr>
+	<q>Quote</q>
+	<cite>Cite</cite>
+	<mark>Mark</mark>
+	<dfn>Dfn</dfn>
+	
+	<br>
+	<code>Code</code>
+	<var>Var</var>
+	<kbd>Kbd</kbd>
+	<samp>Samp</samp>
+	
+	<br>
+	<a href="http://ya.ru">Link</a>
+	<!--
+	<a href="http://ya.ru" class="btn bg-i">Button</a>
+	
+	<a href="#">
+		<svg class="text-i icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
+			<path d="m477 162c0 7-2 14-8 19l-206 207l-39 39c-6 5-12 8-20 8c-7 0-14-3-19-8l-142-142c-6-6-8-12-8-20c0-7 2-14 8-19l38-39c6-5 12-8 20-8c7 0 14 3 19 8l84 84l188-188c5-5 12-8 19-8c8 0 14 3 20 8l38 39c6 6 8 12 8 20z"/>
+		</svg>svg
+	</a>
 			-->
-		</div>
-		<div>
-			<ul>
-				<li>One
-				<li>Two
-					<ol>
-						<li>Alpha
-						<li>Beta
-					</ol>
-			</ul>
-			<dl>
-				<dt>One</dt>
-				<dd>Uno</dd>
-				<dt>Two</dt>
-				<dd>Dos</dd>
-			</dl>
-		</div>
-	</div>
+<h3>Blocks</h3>
 
+	<p>Paragraph<br>New line</p>
+	<p>Paragraph</p>
+	<pre>Preformatted</pre>
+	<blockquote>Blockqoute</blockquote>
+
+<h3>Lists</h3>
+
+	<ul>
+		<li>Unordered
+		<li>List
+			<ol>
+				<li>Ordered
+				<li>List
+			</ol>
+	</ul>
+	<dl>
+		<dt>Term</dt>
+		<dd>Definition</dd>
+		<dt>Another term</dt>
+		<dd>Another definition</dd>
+	</dl>
 	
 <h2 id="grid">Grid</h2>
 	
@@ -159,23 +157,30 @@
 
 	<div class="roll">
 	<table class="hover r1">
-		<caption>Read</caption>
+		<caption>Table caption</caption>
 		<thead>
-		<tr>				<th>Component	<th>css	<th>js	<th>mem	<th>esc	<th>mod
+		<tr><th>Component<th>Pure CSS<th>JS enhance<wbr>ments <code>.toggle</code><th>Re<wbr>mem<wbr>ber state <code>.mem</code><th>Close on Escape<th>Modifi<wbr>cations
 		</thead>
 		<tbody>
-		<tr>				<th>Dropdown	<td>H	<td>H/T	<td>-	<td>+	<td>
-		<tr>				<th>Tree		<td>t	<td>T	<td>+	<td>-	<td><abbr title="accordion">acc</abbr>
-		<tr>				<th>Toggle		<td>t	<td>T	<td>+	<td>-	<td>
-		<tr>				<th>Popup		<td>HFt	<td>HF/T<td>-	<td>+	<td>
-		<tr>				<th>Tabs		<td>t	<td>T!	<td>+	<td>-	<td>
-		<tr class="bg-w">	<th>Tooltip		<td>HF	<td>HF	<td>-	<td>+	<td>
-		<tr>				<th>Modal		<td>T	<td>=	<td>-	<td>=+	<td><abbr title="fullscreen">full</abbr>
-		<tr class="bg-w">	<th>Drawer		<td>T	<td>=	<td>	<td>	<td>
+		<tr>				<th>Dropdown	<td>H	<td>=/T	<td>-	<td>+	<td>
+		<tr>				<th>Tree		<td>t	<td>=/T	<td>+	<td>-	<td><code>.accor<wbr>dion</code>
+		<tr>				<th>Toggle		<td>t	<td>=/T	<td>+	<td>-	<td>
+		<tr>				<th>Popup		<td>HFt	<td>=/T<td>-	<td>+	<td>
+		<tr>				<th>Tabs		<td>t	<td>T	<td>+	<td>-	<td>
+		<!--tr class="bg-w">	<th>Tooltip		<td>HF	<td>HF	<td>-	<td>+	<td-->
+		<tr>				<th>Modal		<td>T	<td>=	<td>-	<td>=+	<td><code>.full</code>
+		<!--tr class="bg-w">	<th>Drawer		<td>T	<td>=	<td>	<td>	<td-->
 		<tr>				<th>Gallery		<td>T	<td>=	<td>-	<td>=+	<td>
 		</tbody>
 	</table>
 	</div>
+	
+	<p class="bg-n">
+		<b>Legend</b><br>
+		H &mdash; <code>:hover</code><br>
+		F &mdash; <code>:focus</code><br>
+		T &mdash; <code>:target</code> (t &mdash; with undesirable scroll)
+	</p>
 	
 <div id="s-table" class="hide">
 <div class="roll">
@@ -185,7 +190,7 @@
 			<tr><th>...</th></tr>
 		</thead>
 		<tbody>
-			<tr><td>...</td></tr>
+			<tr class="bg-w"><td>...</td></tr>
 		</tbody>
 	</table>
 </div>
@@ -231,7 +236,7 @@
 <form method="post">
 	<p>
 		<label for="name">Name</label><br>
-		<input type="text" name="name" id="name" required>
+		<input type="text" name="name" id="name" required="required">
 	</p>
 	<p>
 		<label for="age">Age</label><br>
@@ -378,12 +383,12 @@
 	<pre class="hide bg-i" data-src="#s-form-aligned"></pre>
 
 
-<h2 id="navs">Navigation</h2>
+<h2 id="nav">Navigation</h2>
 
 <h3>Dropdown</h3>
 
-	<div class="hide show-mobile"><a href="#menu" class="pad hover">&equiv;</a></div>
-	<nav class="hide show-desktop toggle" id="menu">
+	<div class="hide show-mobile"><a href="#dropdown" class="pad hover">&equiv;</a></div>
+	<nav class="hide show-desktop toggle" id="dropdown">
 	<ul class="nav bg toggle flip">
 		<li><a href="#typography" class="act">Typography</a>
 		<li><a href="#layout">Layout</a>
@@ -440,7 +445,7 @@
 		<li>
 			<a href="#sub">Second</a>
 			<ul id="sub">
-				<li><a href="#grid">Subitem</a></li>
+				<li><a href="#subitem">Subitem</a></li>
 			</ul>
 		</li>
 		<li class="shift">
@@ -469,66 +474,129 @@
 
 <h2 id="toggle">Toggle</h2>
 
-	<div class="row flip">
-	<div>
-		Show/hide: 
-		<div class="pop">
-			<a href="#pop1">Popup</a>
-			<div id="pop1" class="toggle">Pop</div>
-		</div>
-		<a href="#tog1">Toggle</a>
-		<a href="#dlg1">Dialog</a>
-		<a href="#mod1">Fullscreen</a>
-		<a href="#gal1">Gallery</a> (pure CSS, lazy load, preload next, next on enter)
-		.
-			<div id="tog1" class="hide bord yel toggle mem">Toggle</div>
-			<div id="dlg1" class="hide dialog"><a class="close" href="#cancel"></a>Dialog</div>
-			<div id="mod1" class="hide full"><a class="close" href="#cancel"></a>Full</div>
-			<div class="gal">
-				<a id="gal1" href="#gal2" data-info="1/3 - ir.png" style="--img:url(http://vadimkor.ru/src/ir.png)"></a>
-				<a id="gal2" href="#gal3" data-info="2/3 - ig.png" style="--img:url(http://vadimkor.ru/src/ig.png)"></a>
-				<a id="gal3" href="#gal1" data-info="3/3 - ib.png" style="--img:url(http://vadimkor.ru/src/ib.png)"></a>
-				<a class="close" href="#cancel"></a>
-			</div>
-			<div class="hide">
-				Hidden gallery: non-CSS fallback
-				<a href="http://vadimkor.ru/src/ir.png">#1</a>
-				<a href="http://vadimkor.ru/src/ir.png">#2</a>
-				<a href="http://vadimkor.ru/src/ir.png">#3</a>
-			</div>
-		<details class="mar">
-			<summary class="hover">Summary</summary>
-			<div class="bg">Details</div>
-		</details>
-	</div>
-	<div class="col-2">
-		<ul class="nav">
-			<li><a href="#tab1">Tab1</a>
-			<li><a href="#tab2">Tab2</a>
-			<li><a href="#tab3">Tab3</a>
-		</ul>
-		<div class="tabs mem bord">
-			<div id="tab2" class="hide">2<br>2</div>
-			<div id="tab3" class="hide">3<br>3<br>3</div>
-			<div id="tab1" class="hide">1</div>
-		</div>
-	</div>
-	<div>
-		<ul class="toggle mem -accordion">
-			<li><a href="#ul1">List 1</a>
-				<ul id="ul1">
-					<li><a href="#li11">Item 1.1</a>
-					<li><a href="#li12">Item 1.2</a>
-				</ul>
-			<li><a href="#ul2">List 2</a>
-				<ul id="ul2">
-					<li><a href="#li11">Item 1.1</a>
-					<li><a href="#li12">Item 1.2</a>
-				</ul>
-		</ul>
-	</div>
-	</div>
+<h3>Popup</h3>
 
+<div id="s-popup">
+<div class="pop">
+	<a href="#pop">Popup</a>
+	<div id="pop" class="toggle">Pop</div>
+</div>
+</div>
+	<pre class="hide bg-i" data-src="#s-popup"></pre>
+
+
+<h3>Toggle</h3>
+
+<div id="s-toggle">
+<a href="#tog">Toggle</a>
+<div id="tog" class="hide bord yel toggle mem">Togglable</div>
+</div>
+	<pre class="hide bg-i" data-src="#s-toggle"></pre>
+
+<h3>Modal dialog</h3>
+
+<div id="s-dlg">
+<a href="#dlg">Dialog</a>
+<div id="dlg" class="hide dialog">
+	<a class="close" href="#cancel"></a>
+	Dialog
+</div>
+</div>
+	<pre class="hide bg-i" data-src="#s-dlg"></pre>
+	
+		
+<h3>Modal fullscreen</h3>
+
+<div id="s-full">
+<a href="#mod">Fullscreen</a>
+<div id="mod" class="hide full">
+	<a class="close" href="#cancel"></a>
+	Full
+</div>
+</div>
+	<pre class="hide bg-i" data-src="#s-full"></pre>
+
+<h3>Gallery</h3>
+
+<div class="hide">
+	Hidden gallery: non-CSS fallback
+	<a href="http://vadimkor.ru/src/ir.png">#1</a>
+	<a href="http://vadimkor.ru/src/ir.png">#2</a>
+	<a href="http://vadimkor.ru/src/ir.png">#3</a>
+</div>
+
+<a href="#gal1">Gallery</a>. Pure CSS, lazy load, preload next, next on enter.
+<div class="gal">
+	<a id="gal1" href="#gal2" data-info="1/3 - ir.png" style="--img:url(http://vadimkor.ru/src/ir.png)"></a>
+	<a id="gal2" href="#gal3" data-info="2/3 - ig.png" style="--img:url(http://vadimkor.ru/src/ig.png)"></a>
+	<a id="gal3" href="#gal1" data-info="3/3 - ib.png" style="--img:url(http://vadimkor.ru/src/ib.png)"></a>
+	<a class="close" href="#cancel"></a>
+</div>
+
+<a href="#ga1">Gallery</a>.
+<div class="">
+	<a class="hide full" id="ga1" href="#ga2" data-info="1/3 - ir.png" style="--img:url(http://vadimkor.ru/src/ir.png)"></a>
+	<a class="hide full" id="ga2" href="#ga3" data-info="2/3 - ig.png" style="--img:url(http://vadimkor.ru/src/ig.png)"></a>
+	<a class="hide full" id="ga3" href="#ga1" data-info="3/3 - ib.png" style="--img:url(http://vadimkor.ru/src/ib.png)"></a>
+	<a class="close hide" href="#cancel"></a>
+</div>
+
+<div id="s-gal" class="hide">
+<a href="#pic1">Gallery</a>
+<div class="gal">
+	<a id="pic1" href="#pic2" data-info="Caption 1"
+		style="--img:url(1.jpg)"></a>
+	<a id="pic2" href="#pic3" data-info="Caption 2" style="--img:url(2.jpg)"></a>
+	<a id="pic3" href="#pic1" data-info="Caption 3" style="--img:url(3.jpg)"></a>
+	<a class="close" href="#cancel"></a>
+</div>
+</div>
+	<pre class="hide bg-i" data-src="#s-gal"></pre>
+
+<h3>Tabs</h3>
+
+<div id="s-tabs">
+<ul class="nav">
+	<li><a href="#tab1">Tab1</a></li>
+	<li><a href="#tab2">Tab2</a></li>
+	<li><a href="#tab3">Tab3</a></li>
+</ul>
+<div class="tabs mem bord">
+	<div id="tab2" class="hide">2<br>2</div>
+	<div id="tab3" class="hide">3<br>3<br>3</div>
+	<div id="tab1" class="hide">1</div>
+</div>
+</div>
+	<pre class="hide bg-i" data-src="#s-tabs"></pre>
+
+<h3>Tree</h3>
+
+<div id="s-tree">
+<ul class="toggle mem">
+	<li><a href="#ul1">List 1</a>
+		<ul id="ul1">
+			<li>Item 1.1</li>
+			<li>Item 1.2</li>
+		</ul>
+	</li>
+	<li><a href="#ul2">List 2</a>
+		<ul id="ul2">
+			<li>Item 1.1</li>
+			<li>Item 1.2</li>
+		</ul>
+	</li>
+</ul>
+</div>
+	<pre class="hide bg-i" data-src="#s-tree"></pre>
+
+<h3>Details</h3>
+<div id="s-details">
+<details class="mar">
+	<summary>Summary</summary>
+	<div class="bg">Details</div>
+</details>
+</div>
+	<pre class="hide bg-i" data-src="#s-details"></pre>
 
 <h2 id="colors">Colors</h2>
 
@@ -607,7 +675,7 @@
 <div id="s-media" class="hide">
 <div class="row mar">
 	<a href="#media" class="col-0">
-		<img alt="pic" width="80" src="">
+		<img alt="pic" width="80" src="?">
 	</a>
 	<div>Some description</div>
 </div>
@@ -625,7 +693,7 @@
 
 <div id="s-fig" class="hide">
 <figure class="bg c pad">
-	<img alt="figure" src="">
+	<img alt="figure" src="?">
 	<figcaption>Figure caption</figcaption>
 </figure>
 </div>
@@ -642,7 +710,7 @@
 
 <div id="s-dlg" class="hide">
 <div class="dialog">
-	<svg>...</svg>
+	<svg></svg>
 	<p>No items yet</p>
 </div>
 </div>
