@@ -18,6 +18,16 @@
 </head>
 <body>
 
+<!--
+todo
+- css vars
+- demo drop
+- what is unique
+- use native html semantics
+- font var?
+- alphabetical reference of css classes
+-->
+
 <div class="row wrap center flip">
 <div class="stick bg">
 	<h1>d1.css</h1>
@@ -158,7 +168,7 @@ It aims to implement most widely used interface components with less code.
 		<div class="bg">div</div>
 	</div>
 	
-	<pre class="hide bg-i" data-src="#s-grid"></pre>
+	<pre class="hide" data-src="#s-grid"></pre>
 
 <h2 id="table">Table</h2>
 
@@ -202,7 +212,7 @@ It aims to implement most widely used interface components with less code.
 	</table>
 </div>
 </div>
-	<pre class="hide bg-i" data-src="#s-table"></pre>
+	<pre class="hide" data-src="#s-table"></pre>
 
 
 <h2 id="button">Button</h2>
@@ -216,7 +226,7 @@ It aims to implement most widely used interface components with less code.
 </div>
 	<p>For color options see <a href="#colors">Colors</a> section.
 	
-	<pre class="hide bg-i" data-src="#s-button"></pre>
+	<pre class="hide" data-src="#s-button"></pre>
 
 
 <h2 id="form">Form</h2>
@@ -235,7 +245,7 @@ It aims to implement most widely used interface components with less code.
 		<span class="btn">Span</span>
 		-->
 
-	<pre class="hide bg-i" data-src="#s-form-inline"></pre>
+	<pre class="hide" data-src="#s-form-inline"></pre>
 
 <h3>Stacked form</h3>
 
@@ -260,7 +270,7 @@ It aims to implement most widely used interface components with less code.
 		<a href="#" class="btn">Btn</a>
 		<span class="btn">Span</span>
 		-->
-	<pre class="hide bg-i" data-src="#s-form-stacked"></pre>
+	<pre class="hide" data-src="#s-form-stacked"></pre>
 
 <h3>Aligned form</h3>
 
@@ -387,60 +397,14 @@ It aims to implement most widely used interface components with less code.
 				</td>
 			</tr-->
 
-	<pre class="hide bg-i" data-src="#s-form-aligned"></pre>
+	<pre class="hide" data-src="#s-form-aligned"></pre>
 
 
 <h2 id="nav">Navigation</h2>
 
 <h3>Dropdown</h3>
 
-	<div class="hide show-mobile"><a href="#dropdown" class="pad hover">&equiv;</a></div>
-	<nav class="hide show-desktop toggle" id="dropdown">
-	<ul class="nav bg toggle flip">
-		<li><a href="#typography" class="act">Typography</a>
-		<li><a href="#layout">Layout</a>
-			<ul id="layout">
-				<li><a href="#grid">Grid (responsive)</a>
-				<!--li><a href="#boxes">Boxes</a-->
-			</ul>
-		<li><a href="#forms">Forms</a>
-			<ul id="forms">
-				<li><a href="#form-inline">Inline</a>
-				<li><a href="#form-stacked">Stacked</a>
-				<li><a href="#form-aligned">Aligned (responsive)</a>
-				<li><a href="#drop">Drop image</a>
-			</ul>
-		<li><a href="#table">Table</a>
-		<li><a href="#navs">Navigation</a>
-			<ul id="navs">
-				<li><a href="#dropdown">Dropdown (responsive)</a>
-				<!--li><a href="#drawer">Drawer</a-->
-				<li><a href="#drawer">Pagination</a>
-			</ul>
-		<li><a href="#show-hide">Toggle</a>
-			<ul id="show-hide">
-				<li><a href="#popup">Popup</a>
-				<li><a href="#toggle">Toggle</a>
-				<li><a href="#tree">Tree</a>
-				<li><a href="#tabs">Tabs</a>
-				<li><a href="#dialog">Dialog</a>
-				<li><a href="#fullscreen">Fullscreen</a>
-				<li><a href="#gallery">Gallery</a>
-			</ul>
-		<li><a href="#status">Status</a>
-		<li><a href="#enhance">Javascript</a>
-		<li class="shift">
-			<form>
-				<input type="search" size="5">
-				<input type="submit" value="Find">
-				<!--a href="#" class="btn">Btn</a>
-				<a href="#">Link</a>
-				<span class="btn">Span</span-->
-			</form>
-	</ul>
-	</nav>
-
-<div id="s-nav" class="hide">
+<div id="s-nav">
 <div class="hide show-mobile">
 	<a href="#navi" class="pad hover">&equiv;</a>
 </div>
@@ -450,9 +414,19 @@ It aims to implement most widely used interface components with less code.
 			<a href="#">First</a>
 		</li>
 		<li>
-			<a href="#sub">Second</a>
-			<ul id="sub">
-				<li><a href="#subitem">Subitem</a></li>
+			<a href="#sub-2">Second</a>
+			<ul id="sub-2">
+				<li><a href="#sub-2-1">Subitem 2</a>
+					<ul id="sub-2-1">
+						<li><a href="#sub-2-1-1">Subsubitem</a></li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li>
+			<a href="#sub-3">Third</a>
+			<ul id="sub-3">
+				<li><a href="#sub-3-1">Subitem 3</a></li>
 			</ul>
 		</li>
 		<li class="shift">
@@ -464,7 +438,7 @@ It aims to implement most widely used interface components with less code.
 	</ul>
 </nav>
 </div>
-	<pre class="hide bg-i" data-src="#s-nav"></pre>
+	<pre class="hide" data-src="#s-nav"></pre>
 
 <h3>Pagination</h3>
 	
@@ -476,7 +450,7 @@ It aims to implement most widely used interface components with less code.
 	<li><a href="?p=3">3</a></li>
 </ul>
 </div>
-	<pre class="hide bg-i" data-src="#s-pagenav"></pre>
+	<pre class="hide" data-src="#s-pagenav"></pre>
 
 
 <h2 id="toggle">Toggle</h2>
@@ -489,7 +463,7 @@ It aims to implement most widely used interface components with less code.
 	<div id="pop" class="toggle">Pop</div>
 </div>
 </div>
-	<pre class="hide bg-i" data-src="#s-popup"></pre>
+	<pre class="hide" data-src="#s-popup"></pre>
 
 
 <h3>Toggle</h3>
@@ -498,7 +472,7 @@ It aims to implement most widely used interface components with less code.
 <a href="#tog">Toggle</a>
 <div id="tog" class="hide bord yel toggle mem">Togglable</div>
 </div>
-	<pre class="hide bg-i" data-src="#s-toggle"></pre>
+	<pre class="hide" data-src="#s-toggle"></pre>
 
 <h3>Modal dialog</h3>
 
@@ -509,7 +483,7 @@ It aims to implement most widely used interface components with less code.
 	Dialog
 </div>
 </div>
-	<pre class="hide bg-i" data-src="#s-modal"></pre>
+	<pre class="hide" data-src="#s-modal"></pre>
 	
 		
 <h3>Modal fullscreen</h3>
@@ -521,7 +495,7 @@ It aims to implement most widely used interface components with less code.
 	Full
 </div>
 </div>
-	<pre class="hide bg-i" data-src="#s-modal-full"></pre>
+	<pre class="hide" data-src="#s-modal-full"></pre>
 
 <h3 id="gallery">Gallery</h3>
 
@@ -550,7 +524,7 @@ It aims to implement most widely used interface components with less code.
 	<a class="close" href="#cancel"></a>
 </div>
 </div>
-	<pre class="hide bg-i" data-src="#s-gal"></pre>
+	<pre class="hide" data-src="#s-gal"></pre>
 
 <h3>Tabs</h3>
 
@@ -566,7 +540,7 @@ It aims to implement most widely used interface components with less code.
 	<div id="tab1" class="hide">1</div>
 </div>
 </div>
-	<pre class="hide bg-i" data-src="#s-tabs"></pre>
+	<pre class="hide" data-src="#s-tabs"></pre>
 
 <h3>Tree</h3>
 
@@ -586,7 +560,7 @@ It aims to implement most widely used interface components with less code.
 	</li>
 </ul>
 </div>
-	<pre class="hide bg-i" data-src="#s-tree"></pre>
+	<pre class="hide" data-src="#s-tree"></pre>
 
 <h3>Details</h3>
 <div id="s-details">
@@ -595,7 +569,7 @@ It aims to implement most widely used interface components with less code.
 	<div class="bg">Details</div>
 </details>
 </div>
-	<pre class="hide bg-i" data-src="#s-details"></pre>
+	<pre class="hide" data-src="#s-details"></pre>
 
 <h2 id="colors">Colors</h2>
 
@@ -625,7 +599,7 @@ It aims to implement most widely used interface components with less code.
 	<span class="bg-y">Yes</span>
 	<span class="bg-n">No</span>
 	
-	<pre data-src="#s-colors-text" class="bg-i hide"></pre>
+	<pre class="hide" data-src="#s-colors-text"></pre>
 	
 <h3>Buttons</h3>
 	
@@ -637,7 +611,7 @@ It aims to implement most widely used interface components with less code.
 <input type="submit" value="No" class="bg-n">
 </div>
 	
-	<pre data-src="#s-colors-buttons" class="bg-i hide"></pre>
+	<pre class="hide" data-src="#s-colors-buttons"></pre>
 
 <h3>Blocks</h3>
 
@@ -653,7 +627,7 @@ It aims to implement most widely used interface components with less code.
 <p class="bg-i bord">Status+Border</p>
 </div>
 	
-	<pre data-src="#s-colors-blocks" class="bg-i hide"></pre>
+	<pre class="hide" data-src="#s-colors-blocks"></pre>
 
 <h2 id="blocks">Blocks</h2>
 
@@ -679,7 +653,7 @@ It aims to implement most widely used interface components with less code.
 	<div>Some description</div>
 </div>
 </div>
-	<pre data-src="#s-media" class="bg-i hide"></pre>
+	<pre class="hide" data-src="#s-media"></pre>
 	
 <h3>Figure</h3>
 
@@ -696,7 +670,7 @@ It aims to implement most widely used interface components with less code.
 	<figcaption>Figure caption</figcaption>
 </figure>
 </div>
-	<pre data-src="#s-fig" class="bg-i hide"></pre>
+	<pre class="hide" data-src="#s-fig"></pre>
 	
 <h3>Empty filler</h3>
 
@@ -713,22 +687,22 @@ It aims to implement most widely used interface components with less code.
 	<p>No items yet</p>
 </div>
 </div>
-	<pre data-src="#s-dlg" class="bg-i hide"></pre>
+	<pre class="hide" data-src="#s-dlg"></pre>
 	
 <h3>Full height</h3>
 	
 <div id="s-full">
 <div class="full bg-w c">Full</div>
 </div>
-	<pre data-src="#s-full" class="bg-i hide"></pre>
+	<pre class="hide" data-src="#s-full"></pre>
 
 <h2 id="js">Javascript enhancements</h2>
 
 <ul>
 	<li>Dropdown &mdash; toggle, escape
-	<li>Tree &mdash; multiple, toggle, remember, <code>.accordion</code>
-	<li>Toggle &mdash; multiple, unscroll, remember
-	<li>Popup &mdash; multiple, unscroll, escape
+	<li>Tree &mdash; multiple, unscroll, toggle, remember, <code>.accordion</code>
+	<li>Toggle &mdash; multiple, unscroll, toggle, remember
+	<li>Popup &mdash; multiple, unscroll, toggle, escape
 	<li>Tabs &mdash; multiple, unscroll, remember
 	<li>Dialog &mdash; escape
 	<li>Gallery &mdash; previous, escape
@@ -747,11 +721,12 @@ It aims to implement most widely used interface components with less code.
 <tr><th>CSS class<th>Description<th>Used with<th>Modifications
 <tr><td>.row<td><a href="#grid">Grid</a><td>.col-0 div .col-2 .col-3<td>.flip .wrap .read .narrow .shift .stick
 <tr><td>.roll<td>Horizontal scroll<td><a href="#table">table</a>.flip.hover<td>
-<tr><td>.btn<td><a href="#button">Button</a><td><a href="#form">form</a> .drop submit button a span<td>
+<tr><td>.btn<td><a href="#button">Button</a><td><a href="#form">form</a> .drop submit button a span<td>.bg-
 <tr><td>.nav<td><a href="#nav">Navigation</a><td>ul<td>.act .hover .flip .shift
+<tr><td>.flip<td>Responsive<td>.row .nav table<td>
 <tr><td>.hide<td><a href="#toggle">Togglable</a><td>div ul .close<td>.pop .dlg .full.c .tabs .show-mobile .show-desktop
 <tr><td>.gal<td><a href="#gallery">Gallery</a><td>a .close<td>[data-info]
-<tr><td>.toggle<td><a href="#js">JS toggle</a><td>ul div<td>
+<tr><td>.toggle<td><a href="#js">JS toggle</a><td>ul div<td>.mem
 <tr><td>.icon<td>Small image<td>img svg<td>
 <tr><td>.text-<td><a href="#colors">Text color</a><td>*<td>.text-e .text-w .text-i .text-y .text-n
 <tr><td>.bg<td><a href="#colors">Background color</a><td>*<td>.bg-e .bg-w .bg-i .bg-y .bg-n .yel
