@@ -1,12 +1,12 @@
 # d1
 
-**d1** is lightweight yet functional CSS micro framework with optional JS enhancements.
+**d1** is lightweight yet functional CSS micro framework with optional JS enhancements.  
 It aims to implement most widely used interface components with less code.
 
 ## Features
 
-* lightweight (minified, gzipped: CSS ~3 KB, optional JS ~2 KB)
-* non-bloated combinable class names
+* lightweight (minified, gzipped: CSS ~2.2 KB, optional JS ~2.3 KB)
+* non-bloated class names
 * functional
 * modern
 * responsive (flexbox, mobile first)
@@ -16,7 +16,8 @@ It aims to implement most widely used interface components with less code.
 * cross-browser
 * javascript not required
 * enhanced with javascript
-* neutral style, configurable
+* neutral style
+* configurable (css vars)
 * no floats
 * no hacks
 * accessibility is not much covered
