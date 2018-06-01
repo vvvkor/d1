@@ -89,17 +89,6 @@ Download minified [d1 files](https://github.com/vvvkor/d1/tree/master/dist).
 
 [Docs and demo](http://vadimkor.ru/d1/)
 
-### Layout
-
-### Elements
-
-### Components
-
-## Plans
-
-* more confiuaration options, compile from SASS
-* version without class names
-
 ## Thanks
 
 * [List of CSS frameworks](https://github.com/troxler/awesome-css-frameworks)
