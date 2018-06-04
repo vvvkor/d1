@@ -5,7 +5,7 @@ It aims to implement most widely used interface components with less code.
 
 ## Features
 
-* lightweight (minified, gzipped: CSS ~2.2 KB, optional JS ~2.3 KB)
+* lightweight (minified, gzipped: CSS ~2.4 KB, optional JS ~2.1 KB)
 * non-bloated class names
 * functional
 * modern
