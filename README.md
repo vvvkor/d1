@@ -1,6 +1,6 @@
 # d1
 
-**d1** is lightweight yet functional CSS micro framework with optional JS enhancements.  
+**d1** is lightweight yet functional CSS microframework with optional JS enhancements.  
 It aims to implement most widely used interface components with less code.
 
 ## Features

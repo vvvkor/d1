@@ -6,8 +6,8 @@
 	<title>d1.css - demo</title>
 
 	<!-- CDN -->
-	<link href="https://cdn.jsdelivr.net/npm/d1css@1.1.4/dist/d1.min.css" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/npm/d1css@1.1.4/dist/d1.min.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/d1css@1.1.5/dist/d1.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/d1css@1.1.5/dist/d1.min.js"></script>
 	<!-- local -->
 	<!--
 	<link href="../src/css/d1.css" rel="stylesheet">
@@ -46,6 +46,7 @@ todo
 		<li><a href="#form">Form</a>
 		<li><a href="#nav">Navigation</a>
 		<li><a href="#toggle">Toggle</a>
+		<li><a href="#toggle2">Toggle 2</a>
 		<li><a href="#colors">Colors</a>
 		<li><a href="#blocks">Blocks</a>
 		<!--li><a href="#blocks">Images and icons</a-->
@@ -57,7 +58,7 @@ todo
 
 <h2 id="intro">Intro</h2>
 
-<b>d1</b> is lightweight yet functional CSS micro framework with optional JS enhancements.
+<b>d1</b> is lightweight yet functional CSS microframework with optional JS enhancements.
 It aims to implement most widely used interface components with less code.
 
 <h2 id="typo">Typography</h2>
@@ -177,13 +178,12 @@ It aims to implement most widely used interface components with less code.
 		<caption>Table caption</caption>
 		<thead>
 		<tr><th>Component<th>Pure CSS<th>JS enhance<wbr>ments <code>.toggle</code><th>Re<wbr>mem<wbr>ber state <code>.mem</code><th>Close on Escape<th>Modifi<wbr>cations
-		</thead>
 		<tbody>
 		<tr>				<th>Dropdown	<td>H	<td>=/T	<td>-	<td>+	<td>
-		<tr>				<th>Tree		<td>t	<td>=/T	<td>+	<td>-	<td><code>.accor<wbr>dion</code>
-		<tr>				<th>Toggle		<td>t	<td>=/T	<td>+	<td>-	<td>
-		<tr>				<th>Popup		<td>HFt	<td>=/T<td>-	<td>+	<td>
-		<tr>				<th>Tabs		<td>t	<td>T	<td>+	<td>-	<td>
+		<tr>				<th>Tree		<td>tC	<td>=/T	<td>+	<td>-	<td><code>.accor<wbr>dion</code>
+		<tr>				<th>Toggle		<td>tC	<td>=/T	<td>+	<td>-	<td>
+		<tr>				<th>Popup		<td>HFtC<td>=/T<td>-	<td>+	<td>
+		<tr>				<th>Tabs		<td>tC	<td>T	<td>+	<td>-	<td>
 		<!--tr class="bg-w">	<th>Tooltip		<td>HF	<td>HF	<td>-	<td>+	<td-->
 		<tr>				<th>Modal		<td>T	<td>=	<td>-	<td>=+	<td><code>.full</code>
 		<!--tr class="bg-w">	<th>Drawer		<td>T	<td>=	<td>	<td>	<td-->
@@ -196,7 +196,8 @@ It aims to implement most widely used interface components with less code.
 		<b>Legend</b><br>
 		H &mdash; <code>:hover</code><br>
 		F &mdash; <code>:focus</code><br>
-		T &mdash; <code>:target</code> (t &mdash; with undesirable scroll)
+		T &mdash; <code>:target</code> (t &mdash; with undesirable scroll)<br>
+		C &mdash; <code>:checked</code> (checkbox hack)
 	</p>
 	
 <div id="s-table" class="hide">
@@ -253,7 +254,7 @@ It aims to implement most widely used interface components with less code.
 <form method="post">
 	<p>
 		<label for="name">Name</label><br>
-		<input type="text" name="name" id="name" required="required">
+		<input type="text" name="name" id="name" required>
 	</p>
 	<p>
 		<label for="age">Age</label><br>
@@ -571,6 +572,90 @@ It aims to implement most widely used interface components with less code.
 </div>
 	<pre class="hide" data-src="#s-details"></pre>
 
+	
+<h2 id="toggle2">Toggle 2</h2>
+
+Pure CSS togglers based on <a href="https://css-tricks.com/the-checkbox-hack/">checkbox hack</a>.
+This approach introduces bad semantics and is <b>not generally recommended</b>.
+But it overcomes some drawbacks of using <code>:target</code>. Its pros are:
+<ul>
+	<li>multiple active (open) elements simultaneously
+	<li>nested togglable elements
+	<li>styling of active label
+	<li>on/off behaviour of the same label
+	<li>page would not scroll
+	<li>no need for javascipt enhancements
+</ul>
+
+<h3>Popup 2</h3>
+
+<div id="s-popup2">
+<div class="pop">
+	<input type="checkbox" class="switch" id="xpop">
+	<label for="xpop">Popup 2</label>
+	<div>Pop 2</div>
+</div>
+</div>
+	<pre class="hide" data-src="#s-popup2"></pre>
+
+
+<h3>Toggle 2</h3>
+
+<div id="s-toggle2">
+<input type="checkbox" class="switch" id="xtog">
+<label for="xtog">Toggle 2</label>
+<div class="bord">Togglable 2</div>
+</div>
+	<pre class="hide" data-src="#s-toggle2"></pre>
+
+<h3>Tabs 2</h3>
+
+<div id="s-tabs2">
+<div class="tabs">
+	<!-- tab 1 -->
+	<input type="radio" class="switch" id="xtab1" name="xtab" checked>
+	<label for="xtab1">Tab 1</label>
+	<div class="bord">1</div>
+	<!-- tab 2 -->
+	<input type="radio" class="switch" id="xtab2" name="xtab">
+	<label for="xtab2">Tab 2</label>
+	<div class="bord">2<br>2</div>
+	<!-- tab 3 -->
+	<input type="radio" class="switch" id="xtab3" name="xtab">
+	<label for="xtab3">Tab 3</label>
+	<div class="bord">3<br>3<br>3</div>
+</div>
+</div>
+	<pre class="hide" data-src="#s-tabs2"></pre>
+
+<h3>Tree 2</h3>
+
+You can use checkbox inputs to toggle branches independently or radio inputs with the same name for accordion.
+
+<div id="s-tree2">
+<ul class="toggle mem">
+	<li>
+		<input type="radio" class="switch" id="xul1" name="xul">
+		<label for="xul1">List 1</label>
+		<ul>
+			<li>Item 1.1</li>
+			<li>Item 1.2</li>
+		</ul>
+	</li>
+	<li>
+		<input type="radio" class="switch" id="xul2" name="xul">
+		<label for="xul2">List 2</label>
+		<ul>
+			<li>Item 1.1</li>
+			<li>Item 1.2</li>
+		</ul>
+	</li>
+</ul>
+</div>
+	<pre class="hide" data-src="#s-tree2"></pre>
+
+
+
 <h2 id="colors">Colors</h2>
 
 <h3>Inline</h3>
@@ -717,6 +802,7 @@ It aims to implement most widely used interface components with less code.
 
 <h2 id="ref">Reference</h2>
 
+<div class="roll">
 <table class="hover">
 <tr><th>CSS class<th>Description<th>Used with<th>Modifications
 <tr><td>.row<td><a href="#grid">Grid</a><td>.col-0 div .col-2 .col-3<td>.flip .wrap .read .narrow .shift .stick
@@ -738,6 +824,13 @@ It aims to implement most widely used interface components with less code.
 <tr><td>.bord<td>Border<td>*<td>
 <tr><td>.print .screen<td>Show by media<td>*<td>
 </table>
+</div>
+
+<!--div style="overflow:hidden;height:1.5em;">
+<div style="overflow-x:scroll;overflow-y:hide;/*-webkit-overflow-scrolling:touch;*/">
+wwwwwwwwwww1wwwwwwwwwwwwwww2wwwwwwwwwwwww3wwwwwwwwwwwwww4wwwwwwwwwwwwww5wwwwwwwwwwwww6wwwwwwwwwwwwwwww.
+</div>
+</div-->
 
 </div>
 </div>
