@@ -1,6 +1,6 @@
 # d1
 
-**d1** is lightweight yet functional CSS microframework with optional JS enhancements.  
+**d1** is lightweight yet functional responsive CSS microframework with optional JS enhancements.  
 It aims to implement most widely used interface components with less code.
 
 ## Features
@@ -11,7 +11,7 @@ It aims to implement most widely used interface components with less code.
 * modern
 * responsive (flexbox, mobile first)
 * performant
-* semantic (use native elements)
+* semantic (uses native elements)
 * valid
 * cross-browser
 * javascript not required
