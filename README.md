@@ -1,6 +1,6 @@
 # d1
 
-**d1** is lightweight yet functional responsive CSS microframework with optional JS enhancements.  
+**d1** is lightweight yet functional responsive CSS microframework with optional JavaScript enhancements.  
 It aims to implement most widely used interface components with less code.
 
 ## Features
@@ -14,8 +14,8 @@ It aims to implement most widely used interface components with less code.
 * semantic (uses native elements)
 * valid
 * cross-browser
-* javascript not required
-* enhanced with javascript
+* JavaScript not required
+* enhanced with JavaScript
 * neutral style
 * configurable (css vars)
 * no floats
@@ -58,7 +58,7 @@ Then use in your CSS file:
 ```css
 @import "../node_modules/d1css/dist/d1.min.css";
 ```
-and optionally bundle into your JS file:
+and optionally bundle into your JavaScript file:
 ```javascript
 var d1 = require("d1css");
 d1.run();
