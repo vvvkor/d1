@@ -40,7 +40,9 @@ classes
 		.mar .pad .bord .rad
 		.print .screen
 		.show-mobile .show-desktop
+		.switch
 tags
+	.pop>div
 	form>button - inline
 	form>p - stacked
 	form>table - aligned
@@ -169,7 +171,6 @@ input,button,select,textarea{border:thin solid rgba(0,0,0,.3);}
 
 
 /* css toggle */
-
 .hide, .nav ul, .pop>div{display:none;}
 .hide:target, .nav li:hover>ul, .pop:hover>div,
 .nav a:focus~ul, .pop> a:focus+div
@@ -197,7 +198,7 @@ input,button,select,textarea{border:thin solid rgba(0,0,0,.3);}
 	
 	.dlg{width:80%;min-width:10em;max-width:24em;margin:var(--gap) auto;text-align:center;}
 	.full{left:0;top:0;width:100%;height:100vh;/*border:1em solid #eee;*//*box-sizing:border-box;*/}
-	.full.c{display:flex;align-items:center;justify-content:center;}
+	.full.c:not(.hide), .full.c:target{display:flex;align-items:center;justify-content:center;}
 	.dlg[class],.full{padding:var(--gap-l);overflow:auto;}
 		.dlg.hide{border:200vw solid rgba(0,0,0,.85);left:50%;top:50%;transform:translate(-50%,-50%);min-width:10em;max-width:80vw;max-height:80vh;width:auto;box-sizing:content-box;}
 		.dlg.hide, .full.hide{position:fixed;z-index:50;}
@@ -284,6 +285,8 @@ div.bord, p.bord, div.bg, p.bg, div[class*="bg-"], p[class*="bg-"]{padding:var(-
 
 @media screen{
 	.print{display:none !important;}
+	.wrap{max-width:60em;}
+	.read{max-width:40em;}
 }
 
 @media print{
@@ -306,8 +309,6 @@ div.bord, p.bord, div.bg, p.bg, div[class*="bg-"], p[class*="bg-"]{padding:var(-
 .c{text-align:center;}
 .l{text-align:left;}
 
-.wrap{max-width:60em;}
-.read{max-width:40em;}
 .narrow{max-width:16em;}
 
 /* drop image */

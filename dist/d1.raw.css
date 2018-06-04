@@ -314,7 +314,7 @@ a.close:before {
     height: 100vh;
 }
 
-.full.c {
+.full.c:not(.hide), .full.c:target {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -601,6 +601,14 @@ div.bord, p.bord, div.bg, p.bg, div[class*="bg-"], p[class*="bg-"] {
     .print {
         display: none !important;
     }
+
+    .wrap {
+        max-width: 60em;
+    }
+
+    .read {
+        max-width: 40em;
+    }
 }
 
 @media print {
@@ -647,14 +655,6 @@ div.bord, p.bord, div.bg, p.bg, div[class*="bg-"], p[class*="bg-"] {
 
 .l {
     text-align: left;
-}
-
-.wrap {
-    max-width: 60em;
-}
-
-.read {
-    max-width: 40em;
 }
 
 .narrow {

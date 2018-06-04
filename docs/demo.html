@@ -3,11 +3,11 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>d1.css - demo</title>
+	<title>d1.css - Docs and Demo</title>
 
 	<!-- CDN -->
-	<link href="https://cdn.jsdelivr.net/npm/d1css@1.1.6/dist/d1.min.css" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/npm/d1css@1.1.6/dist/d1.min.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/d1css@1.1.7/dist/d1.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/d1css@1.1.7/dist/d1.min.js"></script>
 	<!-- local -->
 	<!--
 	<link href="../src/css/d1.css" rel="stylesheet">
@@ -31,13 +31,14 @@ todo
 <div class="row wrap center flip">
 <div class="stick bg">
 	<h1>d1.css</h1>
-	<p class="">
+	<p class="screen">
 		<a target="_blank" href="https://github.com/vvvkor/d1" title="GitHub" class="btn bg-n"><svg class="icon" width="32" height="32" viewBox="0 0 16 16" version="1.1" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg> GitHub</a>
 	</p>
+	<p class="print"><code class="pad">github.com/vvvkor/d1</code></p>
 	<p class=""><code class="pad">npm install d1css</code></p>
 
-	<div class="hide show-mobile"><a href="#menu" class="pad hover">&equiv;</a></div>
-	<ul id="menu" class="hide show-desktop toggle">
+	<div class="screen hide show-mobile"><a href="#menu" class="pad hover">&equiv;</a></div>
+	<ul id="menu" class="screen hide show-desktop toggle">
 		<li><a href="#intro">Intro</a>
 		<li><a href="#typo">Typography</a>
 		<li><a href="#grid">Grid</a>
@@ -491,7 +492,7 @@ It aims to implement most widely used interface components with less code.
 
 <div id="s-modal-full">
 <a href="#full">Fullscreen</a>
-<div id="full" class="hide full">
+<div id="full" class="hide full c">
 	<a class="close" href="#cancel"></a>
 	Full
 </div>
@@ -579,8 +580,8 @@ Pure CSS togglers based on <a href="https://css-tricks.com/the-checkbox-hack/">c
 This approach introduces bad semantics and is <b>not generally recommended</b>.
 But it overcomes some drawbacks of using <code>:target</code>. Its pros are:
 <ul>
-	<li>multiple active (open) elements simultaneously
-	<li>nested togglable elements
+	<li>multiple active (open) blocks simultaneously
+	<li>nested togglable blocks
 	<li>styling of active label
 	<li>on/off behaviour of the same label
 	<li>page would not scroll
@@ -802,18 +803,28 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 
 <h2 id="ref">Reference</h2>
 
+<!--
+most important:
+- .wrap
+- .row.flip .col-2
+- .nav.flip
+- .hide.dlg .close
+- (.btn)
+-->
+
 <div class="roll">
 <table class="hover">
 <tr><th>CSS class<th>Description<th>Used with<th>Modifications
 <tr><td>.row<td><a href="#grid">Grid</a><td>.col-0 div .col-2 .col-3<td>.flip .wrap .read .narrow .shift .stick
 <tr><td>.roll<td>Horizontal scroll<td><a href="#table">table</a>.flip.hover<td>
 <tr><td>.btn<td><a href="#button">Button</a><td><a href="#form">form</a> .drop submit button a span<td>.bg-
-<tr><td>.nav<td><a href="#nav">Navigation</a><td>ul<td>.act .hover .flip .shift
+<tr><td>.nav<td><a href="#nav">Navigation</a><td>ul<td>.act .flip .shift
 <tr><td>.flip<td>Responsive<td>.row .nav table<td>
 <tr><td>.hide<td><a href="#toggle">Togglable</a><td>div ul .close<td>.pop .dlg .full.c .tabs .show-mobile .show-desktop
+<tr><td>.switch<td><a href="#toggle2">Togglable 2</a><td>label div<td>.pop .tabs
 <tr><td>.gal<td><a href="#gallery">Gallery</a><td>a .close<td>[data-info]
-<tr><td>.toggle<td><a href="#js">JS toggle</a><td>ul div<td>.mem
-<tr><td>.icon<td>Small image<td>img svg<td>
+<tr><td>.toggle<td><a href="#js">JS toggle</a><td>ul div .js-control .js-show<td>.mem
+<tr><td>.icon<td>Small image<td>img svg a button<td>
 <tr><td>.text-<td><a href="#colors">Text color</a><td>*<td>.text-e .text-w .text-i .text-y .text-n
 <tr><td>.bg<td><a href="#colors">Background color</a><td>*<td>.bg-e .bg-w .bg-i .bg-y .bg-n .yel
 <tr><td>.r .c .l<td>Align<td>*<td>
@@ -822,8 +833,68 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 <tr><td>.mar<td>Vertical margin<td>*<td>
 <tr><td>.pad<td>Padding<td>*<td>
 <tr><td>.bord<td>Border<td>*<td>
+<tr><td>.rad<td>Border radius<td>*<td>
 <tr><td>.print .screen<td>Show by media<td>*<td>
 </table>
+</div>
+
+<h3><a href="#ref-alpha">Alphabetical</a></h3>
+
+<div id="ref-alpha" class="hide toggle mem">
+<ol>
+<li><code>.act</code> &mdash; active link
+<li><code>.bg</code> &mdash; light background
+<li><code>.bg-e</code> &mdash; nominal "red" background
+<li><code>.bg-i</code> &mdash; nominal "blue" background 
+<li><code>.bg-n</code> &mdash; nominal "gray" background
+<li><code>.bg-w</code> &mdash; nominal "yellow" background
+<li><code>.bg-y</code> &mdash; nominal "green" background
+<li><code>.bord</code> &mdash; add border
+<li><code>.btn</code> &mdash; button-like link
+<li><code>.c</code> &mdash; centrify content inside block
+<li><code>.center</code> &mdash; centrify block itself
+<li><code>.close</code> &mdash; link to close togglable block
+<li><code>.col-0</code> &mdash; grid cell with non-expanding width
+<li><code>.col-2</code> &mdash; grid cell with expanding width (x2)
+<li><code>.col-3</code> &mdash; grid cell with expanding width (x3)
+<li><code>.dlg</code> &mdash; card-like block
+<li><code>.drop</code> &mdash; file input to show dragged image
+<li><code>.flip</code> &mdash; responsive component, stacked view on mobile
+<li><code>.full</code> &mdash; fullscreen block
+<li><code>.gal</code> &mdash; fullscreen gallery
+<li><code>.hide</code> &mdash; hidden
+<li><code>.hover</code> &mdash; highlight link or table row on hover
+<li><code>.icon</code> &mdash; small image
+<li><code>.js-control</code> &mdash; visibility is controlled by Javascript, hidden by default
+<li><code>.js-show</code> &mdash; shown with Javascript
+<li><code>.l</code> &mdash; align content to the left
+<li><code>.mar</code> &mdash; add vertical margins
+<li><code>.narrow</code> &mdash; narrow block width
+<li><code>.nav</code> &mdash; horizontal dropdown navigation
+<li><code>.pad</code> &mdash; add padding
+<li><code>.pop</code> &mdash; popup component wrapper
+<li><code>.print</code> &mdash; show only on print (not on screen)
+<li><code>.r</code> &mdash; align content to the right
+<li><code>.rad</code> &mdash; rounded corners
+<li><code>.read</code> &mdash; block width for comfortable reading
+<li><code>.roll</code> &mdash; horizontal scrolling of contents
+<li><code>.row</code> &mdash; row of grid
+<li><code>.screen</code> &mdash; show only on screen (not on print)
+<li><code>.shift</code> &mdash; shift item of <code>.row</code> or <code>.nav</code> to the right
+<li><code>.show-desktop</code> &mdash; force visibility on desktop (overrides <code>.hide</code>)
+<li><code>.show-mobile</code> &mdash; force visibility on mobile (overrides <code>.hide</code>)
+<li><code>.small</code> &mdash; small font size
+<li><code>.stick</code> &mdash; stick block to the top
+<li><code>.switch</code> &mdash; input controlling visibility of following block
+<li><code>.tabs</code> &mdash; tabs component
+<li><code>.text-e</code> &mdash; nominal "red" text color
+<li><code>.text-i</code> &mdash; nominal "blue" text color
+<li><code>.text-n</code> &mdash; nominal "gray" text color
+<li><code>.text-w</code> &mdash; nominal "yellow" text color
+<li><code>.text-y</code> &mdash; nominal "green" text color
+<li><code>.wrap</code> &mdash; reasonable page width limit
+<li><code>.yel</code> &mdash; temporary highlight targeted block
+</ol>
 </div>
 
 <!--div style="overflow:hidden;height:1.5em;">
