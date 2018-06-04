@@ -26,6 +26,14 @@ html, body, li, dl, dt, dd, legend, iframe {
     padding: 0;
 }
 
+button, [type="submit"], [type="search"] {
+    -webkit-appearance: none;
+}
+
+[type="search"] {
+    -webkit-border-radius: .2em;
+}
+
 body {
     color: #222;
     background-color: #fff;
@@ -84,7 +92,8 @@ a.pad {
     display: inline-block;
 }
 
-.nav .act, a.hover:hover, .nav li>a:hover, table.hover tr:hover {
+.nav .act, a.hover:hover, .nav li>a:hover, table.hover tr:hover,
+.switch:checked+label, .switch+label:hover {
     color: inherit;
     background-color: rgba(0, 0, 0, .05);
 }
@@ -281,7 +290,6 @@ a.close:before {
     max-width: 24em;
     margin: 1em auto;
     text-align: center;
-    box-sizing: content-box;
 }
 
 .full {
@@ -310,10 +318,11 @@ a.close:before {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    min-width: 20em;
+    min-width: 10em;
     max-width: 80vw;
     max-height: 80vh;
     width: auto;
+    box-sizing: content-box;
 }
 
 .dlg.hide, .full.hide {
@@ -503,6 +512,10 @@ div.bord, p.bord, div.bg, p.bg, div[class*="bg-"], p[class*="bg-"] {
 }
 
 @media (max-width: 44.99em) {
+    body {
+        font-size: medium;
+    }
+
     .show-mobile {
         display: block !important;
     }
@@ -559,6 +572,10 @@ div.bord, p.bord, div.bg, p.bg, div[class*="bg-"], p[class*="bg-"] {
         display: flex;
         -ms-flex-wrap: wrap;
             flex-wrap: wrap;
+    }
+
+    .dlg.hide {
+        min-width: 20em;
     }
 
     .shift {
@@ -651,4 +668,36 @@ div.bord, p.bord, div.bg, p.bg, div[class*="bg-"], p[class*="bg-"] {
     width: 8em;
     height: 8em;
     cursor: pointer;
+}
+
+.switch+label {
+    cursor: pointer;
+    color: #03c;
+    color: #03b;
+}
+
+.pop>.switch~div {
+    display: block;
+}
+
+.switch, .switch:not(:checked)+:not(label), .switch:not(:checked)+label+* {
+    display: none;
+}
+
+.tabs {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+}
+
+.tabs>.switch+label {
+    -ms-flex-order: -1;
+    order: -1;
+    padding: .5em 1em;
+}
+
+.tabs>label+div {
+    width: 100%;
+    -ms-flex-order: 2;
 }

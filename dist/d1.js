@@ -77,7 +77,7 @@
             this.prepareCode = function(n) {
                 var s = this.q(n.getAttribute("data-src"), 0);
                 if (s) {
-                    n.textContent = s.innerHTML.replace(/^\s*\r?\n|\s+$/g, "").replace(/\t/g, "  ");
+                    n.textContent = s.innerHTML.replace(/^\s*\r?\n|\s+$/g, "").replace(/\t/g, "  ").replace(/=""/g, "");
                     n.classList.remove("hide");
                 }
             };
