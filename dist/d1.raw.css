@@ -193,7 +193,7 @@ input, button, select, textarea {
     line-height: normal;
 }
 
-input, button, select, textarea {
+input, button, select, textarea, .btn {
     border: thin solid rgba(0, 0, 0, .3);
 }
 

@@ -159,7 +159,7 @@ th,td{padding:var(--gap-xs) var(--gap-s);text-align:left;vertical-align:top;back
 
 form>p, form>.row{margin:var(--gap-s) 0;}
 input,button,select,textarea{font:inherit;padding:var(--gap-xs);line-height:normal;}
-input,button,select,textarea{border:thin solid rgba(0,0,0,.3);}
+input,button,select,textarea,.btn{border:thin solid rgba(0,0,0,.3);}
 	.btn,button,[type="submit"]{padding:var(--gap-s) var(--gap);border-radius:var(--radius);margin:var(--gap-xs) 0;border-color:transparent;}
 	form>.btn, form>button, form>[type="submit"]{padding:var(--gap-xs) var(--gap-s);margin:0;}/* see [.nav a] padding */
 	a.btn:hover, button:hover:not([disabled]), [type="submit"]:hover:not([disabled]),
