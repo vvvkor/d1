@@ -126,7 +126,7 @@ a{color:var(--link);}
 a:not([href^="#"]):not(.btn):visited{color:var(--visited);}
 .act, a:hover{color:var(--hover);}
 a.btn, .nav a, a.close, a.pad, abbr{text-decoration:none;}
-a.pad{display:inline-block;line-height:normal;}
+a.pad, a.btn{display:inline-block;line-height:normal;}
 
 /* hilite */
 .nav .act, a.hover:hover, .nav li>a:hover, table.hover tr:hover, .switch:checked+label, .switch+label:hover{color:var(--text-hilite);background-color:var(--bg-hilite);}
@@ -158,7 +158,7 @@ th,td{padding:var(--gap-xs) var(--gap-s);text-align:left;vertical-align:top;back
 /* form, button */
 
 form>p, form>.row{margin:var(--gap-s) 0;}
-input,button,select,textarea,.btn{font:inherit;padding:var(--gap-xs);line-height:normal;display:inline-block;}
+input,button,select,textarea{font:inherit;padding:var(--gap-xs);line-height:normal;}
 input,button,select,textarea{border:thin solid rgba(0,0,0,.3);}
 	.btn,button,[type="submit"]{padding:var(--gap-s) var(--gap);border-radius:var(--radius);margin:var(--gap-xs) 0;border-color:transparent;}
 	form>.btn, form>button, form>[type="submit"]{padding:var(--gap-xs) var(--gap-s);margin:0;}/* see [.nav a] padding */
@@ -238,11 +238,11 @@ div.hide{z-index:10;}
 .bg-i[class]{background-color:#cef;}
 .bg-y[class]{background-color:#cec;}
 .bg-n[class]{background-color:#eee;}
-.btn.bg-e, button.bg-e, [type="submit"].bg-e{background-color:#c11;}
-.btn.bg-w, button.bg-w, [type="submit"].bg-w{background-color:#e60;}
-.btn.bg-i, button.bg-i, [type="submit"].bg-i{background-color:#08b;}
-.btn.bg-y, button.bg-y, [type="submit"].bg-y{background-color:#292;}
-.btn.bg-n, button.bg-n, [type="submit"].bg-n{background-color:#999;}
+.btn.bg-e, button.bg-e[class], [type="submit"].bg-e{background-color:#c11;}
+.btn.bg-w, button.bg-w[class], [type="submit"].bg-w{background-color:#e60;}
+.btn.bg-i, button.bg-i[class], [type="submit"].bg-i{background-color:#08b;}
+.btn.bg-y, button.bg-y[class], [type="submit"].bg-y{background-color:#292;}
+.btn.bg-n, button.bg-n[class], [type="submit"].bg-n{background-color:#999;}
 
 
 /* yellow fade */

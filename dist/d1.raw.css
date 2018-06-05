@@ -105,7 +105,7 @@ a.btn, .nav a, a.close, a.pad, abbr {
     text-decoration: none;
 }
 
-a.pad {
+a.pad, a.btn {
     display: inline-block;
     line-height: normal;
 }
@@ -187,11 +187,10 @@ form>p, form>.row {
     margin: var(--gap-s) 0;
 }
 
-input, button, select, textarea, .btn {
+input, button, select, textarea {
     font: inherit;
     padding: var(--gap-xs);
     line-height: normal;
-    display: inline-block;
 }
 
 input, button, select, textarea {
@@ -468,23 +467,23 @@ div.hide {
     background-color: #eee;
 }
 
-.btn.bg-e, button.bg-e, [type="submit"].bg-e {
+.btn.bg-e, button.bg-e[class], [type="submit"].bg-e {
     background-color: #c11;
 }
 
-.btn.bg-w, button.bg-w, [type="submit"].bg-w {
+.btn.bg-w, button.bg-w[class], [type="submit"].bg-w {
     background-color: #e60;
 }
 
-.btn.bg-i, button.bg-i, [type="submit"].bg-i {
+.btn.bg-i, button.bg-i[class], [type="submit"].bg-i {
     background-color: #08b;
 }
 
-.btn.bg-y, button.bg-y, [type="submit"].bg-y {
+.btn.bg-y, button.bg-y[class], [type="submit"].bg-y {
     background-color: #292;
 }
 
-.btn.bg-n, button.bg-n, [type="submit"].bg-n {
+.btn.bg-n, button.bg-n[class], [type="submit"].bg-n {
     background-color: #999;
 }
 
