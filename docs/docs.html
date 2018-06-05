@@ -5,14 +5,14 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<title>d1.css - Docs and Demo</title>
 
-	<!-- CDN -- >
-	<link href="https://cdn.jsdelivr.net/npm/d1css@1.1.7/dist/d1.min.css" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/npm/d1css@1.1.7/dist/d1.min.js"></script>
+	<!-- CDN -->
+	<link href="https://cdn.jsdelivr.net/npm/d1css@1.1.8/dist/d1.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/d1css@1.1.8/dist/d1.min.js"></script>
 	<!-- local -->
-	
+	<!--
 	<link href="../src/css/d1.css" rel="stylesheet">
 	<script src="../src/js/d1.js"></script>
-	
+	-->
 	
 	<script> d1.run(); </script>
 </head>
@@ -39,7 +39,7 @@ todo
 
 	<div class="screen hide show-mobile"><a href="#menu" class="pad hover">&equiv;</a></div>
 	<ul id="menu" class="screen hide show-desktop toggle">
-		<li><a href="#intro">Intro</a>
+		<li><a href="#start">Get started</a>
 		<li><a href="#typo">Typography</a>
 		<li><a href="#grid">Grid</a>
 		<li><a href="#table">Table</a>
@@ -57,18 +57,21 @@ todo
 </div>
 <div class="col-2 pad">
 
-<h2 id="intro">Intro</h2>
+<h2 id="start">Get started</h2>
 
-<b>d1</b> is lightweight yet functional responsive CSS microframework with optional JavaScript enhancements.
+<p><b>d1</b> is lightweight yet functional responsive CSS microframework with optional JavaScript enhancements.
 It aims to implement most widely used interface components with less code.
 
-<div id="s-use" class="hide">
-<link href="d1.min.css" rel="stylesheet">
-<!-- optional -->
-<script src="d1.min.js"></script>
-<script> d1.run(); </script>
-</div>
-	<pre data-src="#s-use"></pre>
+<p>To use from CDN just add following code to the <code>head</code> of your page.
+
+<pre>
+&lt;link href="https://cdn.jsdelivr.net/npm/d1css@1/dist/d1.min.css" rel="stylesheet"&gt;
+&lt;!-- optional --&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/d1css@1/dist/d1.min.js"&gt;&lt;/script&gt;
+&lt;script&gt; d1.run(); &lt;/script&gt;
+</pre>
+
+Or <a href="https://github.com/vvvkor/d1/archive/master.zip">download from GitHub</a>.
 
 <h2 id="typo">Typography</h2>
 
@@ -157,12 +160,13 @@ To set various proportions, add following classes to the columns:
 <code>col-2</code> for double width,
 <code>col-3</code> for triple width,
 <code>narrow</code> for narrow width,
-<code>read</code> to limit maximal width for comfortable reading,
-<code>wrap</code> to limit reasonable maximal width.
+<code>read</code> to limit maximal width for comfortable reading.
 <p>
-Width limiting classes (<code>col-0, narrow, read, wrap</code>) can be combined with:
+Width limiting classes (<code>col-0, narrow, read</code>) can be combined with:
 <code>center</code> to centrify column in its available space,
 <code>shift</code> to shift column to the right.
+<p>
+Wrap your rows into <code>div</code> with <code>wrap</code> class to limit maximal width of the whole thing.
 </p>	
 	<!--
 	<div class="row flip">
@@ -211,7 +215,7 @@ Width limiting classes (<code>col-0, narrow, read, wrap</code>) can be combined 
 <p>
 <code>Table</code> is styled with border, unless it is a direct descendant of <code>form</code>.
 Add <code>hover</code> class to highlight hovered row.
-Add <code>r#, l#, #c</code> (where # is any number) classes to align cells of column number # to the right, left or center, respectively.
+Add <code>r#, l#, #c</code> (where # is any number) classes to align cells of column number # to the right, left or center, respectively (JavaScript required).
 Wrap table inside <code>div</code> with class <code>roll</code> to have independent horizontal scrolling of table when it is too wide.
 </p>
 	<div class="roll">
@@ -609,7 +613,7 @@ This approach is semantic, but has some drawbacks:
 <li>page scrolls, which is in most cases undesirable
 </ul>
 <p>
-To overcome these drawbacks, JavaScript can be used.
+To overcome these drawbacks, <a href="#js">JavaScript can be used</a>.
 Add <code>toggle</code> class like in following examples for popup, toggle, tree components.
 Tabs component is enhanced anyway.
 Modals do not require such enhancements.
@@ -665,7 +669,13 @@ Modals do not require such enhancements.
 	<a href="http://vadimkor.ru/src/ir.png">#3</a>
 </div>
 
-<a href="#gal1">Gallery</a>. Pure CSS, lazy load, preload next, next on enter.
+<p>Pure CSS gallery is based on CSS variables.
+Images are lazy loaded.
+Next image is preloaded.
+Enter key press navigates to the next image.
+<i class="text-w">Not supported in IE</i>.
+
+<p><a href="#gal1">Open gallery</a>
 <div class="gal">
 	<a id="gal1" href="#gal2" data-info="1/3 - ir.png" style="--img:url(http://vadimkor.ru/src/ir.png)"></a>
 	<a id="gal2" href="#gal3" data-info="2/3 - ig.png" style="--img:url(http://vadimkor.ru/src/ig.png)"></a>
@@ -723,9 +733,8 @@ Modals do not require such enhancements.
 
 <h3>Details</h3>
 
-<p>
-This element natively has similar functionality.
-But browser support is still limited.
+<p>This element natively has similar functionality.
+<i class="text-w">Not supported in IE and Edge</i>.
 
 <div id="s-details">
 <details class="mar">
@@ -740,15 +749,7 @@ But browser support is still limited.
 
 Pure CSS togglers based on <a href="https://css-tricks.com/the-checkbox-hack/">checkbox hack</a>.
 This approach introduces bad semantics and is <b>not generally recommended</b>.
-But it overcomes some drawbacks of using <code>:target</code>. Its pros are:
-<ul>
-	<li>multiple active (open) blocks simultaneously
-	<li>nested togglable blocks
-	<li>styling of active label
-	<li>on/off behaviour of the same label
-	<li>page would not scroll
-	<li>no need for javascipt enhancements
-</ul>
+But it overcomes drawbacks of <a href="#toggle"><code>:target</code>-based togglers</a> without using JavaScipt.
 
 <h3>Popup 2</h3>
 

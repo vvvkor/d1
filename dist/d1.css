@@ -90,6 +90,7 @@ a.btn, .nav a, a.close, a.pad, abbr {
 
 a.pad {
     display: inline-block;
+    line-height: normal;
 }
 
 .nav .act, a.hover:hover, .nav li>a:hover, table.hover tr:hover,
@@ -104,10 +105,13 @@ svg {
 
 .icon {
     display: inline-block;
-    vertical-align: -.2em;
+    width: 1em;
+    height: 1em;
+    transform: translate(0, .1em) scale(1.2);
+}
+
+.icon:not(:last-child) {
     margin-right: .2em;
-    width: 1.2em;
-    height: 1.2em;
 }
 
 ul {
@@ -162,7 +166,7 @@ hr {
     border-width: medium;
 }
 
-form>p {
+form>p, form>.row {
     margin: .5em 0;
 }
 
@@ -231,6 +235,13 @@ a.close:before {
     display: block !important;
 }
 
+.nav {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+}
+
 .nav, .nav ul {
     list-style: none;
     padding: 0;
@@ -252,11 +263,10 @@ a.close:before {
     color: #666;
 }
 
-.nav:not(.flip) {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+.nav ul li>a:nth-last-child(2):after {
+    position: absolute;
+    right: .5em;
+    top: .5em;
 }
 
 .pop {
@@ -278,6 +288,11 @@ a.close:before {
     left: 0;
     top: 100%;
     min-width: 12em;
+}
+
+.nav ul ul {
+    left: 98%;
+    top: .2em;
 }
 
 .pop>div {
@@ -541,10 +556,17 @@ div.bord, p.bord, div.bg, p.bg, div[class*="bg-"], p[class*="bg-"] {
         padding-bottom: .5em;
     }
 
-    ul.nav ul {
+    .nav.flip {
+        display: block;
+    }
+
+    .nav.flip ul {
         left: 3em;
         top: 90%;
     }
+}
+
+@media (max-width: 44.99em) {
 }
 
 @media (min-width: 45em) {
@@ -554,24 +576,6 @@ div.bord, p.bord, div.bg, p.bg, div[class*="bg-"], p[class*="bg-"] {
 
     form>table td:first-child {
         min-width: 8em;
-    }
-
-    .nav ul ul {
-        left: 98%;
-        top: .2em;
-    }
-
-    .nav ul li>a:nth-last-child(2):after {
-        position: absolute;
-        right: .5em;
-        top: .5em;
-    }
-
-    .nav {
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
     }
 
     .dlg.hide {
