@@ -5,14 +5,14 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<title>d1.css - Docs and Demo</title>
 
-	<!-- CDN -->
+	<!-- CDN -- >
 	<link href="https://cdn.jsdelivr.net/npm/d1css@1.1.7/dist/d1.min.css" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/d1css@1.1.7/dist/d1.min.js"></script>
 	<!-- local -->
-	<!--
+	
 	<link href="../src/css/d1.css" rel="stylesheet">
 	<script src="../src/js/d1.js"></script>
-	-->
+	
 	
 	<script> d1.run(); </script>
 </head>
@@ -62,7 +62,18 @@ todo
 <b>d1</b> is lightweight yet functional responsive CSS microframework with optional JavaScript enhancements.
 It aims to implement most widely used interface components with less code.
 
+<div id="s-use" class="hide">
+<link href="d1.min.css" rel="stylesheet">
+<!-- optional -->
+<script src="d1.min.js"></script>
+<script> d1.run(); </script>
+</div>
+	<pre data-src="#s-use"></pre>
+
 <h2 id="typo">Typography</h2>
+
+<p>
+Nothing special here. Mostly, default styling is kept.
 
 <h3>Headings</h3>
 
@@ -133,7 +144,26 @@ It aims to implement most widely used interface components with less code.
 	</dl>
 	
 <h2 id="grid">Grid</h2>
-	
+
+<p>
+For the container, add <code>row</code> class.
+Direct descendants of the container are columns.
+By default, they all have equal width.
+<p>
+To stack columns on small screen, add <code>flip</code> class to the container.
+<p>
+To set various proportions, add following classes to the columns:
+<code>col-0</code> for minimal required width,
+<code>col-2</code> for double width,
+<code>col-3</code> for triple width,
+<code>narrow</code> for narrow width,
+<code>read</code> to limit maximal width for comfortable reading,
+<code>wrap</code> to limit reasonable maximal width.
+<p>
+Width limiting classes (<code>col-0, narrow, read, wrap</code>) can be combined with:
+<code>center</code> to centrify column in its available space,
+<code>shift</code> to shift column to the right.
+</p>	
 	<!--
 	<div class="row flip">
 		<div class="bg wrap center">wrap</div>
@@ -145,21 +175,25 @@ It aims to implement most widely used interface components with less code.
 	-->
 <div id="s-grid">
 <div class="row mar flip">
+	<div class="bg col-0">div.col-0</div>
+	<div class="bg">div</div>
+</div>
+<div class="row mar flip">
 	<div class="bg">div</div>
 	<div class="bg">div</div>
 </div>
 <div class="row mar">
-	<div class="bg-w col-2">.col-2</div>
-	<div class="bg-y col-3">.col-3</div>
+	<div class="bg-w col-2">div.col-2</div>
+	<div class="bg-y col-3">div.col-3</div>
 </div>
 </div>
 	<div class="row mar flip">
 		<div class="bg">div</div>
-		<div class="bg col-2">.col-2</div>
+		<div class="bg col-2">div.col-2</div>
 	</div>
 	<div class="row mar">
 		<div class="bg-w">div</div>
-		<div class="bg-y col-3">.col-3</div>
+		<div class="bg-y col-3">div.col-3</div>
 	</div>
 	<div class="row mar flip">
 		<div class="bg">div</div>
@@ -174,8 +208,14 @@ It aims to implement most widely used interface components with less code.
 
 <h2 id="table">Table</h2>
 
+<p>
+<code>Table</code> is styled with border, unless it is a direct descendant of <code>form</code>.
+Add <code>hover</code> class to highlight hovered row.
+Add <code>r#, l#, #c</code> (where # is any number) classes to align cells of column number # to the right, left or center, respectively.
+Wrap table inside <code>div</code> with class <code>roll</code> to have independent horizontal scrolling of table when it is too wide.
+</p>
 	<div class="roll">
-	<table class="hover r1">
+	<table class="hover r1 c4 c5">
 		<caption>Table caption</caption>
 		<thead>
 		<tr><th>Component<th>Pure CSS<th>JS enhance<wbr>ments <code>.toggle</code><th>Re<wbr>mem<wbr>ber state <code>.mem</code><th>Close on Escape<th>Modifi<wbr>cations
@@ -219,15 +259,47 @@ It aims to implement most widely used interface components with less code.
 
 <h2 id="button">Button</h2>
 
-<div id="s-button">
+<p>
+Add <code>btn</code> class to the element (usually a link) to make it look like button.
+<code>Button</code> and <code>input</code> of type <code>submit</code> have similar styling by default.
+For color options see <a href="#colors-buttons">Colors</a> section.
+</p>
+
 <input type="submit" value="Submit">
 <input type="submit" value="Disabled" disabled>
 <button type="submit" value="Button">Button</button>
-<a href="#" class="btn">Link</a>
+<button type="submit" value="Button" class="bg-e">
+	<svg class="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
+		<path d="m477 162c0 7-2 14-8 19l-206 207l-39 39c-6 5-12 8-20 8c-7 0-14-3-19-8l-142-142c-6-6-8-12-8-20c0-7 2-14 8-19l38-39c6-5 12-8 20-8c7 0 14 3 19 8l84 84l188-188c5-5 12-8 19-8c8 0 14 3 20 8l38 39c6 6 8 12 8 20z"/>
+	</svg>
+	Icon
+</button>
+<button type="submit" value="Button" class="bg-e">
+	<svg class="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
+		<path d="m477 162c0 7-2 14-8 19l-206 207l-39 39c-6 5-12 8-20 8c-7 0-14-3-19-8l-142-142c-6-6-8-12-8-20c0-7 2-14 8-19l38-39c6-5 12-8 20-8c7 0 14 3 19 8l84 84l188-188c5-5 12-8 19-8c8 0 14 3 20 8l38 39c6 6 8 12 8 20z"/>
+	</svg>
+</button>
+<a href="#" class="btn">	<svg class="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
+		<path d="m477 162c0 7-2 14-8 19l-206 207l-39 39c-6 5-12 8-20 8c-7 0-14-3-19-8l-142-142c-6-6-8-12-8-20c0-7 2-14 8-19l38-39c6-5 12-8 20-8c7 0 14 3 19 8l84 84l188-188c5-5 12-8 19-8c8 0 14 3 20 8l38 39c6 6 8 12 8 20z"/>
+	</svg>
+Link</a>
 <span class="btn bg-n">Span</span>
-</div>
-	<p>For color options see <a href="#colors">Colors</a> section.
-	
+<a href="#" class="pad hover">Link-pad</a>
+<a href="#">Link</a>
+
+
+<div id="s-button" class="hide">
+<input type="submit" value="Submit">
+<input type="submit" value="Disabled" disabled>
+<button type="submit" value="Button">Button</button>
+<button type="submit" value="Button" class="bg-e">
+	<svg class="icon"></svg>
+	Icon
+</button>
+<span class="btn bg-n">Span</span>
+<a href="#" class="pad hover">Link-pad</a>
+<a href="#">Link</a>
+</div>	
 	<pre class="hide" data-src="#s-button"></pre>
 
 
@@ -274,7 +346,45 @@ It aims to implement most widely used interface components with less code.
 		-->
 	<pre class="hide" data-src="#s-form-stacked"></pre>
 
-<h3>Aligned form</h3>
+<h3>Aligned form using grid</h3>
+
+<div id="s-form-grid">
+<form method="post">
+	<div class="row flip">
+		<label for="i1">Label one</label>
+		<div class="col-3"><input type="text" name="i1" id="i1"></div>
+	</div>
+	<div class="row flip">
+		<div></div>
+		<div class="col-3">
+			<input type="checkbox" name="i2" id="i2">
+			<label for="i2">Box</label>
+		</div>
+	</div>
+	<fieldset>
+		<legend><a href="#fs0">Fieldset</a></legend>
+		<div id="fs0" class="hide toggle">
+			<div class="row flip">
+				<label for="i3">Label two</label>
+				<div class="col-3"><input type="text" name="i3" id="i3"></div>
+			</div>
+		</div>
+	</fieldset>
+	<div class="row flip">
+		<div></div>
+		<div class="col-3"><input type="submit" value="Submit"></div>
+	</div>
+</form>
+</div>
+	<pre class="hide" data-src="#s-form-grid"></pre>
+
+
+<h3>Aligned form using table</h3>
+
+<p>
+For aligned form, <code>table</code> may be used, which is arguably not semantic, but still very convenient.
+In this case, <code>table</code> must be a direct descendant of <code>form</code>.
+Table will become stacked on small screen.
 
 	<form method="post">
 		<table>
@@ -353,23 +463,12 @@ It aims to implement most widely used interface components with less code.
 			<td>
 				<input type="submit" value="Submit">
 				<input type="submit" value="Disabled" disabled>
-				<button type="submit" value="Button" class="bg-e">
-					<svg class="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
-						<path d="m477 162c0 7-2 14-8 19l-206 207l-39 39c-6 5-12 8-20 8c-7 0-14-3-19-8l-142-142c-6-6-8-12-8-20c0-7 2-14 8-19l38-39c6-5 12-8 20-8c7 0 14 3 19 8l84 84l188-188c5-5 12-8 19-8c8 0 14 3 20 8l38 39c6 6 8 12 8 20z"/>
-					</svg>
-					Button
-				</button>
 				<input type="submit" value="Confirm" class="bg-w confirm" name="btn2" title="Confirm?">
-				<br>
-				<a href="#" class="btn">Link-btn</a>
-				<span class="btn bg-n">Span-btn</span>
-				<a href="#" class="pad hover">Link-pad</a>
-				<a href="#">Link</a>
 		</table>
 	</form>
 	
 
-<div id="s-form-aligned" class="hide">
+<div id="s-form-table" class="hide">
 <form method="post">
 	<table>
 		<tbody>
@@ -399,19 +498,72 @@ It aims to implement most widely used interface components with less code.
 				</td>
 			</tr-->
 
-	<pre class="hide" data-src="#s-form-aligned"></pre>
+	<pre class="hide" data-src="#s-form-table"></pre>
 
 
 <h2 id="nav">Navigation</h2>
 
-<h3>Dropdown</h3>
+<h3>Horizontal navbar</h3>
+
+<p>
+Just add <code>nav</code> class to unordered list.
+
+<div id="s-pagenav">
+<ul class="nav bg mar">
+	<li><b>Pages</b></li>
+	<li><a href="?p=1">1</a></li>
+	<li><a href="?p=2">2</a></li>
+	<li><a href="?p=3">3</a></li>
+</ul>
+</div>
+	<pre class="hide" data-src="#s-pagenav"></pre>
+
+<h3>Responsive dropdown, stacked on small screen</h3>
+
+<p>
+Add <code>flip</code> class to stack items on small screen.
+With pure CSS, nested lists are shown on hover.
+Add <code>toggle</code> class to control behaviour with JavaScript.
+In this case, links' <code>href</code> must point to corresponding nested lists' <code>id</code>.
+With JavaScript, nested lists are toggled on click.
 
 <div id="s-nav">
+	<ul class="nav flip toggle bg">
+		<li>
+			<a href="#">First</a>
+		</li>
+		<li>
+			<a href="#s-2">Second</a>
+			<ul id="s-2">
+				<li><a href="#s-2-1">Subitem 2</a>
+					<ul id="s-2-1">
+						<li><a href="#s-2-1-1">Subsubitem</a></li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li>
+			<a href="#s-3">Third</a>
+			<ul id="s-3">
+				<li><a href="#s-3-1">Subitem 3</a></li>
+			</ul>
+		</li>
+	</ul>
+</div>
+	<pre class="hide" data-src="#s-nav"></pre>
+
+<h3>Responsive dropdown, hamburger on small screen</h3>
+
+<p>
+Following code shows how to collapse navigation to a single hamburger icon on small screen,
+and expand it to horizontal dropdown navbar on large screen.
+
+<div id="s-nav-hamb">
 <div class="hide show-mobile">
 	<a href="#navi" class="pad hover">&equiv;</a>
 </div>
 <nav class="hide show-desktop toggle" id="navi">
-	<ul class="nav bg toggle flip">
+	<ul class="nav flip toggle bg">
 		<li>
 			<a href="#">First</a>
 		</li>
@@ -440,22 +592,27 @@ It aims to implement most widely used interface components with less code.
 	</ul>
 </nav>
 </div>
-	<pre class="hide" data-src="#s-nav"></pre>
+	<pre class="hide" data-src="#s-nav-hamb"></pre>
 
-<h3>Pagination</h3>
-	
-<div id="s-pagenav">
-<ul class="nav bg mar">
-	<li><b>Pages</b></li>
-	<li><a href="?p=1">1</a></li>
-	<li><a href="?p=2">2</a></li>
-	<li><a href="?p=3">3</a></li>
-</ul>
-</div>
-	<pre class="hide" data-src="#s-pagenav"></pre>
 
 
 <h2 id="toggle">Toggle</h2>
+
+<p>
+Pure CSS togglers based on <code>:target</code> behaviour.
+This approach is semantic, but has some drawbacks:
+<ul>
+<li>only one togglable block can be active (open) at the moment
+<li>nested togglable blocks are not possible
+<li>styling of active link is not possible
+<li>on/off behaviour of the link is not possible
+<li>page scrolls, which is in most cases undesirable
+</ul>
+<p>
+To overcome these drawbacks, JavaScript can be used.
+Add <code>toggle</code> class like in following examples for popup, toggle, tree components.
+Tabs component is enhanced anyway.
+Modals do not require such enhancements.
 
 <h3>Popup</h3>
 
@@ -565,6 +722,11 @@ It aims to implement most widely used interface components with less code.
 	<pre class="hide" data-src="#s-tree"></pre>
 
 <h3>Details</h3>
+
+<p>
+This element natively has similar functionality.
+But browser support is still limited.
+
 <div id="s-details">
 <details class="mar">
 	<summary>Summary</summary>
@@ -592,8 +754,8 @@ But it overcomes some drawbacks of using <code>:target</code>. Its pros are:
 
 <div id="s-popup2">
 <div class="pop">
-	<input type="checkbox" class="switch" id="xpop">
-	<label for="xpop">Popup 2</label>
+	<input type="checkbox" class="switch" id="pop2">
+	<label for="pop2">Popup 2</label>
 	<div>Pop 2</div>
 </div>
 </div>
@@ -603,8 +765,8 @@ But it overcomes some drawbacks of using <code>:target</code>. Its pros are:
 <h3>Toggle 2</h3>
 
 <div id="s-toggle2">
-<input type="checkbox" class="switch" id="xtog">
-<label for="xtog">Toggle 2</label>
+<input type="checkbox" class="switch" id="tog2">
+<label for="tog2">Toggle 2</label>
 <div class="bord">Togglable 2</div>
 </div>
 	<pre class="hide" data-src="#s-toggle2"></pre>
@@ -614,16 +776,16 @@ But it overcomes some drawbacks of using <code>:target</code>. Its pros are:
 <div id="s-tabs2">
 <div class="tabs">
 	<!-- tab 1 -->
-	<input type="radio" class="switch" id="xtab1" name="xtab" checked>
-	<label for="xtab1">Tab 1</label>
+	<input type="radio" class="switch" id="tb1" name="tb" checked>
+	<label for="tb1">Tab 1</label>
 	<div class="bord">1</div>
 	<!-- tab 2 -->
-	<input type="radio" class="switch" id="xtab2" name="xtab">
-	<label for="xtab2">Tab 2</label>
+	<input type="radio" class="switch" id="tb2" name="tb">
+	<label for="tb2">Tab 2</label>
 	<div class="bord">2<br>2</div>
 	<!-- tab 3 -->
-	<input type="radio" class="switch" id="xtab3" name="xtab">
-	<label for="xtab3">Tab 3</label>
+	<input type="radio" class="switch" id="tb3" name="tb">
+	<label for="tb3">Tab 3</label>
 	<div class="bord">3<br>3<br>3</div>
 </div>
 </div>
@@ -636,16 +798,16 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 <div id="s-tree2">
 <ul class="toggle mem">
 	<li>
-		<input type="radio" class="switch" id="xul1" name="xul">
-		<label for="xul1">List 1</label>
+		<input type="radio" class="switch" id="u1" name="xul">
+		<label for="u1">List 1</label>
 		<ul>
 			<li>Item 1.1</li>
 			<li>Item 1.2</li>
 		</ul>
 	</li>
 	<li>
-		<input type="radio" class="switch" id="xul2" name="xul">
-		<label for="xul2">List 2</label>
+		<input type="radio" class="switch" id="u2" name="xul">
+		<label for="u2">List 2</label>
 		<ul>
 			<li>Item 1.1</li>
 			<li>Item 1.2</li>
@@ -659,7 +821,7 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 
 <h2 id="colors">Colors</h2>
 
-<h3>Inline</h3>
+<h3 id="colors-inline">Inline</h3>
 
 	<a href="#" class="text-e">Error</a>
 	<a href="#" class="text-w">Warning</a>
@@ -687,7 +849,7 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 	
 	<pre class="hide" data-src="#s-colors-text"></pre>
 	
-<h3>Buttons</h3>
+<h3 id="colors-buttons">Buttons</h3>
 	
 <div id="s-colors-buttons">
 <input type="submit" value="Error" class="bg-e">
@@ -699,7 +861,7 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 	
 	<pre class="hide" data-src="#s-colors-buttons"></pre>
 
-<h3>Blocks</h3>
+<h3 id="colors-blocks">Blocks</h3>
 
 <div id="s-colors-blocks">
 <p class="bg-e">Error	<span class="text-e">Error</span></p>
@@ -816,10 +978,10 @@ most important:
 <table class="hover">
 <tr><th>CSS class<th>Description<th>Used with<th>Modifications
 <tr><td>.row<td><a href="#grid">Grid</a><td>.col-0 div .col-2 .col-3<td>.flip .wrap .read .narrow .shift .stick
-<tr><td>.roll<td>Horizontal scroll<td><a href="#table">table</a>.flip.hover<td>
+<tr><td>.roll<td>Horizontal scroll<td><a href="#table">table</a>.hover<td>
 <tr><td>.btn<td><a href="#button">Button</a><td><a href="#form">form</a> .drop submit button a span<td>.bg-
 <tr><td>.nav<td><a href="#nav">Navigation</a><td>ul<td>.act .flip .shift
-<tr><td>.flip<td>Responsive<td>.row .nav table<td>
+<tr><td>.flip<td>Responsive<td>.row .nav<td>
 <tr><td>.hide<td><a href="#toggle">Togglable</a><td>div ul .close<td>.pop .dlg .full.c .tabs .show-mobile .show-desktop
 <tr><td>.switch<td><a href="#toggle2">Togglable 2</a><td>label div<td>.pop .tabs
 <tr><td>.gal<td><a href="#gallery">Gallery</a><td>a .close<td>[data-info]
@@ -859,7 +1021,7 @@ most important:
 <li><code>.col-3</code> &mdash; grid cell with expanding width (x3)
 <li><code>.dlg</code> &mdash; card-like block
 <li><code>.drop</code> &mdash; file input to show dragged image
-<li><code>.flip</code> &mdash; responsive component, stacked view on mobile
+<li><code>.flip</code> &mdash; responsive component, stacked view on small screen
 <li><code>.full</code> &mdash; fullscreen block
 <li><code>.gal</code> &mdash; fullscreen gallery
 <li><code>.hide</code> &mdash; hidden
@@ -881,8 +1043,8 @@ most important:
 <li><code>.row</code> &mdash; row of grid
 <li><code>.screen</code> &mdash; show only on screen (not on print)
 <li><code>.shift</code> &mdash; shift item of <code>.row</code> or <code>.nav</code> to the right
-<li><code>.show-desktop</code> &mdash; force visibility on desktop (overrides <code>.hide</code>)
-<li><code>.show-mobile</code> &mdash; force visibility on mobile (overrides <code>.hide</code>)
+<li><code>.show-desktop</code> &mdash; force visibility on large screen (overrides <code>.hide</code>)
+<li><code>.show-mobile</code> &mdash; force visibility on small screen (overrides <code>.hide</code>)
 <li><code>.small</code> &mdash; small font size
 <li><code>.stick</code> &mdash; stick block to the top
 <li><code>.switch</code> &mdash; input controlling visibility of following block
