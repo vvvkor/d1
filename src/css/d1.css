@@ -1,7 +1,7 @@
 /*! https://github.com/vvvkor/d1 */
 /*
 todo
-	? a>button !
+	! a>button is not valid
 	= tooltip
 	= drawer
 	
@@ -108,6 +108,8 @@ td,th{padding:0;text-align:left}
 /* reset safari */
 button,[type="submit"],[type="search"]{-webkit-appearance:none;}
 [type="search"]{-webkit-border-radius:var(--radius);}
+/* reset firefox */
+button::-moz-focus-inner, [type="submit"]::-moz-focus-inner{border:none;}
 
 
 /* typo */
@@ -161,7 +163,7 @@ th,td{padding:var(--gap-xs) var(--gap-s);text-align:left;vertical-align:top;back
 form>p, form>.row{margin:var(--gap-s) 0;}
 input,button,select,textarea{font:inherit;padding:var(--gap-xs);line-height:normal;}
 input,button,select,textarea{border:thin solid rgba(0,0,0,.3);}
-	button,[type="submit"]{padding:var(--gap-s) var(--gap);border-radius:var(--radius);margin:var(--gap-xs) 0;border-color:transparent;}
+	button,[type="submit"]{padding:var(--gap-s) var(--gap);border-radius:var(--radius);margin:var(--gap-xs) 0;border-color:transparent;cursor:pointer;}
 	form>button, form>[type="submit"], form>a>button{padding:var(--gap-xs) var(--gap-s);margin:0;}/* see [.nav a] padding */
 	button:hover:not([disabled]), [type="submit"]:hover:not([disabled]),
 	button:focus, input:focus, select:focus, textarea:focus{

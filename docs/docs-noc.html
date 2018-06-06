@@ -305,7 +305,6 @@ Link</a>
 	<svg class="icon"></svg>
 	Icon
 </button>
-<a href="#" class="pad hover">Link-pad</a>
 <a href="#">Link</a>
 </section>	
 	<pre class="hide" data-src="#s-button"></pre>
@@ -316,10 +315,9 @@ Link</a>
 <h3>Inline form</h3>
 
 <div id="s-form-inline">
-<form>
-	<input type="search" size="10">
-	<input type="submit" value="Find">
-	<a><button>Button</button></a>
+<form action="?" method="get">
+	<input name="q" type="search" size="10">
+	<input name="s" type="submit" value="Find">
 </form>
 </div>	
 		<!--
@@ -613,7 +611,7 @@ Modals do not require such enhancements.
 		
 <h3 id="gallery">Gallery</h3>
 
-<section id>
+<section id="gal-hide">
 	Hidden gallery: non-CSS fallback
 	<a href="http://vadimkor.ru/src/ir.png">#1</a>
 	<a href="http://vadimkor.ru/src/ir.png">#2</a>
@@ -654,10 +652,13 @@ Enter key press navigates to the next image.
 		<li><a href="#tab2">Tab2</a></li>
 		<li><a href="#tab3">Tab3</a></li>
 	</ul>
-	<div xclass="tabs mem bord">
-		<div id="tab2" xclass="hide">2<br>2</div>
-		<div id="tab3" xclass="hide">3<br>3<br>3</div>
-		<div id="tab1" xclass="hide">1</div>
+	<div>
+		<div id="tab2">2<br>2</div>
+		<div id="tab2">2<br>2</div>
+		<div id="tab3">3<br>3<br>3</div>
+		<div id="tab3">3<br>3<br>3</div>
+		<div id="tab1">1</div>
+		<div id="tab1">1</div>
 	</div>
 </nav>
 </div>
