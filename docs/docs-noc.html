@@ -3,18 +3,31 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>d1.css - Docs and Demo</title>
+	<title>d1-noc.css - Docs and Demo</title>
 
 	<!-- CDN -->
-	<link href="https://cdn.jsdelivr.net/npm/d1css@1.1.12/dist/d1.min.css" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/npm/d1css@1.1.12/dist/d1.min.js"></script>
-	<!-- local -->
 	<!--
-	<link href="../src/css/d1.css" rel="stylesheet">
-	<script src="../src/js/d1.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/d1css@1.1.11/dist/d1-noc.min.css" rel="stylesheet">
 	-->
-	
-	<script> d1.run(); </script>
+	<!-- local -->
+	<link href="../src/css/d1-noc.css" rel="stylesheet">
+	<script>
+		window.onload = function(){
+			var p = document.querySelectorAll('pre[data-src]');
+			for(var i=0;i<p.length;i++){
+				var s = document.querySelector(p[i].getAttribute('data-src'));
+				if(s){
+					p[i].textContent = s.innerHTML.
+						replace(/^\s*\r?\n|\s+$/g, '').
+						replace(/\t/g, '  ').
+						replace(/=""/g, '');
+				}
+				else{
+					p[i].display.style = 'none';
+				}
+			}
+		}
+	</script>
 </head>
 <body>
 
@@ -28,16 +41,15 @@ todo
 - alphabetical reference of css classes
 -->
 
-<div class="row wrap center flip">
-<div class="stick bg">
-	<h1>d1.css</h1>
+<main class="row wrap center flip">
+<section>
+<aside class="stick bg">
+	<h1>d1-noc.css</h1>
 	<p class="screen">
-		<a target="_blank" href="https://github.com/vvvkor/d1" title="GitHub" class="-btn -bg-n"><button class="bg-n"><svg class="icon" width="32" height="32" viewBox="0 0 16 16" version="1.1" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg> GitHub</button></a>
+		<a target="_blank" href="https://github.com/vvvkor/d1" title="GitHub" class="btn bg-n"><svg class="icon" width="32" height="32" viewBox="0 0 16 16" version="1.1" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg> GitHub</a>
 	</p>
-	<p class="print"><code class="pad">github.com/vvvkor/d1</code></p>
 	<p class=""><code class="pad">npm install d1css</code></p>
 
-	<div class="screen hide show-mobile"><a href="#menu" class="pad hover">&equiv;</a></div>
 	<ul id="menu" class="screen hide show-desktop toggle">
 		<li><a href="#start">Get started</a>
 		<li><a href="#typo">Typography</a>
@@ -54,7 +66,7 @@ todo
 		<li><a href="#js">JS</a>
 		<li><a href="#ref">Reference</a>
 	</ul>
-</div>
+</aside>
 <div class="col-2 pad">
 
 <h2 id="start">Get started</h2>
@@ -113,8 +125,15 @@ Nothing special here. Mostly, default styling is kept.
 	
 	<br>
 	<a href="http://ya.ru">Link</a>
-
-
+	<!--
+	<a href="http://ya.ru" class="btn bg-i">Button</a>
+	
+	<a href="#">
+		<svg class="text-i icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
+			<path d="m477 162c0 7-2 14-8 19l-206 207l-39 39c-6 5-12 8-20 8c-7 0-14-3-19-8l-142-142c-6-6-8-12-8-20c0-7 2-14 8-19l38-39c6-5 12-8 20-8c7 0 14 3 19 8l84 84l188-188c5-5 12-8 19-8c8 0 14 3 20 8l38 39c6 6 8 12 8 20z"/>
+		</svg>svg
+	</a>
+			-->
 <h3>Blocks</h3>
 
 	<p>Paragraph<br>New line</p>
@@ -171,35 +190,28 @@ Wrap your rows into <code>div</code> with <code>wrap</code> class to limit maxim
 	</div>
 	-->
 <div id="s-grid">
-<div class="row mar flip">
-	<div class="bg col-0">div.col-0</div>
+<section class="row mar flip">
+	<div class="bg col-0">div</div>
 	<div class="bg">div</div>
-</div>
-<div class="row mar flip">
+</section>
+<section class="row mar flip">
+	<aside class="bg">aside</aside>
 	<div class="bg">div</div>
+</section>
+<section class="row mar">
+	<aside class="bg">aside</aside>
 	<div class="bg">div</div>
+	<aside class="bg">aside</aside>
+</section>
 </div>
-<div class="row mar">
-	<div class="bg-w col-2">div.col-2</div>
-	<div class="bg-y col-3">div.col-3</div>
-</div>
-</div>
-	<div class="row mar flip">
-		<div class="bg">div</div>
-		<div class="bg col-2">div.col-2</div>
-	</div>
-	<div class="row mar">
-		<div class="bg-w">div</div>
-		<div class="bg-y col-3">div.col-3</div>
-	</div>
-	<div class="row mar flip">
+	<section class="row mar flip">
 		<div class="bg">div</div>
 		<div class="bg">div</div>
 		<div class="bg">div</div>
 		<div class="bg">div</div>
 		<div class="bg">div</div>
 		<div class="bg">div</div>
-	</div>
+	</section>
 	
 	<pre class="hide" data-src="#s-grid"></pre>
 
@@ -238,7 +250,7 @@ Wrap table inside <code>div</code> with class <code>roll</code> to have independ
 		C &mdash; <code>:checked</code> (checkbox hack)
 	</p>
 	
-<div id="s-table" class="hide">
+<section id="s-table" class="hide">
 <div class="roll">
 	<table class="hover r1">
 		<caption>Read</caption>
@@ -250,22 +262,21 @@ Wrap table inside <code>div</code> with class <code>roll</code> to have independ
 		</tbody>
 	</table>
 </div>
-</div>
+</section>
 	<pre class="hide" data-src="#s-table"></pre>
 
 
 <h2 id="buttons">Buttons</h2>
 
 <p>
-<code>Button</code> and <code>input</code> of type <code>submit</code> have button styling by default.
-Place <code>button</code> inside element (usually a link) to make it look like button.
+Add <code>btn</code> class to the element (usually a link) to make it look like button.
+<code>Button</code> and <code>input</code> of type <code>submit</code> have similar styling by default.
 For color options see <a href="#colors-buttons">Colors</a> section.
 </p>
 
 <input type="submit" value="Submit">
 <input type="submit" value="Disabled" disabled>
 <button>Button</button>
-<a href="#link" tabindex="-1"><button>Link/Button</button></a>
 <button class="bg-e">
 	<svg class="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
 		<path d="m477 162c0 7-2 14-8 19l-206 207l-39 39c-6 5-12 8-20 8c-7 0-14-3-19-8l-142-142c-6-6-8-12-8-20c0-7 2-14 8-19l38-39c6-5 12-8 20-8c7 0 14 3 19 8l84 84l188-188c5-5 12-8 19-8c8 0 14 3 20 8l38 39c6 6 8 12 8 20z"/>
@@ -277,16 +288,16 @@ For color options see <a href="#colors-buttons">Colors</a> section.
 		<path d="m477 162c0 7-2 14-8 19l-206 207l-39 39c-6 5-12 8-20 8c-7 0-14-3-19-8l-142-142c-6-6-8-12-8-20c0-7 2-14 8-19l38-39c6-5 12-8 20-8c7 0 14 3 19 8l84 84l188-188c5-5 12-8 19-8c8 0 14 3 20 8l38 39c6 6 8 12 8 20z"/>
 	</svg>
 </button>
-<a href="#" class="-btn" tabindex="-1"><button><svg class="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
+<a href="#" class="pad hover"><button>Link-button</button></a>
+<a href="#" class="btn">	<svg class="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
 		<path d="m477 162c0 7-2 14-8 19l-206 207l-39 39c-6 5-12 8-20 8c-7 0-14-3-19-8l-142-142c-6-6-8-12-8-20c0-7 2-14 8-19l38-39c6-5 12-8 20-8c7 0 14 3 19 8l84 84l188-188c5-5 12-8 19-8c8 0 14 3 20 8l38 39c6 6 8 12 8 20z"/>
 	</svg>
-Link</button></a>
-<span><button class="bg-n">Span</button></span>
-<a href="#" class="pad hover">Link-pad</a>
+Link</a>
+<!--span class="btn bg-n">Span</span-->
 <a href="#">Link</a>
 
 
-<div id="s-button" class="hide">
+<section id="s-button" class="hide">
 <input type="submit" value="Submit">
 <input type="submit" value="Disabled" disabled>
 <button>Button</button>
@@ -296,7 +307,7 @@ Link</button></a>
 </button>
 <a href="#" class="pad hover">Link-pad</a>
 <a href="#">Link</a>
-</div>	
+</section>	
 	<pre class="hide" data-src="#s-button"></pre>
 
 
@@ -308,8 +319,14 @@ Link</button></a>
 <form>
 	<input type="search" size="10">
 	<input type="submit" value="Find">
+	<a><button>Button</button></a>
 </form>
 </div>	
+		<!--
+		<a href="#" class="btn">Btn</a>
+		<a href="#">Link</a>
+		<span class="btn">Span</span>
+		-->
 
 	<pre class="hide" data-src="#s-form-inline"></pre>
 
@@ -331,36 +348,39 @@ Link</button></a>
 	</p>
 </form>
 </div>
+		<!--
+		<input type="text" name="nm1" id="nm1" required pattern="[A-Za-z]{2,}" title="Two or more letters"><br>
+		<a href="#" class="btn">Btn</a>
+		<span class="btn">Span</span>
+		-->
 	<pre class="hide" data-src="#s-form-stacked"></pre>
 
 <h3>Aligned form using grid</h3>
 
 <div id="s-form-grid">
 <form method="post">
-	<div class="row flip">
+	<section class="row flip">
 		<label for="i1">Label one</label>
 		<div class="col-3"><input type="text" name="i1" id="i1"></div>
-	</div>
-	<div class="row flip">
+	</section>
+	<section class="row flip">
 		<div></div>
 		<div class="col-3">
 			<input type="checkbox" name="i2" id="i2">
 			<label for="i2">Box</label>
 		</div>
-	</div>
+	</section>
 	<fieldset>
-		<legend><a href="#fs0">Fieldset</a></legend>
-		<div id="fs0" class="hide toggle">
-			<div class="row flip">
-				<label for="i3">Label two</label>
-				<div class="col-3"><input type="text" name="i3" id="i3"></div>
-			</div>
-		</div>
+		<legend>Fieldset</legend>
+		<section class="row flip">
+			<label for="i3">Label two</label>
+			<div class="col-3"><input type="text" name="i3" id="i3"></div>
+		</section>
 	</fieldset>
-	<div class="row flip">
+	<section class="row flip">
 		<div></div>
 		<div class="col-3"><input type="submit" value="Submit"></div>
-	</div>
+	</section>
 </form>
 </div>
 	<pre class="hide" data-src="#s-form-grid"></pre>
@@ -387,8 +407,10 @@ Table will become stacked on small screen.
 			
 		<tr><td colspan="2">
 		<fieldset>
-			<legend><a href="#fs1">Input types</a></legend>
-			<table id="fs1" class="hide toggle mem">
+			<!--legend><a href="#fs1">Input types</a></legend-->
+			<legend>Input types</legend>
+			<!--section id="fs1"-->
+			<table class="hide toggle mem">
 			
 			<tr>
 				<td><label for="lng">Select</label>
@@ -426,11 +448,14 @@ Table will become stacked on small screen.
 				<td><label class="drop" title="Drop image"><input type="file" name="up[]" multiple></label>
 				
 			</table>
+			<!--/section-->
 		</fieldset>
 		<!--tr><td colspan="2"-->
 		<fieldset>
-			<legend><a href="#fs2">Switches</a></legend>
-			<table id="fs2" class="hide toggle mem">
+			<!--legend><a href="#fs2">Switches</a></legend-->
+			<legend>Switches</legend>
+			<!--section id="fs2"-->
+			<table class="hide toggle mem">
 				<tr>
 					<td>Box
 					<td>
@@ -444,6 +469,7 @@ Table will become stacked on small screen.
 						<label><input type="radio" name="ra1" value="sun"> Sun</label><br>
 						<label><input type="radio" name="ra1" value="moon"> Moon</label><br>
 			</table>
+			<!--/section-->
 		</fieldset>
 		<tr>
 			<td>
@@ -455,7 +481,7 @@ Table will become stacked on small screen.
 	</form>
 	
 
-<div id="s-form-table" class="hide">
+<section id="s-form-table" class="hide">
 <form method="post">
 	<table>
 		<tbody>
@@ -470,7 +496,7 @@ Table will become stacked on small screen.
 		</tbody>
 	</table>
 </form>
-</div>
+</section>
 			<!--tr>
 				<td colspan="2">
 					<fieldset>
@@ -496,12 +522,14 @@ Table will become stacked on small screen.
 Just add <code>nav</code> class to unordered list.
 
 <div id="s-pagenav">
-<ul class="nav bg mar">
-	<li><b>Pages</b></li>
-	<li><a href="?p=1">1</a></li>
-	<li><a href="?p=2">2</a></li>
-	<li><a href="?p=3">3</a></li>
-</ul>
+<nav>
+	<ul class="nav bg mar">
+		<li><b>Pages</b></li>
+		<li><a href="?p=1">1</a></li>
+		<li><a href="?p=2">2</a></li>
+		<li><a href="?p=3">3</a></li>
+	</ul>
+</nav>
 </div>
 	<pre class="hide" data-src="#s-pagenav"></pre>
 
@@ -515,72 +543,31 @@ In this case, links' <code>href</code> must point to corresponding nested lists'
 With JavaScript, nested lists are toggled on click.
 
 <div id="s-nav">
-<ul class="nav flip toggle bg">
-	<li>
-		<a href="#">First</a>
-	</li>
-	<li>
-		<a href="#s-2">Second</a>
-		<ul id="s-2">
-			<li><a href="#s-2-1">Subitem 2</a>
-				<ul id="s-2-1">
-					<li><a href="#s-2-1-1">Subsubitem</a></li>
-				</ul>
-			</li>
-		</ul>
-	</li>
-	<li>
-		<a href="#s-3">Third</a>
-		<ul id="s-3">
-			<li><a href="#s-3-1">Subitem 3</a></li>
-		</ul>
-	</li>
-</ul>
-</div>
-	<pre class="hide" data-src="#s-nav"></pre>
-
-<h3>Responsive dropdown, hamburger on small screen</h3>
-
-<p>
-Following code shows how to collapse navigation to a single hamburger icon on small screen,
-and expand it to horizontal dropdown navbar on large screen.
-
-<div id="s-nav-hamb">
-<div class="hide show-mobile">
-	<a href="#navi" class="pad hover">&equiv;</a>
-</div>
-<nav class="hide show-desktop toggle" id="navi">
+<nav>
 	<ul class="nav flip toggle bg">
 		<li>
 			<a href="#">First</a>
 		</li>
 		<li>
-			<a href="#sub-2">Second</a>
-			<ul id="sub-2">
-				<li><a href="#sub-2-1">Subitem 2</a>
-					<ul id="sub-2-1">
-						<li><a href="#sub-2-1-1">Subsubitem</a></li>
+			<a href="#s-2">Second</a>
+			<ul id="s-2">
+				<li><a href="#s-2-1">Subitem 2</a>
+					<ul id="s-2-1">
+						<li><a href="#s-2-1-1">Subsubitem</a></li>
 					</ul>
 				</li>
 			</ul>
 		</li>
 		<li>
-			<a href="#sub-3">Third</a>
-			<ul id="sub-3">
-				<li><a href="#sub-3-1">Subitem 3</a></li>
+			<a href="#s-3">Third</a>
+			<ul id="s-3">
+				<li><a href="#s-3-1">Subitem 3</a></li>
 			</ul>
-		</li>
-		<li class="shift">
-			<form>
-				<input type="search" size="5">
-				<input type="submit" value="Find">
-			</form>
 		</li>
 	</ul>
 </nav>
 </div>
-	<pre class="hide" data-src="#s-nav-hamb"></pre>
-
+	<pre class="hide" data-src="#s-nav"></pre>
 
 
 <h2 id="togglers">Togglers</h2>
@@ -604,53 +591,34 @@ Modals do not require such enhancements.
 <h3>Popup</h3>
 
 <div id="s-popup">
-<div class="pop">
+<nav class="pop">
 	<a href="#pop">Popup</a>
 	<div id="pop" class="toggle">Pop</div>
-</div>
+</nav>
 </div>
 	<pre class="hide" data-src="#s-popup"></pre>
 
 
-<h3>Toggle</h3>
-
-<div id="s-toggle">
-<a href="#tog">Toggle</a>
-<div id="tog" class="hide bord yel toggle mem">Togglable</div>
-</div>
-	<pre class="hide" data-src="#s-toggle"></pre>
-
-<h3>Modal dialog</h3>
+<h3>Toggle modal dialog</h3>
 
 <div id="s-modal">
 <a href="#modal">Dialog</a>
-<div id="modal" class="hide dlg">
+<section id="modal" class="hide dlg">
 	<a class="close" href="#cancel"></a>
 	Dialog
-</div>
+</section>
 </div>
 	<pre class="hide" data-src="#s-modal"></pre>
 	
 		
-<h3>Modal fullscreen</h3>
-
-<div id="s-modal-full">
-<a href="#full">Fullscreen</a>
-<div id="full" class="hide full c">
-	<a class="close" href="#cancel"></a>
-	Full
-</div>
-</div>
-	<pre class="hide" data-src="#s-modal-full"></pre>
-
 <h3 id="gallery">Gallery</h3>
 
-<div class="hide">
+<section id>
 	Hidden gallery: non-CSS fallback
 	<a href="http://vadimkor.ru/src/ir.png">#1</a>
 	<a href="http://vadimkor.ru/src/ir.png">#2</a>
 	<a href="http://vadimkor.ru/src/ir.png">#3</a>
-</div>
+</section>
 
 <p>Pure CSS gallery is based on CSS variables.
 Images are lazy loaded.
@@ -659,37 +627,39 @@ Enter key press navigates to the next image.
 <i class="text-w">Not supported in IE</i>.
 
 <p><a href="#gal1">Open gallery</a>
-<div class="gal">
+<div>
 	<a id="gal1" href="#gal2" data-info="1/3 - ir.png" style="--img:url(http://vadimkor.ru/src/ir.png)"></a>
 	<a id="gal2" href="#gal3" data-info="2/3 - ig.png" style="--img:url(http://vadimkor.ru/src/ig.png)"></a>
 	<a id="gal3" href="#gal1" data-info="3/3 - ib.png" style="--img:url(http://vadimkor.ru/src/ib.png)"></a>
-	<a class="close" href="#cancel"></a>
+	<a href="#cancel"></a>
 </div>
 
-<div id="s-gal" class="hide">
+<section id="s-gal" class="hide">
 <a href="#pic1">Gallery</a>
-<div class="gal">
+<div>
 	<a id="pic1" href="#pic2" data-info="Caption 1" style="--img:url(1.jpg)"></a>
 	<a id="pic2" href="#pic3" data-info="Caption 2" style="--img:url(2.jpg)"></a>
 	<a id="pic3" href="#pic1" data-info="Caption 3" style="--img:url(3.jpg)"></a>
-	<a class="close" href="#cancel"></a>
+	<a href="#cancel"></a>
 </div>
-</div>
+</section>
 	<pre class="hide" data-src="#s-gal"></pre>
 
 <h3>Tabs</h3>
 
 <div id="s-tabs">
-<ul class="nav">
-	<li><a href="#tab1">Tab1</a></li>
-	<li><a href="#tab2">Tab2</a></li>
-	<li><a href="#tab3">Tab3</a></li>
-</ul>
-<div class="tabs mem bord">
-	<div id="tab2" class="hide">2<br>2</div>
-	<div id="tab3" class="hide">3<br>3<br>3</div>
-	<div id="tab1" class="hide">1</div>
-</div>
+<nav>
+	<ul class="nav">
+		<li><a href="#tab1">Tab1</a></li>
+		<li><a href="#tab2">Tab2</a></li>
+		<li><a href="#tab3">Tab3</a></li>
+	</ul>
+	<div xclass="tabs mem bord">
+		<div id="tab2" xclass="hide">2<br>2</div>
+		<div id="tab3" xclass="hide">3<br>3<br>3</div>
+		<div id="tab1" xclass="hide">1</div>
+	</div>
+</nav>
 </div>
 	<pre class="hide" data-src="#s-tabs"></pre>
 
@@ -733,18 +703,6 @@ Pure CSS togglers based on <a href="https://css-tricks.com/the-checkbox-hack/">c
 This approach introduces bad semantics and is <b>not generally recommended</b>.
 But it overcomes drawbacks of <a href="#toggle"><code>:target</code>-based togglers</a> without using JavaScipt.
 
-<h3>Popup 2</h3>
-
-<div id="s-popup2">
-<div class="pop">
-	<input type="checkbox" class="switch" id="pop2">
-	<label for="pop2">Popup 2</label>
-	<div>Pop 2</div>
-</div>
-</div>
-	<pre class="hide" data-src="#s-popup2"></pre>
-
-
 <h3>Toggle 2</h3>
 
 <div id="s-toggle2">
@@ -757,20 +715,22 @@ But it overcomes drawbacks of <a href="#toggle"><code>:target</code>-based toggl
 <h3>Tabs 2</h3>
 
 <div id="s-tabs2">
-<div class="tabs">
-	<!-- tab 1 -->
-	<input type="radio" class="switch" id="tb1" name="tb" checked>
-	<label for="tb1">Tab 1</label>
-	<div class="bord">1</div>
-	<!-- tab 2 -->
-	<input type="radio" class="switch" id="tb2" name="tb">
-	<label for="tb2">Tab 2</label>
-	<div class="bord">2<br>2</div>
-	<!-- tab 3 -->
-	<input type="radio" class="switch" id="tb3" name="tb">
-	<label for="tb3">Tab 3</label>
-	<div class="bord">3<br>3<br>3</div>
-</div>
+<nav>
+	<div class="tabs">
+		<!-- tab 1 -->
+		<input type="radio" class="switch" id="tb1" name="tb" checked>
+		<label for="tb1">Tab 1</label>
+		<div class="bord">1</div>
+		<!-- tab 2 -->
+		<input type="radio" class="switch" id="tb2" name="tb">
+		<label for="tb2">Tab 2</label>
+		<div class="bord">2<br>2</div>
+		<!-- tab 3 -->
+		<input type="radio" class="switch" id="tb3" name="tb">
+		<label for="tb3">Tab 3</label>
+		<div class="bord">3<br>3<br>3</div>
+	</div>
+</nav>
 </div>
 	<pre class="hide" data-src="#s-tabs2"></pre>
 
@@ -856,7 +816,7 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 <p class="bord">Border</p>
 <p class="bg bord">Bg+Border</p>
 <p class="bg-i bord">Status+Border</p>
-<p><button class="bg-y">Button-like</button></p>
+<p class="btn bg-y mar">Button-like</p>
 </div>
 	
 	<pre class="hide" data-src="#s-colors-blocks"></pre>
@@ -865,7 +825,7 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 
 <h3>Media object</h3>
 
-	<div class="row mar">
+	<section class="row mar">
 		<a href="#media" class="col-0"><img alt="pic" width="80" src="data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAQUlEQVR4nGNkaPjPQApgIkk1AwMDC6bQ/3oEm7GRYhuo4SRMZ+DTgOwBrJop9gN+91DDBrprQAs0cmwgOeJItgEAkbkIq9GVLncAAAAASUVORK5CYII="></a>
 		<div>
 			Some description
@@ -875,76 +835,60 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 				<a href="#media" class="-btn -inv">Link</a>
 			</div>
 		</div>
-	</div>
+	</section>
 
-<div id="s-media" class="hide">
-<div class="row mar">
+<section id="s-media" class="hide">
+<section class="row mar">
 	<a href="#media" class="col-0">
 		<img alt="pic" width="80" src="?">
 	</a>
 	<div>Some description</div>
-</div>
-</div>
+</section>
+</section>
 	<pre class="hide" data-src="#s-media"></pre>
 	
 <h3>Figure</h3>
 
-	<figure class="bg c pad">
+	<figure align="center">
 		<img alt="figure" src="data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAQUlEQVR4nGNkaPjPQApgIkk1AwMDC6bQ/3oEm7GRYhuo4SRMZ+DTgOwBrJop9gN+91DDBrprQAs0cmwgOeJItgEAkbkIq9GVLncAAAAASUVORK5CYII=">
 		<figcaption>
 			Figure caption
 		</figcaption>
 	</figure>
 
-<div id="s-fig" class="hide">
-<figure class="bg c pad">
+<section id="s-fig" class="hide">
+<figure align="center">
 	<img alt="figure" src="?">
 	<figcaption>Figure caption</figcaption>
 </figure>
-</div>
+</section>
 	<pre class="hide" data-src="#s-fig"></pre>
 	
 <h3>Empty filler</h3>
 
-	<div class="dlg">
+	<div align="center">
 		<svg class="text-n" width="80" height="80" viewBox="0 0 16 16" version="1.1" aria-hidden="true"><path  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
 		<p><b>No items yet</b>
 		<p>Click the button to create new item</p>
-		<a href="#add" class="-btn -bg-i"><button class="bg-i">Add new item</button></a>
+		<a href="#add"><button>Add new item</button></a>
 	</div>
 
-<div id="s-dlg" class="hide">
-<div class="dlg">
+<section id="s-dlg" class="hide">
+<div align="center">
 	<svg></svg>
 	<p>No items yet</p>
 </div>
-</div>
+</section>
 	<pre class="hide" data-src="#s-dlg"></pre>
-	
+
+<!--	
 <h3>Full height</h3>
 	
 <div id="s-full">
 <div class="full bg-w c">Full</div>
 </div>
 	<pre class="hide" data-src="#s-full"></pre>
-
-<h2 id="js">JavaScript enhancements</h2>
-
-<ul>
-	<li>Dropdown &mdash; toggle, escape
-	<li>Tree &mdash; multiple, unscroll, toggle, remember, <code>.accordion</code>
-	<li>Toggle &mdash; multiple, unscroll, toggle, remember
-	<li>Popup &mdash; multiple, unscroll, toggle, escape
-	<li>Tabs &mdash; multiple, unscroll, remember
-	<li>Dialog &mdash; escape
-	<li>Gallery &mdash; previous, escape
-	<li>Output HTML code (<code>pre[data-src]</code>)
-	<li>Link or button with confirmation (<code>.confirm[title]</code>)
-	<li>Link with prompt (<code>a.prompt[title][data-default]</code>)
-	<li>Check group of boxes (<code>input[data-group]</code>, <code>[class~="data-group"]</code>)
-	<li>Align table columns (<code>table.r5</code>)
-	<li>Show dropped uploaded image (<code>input.drop</code>)
-</ul>
+-->
 
 
 <h2 id="ref">Reference</h2>
@@ -955,14 +899,15 @@ most important:
 - .row.flip .col-2
 - .nav.flip
 - .hide.dlg .close
+- (.btn)
 -->
 
 <div class="roll">
 <table class="hover">
-<tr><th>CSS class<th>Description<th>Used with<th>Modifications
+<tr><th>CSS<th>Description<th>Used with<th>Modifications
 <tr><td>.row<td><a href="#grid">Grid</a><td>.col-0 div .col-2 .col-3<td>.flip .wrap .read .narrow .shift .stick
 <tr><td>.roll<td>Horizontal scroll<td><a href="#table">table</a>.hover<td>
-<tr><td>button<td><a href="#button">Button</a><td><a href="#form">form</a> .drop submit button a span<td>.bg-
+<tr><td>.btn<td><a href="#button">Button</a><td><a href="#form">form</a> .drop submit button a span<td>.bg-
 <tr><td>.nav<td><a href="#nav">Navigation</a><td>ul<td>.act .flip .shift
 <tr><td>.flip<td>Responsive<td>.row .nav<td>
 <tr><td>.hide<td><a href="#toggle">Togglable</a><td>div ul .close<td>.pop .dlg .full.c .tabs .show-mobile .show-desktop
@@ -983,71 +928,8 @@ most important:
 </table>
 </div>
 
-<h3><a href="#ref-alpha">Alphabetical</a></h3>
-
-<div id="ref-alpha" class="hide toggle mem">
-<ol>
-<li><code>.act</code> &mdash; active link
-<li><code>.bg</code> &mdash; light background
-<li><code>.bg-e</code> &mdash; nominal "red" background
-<li><code>.bg-i</code> &mdash; nominal "blue" background 
-<li><code>.bg-n</code> &mdash; nominal "gray" background
-<li><code>.bg-w</code> &mdash; nominal "yellow" background
-<li><code>.bg-y</code> &mdash; nominal "green" background
-<li><code>.bord</code> &mdash; add border
-<li><code>.c</code> &mdash; centrify content inside block
-<li><code>.center</code> &mdash; centrify block itself
-<li><code>.close</code> &mdash; link to close togglable block
-<li><code>.col-0</code> &mdash; grid cell with non-expanding width
-<li><code>.col-2</code> &mdash; grid cell with expanding width (x2)
-<li><code>.col-3</code> &mdash; grid cell with expanding width (x3)
-<li><code>.dlg</code> &mdash; card-like block
-<li><code>.drop</code> &mdash; file input to show dragged image
-<li><code>.flip</code> &mdash; responsive component, stacked view on small screen
-<li><code>.full</code> &mdash; fullscreen block
-<li><code>.gal</code> &mdash; fullscreen gallery
-<li><code>.hide</code> &mdash; hidden
-<li><code>.hover</code> &mdash; highlight link or table row on hover
-<li><code>.icon</code> &mdash; small image
-<li><code>.js-control</code> &mdash; visibility is controlled by JavaScript, hidden by default
-<li><code>.js-show</code> &mdash; shown with JavaScript
-<li><code>.l</code> &mdash; align content to the left
-<li><code>.mar</code> &mdash; add vertical margins
-<li><code>.narrow</code> &mdash; narrow block width
-<li><code>.nav</code> &mdash; horizontal dropdown navigation
-<li><code>.pad</code> &mdash; add padding
-<li><code>.pop</code> &mdash; popup component wrapper
-<li><code>.print</code> &mdash; show only on print (not on screen)
-<li><code>.r</code> &mdash; align content to the right
-<li><code>.rad</code> &mdash; rounded corners
-<li><code>.read</code> &mdash; block width for comfortable reading
-<li><code>.roll</code> &mdash; horizontal scrolling of contents
-<li><code>.row</code> &mdash; row of grid
-<li><code>.screen</code> &mdash; show only on screen (not on print)
-<li><code>.shift</code> &mdash; shift item of <code>.row</code> or <code>.nav</code> to the right
-<li><code>.show-desktop</code> &mdash; force visibility on large screen (overrides <code>.hide</code>)
-<li><code>.show-mobile</code> &mdash; force visibility on small screen (overrides <code>.hide</code>)
-<li><code>.small</code> &mdash; small font size
-<li><code>.stick</code> &mdash; stick block to the top
-<li><code>.switch</code> &mdash; input controlling visibility of following block
-<li><code>.tabs</code> &mdash; tabs component
-<li><code>.text-e</code> &mdash; nominal "red" text color
-<li><code>.text-i</code> &mdash; nominal "blue" text color
-<li><code>.text-n</code> &mdash; nominal "gray" text color
-<li><code>.text-w</code> &mdash; nominal "yellow" text color
-<li><code>.text-y</code> &mdash; nominal "green" text color
-<li><code>.wrap</code> &mdash; reasonable page width limit
-<li><code>.yel</code> &mdash; temporary highlight targeted block
-</ol>
 </div>
-
-<!--div style="overflow:hidden;height:1.5em;">
-<div style="overflow-x:scroll;overflow-y:hide;/*-webkit-overflow-scrolling:touch;*/">
-wwwwwwwwwww1wwwwwwwwwwwwwww2wwwwwwwwwwwww3wwwwwwwwwwwwww4wwwwwwwwwwwwww5wwwwwwwwwwwww6wwwwwwwwwwwwwwww.
-</div>
-</div-->
-
-</div>
-</div>
+</section>
+</main>
 </body>
 </html>
