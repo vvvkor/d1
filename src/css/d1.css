@@ -1,7 +1,6 @@
 /*! https://github.com/vvvkor/d1 */
 /*
 todo
-	! a>button is not valid
 	= tooltip
 	= drawer
 	
@@ -26,7 +25,7 @@ classes
 	main
 		.row .col-0 .col-2 .col-3 .flip .stick
 		.nav .act .hover .flip .shift
-		button, [type="submit"]
+		button, [type="submit"], a.btn, span.btn
 	action
 		.hide .pop .dlg .full(.c) .gal .tabs .close
 	js
@@ -126,10 +125,10 @@ abbr{border-bottom:thin dotted;}
 
 /* link */
 a{color:var(--link);}
-a:not([href^="#"]):visited{color:var(--visited);}
+a:not([href^="#"]):not(.btn):visited{color:var(--visited);}
 .act, a:hover{color:var(--hover);}
-.nav a, a.close, a.pad, abbr{text-decoration:none;}
-a.pad{display:inline-block;line-height:normal;}
+.nav a, a.close, a.pad, a.btn, abbr{text-decoration:none;}
+a.pad, a.btn{display:inline-block;line-height:normal;}
 
 /* hilite */
 .nav .act, a.hover:hover, .nav li>a:hover, table.hover tr:hover, .switch:checked+label, .switch+label:hover{color:var(--text-hilite);background-color:var(--bg-hilite);}
@@ -162,16 +161,16 @@ th,td{padding:var(--gap-xs) var(--gap-s);text-align:left;vertical-align:top;back
 
 form>p, form>.row{margin:var(--gap-s) 0;}
 input,button,select,textarea{font:inherit;padding:var(--gap-xs);line-height:normal;}
-input,button,select,textarea{border:thin solid rgba(0,0,0,.3);}
-	button,[type="submit"]{padding:var(--gap-s) var(--gap);border-radius:var(--radius);margin:var(--gap-xs) 0;border-color:transparent;cursor:pointer;}
-	form>button, form>[type="submit"], form>a>button{padding:var(--gap-xs) var(--gap-s);margin:0;}/* see [.nav a] padding */
-	button:hover:not([disabled]), [type="submit"]:hover:not([disabled]),
-	button:focus, input:focus, select:focus, textarea:focus{
+input,button,select,textarea,.btn{border:thin solid rgba(0,0,0,.3);}
+	.btn,button,[type="submit"]{padding:var(--gap-s) var(--gap);border-radius:var(--radius);margin:var(--gap-xs) 0;border-color:transparent;cursor:pointer;}
+	form>.btn, form>button, form>[type="submit"], form>a>button{padding:var(--gap-xs) var(--gap-s);margin:0;}/* see [.nav a] padding */
+	a.btn:hover, button:hover:not([disabled]), [type="submit"]:hover:not([disabled]),
+	a.btn:focus, button:focus, input:focus, select:focus, textarea:focus{
 		box-shadow:0 0 0 .15em rgba(0,0,0,.1);outline:none;
 	}
 	button[disabled],[type="submit"][disabled]{opacity:.5;}
 	input:invalid{box-shadow:0 0 0 .15em rgba(255,200,80,.8);}
-	p>button:only-child, div>button:only-child{width:100%;text-align:left;}
+	/*p>button:only-child, div>button:only-child{width:100%;text-align:left;}*/
 
 
 
@@ -230,7 +229,7 @@ div.hide{z-index:10;}
 
 /* color */
 .bg,blockquote,pre,code,thead,tfoot{background-color:var(--bg-pane);}
-button,[type="submit"]{background-color:var(--link);color:var(--bg);}
+.btn[class],button,[type="submit"]{background-color:var(--link);color:var(--bg);}
 
 .text-e[class]{color:#d00;}
 .text-w[class]{color:#c60;}
@@ -242,11 +241,11 @@ button,[type="submit"]{background-color:var(--link);color:var(--bg);}
 .bg-i[class]{background-color:#cef;}
 .bg-y[class]{background-color:#cec;}
 .bg-n[class]{background-color:#eee;}
-button.bg-e[class], [type="submit"].bg-e{background-color:#c11;}
-button.bg-w[class], [type="submit"].bg-w{background-color:#e60;}
-button.bg-i[class], [type="submit"].bg-i{background-color:#08b;}
-button.bg-y[class], [type="submit"].bg-y{background-color:#292;}
-button.bg-n[class], [type="submit"].bg-n{background-color:#999;}
+.btn.bg-e, button.bg-e[class], [type="submit"].bg-e{background-color:#c11;}
+.btn.bg-w, button.bg-w[class], [type="submit"].bg-w{background-color:#e60;}
+.btn.bg-i, button.bg-i[class], [type="submit"].bg-i{background-color:#08b;}
+.btn.bg-y, button.bg-y[class], [type="submit"].bg-y{background-color:#292;}
+.btn.bg-n, button.bg-n[class], [type="submit"].bg-n{background-color:#999;}
 
 
 /* yellow fade */

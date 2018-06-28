@@ -6,8 +6,10 @@
 	<title>d1.css - Docs and Demo</title>
 
 	<!-- CDN -->
-	<link href="https://cdn.jsdelivr.net/npm/d1css@1.1.12/dist/d1.min.css" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/npm/d1css@1.1.12/dist/d1.min.js"></script>
+	
+	<link href="https://cdn.jsdelivr.net/npm/d1css@1.1.15/dist/d1.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/d1css@1.1.15/dist/d1.min.js"></script>
+	
 	<!-- local -->
 	<!--
 	<link href="../src/css/d1.css" rel="stylesheet">
@@ -19,6 +21,15 @@
 <body>
 
 <!--
+
+process:
+- validate / lint
+- package.json: update version
+- html (docs, noc): use css & js from cdn, set new version
+- npm run build
+- npm publish ./
+- git commit
+
 todo
 - css vars
 - demo drop
@@ -32,7 +43,7 @@ todo
 <div class="stick bg">
 	<h1>d1.css</h1>
 	<p class="screen">
-		<a target="_blank" href="https://github.com/vvvkor/d1" title="GitHub" class="-btn -bg-n"><button class="bg-n"><svg class="icon" width="32" height="32" viewBox="0 0 16 16" version="1.1" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg> GitHub</button></a>
+		<a target="_blank" href="https://github.com/vvvkor/d1" title="GitHub" class="btn bg-n"><svg class="icon" width="32" height="32" viewBox="0 0 16 16" version="1.1" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg> GitHub</a>
 	</p>
 	<p class="print"><code class="pad">github.com/vvvkor/d1</code></p>
 	<p class=""><code class="pad">npm install d1css</code></p>
@@ -258,7 +269,7 @@ Wrap table inside <code>div</code> with class <code>roll</code> to have independ
 
 <p>
 <code>Button</code> and <code>input</code> of type <code>submit</code> have button styling by default.
-Place <code>button</code> inside element (usually a link) to make it look like button.
+Add <code>btn</code> class to the element (usually a link) to make it look like a button <i>(which is not recommended from accessability point of view)</i>.
 For color options see <a href="#colors-buttons">Colors</a> section.
 </p>
 
@@ -276,12 +287,11 @@ For color options see <a href="#colors-buttons">Colors</a> section.
 		<path d="m477 162c0 7-2 14-8 19l-206 207l-39 39c-6 5-12 8-20 8c-7 0-14-3-19-8l-142-142c-6-6-8-12-8-20c0-7 2-14 8-19l38-39c6-5 12-8 20-8c7 0 14 3 19 8l84 84l188-188c5-5 12-8 19-8c8 0 14 3 20 8l38 39c6 6 8 12 8 20z"/>
 	</svg>
 </button>
-<a href="#" class="-btn" tabindex="-1"><button><svg class="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
+<a href="#" class="btn"><svg class="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
 		<path d="m477 162c0 7-2 14-8 19l-206 207l-39 39c-6 5-12 8-20 8c-7 0-14-3-19-8l-142-142c-6-6-8-12-8-20c0-7 2-14 8-19l38-39c6-5 12-8 20-8c7 0 14 3 19 8l84 84l188-188c5-5 12-8 19-8c8 0 14 3 20 8l38 39c6 6 8 12 8 20z"/>
 	</svg>
-Link</button></a>
-<span><button class="bg-n">Span</button></span>
-<a href="#link" tabindex="-1"><button>Link/Button</button></a>
+Link</a>
+<span class="btn bg-n">Span</span>
 <a href="#" class="pad hover">Link-pad</a>
 <a href="#">Link</a>
 
@@ -294,7 +304,7 @@ Link</button></a>
 	<svg class="icon"></svg>
 	Icon
 </button>
-<a href="#link" tabindex="-1"><button>Link/Button</button></a>
+<a href="#" class="btn bg-i">Link-button</a>
 <a href="#" class="pad hover">Link-pad</a>
 <a href="#">Link</a>
 </div>	
@@ -857,7 +867,7 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 <p class="bord">Border</p>
 <p class="bg bord">Bg+Border</p>
 <p class="bg-i bord">Status+Border</p>
-<p><button class="bg-y">Button-like</button></p>
+<p class="btn bg-y">Button-like</p>
 </div>
 	
 	<pre class="hide" data-src="#s-colors-blocks"></pre>
@@ -911,7 +921,7 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 		<svg class="text-n" width="80" height="80" viewBox="0 0 16 16" version="1.1" aria-hidden="true"><path  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
 		<p><b>No items yet</b>
 		<p>Click the button to create new item</p>
-		<a href="#add" class="-btn -bg-i"><button class="bg-i">Add new item</button></a>
+		<a href="#add" class="btn bg-i">Add new item</a>
 	</div>
 
 <div id="s-dlg" class="hide">

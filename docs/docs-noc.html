@@ -6,11 +6,13 @@
 	<title>d1-noc.css - Docs and Demo</title>
 
 	<!-- CDN -->
-	<!--
-	<link href="https://cdn.jsdelivr.net/npm/d1css@1.1.11/dist/d1-noc.min.css" rel="stylesheet">
-	-->
+	
+	<link href="https://cdn.jsdelivr.net/npm/d1css@1.1.15/dist/d1-noc.min.css" rel="stylesheet">
+	
 	<!-- local -->
+	<!--
 	<link href="../src/css/d1-noc.css" rel="stylesheet">
+	-->
 	<script>
 		window.onload = function(){
 			var p = document.querySelectorAll('pre[data-src]');
@@ -46,7 +48,7 @@ todo
 <aside class="stick bg">
 	<h1>d1-noc.css</h1>
 	<p class="screen">
-		<a target="_blank" href="https://github.com/vvvkor/d1" title="GitHub" class="btn bg-n"><svg class="icon" width="32" height="32" viewBox="0 0 16 16" version="1.1" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg> GitHub</a>
+		<form target="_blank" action="https://github.com/vvvkor/d1"><div><button title="GitHub" class="btn bg-n"><svg class="icon" width="32" height="32" viewBox="0 0 16 16" version="1.1" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg> GitHub</button></div></form>
 	</p>
 	<p class=""><code class="pad">npm install d1css</code></p>
 
@@ -288,7 +290,6 @@ For color options see <a href="#colors-buttons">Colors</a> section.
 		<path d="m477 162c0 7-2 14-8 19l-206 207l-39 39c-6 5-12 8-20 8c-7 0-14-3-19-8l-142-142c-6-6-8-12-8-20c0-7 2-14 8-19l38-39c6-5 12-8 20-8c7 0 14 3 19 8l84 84l188-188c5-5 12-8 19-8c8 0 14 3 20 8l38 39c6 6 8 12 8 20z"/>
 	</svg>
 </button>
-<a href="#" class="pad hover"><button>Link-button</button></a>
 <a href="#" class="btn">	<svg class="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
 		<path d="m477 162c0 7-2 14-8 19l-206 207l-39 39c-6 5-12 8-20 8c-7 0-14-3-19-8l-142-142c-6-6-8-12-8-20c0-7 2-14 8-19l38-39c6-5 12-8 20-8c7 0 14 3 19 8l84 84l188-188c5-5 12-8 19-8c8 0 14 3 20 8l38 39c6 6 8 12 8 20z"/>
 	</svg>
@@ -654,10 +655,7 @@ Enter key press navigates to the next image.
 	</ul>
 	<div>
 		<div id="tab2">2<br>2</div>
-		<div id="tab2">2<br>2</div>
 		<div id="tab3">3<br>3<br>3</div>
-		<div id="tab3">3<br>3<br>3</div>
-		<div id="tab1">1</div>
 		<div id="tab1">1</div>
 	</div>
 </nav>
@@ -871,7 +869,7 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 		<svg class="text-n" width="80" height="80" viewBox="0 0 16 16" version="1.1" aria-hidden="true"><path  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
 		<p><b>No items yet</b>
 		<p>Click the button to create new item</p>
-		<a href="#add"><button>Add new item</button></a>
+		<form action="#add"><div><button>Add new item</button></div></form>
 	</div>
 
 <section id="s-dlg" class="hide">

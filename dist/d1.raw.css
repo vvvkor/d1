@@ -51,6 +51,10 @@ button, [type="submit"], [type="search"] {
     -webkit-border-radius: var(--radius);
 }
 
+button::-moz-focus-inner, [type="submit"]::-moz-focus-inner {
+    border: none;
+}
+
 body {
     color: var(--text);
     background-color: var(--bg);
@@ -93,7 +97,7 @@ a {
     color: var(--link);
 }
 
-a:not([href^="#"]):visited {
+a:not([href^="#"]):not(.btn):visited {
     color: var(--visited);
 }
 
@@ -101,11 +105,11 @@ a:not([href^="#"]):visited {
     color: var(--hover);
 }
 
-.nav a, a.close, a.pad, abbr {
+.nav a, a.close, a.pad, a.btn, abbr {
     text-decoration: none;
 }
 
-a.pad {
+a.pad, a.btn {
     display: inline-block;
     line-height: normal;
 }
@@ -193,24 +197,25 @@ input, button, select, textarea {
     line-height: normal;
 }
 
-input, button, select, textarea {
+input, button, select, textarea, .btn {
     border: thin solid rgba(0, 0, 0, .3);
 }
 
-button, [type="submit"] {
+.btn, button, [type="submit"] {
     padding: var(--gap-s) var(--gap);
     border-radius: var(--radius);
     margin: var(--gap-xs) 0;
     border-color: transparent;
+    cursor: pointer;
 }
 
-form>button, form>[type="submit"], form>a>button {
+form>.btn, form>button, form>[type="submit"], form>a>button {
     padding: var(--gap-xs) var(--gap-s);
     margin: 0;
 }
 
-button:hover:not([disabled]), [type="submit"]:hover:not([disabled]),
-button:focus, input:focus, select:focus, textarea:focus {
+a.btn:hover, button:hover:not([disabled]), [type="submit"]:hover:not([disabled]),
+a.btn:focus, button:focus, input:focus, select:focus, textarea:focus {
     box-shadow: 0 0 0 .15em rgba(0, 0, 0, .1);
     outline: none;
 }
@@ -221,11 +226,6 @@ button[disabled], [type="submit"][disabled] {
 
 input:invalid {
     box-shadow: 0 0 0 .15em rgba(255, 200, 80, .8);
-}
-
-p>button:only-child, div>button:only-child {
-    width: 100%;
-    text-align: left;
 }
 
 .hide, .nav ul, .pop>div {
@@ -427,7 +427,7 @@ div.hide {
     background-color: var(--bg-pane);
 }
 
-button, [type="submit"] {
+.btn[class], button, [type="submit"] {
     background-color: var(--link);
     color: var(--bg);
 }
@@ -472,23 +472,23 @@ button, [type="submit"] {
     background-color: #eee;
 }
 
-button.bg-e[class], [type="submit"].bg-e {
+.btn.bg-e, button.bg-e[class], [type="submit"].bg-e {
     background-color: #c11;
 }
 
-button.bg-w[class], [type="submit"].bg-w {
+.btn.bg-w, button.bg-w[class], [type="submit"].bg-w {
     background-color: #e60;
 }
 
-button.bg-i[class], [type="submit"].bg-i {
+.btn.bg-i, button.bg-i[class], [type="submit"].bg-i {
     background-color: #08b;
 }
 
-button.bg-y[class], [type="submit"].bg-y {
+.btn.bg-y, button.bg-y[class], [type="submit"].bg-y {
     background-color: #292;
 }
 
-button.bg-n[class], [type="submit"].bg-n {
+.btn.bg-n, button.bg-n[class], [type="submit"].bg-n {
     background-color: #999;
 }
 
