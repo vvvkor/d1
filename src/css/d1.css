@@ -117,10 +117,12 @@ body{color:var(--text);background-color:var(--bg);font:120%/1.5 "pt sans",sans-s
 main{display:block;}/*ie*/
 /**{box-sizing:border-box;}*/
 ul,ol,dl,blockquote,pre,hr,p,figure{margin:var(--gap) 0;}
-h1,h2,h3,h4,h5,h6{margin:1.5rem 0 1rem 0;line-height:1.2;}
-pre,code{font-family:monospace;white-space:pre-wrap;}
-pre{overflow:auto;max-height:80vh;/*max-width:100%;*/}
+h1,h2,h3,h4,h5,h6{margin:3rem 0 1.5rem 0;line-height:1.2;}
+	h1+h2, h2+h3, h3+h4, h4+h5, h5+h6{margin-top:2rem;}
+	h1:first-child, h2:first-child, h3:first-child{margin-top:1.5rem;}
 blockquote,pre,fieldset{padding:var(--gap-s) var(--gap);}
+pre,code{font-family:monospace;white-space:pre-wrap;}
+pre{overflow:auto;max-height:80vh;padding:var(--gap);/*max-width:100%;*/}
 abbr{border-bottom:thin dotted;}
 
 /* link */

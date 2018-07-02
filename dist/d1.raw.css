@@ -71,8 +71,20 @@ ul, ol, dl, blockquote, pre, hr, p, figure {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    margin: 1.5rem 0 1rem 0;
+    margin: 3rem 0 1.5rem 0;
     line-height: 1.2;
+}
+
+h1+h2, h2+h3, h3+h4, h4+h5, h5+h6 {
+    margin-top: 2rem;
+}
+
+h1:first-child, h2:first-child, h3:first-child {
+    margin-top: 1.5rem;
+}
+
+blockquote, pre, fieldset {
+    padding: var(--gap-s) var(--gap);
 }
 
 pre, code {
@@ -83,10 +95,7 @@ pre, code {
 pre {
     overflow: auto;
     max-height: 80vh;
-}
-
-blockquote, pre, fieldset {
-    padding: var(--gap-s) var(--gap);
+    padding: var(--gap);
 }
 
 abbr {
