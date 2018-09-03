@@ -91,7 +91,7 @@ support ie
 
 /* https: //github.com/jgthms/minireset.css/ */
 button,input,select,textarea{margin:0;}
-html{box-sizing:border-box;}
+html{box-sizing:border-box;/*scroll-behavior:smooth;*/}
 *,*:before,*:after{box-sizing:inherit;}
 img,embed,iframe,object,audio,video{height:auto;max-width:100%;}
 iframe{border:0;}
