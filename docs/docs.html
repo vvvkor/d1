@@ -5,71 +5,6 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<title>d1.css - Docs and Demo</title>
 
-	<!-- CDN -- >
-	<link href="https://cdn.jsdelivr.net/npm/d1css@1.1.17/dist/d1.raw.css" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/npm/d1css@1.1.17/dist/d1.min.js"></script>
-	<!-- local -->
-	
-	<link href="../src/css/d1.css" rel="stylesheet">
-	<script src="../src/js/d1.js"></script>
-	
-	
-	<script> d1.run(); </script>
-	<script>
-		window.onload = function(){
-			var f = document.querySelector('#cfg');
-			if(f){
-				for(var i=0;i<f.elements.length;i++){
-					var inp = f.elements[i];
-					up.call(inp);
-					inp.addEventListener('change', up);
-					inp.addEventListener('mousemove', up);
-				}
-			}
-		}
-		function up(e){
-			var inp = this;
-			while(!inp.name || inp.name.indexOf('_')!=-1) inp = inp.previousElementSibling;
-			var prop = inp.name;
-			var alpha = (inp.hasAttribute('data-alpha')) ? inp.form.elements[inp.name+'_alpha'].value : undefined;
-			var width = (inp.hasAttribute('data-width')) ? get(inp.form.elements[inp.name+'_width']) : undefined;
-			//console.log(alpha);
-			//if(alpha) val = rgba(val, alpha);
-			var val = get(inp, alpha);
-			if(width) val = width+' solid '+val;
-			document.documentElement.style.setProperty('--'+prop, val);
-		}
-		function get(inp, alpha){
-			var val = inp.value;
-			var func = inp.getAttribute('data-func') || ''
-			if(func) val = window[func](val, alpha);
-			else if(inp.name.indexOf('_width')!=-1 && val==.1) val = 'thin';
-			else{
-				if(alpha!==undefined) val = rgba(val, alpha);
-				val += inp.getAttribute('data-suffix') || '';
-			}
-			return val;
-		}
-		function rgba(color,alpha){
-			return 'rgba('+parseInt(color.substring(1,3),16)+','+parseInt(color.substring(3,5),16)+','+parseInt(color.substring(5,7),16)+','+alpha+')';
-		}
-		function grey(val, alpha){
-			console.log(alpha);
-			return 'hsla(0,0%,'+val/255*100+'%,'+(alpha==undefined ? '1' : alpha)+')';
-		}
-		function vivid(val, alpha){
-			return val>0 ? 'hsla('+val+'deg,80%,50%,'+(alpha===undefined ? '1' : alpha)+')' : grey(255+parseInt(val,10), alpha);
-		}
-		function mid(val, alpha){
-			return val>0 ? 'hsla('+val+'deg,65%,80%,'+(alpha===undefined ? '1' : alpha)+')' : grey(255+parseInt(val,10), alpha);
-		}
-		function pale(val, alpha){
-			return val>0 ? 'hsl('+val+'deg,50%,95%,'+(alpha===undefined ? '1' : alpha)+')' : grey(255+parseInt(val,10), alpha);
-		}
-	</script>
-</head>
-<body>
-
 <!--
 
 process:
@@ -90,16 +25,81 @@ todo
 - alphabetical reference of css classes
 -->
 
+	<!-- CDN -->
+	<link href="https://cdn.jsdelivr.net/npm/d1css@1.1.18/dist/d1.raw.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/d1css@1.1.18/dist/d1.min.js"></script>
+	<!-- local -->
+	<!--
+	<link href="../src/css/d1.css" rel="stylesheet">
+	<script src="../src/js/d1.js"></script>
+	-->
+	
+	<script> d1.run(); </script>
+	<script>
+		window.onload = function(){
+			var f = document.querySelector('#cfg');
+			if(f){
+				for(var i=0;i<f.elements.length;i++){
+					var inp = f.elements[i];
+					inp.addEventListener('change', up);
+					inp.addEventListener('mousemove', up);
+					var s = document.createElement('small');
+					s.innerHTML = '&nbsp;&nbsp;&nbsp;';//'&#x2588;&#x220e;&#x25cf;';
+					inp.parentNode.insertBefore(s, inp.nextSibling);
+					inp.parentNode.insertBefore(document.createTextNode(' '), inp.nextSibling);
+					if(inp.type=='color' || inp.hasAttribute('data-func')){
+						s.className = 'bord';
+						inp.vSample = s;
+					}
+					up.call(inp);
+				}
+			}
+		}
+		function up(e){
+			var inp = this;
+			while(!inp.name || inp.name.indexOf('_')!=-1) inp = inp.previousElementSibling;
+			var val = get(inp);
+			document.documentElement.style.setProperty('--'+inp.name, val);
+			if(inp.vSample) inp.vSample.style.backgroundColor = val.split(/\s+/).pop();
+			inp.form.querySelector('pre').textContent = ':root{\n'+document.documentElement.style.cssText.replace(/\s*--/g	,'\n --').replace(/^\s+/,' ')+'\n}';
+		}
+		function get(inp, alpha){
+			var val = inp.value;
+			var alpha = (inp.hasAttribute('data-alpha')) ? inp.form.elements[inp.name+'_alpha'].value : undefined;
+			var width = (inp.hasAttribute('data-width')) ? get(inp.form.elements[inp.name+'_width']) : undefined;
+			var func = inp.getAttribute('data-func') || ''
+			if(func) val = window[func](val, alpha);
+			else if(inp.name.indexOf('_width')!=-1 && val==.1) val = 'thin';
+			else val = rgba(val, alpha)+inp.getAttribute('data-suffix') || '';
+			if(width) val = width+' solid '+val;
+			return val;
+		}
+		function rgba(c, a){
+			return a===undefined ? c : 'rgba('+parseInt(c.substring(1,3),16)+','+parseInt(c.substring(3,5),16)+','+parseInt(c.substring(5,7),16)+','+a+')';
+		}
+		function grey(h, a){ return 'hsla(0,0%,'+Math.round(h/255*100)+'%,'+(a==undefined ? '1' : a)+')'; }
+		function vivid(h, a){ return hsla(h, 80, 50, a); }
+		function mid(h, a){ return hsla(h, 65, 80, a); }
+		function pale(h, a){ return hsla(h, 50, 95, a); }
+		function lite(h, a){ return hsla(h, 50, 100*a, 1 /*h>0 ? 1 : 1-a*/); }
+		function dusk(h, a){ return hsla(h, 100*a, 100*a, 1 /*h>0 ? 1 : 1-a*/); }
+		function hsla(h, s, l, a){
+			return h>0 ? 'hsla('+h+'deg,'+s+'%,'+l+'%,'+(a===undefined ? '1' : a)+')' : grey(255+parseInt(h,10), a);
+		}
+	</script>
+</head>
+<body>
+
 <div class="row wrap center flip">
 <div class="stick bg">
 
-	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="131" height="124" title="d1">
+	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="131" height="124">
 		<path d="M76 31L76 37L94 31L94 100L101 100L101 23L76 31z"/>
 		<path d="M2 25L2 30.6C16.5 31.1 34.8 28.2 48 35.4C67.0 45.8 66.9 77.5 49 88.9C36.0 96.8 16.6 94.2 2 94.7L2 100.6C19.1 100 39.8 103 55 93.6C74.1 81.7 74.6 44.6 56 32.1C40.8 21.9 19.3 25 2 24.5z"/>
 	</svg>
 
 	<br>
-	CSS framework
+	<b>d1</b> CSS framework
 
 	<p class=""><code class="pad">npm install d1css</code></p>
 	<p class="screen">
@@ -110,9 +110,11 @@ todo
 	<div class="screen">
 		<form id="cfg" class="hide toggle mem pad bg">
 			<!--input type="color" name="text" value="#222222"> Text<br-->
-			<input type="range" name="text" value="34" min="0" max="150" data-func="grey"> Text<br>
+			<input type="range" name="text" value="-220" min="-255" max="360" data-func="dusk" data-alpha> Text<br>
+			<input type="range" name="text_alpha" value="0" min="0" max=".7" step=".01"> <small class="text-n">lighness</small><br>
 			<!--input type="color" name="bg" value="#ffffff"> Background<br-->
-			<input type="range" name="bg" value="0" min="-80" max="360" data-func="pale"> Background<br>
+			<input type="range" name="bg" value="-1" min="-128" max="360" data-func="lite" data-alpha> Background<br>
+			<input type="range" name="bg_alpha" value="1" min=".5" max="1" step=".01"> <small class="text-n">lighness</small><br>
 			<!--input type="color" name="bg-pane" value="#000000" data-alpha> Panel background<br-->
 			<input type="range" name="bg-pane" value="-255" min="-255" max="360" data-func="mid" data-alpha> Panel<br>
 			<input type="range" name="bg-pane_alpha" value=".05" min="0" max="1" step=".01"> <small class="text-n">opacity</small><br>
@@ -132,7 +134,8 @@ todo
 			<!--input type="color" name="visited" value="#888888"> Visited link<br-->
 			<input type="range" name="visited" value="-128" min="-255" max="360" data-func="vivid"> <small class="text-n">visited</small><br>
 			<input type="range" name="radius" value=".2" min="0" max="2" step=".1" data-suffix="em"> Radius <br>
-			<input type="range" name="gap" value="1" min="0" max="2" step=".1" data-suffix="em"> Gap
+			<input type="range" name="gap" value="1" min="0" max="2" step=".1" data-suffix="em"> Gap<br>
+			<pre class="small"></pre>
 		</form>
 	</div>
 
@@ -156,7 +159,7 @@ todo
 </div>
 <div class="col-2 pad">
 
-<h1>d1.css</h1>
+<h1>d1 <span class="text-n">CSS framework</span></h1>
 
 <hr>
 
