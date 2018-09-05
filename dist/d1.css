@@ -322,7 +322,6 @@ a.close:before {
     min-width: 10em;
     max-width: 24em;
     margin: 1em auto;
-    text-align: center;
 }
 
 .full {

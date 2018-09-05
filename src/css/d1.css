@@ -204,7 +204,7 @@ input,button,select,textarea,.btn{border:thin solid rgba(0,0,0,.3);}
 	.nav ul ul{left:98%;top:.2em;}
 	/*div.hide,*/ .pop>div{padding:var(--gap-s) var(--gap);}
 	
-	.dlg{width:80%;min-width:10em;max-width:24em;margin:var(--gap) auto;text-align:center;}
+	.dlg{width:80%;min-width:10em;max-width:24em;margin:var(--gap) auto;}
 	.full{left:0;top:0;width:100%;height:100vh;/*border:1em solid #eee;*//*box-sizing:border-box;*/}
 	.full.c:not(.hide), .full.c:target{display:flex;align-items:center;justify-content:center;}
 	.dlg[class],.full{padding:var(--gap-l);overflow:auto;}
