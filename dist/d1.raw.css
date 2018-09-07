@@ -10,11 +10,13 @@
     --link: #03b;
     --hover: #000;
     --visited: #888;
-    --radius: .2em;
-    --gap: 1em;
-    --gap-s: calc(var(--gap)/2);
-    --gap-xs: calc(var(--gap)*.2);
-    --gap-l: calc(var(--gap)*2);
+    --rad: .2;
+    --gap: 1;
+    --radius: calc(var(--rad) * 1em);
+    --gap-n: calc(var(--gap) * 1em);
+    --gap-s: calc(var(--gap-n) * .5);
+    --gap-xs: calc(var(--gap-n) * .2);
+    --gap-l: calc(var(--gap-n) * 2);
 }
 
 button, input, select, textarea {
@@ -67,7 +69,7 @@ main {
 }
 
 ul, ol, dl, blockquote, pre, hr, p, figure {
-    margin: var(--gap) 0;
+    margin: var(--gap-n) 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -84,7 +86,7 @@ h1:first-child, h2:first-child, h3:first-child {
 }
 
 blockquote, pre, fieldset {
-    padding: var(--gap-s) var(--gap);
+    padding: var(--gap-s) var(--gap-n);
 }
 
 pre, code {
@@ -95,7 +97,7 @@ pre, code {
 pre {
     overflow: auto;
     max-height: 80vh;
-    padding: var(--gap);
+    padding: var(--gap-n);
 }
 
 abbr {
@@ -149,7 +151,7 @@ ul {
 }
 
 ul, ol {
-    padding: 0 0 0 calc(var(--gap)*1.5);
+    padding: 0 0 0 calc(var(--gap-n)*1.5);
 }
 
 li ul, li ol {
@@ -211,7 +213,7 @@ input, button, select, textarea, .btn {
 }
 
 .btn, button, [type="submit"] {
-    padding: var(--gap-s) var(--gap);
+    padding: var(--gap-s) var(--gap-n);
     border-radius: var(--radius);
     margin: var(--gap-xs) 0;
     border-color: transparent;
@@ -255,7 +257,7 @@ a.close {
     position: absolute;
     right: 0;
     top: 0;
-    padding: var(--gap-s) var(--gap);
+    padding: var(--gap-s) var(--gap-n);
 }
 
 a.close:before {
@@ -283,11 +285,11 @@ a.close:before {
 
 .nav li>:not(ul) {
     display: block;
-    padding: var(--gap-s) var(--gap);
+    padding: var(--gap-s) var(--gap-n);
 }
 
 .nav li>form {
-    padding: calc(var(--gap-s) - var(--gap-xs)) var(--gap);
+    padding: calc(var(--gap-s) - var(--gap-xs)) var(--gap-n);
 }
 
 .nav li>a:nth-last-child(2):after {
@@ -329,14 +331,14 @@ a.close:before {
 }
 
 .pop>div {
-    padding: var(--gap-s) var(--gap);
+    padding: var(--gap-s) var(--gap-n);
 }
 
 .dlg {
     width: 80%;
     min-width: 10em;
     max-width: 24em;
-    margin: var(--gap) auto;
+    margin: var(--gap-n) auto;
 }
 
 .full {
@@ -432,8 +434,8 @@ div.hide {
 }
 
 .nav+.tabs>div:target {
-    margin-top: calc(-3 * var(--gap));
-    padding-top: calc(3*var(--gap));
+    margin-top: calc(-3 * var(--gap-n));
+    padding-top: calc(3*var(--gap-n));
 }
 
 .bg, blockquote, pre, code, thead, tfoot {
@@ -523,7 +525,7 @@ div.hide {
 }
 
 div.bord, p.bord, div.bg, p.bg, div[class*="bg-"], p[class*="bg-"] {
-    padding: var(--gap-s) var(--gap);
+    padding: var(--gap-s) var(--gap-n);
 }
 
 .row {
@@ -535,7 +537,7 @@ div.bord, p.bord, div.bg, p.bg, div[class*="bg-"], p[class*="bg-"] {
 }
 
 .row>*:not(:last-child):not(.center) {
-    margin-right: var(--gap);
+    margin-right: var(--gap-n);
 }
 
 .row>.col-0 {
@@ -568,7 +570,7 @@ div.bord, p.bord, div.bg, p.bg, div[class*="bg-"], p[class*="bg-"] {
     }
 
     .row.flip.mar[class]>* {
-        margin: var(--gap) 0;
+        margin: var(--gap-n) 0;
     }
 
     form>table tr, form>table tr>* {
@@ -646,11 +648,11 @@ div.bord, p.bord, div.bg, p.bg, div[class*="bg-"], p[class*="bg-"] {
 }
 
 .mar {
-    margin: var(--gap) 0;
+    margin: var(--gap-n) 0;
 }
 
 .pad {
-    padding: var(--gap-s) var(--gap);
+    padding: var(--gap-s) var(--gap-n);
 }
 
 .bord {
