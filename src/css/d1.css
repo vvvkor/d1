@@ -77,7 +77,7 @@ support ie
 --bg-hilite: rgba(0,0,0,.05);
 --text-hilite: inherit;
 --link: #03b;
---hover: #000;
+--hover: #08f;
 --visited:#888;
 --rad:.2; /*em*/
 --gap:1; /*em*/
@@ -131,7 +131,7 @@ abbr{border-bottom:thin dotted;}
 a{color:var(--link);}
 a:not([href^="#"]):not(.btn):visited{color:var(--visited);}
 .act, a:hover{color:var(--hover);}
-.nav a, a.close, a.pad, a.btn, abbr{text-decoration:none;}
+abbr, a/*!!!*/ /*, .nav a, a.close, a.pad, a.btn,*/{text-decoration:none;}
 a.pad, a.btn{display:inline-block;line-height:normal;}
 
 /* hilite */

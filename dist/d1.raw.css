@@ -8,7 +8,7 @@
     --bg-hilite: rgba(0, 0, 0, .05);
     --text-hilite: inherit;
     --link: #03b;
-    --hover: #000;
+    --hover: #08f;
     --visited: #888;
     --rad: .2;
     --gap: 1;
@@ -116,7 +116,7 @@ a:not([href^="#"]):not(.btn):visited {
     color: var(--hover);
 }
 
-.nav a, a.close, a.pad, a.btn, abbr {
+abbr, a {
     text-decoration: none;
 }
 
