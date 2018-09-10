@@ -26,8 +26,8 @@ todo
 -->
 
 	<!-- CDN -->
-	<link href="https://cdn.jsdelivr.net/npm/d1css@1/dist/d1.raw.css" rel="stylesheet">
-	<!--script src="https://cdn.jsdelivr.net/npm/d1css@1/dist/d1.min.js"></script-->
+	<link href="https://cdn.jsdelivr.net/npm/d1css@latest/dist/d1.raw.css" rel="stylesheet">
+	<!--script src="https://cdn.jsdelivr.net/npm/d1css@latest/dist/d1.min.js"></script-->
 	<!-- local -->
 	<!--
 	<link href="../src/css/d1.css" rel="stylesheet">
@@ -41,7 +41,7 @@ todo
 			if(local){
 				//override cdn style with local
 				var link = document.createElement('link');
-				link.href = local ? '../src/css/d1.css' : 'https://cdn.jsdelivr.net/npm/d1css@1/dist/d1.raw.css';
+				link.href = local ? '../src/css/d1.css' : 'https://cdn.jsdelivr.net/npm/d1css@latest/dist/d1.raw.css';
 				link.rel = 'stylesheet';
 				document.getElementsByTagName( "head" )[0].appendChild( link );
 				console.log('css: ' + link.href);
@@ -50,7 +50,7 @@ todo
 			//add script (local/cdn)
 			var script = document.createElement('script');
 			script.onload = function(){ d1.init(); };
-			script.src = local ? '../src/js/d1.js' : 'https://cdn.jsdelivr.net/npm/d1css@1/dist/d1.min.js';
+			script.src = local ? '../src/js/d1.js' : 'https://cdn.jsdelivr.net/npm/d1css@latest/dist/d1.min.js';
 			console.log('js: ' + script.src);
 			document.head.appendChild(script);
 			
