@@ -26,17 +26,38 @@ todo
 -->
 
 	<!-- CDN -->
-	<link href="https://cdn.jsdelivr.net/npm/d1css@1.1.24/dist/d1.raw.css" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/npm/d1css@1.1.24/dist/d1.min.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/d1css@1/dist/d1.raw.css" rel="stylesheet">
+	<!--script src="https://cdn.jsdelivr.net/npm/d1css@1/dist/d1.min.js"></script-->
 	<!-- local -->
 	<!--
 	<link href="../src/css/d1.css" rel="stylesheet">
 	<script src="../src/js/d1.js"></script>
 	-->
+	<!--script> d1.run(); </script-->
 	
-	<script> d1.run(); </script>
 	<script>
-		window.onload = function(){//return;
+		window.addEventListener('DOMContentLoaded', function(){
+			var local = (location.href.indexOf('localhost')!=-1 || location.href.indexOf('file:')!=-1);
+			if(local){
+				//override cdn style with local
+				var link = document.createElement('link');
+				link.href = local ? '../src/css/d1.css' : 'https://cdn.jsdelivr.net/npm/d1css@1/dist/d1.raw.css';
+				link.rel = 'stylesheet';
+				document.getElementsByTagName( "head" )[0].appendChild( link );
+				console.log('css: ' + link.href);
+			}
+			
+			//add script (local/cdn)
+			var script = document.createElement('script');
+			script.onload = function(){ d1.init(); };
+			script.src = local ? '../src/js/d1.js' : 'https://cdn.jsdelivr.net/npm/d1css@1/dist/d1.min.js';
+			console.log('js: ' + script.src);
+			document.head.appendChild(script);
+			
+		}, true);
+
+		//configurator
+		window.addEventListener('DOMContentLoaded', function(){//return;
 			var f = document.querySelector('#cfg');
 			if(f){
 				for(var i=0;i<f.elements.length;i++){
@@ -54,7 +75,7 @@ todo
 					up.call(inp);
 				}
 			}
-		}
+		}, true);
 		function up(e){
 			var inp = this;
 			while(!inp.name || inp.name.indexOf('_')!=-1) inp = inp.previousElementSibling;
@@ -93,9 +114,9 @@ todo
 <div class="row wrap center flip">
 <div class="stick bg">
 
-	<p><a href="#top" class="text-n"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="102" height="82">
-		<path d="M76 10L76 16L94 10L94 80L101 80L101 2z"/>
-		<path d="M0 10Q 15 9 20 9C35 9 62.5 9 62.5 42C62.5 75 35 75 20 75Q15 75 0 74L0 80L20 80C35 80 70 80 70 42C70 4 35 4 20 4L0 4z"/>
+	<p><a href="#top"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="102" height="82">
+		<path color="#000000" d="M76 10L76 16L94 10L94 80L101 80L101 2z"/>
+		<path color="#000000" d="M0 10Q 15 9 20 9C35 9 62.5 9 62.5 42C62.5 75 35 75 20 75Q15 75 0 74L0 80L20 80C35 80 70 80 70 42C70 4 35 4 20 4L0 4z"/>
 	</svg></a></p>
 
 	<p><b>d1</b> CSS framework</p>
