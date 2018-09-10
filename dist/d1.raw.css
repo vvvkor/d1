@@ -8,8 +8,8 @@
     --bg-hilite: rgba(0, 0, 0, .05);
     --text-hilite: inherit;
     --link: #03b;
-    --hover: #08f;
-    --visited: #888;
+    --hover: #d00;
+    --visited: #90c;
     --rad: .2;
     --gap: 1;
     --radius: calc(var(--rad) * 1em);

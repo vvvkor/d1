@@ -93,11 +93,11 @@ a {
 }
 
 a:not([href^="#"]):not(.btn):visited {
-    color: #888;
+    color: #90c;
 }
 
 .act, a:hover {
-    color: #08f;
+    color: #d00;
 }
 
 abbr, a {
