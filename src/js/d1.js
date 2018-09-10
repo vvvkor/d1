@@ -1,4 +1,4 @@
-// (c) Vadim Korolev (vadimkor@yandex.ru) 2018
+/*! d1css v# */
 
 (function(window, document, Element){
 	

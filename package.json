@@ -1,6 +1,6 @@
 {
   "name": "d1css",
-  "version": "1.1.25",
+  "version": "1.1.27",
   "description": "Functional CSS microframework",
   "main": "dist/d1.js",
   "directories": {
@@ -10,10 +10,11 @@
     "build:css.raw": "postcss -c postcss.config.raw.json",
     "build:css": "postcss -c postcss.config.json",
     "minify:css": "postcss -u cssnano dist/d1.css -o dist/d1.min.css",
-    "build:js": "uglifyjs --verbose --beautify --output ./dist/d1.js ./src/js/d1.js",
-    "minify:js": "uglifyjs --output ./dist/d1.min.js ./src/js/d1.js",
-    "build": "npm run build:css.raw && npm run build:css && npm run minify:css && npm run build:js && npm run minify:js",
-	"//prepublishOnly": "npm version patch"
+    "build:js": "uglifyjs --verbose --beautify --comments '/^\/*!/' --output ./dist/d1.js ./src/js/d1.js",
+    "minify:js": "uglifyjs --comments '/^\/*!/' --output ./dist/d1.min.js ./src/js/d1.js",
+    "build:insert-version": "cross-var replace-in-file \"d1css v#\" \"d1css v$npm_package_version\" \"dist/*.*\"",
+    "build": "npm run build:css.raw && npm run build:css && npm run minify:css && npm run build:js && npm run minify:js && npm run build:insert-version",
+    "//prepublishOnly": "npm version patch"
   },
   "repository": {
     "type": "git",
@@ -30,7 +31,10 @@
     "url": "https://github.com/vvvkor/d1/issues"
   },
   "homepage": "https://github.com/vvvkor/d1#readme",
-  "dependencies": {},
+  "dependencies": {
+    "cross-var": "^1.1.0",
+    "replace-in-file": "^3.4.2"
+  },
   "devDependencies": {
     "cssnano": "^3.10.0",
     "perfectionist": "^2.4.0",

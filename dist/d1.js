@@ -1,15 +1,21 @@
+/*! d1css v1.1.27 */
 (function(window, document, Element) {
+    //module name
     var name = "d1";
-    if (window && window[name]) {
+    //check single instance
+        if (window && window[name]) {
         console.log(name + " already included");
     } else {
+        // begin module
         var main = new function() {
             "use strict";
             this.togglable = ".hide.toggle[id], .pop>div.toggle[id], ul.toggle ul[id], .tabs>.hide[id]";
             this.escapable = ".pop>div, ul.nav.toggle ul, .esc";
             this.mem = ".mem, .tabs.mem>.hide, ul.mem ul[id]";
             this.unhover = "ul.toggle ul[id], .pop>div.toggle[id]";
-            this.run = function(func) {
+            //common
+                        this.run = function(func) {
+                //console.log('run', func ||'d1');
                 if (document.addEventListener && "classList" in document.createElement("p")) {
                     this.b("", [ document ], "DOMContentLoaded", func || this.init);
                 }
@@ -30,10 +36,13 @@
                 type ? n.addEventListener(type, fn.bind(this, n), false) : fn.call(this, n);
             };
             this.ancestor = function(q, n) {
+                //return n.parentNode.closest(q); //-ie
                 do {
                     if (n.matches && n.matches(q)) return n;
                 } while (n = n.parentNode);
-            };
+            }
+            //basic
+            ;
             this.askConfirm = function(n, e) {
                 if (n.form && !n.form.checkValidity()) ; else if (!confirm(n.title)) e.preventDefault();
             };
@@ -80,7 +89,9 @@
                     n.textContent = s.innerHTML.replace(/^\s*\r?\n|\s+$/g, "").replace(/\t/g, "  ").replace(/=""/g, "");
                     n.classList.remove("hide");
                 }
-            };
+            }
+            //toggle
+            ;
             this.getState = function(n) {
                 return n.classList.contains("js-show");
             };
@@ -90,19 +101,26 @@
             };
             this.targetState = function(n, e, on) {
                 if (e && on === undefined) {
-                    if (n.parentNode.matches(".tabs")) on = true; else on = !this.getState(n);
-                }
+                    if (n.parentNode.matches(".tabs")) on = true; //tabs: on
+                     else on = !this.getState(n);
+ //toggle
+                                }
                 return on;
-            };
+            }
+            //n = #hash|link|target
+            ;
             this.handleState = function(n, e, on) {
                 if (n.hash || !n.tagName) n = this.q(n.hash || n, 0);
-                if (n && n.matches(this.togglable)) {
+ //target
+                                if (n && n.matches(this.togglable)) {
                     on = this.targetState(n, e, on);
                     this.setState(n, on);
                     if (on) this.hideSiblings(n);
                     this.store(n, on);
-                    this.updateLinks(on, n);
-                    if (e && e.type == "click") {
+ //mem
+                                        this.updateLinks(on, n);
+                    //hash change
+                                        if (e && e.type == "click") {
                         e.preventDefault();
                         if (!n.matches(this.unhover)) {
                             if (on) this.addHistory("#" + n.id); else location.hash = "#cancel";
@@ -118,8 +136,10 @@
             };
             this.showFirstTab = function(n) {
                 var a = this.q('a[href^="#"]', 0, n.parentNode);
-                var d = this.q(a.hash, 0, n);
-                if (d && !d.matches(".js-control")) this.show(d);
+ //first link
+                                var d = this.q(a.hash, 0, n);
+ //corresponding tab
+                                if (d && !d.matches(".js-control")) this.show(d);
             };
             this.hideSiblings = function(n) {
                 var p = n.parentNode;
@@ -127,7 +147,8 @@
                     this.b(this.ancestor("ul", p), 'ul:not([id="' + n.id + '"])', "", this.hide);
                 } else if (p.matches(".tabs")) {
                     this.b(p, '.hide:not([id="' + n.id + '"])', "", this.hide);
-                }
+                    //:scope>.hide... - for nested tabs - fails in ie
+                                }
             };
             this.updateLinks = function(on, n) {
                 if (n.id) this.b("", 'a[href="#' + n.id + '"]', "", function(n) {
@@ -142,23 +163,31 @@
             this.store = function(n, on) {
                 if (n && n.id && localStorage && n.matches(this.mem)) {
                     localStorage[on ? "setItem" : "removeItem"]("vis#" + n.id, 1);
-                    localStorage.setItem("vis#" + n.id, on ? 1 : 0);
-                }
+ //store only shown
+                                        localStorage.setItem("vis#" + n.id, on ? 1 : 0);
+ //also store hidden
+                                }
             };
             this.restore = function(n, e) {
                 if (localStorage) {
                     for (var i = 0; i < localStorage.length; i++) {
                         var k = localStorage.key(i);
-                        if (k.substr(0, 4) == "vis#") {
+                        //if (k.substr(0, 4) == 'vis#') this.show(k.substr(3)); //store only shown
+                                                if (k.substr(0, 4) == "vis#") {
                             var d = this.q(k.substr(3), 0);
                             if (d && d.matches(this.mem)) this.handleState(d, null, localStorage.getItem(k) == 1);
-                        }
+ //also store hidden
+                                                }
                     }
                 }
-            };
+            }
+            //esc
+            ;
             this.esc = function(n, e) {
                 if (e.keyCode == 90 && e.ctrlKey) localStorage.clear();
-                if (e.keyCode == 27 || e.button === 0) {
+ //ctrl+z
+                                if (e.keyCode == 27 || e.button === 0) {
+                    //escape or click with no active ancestor
                     if (e.keyCode || this.ancestor("a.close", e.target) || !this.ancestor("a, .hide, .nav, .pop>div", e.target)) {
                         this.b("", this.escapable, "", this.hide);
                         location.hash = "#cancel";
@@ -167,38 +196,61 @@
             };
             this.control = function(d) {
                 d.classList.add("js-control");
-            };
+            }
+            //run
+            ;
             this.refresh = function(n) {
+                //set js
                 if (!n) this.b("", "body", "", function(n) {
                     n.classList.add("js");
                 });
-                this.b(n, "pre[data-src]", "", this.prepareCode);
-                this.b(n, "a.confirm[href], .confirm[name]", "click", this.askConfirm);
-                this.b(n, "a.prompt[href]", "click", this.askPrompt);
-                this.b(n, "input[data-group]", "click", this.checkBoxes);
-                this.b(n, "table[class]", "", this.alignCells);
-                this.b(n, ".gal a[id]", "click", this.gotoPrev);
-                this.b(n, ".drop", "change", this.dropImage);
-                this.b(n, this.unhover, "", function(n) {
+                //pre
+                                this.b(n, "pre[data-src]", "", this.prepareCode);
+                //a.confirm[href][title], input.confirm [title]
+                                this.b(n, "a.confirm[href], .confirm[name]", "click", this.askConfirm);
+                //a.prompt[href] [title] [data-default]
+                                this.b(n, "a.prompt[href]", "click", this.askPrompt);
+                //check all checkbox [data-group] to [class]
+                                this.b(n, "input[data-group]", "click", this.checkBoxes);
+                //table cells align
+                                this.b(n, "table[class]", "", this.alignCells);
+                //gallery back
+                                this.b(n, ".gal a[id]", "click", this.gotoPrev);
+                //drop image
+                                this.b(n, ".drop", "change", this.dropImage);
+                //prepere nav
+                                this.b(n, this.unhover, "", function(n) {
                     n.classList.add("js-control");
                 });
-                this.restore();
-                this.b(n, ".nav+.tabs", "", this.showFirstTab);
-                if (location.hash) this.show(location.hash);
-                this.b(n, 'a[href^="#"]', "click", this.handleState);
-                if (!n) this.b("", [ window ], "keydown", this.esc);
-                if (!n) this.b("", "html, .close", "click", this.esc);
-            };
+                //prepare mem
+                                this.restore();
+                //prepare tabs (hilite first if not remembered)
+                                this.b(n, ".nav+.tabs", "", this.showFirstTab);
+                //prepare hash
+                                if (location.hash) this.show(location.hash);
+                //toggle
+                                this.b(n, 'a[href^="#"]', "click", this.handleState);
+                //escape closes targeted elements
+                                if (!n) this.b("", [ window ], "keydown", this.esc);
+                //close on click out
+                                if (!n) this.b("", "html, .close", "click", this.esc);
+ //mousedown
+                        };
             this.init = function() {
                 if (location.hash == "#disable-js") return;
                 if (!Element.prototype.matches) Element.prototype.matches = Element.prototype.msMatchesSelector;
-                this.refresh();
+ //ie9+
+                                this.refresh();
             };
         }();
-        if (typeof module !== "undefined") {
-            module.exports = main;
+        // end module
+                if (typeof module !== "undefined") {
+            //console.log('npm require ' + name);
+            module.exports /*[name]*/ = main;
         } else if (window) {
+            //console.log('browser include ' + name);
             window[name] = main;
-        }
+            //main.run();
+                }
     }
 })(window, document, Element);
