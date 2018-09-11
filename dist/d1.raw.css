@@ -1,4 +1,4 @@
-/*! d1css v1.1.28 https://github.com/vvvkor/d1 */
+/*! d1css v1.1.29 https://github.com/vvvkor/d1 */
 
 :root {
     --text: #222;
@@ -552,7 +552,7 @@ div.bord, p.bord, div.bg, p.bg, div[class*="bg-"], p[class*="bg-"] {
     flex: 3;
 }
 
-@media (max-width: 44.99em) {
+@media (max-width: 54.99em) {
     body {
         font-size: medium;
     }
@@ -592,7 +592,7 @@ div.bord, p.bord, div.bg, p.bg, div[class*="bg-"], p[class*="bg-"] {
     }
 }
 
-@media (min-width: 45em) {
+@media (min-width: 55em ) {
     .show-desktop {
         display: block !important;
     }
@@ -612,7 +612,6 @@ div.bord, p.bord, div.bg, p.bg, div[class*="bg-"], p[class*="bg-"] {
     .stick {
         position: sticky;
         top: 0;
-        height: 100vh;
         align-self: flex-start;
         z-index: 3;
         overflow: auto;

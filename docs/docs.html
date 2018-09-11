@@ -26,7 +26,7 @@ todo
 -->
 
 	<!-- CDN -->
-	<link href="https://cdn.jsdelivr.net/npm/d1css@latest/dist/d1.raw.css" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/d1css@latest/dist/d1.raw.css" rel="stylesheet" id="cdn-css">
 	<!--script src="https://cdn.jsdelivr.net/npm/d1css@latest/dist/d1.min.js"></script-->
 	<!-- local -->
 	<!--
@@ -45,6 +45,10 @@ todo
 				link.rel = 'stylesheet';
 				document.getElementsByTagName( "head" )[0].appendChild( link );
 				console.log('css: ' + link.href);
+				//remove cdn style
+				var sheet = document.getElementById('cdn-css');
+				sheet.disabled = true;
+				sheet.parentNode.removeChild(sheet);
 			}
 			
 			//add script (local/cdn)
@@ -111,8 +115,12 @@ todo
 </head>
 <body>
 
-<div class="row wrap center flip">
-<div class="stick bg">
+<!--div class="pad bg" style="position:fixed;width:100%;">
+	<b>d1</b> CSS framework
+</div-->
+
+<div class="-pad row -wrap -center flip">
+<div class="stick pad -bg"><div class="pad">
 
 	<p><a href="#top" class="text-n"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="102" height="82" >
 		<path d="M0 10Q 15 9 20 9C35 9 62.5 9 62.5 42C62.5 75 35 75 20 75Q15 75 0 74L0 80L20 80C35 80 70 80 70 42C70 4 35 4 20 4L0 4z"/>
@@ -159,7 +167,7 @@ todo
 		</form>
 	</div>
 
-	<div class="screen hide show-mobile"><a href="#menu" class="pad hover">&equiv;</a></div>
+	<div class="screen hide show-mobile"><a href="#menu" class="pad hover" title="Menu">&equiv;</a></div>
 	<ul id="menu" class="screen hide show-desktop toggle">
 		<li><a href="#start">Get started</a>
 		<li><a href="#typo">Typography</a>
@@ -176,8 +184,9 @@ todo
 		<li><a href="#js">JS</a>
 		<li><a href="#ref">Reference</a>
 	</ul>
-</div>
-<div class="col-2 pad" id="top">
+</div></div>
+<div class="col-3 pad" id="top">
+ <div class="read pad">
 
 <h1>d1 <span class="text-n">CSS framework</span></h1>
 
@@ -673,7 +682,7 @@ and expand it to horizontal dropdown navbar on large screen.
 
 <div id="s-nav-hamb">
 <div class="hide show-mobile">
-	<a href="#navi" class="pad hover">&equiv;</a>
+	<a href="#navi" class="pad hover" title="Menu">&equiv;</a>
 </div>
 <nav class="hide show-desktop toggle" id="navi">
 	<ul class="nav flip toggle bg">
@@ -1173,6 +1182,7 @@ wwwwwwwwwww1wwwwwwwwwwwwwww2wwwwwwwwwwwww3wwwwwwwwwwwwww4wwwwwwwwwwwwww5wwwwwwww
 </div>
 </div-->
 
+ </div>
 </div>
 </div>
 </body>
