@@ -5,7 +5,7 @@ It aims to implement most widely used interface components with less code.
 
 ## Features
 
-* lightweight (minified and gzipped: CSS ~2.5 KB, optional JS ~2.2 KB)
+* lightweight (minified and gzipped: CSS ~2.5 KB, optional JS ~2.5 KB)
 * non-bloated class names
 * functional
 * modern
@@ -87,7 +87,7 @@ Download minified [d1 files](https://github.com/vvvkor/d1/tree/master/dist).
 
 ## Docs
 
-[Docs and demo](http://vadimkor.ru/d1/)
+[Docs and demo](http://vadimkor.ru/projects/d1/)
 
 ## Thanks
 
