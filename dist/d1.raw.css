@@ -1,4 +1,4 @@
-/*! d1css v1.1.29 https://github.com/vvvkor/d1 */
+/*! d1css v1.1.30 https://github.com/vvvkor/d1 */
 
 :root {
     --text: #222;
@@ -550,6 +550,15 @@ div.bord, p.bord, div.bg, p.bg, div[class*="bg-"], p[class*="bg-"] {
 
 .row>.col-3 {
     flex: 3;
+}
+
+.topbar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 4;
+    background-color: var(--bg);
+    box-shadow: 0 .2em .8em rgba(0, 0, 0, .1);
 }
 
 @media (max-width: 54.99em) {

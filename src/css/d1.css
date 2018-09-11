@@ -267,6 +267,9 @@ div.bord, p.bord, div.bg, p.bg, div[class*="bg-"], p[class*="bg-"]{padding:var(-
 .row>.col-2{flex:2;}
 .row>.col-3{flex:3;}
 
+/* top bar */
+.topbar{position:sticky;top:0;width:100%;z-index:4;background-color:var(--bg);box-shadow:0 .2em .8em  rgba(0,0,0,.1);}
+
 /* media */
 
 @media (max-width: 54.99em){
