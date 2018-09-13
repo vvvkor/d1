@@ -175,6 +175,7 @@ input,button,select,textarea,.btn{border:thin solid rgba(0,0,0,.3);}
 	button[disabled],[type="submit"][disabled]{opacity:.5;}
 	input:invalid{box-shadow:0 0 0 .15em rgba(255,200,80,.8);}
 	input[type="range"], input[type="color"]{vertical-align:middle;padding:unset;}
+		input[type="range"]{border:initial;}
 
 
 /* css toggle */
@@ -303,6 +304,7 @@ div.bord, p.bord, div.bg, p.bg, div[class*="bg-"], p[class*="bg-"]{padding:var(-
 @media print{
 	.screen{display:none !important;}
 	.full{page-break-before:always;}
+	pre,code{border-left:var(--border);}
 }
 
 

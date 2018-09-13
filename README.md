@@ -52,13 +52,13 @@ It aims to implement most widely used interface components with less code.
 
 Install to your repository:
 ```
-npm install d1css --save
+npm install d1css
 ```
 Then use in your CSS file:
 ```css
 @import "../node_modules/d1css/dist/d1.min.css";
 ```
-and optionally bundle into your JavaScript file:
+And optionally bundle into your JavaScript file:
 ```javascript
 var d1 = require("d1css");
 d1.run();

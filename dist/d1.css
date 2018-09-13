@@ -1,4 +1,4 @@
-/*! d1css v1.1.30 https://github.com/vvvkor/d1 */
+/*! d1css v1.1.31 https://github.com/vvvkor/d1 */
 
 :root {
 }
@@ -226,6 +226,11 @@ input:invalid {
 input[type="range"], input[type="color"] {
     vertical-align: middle;
     padding: unset;
+}
+
+input[type="range"] {
+    border: medium none currentColor;
+    border: initial;
 }
 
 .hide, .nav ul, .pop>div {
@@ -645,6 +650,10 @@ div.bord, p.bord, div.bg, p.bg, div[class*="bg-"], p[class*="bg-"] {
 
     .full {
         page-break-before: always;
+    }
+
+    pre, code {
+        border-left: thin solid rgba(0, 0, 0, .16);
     }
 }
 

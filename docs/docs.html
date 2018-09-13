@@ -64,11 +64,12 @@ todo
 		window.addEventListener('DOMContentLoaded', function(){//return;
 			var f = document.querySelector('#cfg');
 			if(f){
-				for(var i=0;i<f.elements.length;i++){
-					var inp = f.elements[i];
+				var i, inp, s;
+				for(i=0;i<f.elements.length;i++){
+					inp = f.elements[i];
 					inp.addEventListener('change', up);
 					inp.addEventListener('mousemove', up);
-					var s = document.createElement('small');
+					s = document.createElement('small');
 					s.innerHTML = '&nbsp;&nbsp;&nbsp;';//'&#x2588;&#x220e;&#x25cf;';
 					inp.parentNode.insertBefore(s, inp.nextSibling);
 					inp.parentNode.insertBefore(document.createTextNode(' '), inp.nextSibling);
@@ -92,9 +93,9 @@ todo
 			var val = inp.value;
 			var alpha = (inp.hasAttribute('data-alpha')) ? inp.form.elements[inp.name+'_alpha'].value : undefined;
 			var width = (inp.hasAttribute('data-width')) ? get(inp.form.elements[inp.name+'_width']) : undefined;
-			var func = inp.getAttribute('data-func') || ''
+			var func = inp.getAttribute('data-func') || '';
 			if(func) val = window[func](val, alpha);
-			else if(inp.name.indexOf('_width')!=-1 && val==.1) val = 'thin';
+			else if(inp.name.indexOf('_width')!=-1 && val==0.1) val = 'thin';
 			else val = rgba(val, alpha) + (inp.getAttribute('data-suffix') || '');
 			if(width) val = width+' solid '+val;
 			return val;
@@ -109,7 +110,7 @@ todo
 		function lite(h, a){ return hsla(h, 50, 100*a, 1 /*h>0 ? 1 : 1-a*/); }
 		function dusk(h, a){ return hsla(h, 100*a, 100*a, 1 /*h>0 ? 1 : 1-a*/); }
 		function hsla(h, s, l, a){
-			return h>0 ? 'hsla('+h+'deg,'+s+'%,'+l+'%,'+(a===undefined ? '1' : a)+')' : grey(255+parseInt(h,10), a);
+			return h>0 ? 'hsla('+h+','+s+'%,'+l+'%,'+(a===undefined ? '1' : a)+')' : grey(255+parseInt(h,10), a);
 		}
 	</script>
 </head>
@@ -130,14 +131,17 @@ todo
 		<path d="M76 10L76 16L94 10L94 80L101 80L101 2z"/>
 	</svg></a></p>
 
-	<p><b>d1</b> CSS framework</p>
+	<!--p><b>d1</b> CSS framework</p-->
 
-	<p class=""><code class="pad">npm install d1css</code></p>
-	<p class="screen">
-		<a target="_blank" href="https://github.com/vvvkor/d1" title="GitHub" class="btn bg-n"><svg class="icon" width="32" height="32" viewBox="0 0 16 16" version="1.1" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg> GitHub</a>
-		<a href="#cfg" class="btn bg-w">Config</a>
-	</p>
-	<p class="print"><code class="pad">github.com/vvvkor/d1</code></p>
+	<div class="screen">
+		<p class=""><code class="pad">npm install d1css</code></p>
+		<p class="">
+			<a target="_blank" href="https://github.com/vvvkor/d1" title="GitHub" class="btn bg-n"><svg class="icon" width="32" height="32" viewBox="0 0 16 16" version="1.1" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg> GitHub</a>
+			<a href="#cfg" class="btn bg-w">Config</a>
+		</p>
+	</div>
+	<!--p class="print"><code class="-pad">npm install d1css</code></p>
+	<p class="print"><code class="-pad">github.com/vvvkor/d1</code></p-->
 	<div class="screen">
 		<form id="cfg" class="hide toggle mem pad bg">
 			<!--input type="color" name="text" value="#222222"> Text<br-->
@@ -170,8 +174,8 @@ todo
 		</form>
 	</div>
 
-	<div class="screen hide show-mobile"><a href="#menu" class="pad hover" title="Menu">&equiv;</a></div>
-	<ul id="menu" class="screen hide show-desktop toggle">
+	<div class="screen hide -show-mobile"><a href="#menu" class="pad hover" title="Menu">&equiv;</a></div>
+	<ul id="menu" class="screen -hide -show-desktop -toggle">
 		<li><a href="#start">Get started</a>
 		<li><a href="#typo">Typography</a>
 		<li><a href="#grid">Grid</a>
@@ -200,6 +204,16 @@ todo
 <p><b>d1</b> is lightweight yet functional responsive CSS microframework with optional JavaScript enhancements.
 It aims to implement most widely used interface components with less code.
 
+<h3>Install with NPM</h3>
+<p>Install to your repository:
+<pre>npm install d1css</pre>
+<p>Then use in your CSS file:
+<pre>@import "../node_modules/d1css/dist/d1.min.css";</pre>
+<p>And optionally bundle into your JavaScript file:
+<pre>var d1 = require("d1css");
+d1.run();</pre>
+
+<h3>CDN</h3>
 <p>To use from CDN just add following code to the <code>head</code> of your page.
 
 <pre>
@@ -209,7 +223,9 @@ It aims to implement most widely used interface components with less code.
 &lt;script&gt; d1.run(); &lt;/script&gt;
 </pre>
 
-Or <a href="https://github.com/vvvkor/d1/archive/master.zip">download from GitHub</a>.
+<h3>Install manually</h3>
+
+<a href="https://github.com/vvvkor/d1/archive/master.zip">Download from GitHub</a><span class="print">:<br> https://github.com/vvvkor/d1</span>
 
 <h2 id="typo">Typography</h2>
 

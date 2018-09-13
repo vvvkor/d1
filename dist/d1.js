@@ -1,4 +1,4 @@
-/*! d1css v1.1.30 */
+/*! d1css v1.1.31 */
 (function(window, document, Element) {
     //module name
     var name = "d1";
