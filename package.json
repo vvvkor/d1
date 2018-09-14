@@ -1,6 +1,6 @@
 {
   "name": "d1css",
-  "version": "1.1.33",
+  "version": "1.1.34",
   "description": "Functional CSS microframework",
   "main": "dist/d1.js",
   "directories": {
@@ -13,7 +13,8 @@
     "build:js": "uglifyjs --verbose --beautify --comments '/^\/*!/' --output ./dist/d1.js ./src/js/d1.js",
     "minify:js": "uglifyjs --comments '/^\/*!/' --output ./dist/d1.min.js ./src/js/d1.js",
     "build:insert-version": "cross-var replace-in-file \"/d1css v#/g\" \"d1css v$npm_package_version\" \"dist/*.*\" --isRegex",
-    "build": "npm run build:css.raw && npm run build:css && npm run minify:css && npm run build:js && npm run minify:js && npm run build:insert-version",
+    "build:docs-version": "cross-var replace-in-file \"/d1css@\\d+\\.\\d+\\.\\d+/g\" \"d1css@$npm_package_version\" \"docs/*.*\" --isRegex",
+    "build": "npm run build:css.raw && npm run build:css && npm run minify:css && npm run build:js && npm run minify:js && npm run build:insert-version && npm run build:docs-version",
     "//prepublishOnly": "npm version patch"
   },
   "repository": {
