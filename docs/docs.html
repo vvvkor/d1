@@ -124,7 +124,7 @@ todo
 </div-->
 
 <div class="-pad row -wrap -center flip">
-<div class="stick pad -bg"><div class="pad">
+<div class="stick pad -bg screen"><div class="pad">
 
 	<p><a href="#top" class="text-n"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="102" height="82" >
 		<path d="M0 10Q 15 9 20 9C35 9 62.5 9 62.5 42C62.5 75 35 75 20 75Q15 75 0 74L0 80L20 80C35 80 70 80 70 42C70 4 35 4 20 4L0 4z"/>
@@ -133,49 +133,18 @@ todo
 
 	<!--p><b>d1</b> CSS framework</p-->
 
-	<div class="screen">
+	<div class="">
 		<p class=""><code class="pad">npm install d1css</code></p>
 		<p class="">
 			<a target="_blank" href="https://github.com/vvvkor/d1" title="GitHub" class="btn bg-n"><svg class="icon" width="32" height="32" viewBox="0 0 16 16" version="1.1" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg> GitHub</a>
-			<a href="#cfg" class="btn bg-w">Config</a>
 		</p>
 	</div>
+
 	<!--p class="print"><code class="-pad">npm install d1css</code></p>
 	<p class="print"><code class="-pad">github.com/vvvkor/d1</code></p-->
-	<div class="screen">
-		<form id="cfg" class="hide toggle mem pad bg">
-			<!--input type="color" name="text" value="#222222"> Text<br-->
-			<input type="range" name="text" value="-220" min="-255" max="360" data-func="dusk" data-alpha> Text<br>
-			<input type="range" name="text_alpha" value="0" min="0" max=".7" step=".01"> <small class="text-n">lighness</small><br>
-			<!--input type="color" name="bg" value="#ffffff"> Background<br-->
-			<input type="range" name="bg" value="-1" min="-128" max="360" data-func="lite" data-alpha> Background<br>
-			<input type="range" name="bg_alpha" value="1" min=".5" max="1" step=".01"> <small class="text-n">lighness</small><br>
-			<!--input type="color" name="bg-pane" value="#000000" data-alpha> Panel background<br-->
-			<input type="range" name="bg-pane" value="-255" min="-255" max="360" data-func="mid" data-alpha> Panel<br>
-			<input type="range" name="bg-pane_alpha" value=".05" min="0" max="1" step=".01"> <small class="text-n">opacity</small><br>
-			<!--input type="color" name="border" value="#000000" data-alpha data-width> Border<br-->
-			<input type="range" name="border" value="-255" min="-255" max="360" data-func="vivid" data-alpha data-width> Border<br>
-			<input type="range" name="border_alpha" value=".16" min="0" max="1" step=".01"> <small class="text-n">opacity</small><br>
-			<input type="range" name="border_width" value=".1" min="0" max="1" step=".1" data-suffix="em"> <small class="text-n">width</small><br>
-			<!--input type="color" name="text-hilite" value="#000000"> Highlight<br-->
-			<input type="range" name="text-hilite" value="-255" min="-255" max="360" data-func="vivid"> Highlight<br>
-			<!--input type="color" name="bg-hilite" value="#000000" data-alpha> Highlight background<br-->
-			<input type="range" name="bg-hilite" value="-255" min="-255" max="360" data-alpha data-func="vivid"> <small class="text-n">background</small><br>
-			<input type="range" name="bg-hilite_alpha" value=".05" min="0" max="1" step=".01"> <small class="text-n">opacity</small><br>
-			<!--input type="color" name="link" value="#0033bb"> Link<br-->
-			<input type="range" name="link" value="240" min="-255" max="360" data-func="vivid"> Link<br>
-			<!--input type="color" name="hover" value="#0088ff"> Hover link<br-->
-			<input type="range" name="hover" value="360" min="-255" max="360" data-func="vivid"> <small class="text-n">hover</small><br>
-			<!--input type="color" name="visited" value="#888888"> Visited link<br-->
-			<input type="range" name="visited" value="280" min="-255" max="360" data-func="vivid"> <small class="text-n">visited</small><br>
-			<input type="range" name="rad" value=".2" min="0" max="2" step=".1"> Radius <br>
-			<input type="range" name="gap" value="1" min="0" max="2" step=".1"> Gap<br>
-			<pre class="small"></pre>
-		</form>
-	</div>
 
-	<div class="screen hide -show-mobile"><a href="#menu" class="pad hover" title="Menu">&equiv;</a></div>
-	<ul id="menu" class="screen -hide -show-desktop -toggle">
+	<div class="hide -show-mobile"><a href="#menu" class="pad hover" title="Menu">&equiv;</a></div>
+	<ul id="menu" class="-hide -show-desktop -toggle">
 		<li><a href="#start">Get started</a>
 		<li><a href="#typo">Typography</a>
 		<li><a href="#grid">Grid</a>
@@ -579,7 +548,7 @@ Table will become stacked on small screen.
 				<td><input type="range" name="rng" id="rng">
 			<tr>
 				<td><label for="clrn">Color</label>
-				<td><input type="color" name="clrn" id="clrn">
+				<td><input type="color" name="clrn" id="clrn" value="#ff0000">
 			<tr>
 				<td><label for="msg">Textarea</label>
 				<td><textarea class="wys" name="msg" id="msg" cols="20" rows="5">text<b></textarea>
@@ -743,7 +712,16 @@ and expand it to horizontal dropdown navbar on large screen.
 </div>
 	<pre class="hide" data-src="#s-nav-hamb"></pre>
 
+<h3 id="drawer">Drawer</h3>
 
+<div id="s-drawer">
+<a class="pad hover" href="#drw">&equiv;</a>
+<div class="drawer r pad" id="drw">
+	<a class="close pad" href="#cancel">&times;</a>
+	Demo drawer
+</div>
+</div>
+	<pre class="hide" data-src="#s-drawer"></pre>
 
 <h2 id="togglers">Togglers</h2>
 
@@ -787,7 +765,7 @@ Modals do not require such enhancements.
 <div id="s-modal">
 <a href="#modal">Dialog</a>
 <div id="modal" class="hide dlg c">
-	<a class="close" href="#cancel"></a>
+	<a class="close pad" href="#cancel">&times;</a>
 	Dialog
 </div>
 </div>
@@ -799,7 +777,7 @@ Modals do not require such enhancements.
 <div id="s-modal-full">
 <a href="#full">Fullscreen</a>
 <div id="full" class="hide full c">
-	<a class="close" href="#cancel"></a>
+	<a class="close pad" href="#cancel">&times;</a>
 	Full
 </div>
 </div>
@@ -825,7 +803,7 @@ Enter key press navigates to the next image.
 	<a id="gal1" href="#gal2" data-info="1/3 - ir.png" style="--img:url(http://vadimkor.ru/src/ir.png)"></a>
 	<a id="gal2" href="#gal3" data-info="2/3 - ig.png" style="--img:url(http://vadimkor.ru/src/ig.png)"></a>
 	<a id="gal3" href="#gal1" data-info="3/3 - ib.png" style="--img:url(http://vadimkor.ru/src/ib.png)"></a>
-	<a class="close" href="#cancel"></a>
+	<a class="close" href="#cancel">&times;</a>
 </div>
 
 <div id="s-gal" class="hide">
@@ -834,7 +812,7 @@ Enter key press navigates to the next image.
 	<a id="pic1" href="#pic2" data-info="Caption 1" style="--img:url(1.jpg)"></a>
 	<a id="pic2" href="#pic3" data-info="Caption 2" style="--img:url(2.jpg)"></a>
 	<a id="pic3" href="#pic1" data-info="Caption 3" style="--img:url(3.jpg)"></a>
-	<a class="close" href="#cancel"></a>
+	<a class="close" href="#cancel">&times;</a>
 </div>
 </div>
 	<pre class="hide" data-src="#s-gal"></pre>
@@ -1126,6 +1104,7 @@ most important:
 <tr><td>.roll<td>Horizontal scroll<td><a href="#table">table</a>.hover<td>
 <tr><td>button<td><a href="#button">Button</a><td><a href="#form">form</a> .drop submit button a span<td>.bg-
 <tr><td>.nav<td><a href="#nav">Navigation</a><td>ul<td>.act .flip .shift .topbar
+<tr><td>.drawer<td><a href="#drawer">Drawer</a><td>div<td>.close .fix .r .l
 <tr><td>.flip<td>Responsive<td>.row .nav<td>
 <tr><td>.hide<td><a href="#toggle">Togglable</a><td>div ul .close<td>.pop .dlg .full.c .tabs .show-mobile .show-desktop
 <tr><td>.switch<td><a href="#toggle2">Togglable 2</a><td>label div<td>.pop .tabs
@@ -1164,7 +1143,9 @@ most important:
 <li><code>.col-2</code> &mdash; grid cell with expanding width (x2)
 <li><code>.col-3</code> &mdash; grid cell with expanding width (x3)
 <li><code>.dlg</code> &mdash; card-like block
+<li><code>.drawer</code> &mdash; drawer
 <li><code>.drop</code> &mdash; file input to show dragged image
+<li><code>.fix</code> &mdash; fixed in corner
 <li><code>.flip</code> &mdash; responsive component, stacked view on small screen
 <li><code>.full</code> &mdash; fullscreen block
 <li><code>.gal</code> &mdash; fullscreen gallery
@@ -1217,6 +1198,45 @@ wwwwwwwwwww1wwwwwwwwwwwwwww2wwwwwwwwwwwww3wwwwwwwwwwwwww4wwwwwwwwwwwwww5wwwwwwww
 <!--footer class="pad bg">
 	footer
 </footer-->
+
+<a class="fix r pad hover screen" href="#draw">Config</a>
+<div class="drawer r pad screen" id="draw">
+	<a class="close pad" href="#cancel">&times;</a>
+	<form id="cfg" class="pad">
+		<h3>Style configurator</h3>
+		
+		<!--input type="color" name="text" value="#222222"> Text<br-->
+		<input type="range" name="text" value="-220" min="-255" max="360" data-func="dusk" data-alpha> Text<br>
+		<input type="range" name="text_alpha" value="0" min="0" max=".7" step=".01"> <small class="text-n">lighness</small><br>
+		<!--input type="color" name="bg" value="#ffffff"> Background<br-->
+		<input type="range" name="bg" value="-1" min="-128" max="360" data-func="lite" data-alpha> Background<br>
+		<input type="range" name="bg_alpha" value="1" min=".5" max="1" step=".01"> <small class="text-n">lighness</small><br>
+		<!--input type="color" name="bg-pane" value="#000000" data-alpha> Panel background<br-->
+		<input type="range" name="bg-pane" value="-255" min="-255" max="360" data-func="mid" data-alpha> Panel<br>
+		<input type="range" name="bg-pane_alpha" value=".05" min="0" max="1" step=".01"> <small class="text-n">opacity</small><br>
+		<!--input type="color" name="border" value="#000000" data-alpha data-width> Border<br-->
+		<input type="range" name="border" value="-255" min="-255" max="360" data-func="vivid" data-alpha data-width> Border<br>
+		<input type="range" name="border_alpha" value=".16" min="0" max="1" step=".01"> <small class="text-n">opacity</small><br>
+		<input type="range" name="border_width" value=".1" min="0" max="1" step=".1" data-suffix="em"> <small class="text-n">width</small><br>
+		<!--input type="color" name="text-hilite" value="#000000"> Highlight<br-->
+		<input type="range" name="text-hilite" value="-255" min="-255" max="360" data-func="vivid"> Highlight<br>
+		<!--input type="color" name="bg-hilite" value="#000000" data-alpha> Highlight background<br-->
+		<input type="range" name="bg-hilite" value="-255" min="-255" max="360" data-alpha data-func="vivid"> <small class="text-n">background</small><br>
+		<input type="range" name="bg-hilite_alpha" value=".05" min="0" max="1" step=".01"> <small class="text-n">opacity</small><br>
+		<!--input type="color" name="link" value="#0033bb"> Link<br-->
+		<input type="range" name="link" value="240" min="-255" max="360" data-func="vivid"> Link<br>
+		<!--input type="color" name="hover" value="#0088ff"> Hover link<br-->
+		<input type="range" name="hover" value="360" min="-255" max="360" data-func="vivid"> <small class="text-n">hover</small><br>
+		<!--input type="color" name="visited" value="#888888"> Visited link<br-->
+		<input type="range" name="visited" value="280" min="-255" max="360" data-func="vivid"> <small class="text-n">visited</small><br>
+		<input type="range" name="rad" value=".2" min="0" max="2" step=".1"> Radius <br>
+		<input type="range" name="gap" value="1" min="0" max="2" step=".1"> Gap<br>
+		<pre class="small"></pre>
+	</form>
+</div>
+
+
+<a class="fix r l pad hover screen" href="#">&uarr;</a>
 
 </body>
 </html>

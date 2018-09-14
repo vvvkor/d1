@@ -1,4 +1,4 @@
-/*! d1css v1.1.31 https://github.com/vvvkor/d1 */
+/*! d1css v1.1.32 https://github.com/vvvkor/d1 */
 
 :root {
 }
@@ -242,15 +242,27 @@ input[type="range"] {
     display: block;
 }
 
-a.close {
+.close {
     position: absolute;
-    right: 0;
     top: 0;
-    padding: .5em 1em;
+    right: 0;
 }
 
-a.close:before {
-    content: "\d7";
+.fix {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+}
+
+.fix.r {
+    left: auto;
+    right: 0;
+}
+
+.fix.l {
+    top: auto;
+    bottom: 0;
 }
 
 .js-control {
@@ -557,8 +569,46 @@ div.bord, p.bord, div.bg, p.bg, div[class*="bg-"], p[class*="bg-"] {
     top: 0;
     width: 100%;
     z-index: 4;
+}
+
+.topbar, .drawer {
     background-color: #fff;
-    box-shadow: 0 .2em .8em rgba(0, 0, 0, .1);
+    box-shadow: 0 0 .8em rgba(0, 0, 0, .15);
+}
+
+.drawer {
+    position: fixed;
+    top: 0;
+    left: -21em;
+    height: 100vh;
+    width: 80%;
+    max-width: 20em;
+    box-sizing: border-box;
+    overflow-y: auto;
+    z-index: 7;
+}
+
+.drawer:target {
+    left: 0;
+}
+
+.drawer.r {
+    left: auto;
+    right: -21em;
+    text-align: left;
+    text-align: initial;
+}
+
+.drawer.r:target {
+    right: 0;
+}
+
+.drawer {
+    transition: left .4s;
+}
+
+.drawer.r {
+    transition-property: right;
 }
 
 @media (max-width: 54.99em) {
@@ -626,6 +676,7 @@ div.bord, p.bord, div.bg, p.bg, div[class*="bg-"], p[class*="bg-"] {
         align-self: flex-start;
         z-index: 3;
         overflow: auto;
+        max-height: 100vh;
     }
 }
 

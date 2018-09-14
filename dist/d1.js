@@ -1,4 +1,5 @@
-/*! d1css v1.1.31 */
+/*! d1css v1.1.32 */
+/*! d1css v# */
 (function(window, document, Element) {
     //module name
     var name = "d1";
@@ -15,7 +16,7 @@
             this.unhover = "ul.toggle ul[id], .pop>div.toggle[id]";
             //common
                         this.run = function(func) {
-                //console.log('run', func ||'d1');
+                //console.log("run", func ||"d1");
                 if (document.addEventListener && "classList" in document.createElement("p")) {
                     this.b("", [ document ], "DOMContentLoaded", func || this.init);
                 }
@@ -52,7 +53,7 @@
                 e.preventDefault();
             };
             this.checkBoxes = function(b) {
-                this.b(b.form, 'input[type="checkbox"][class~="' + b.getAttribute("data-group") + '"]', "", function(n, e) {
+                this.b(b.form, "input[type='checkbox'][class~='" + b.getAttribute("data-group") + "']", "", function(n, e) {
                     n.checked = b.checked;
                 });
             };
@@ -75,10 +76,21 @@
                     }
                 }
             };
+            this.prepareColor = function(n, e) {
+                var m = document.createElement("input");
+                m.type = "text";
+                m.value = n.value;
+                m.size = 7;
+                n.parentNode.insertBefore(m, n);
+                n.parentNode.insertBefore(document.createTextNode(" "), n);
+                this.b("", [ n, m ], "input", function(x, e) {
+                    (x == n ? m : n).value = x.value;
+                });
+            };
             this.dropImage = function(n, e) {
                 var f = new FileReader();
                 f.onloadend = function() {
-                    n.style["background-image"] = "url(" + f.result + ")";
+                    n.style["background-image"] = "url('" + f.result + "')";
                     n.title = e.target.files[0].name + ", " + e.target.files[0].size + " B";
                 };
                 f.readAsDataURL(e.target.files[0]);
@@ -135,7 +147,7 @@
                 this.handleState(n, null, false);
             };
             this.showFirstTab = function(n) {
-                var a = this.q('a[href^="#"]', 0, n.parentNode);
+                var a = this.q("a[href^='#']", 0, n.parentNode);
  //first link
                                 var d = this.q(a.hash, 0, n);
  //corresponding tab
@@ -144,14 +156,14 @@
             this.hideSiblings = function(n) {
                 var p = n.parentNode;
                 if (this.ancestor("ul.nav.toggle, ul.accordion", p)) {
-                    this.b(this.ancestor("ul", p), 'ul:not([id="' + n.id + '"])', "", this.hide);
+                    this.b(this.ancestor("ul", p), "ul:not([id='" + n.id + "'])", "", this.hide);
                 } else if (p.matches(".tabs")) {
-                    this.b(p, '.hide:not([id="' + n.id + '"])', "", this.hide);
+                    this.b(p, ".hide:not([id='" + n.id + "'])", "", this.hide);
                     //:scope>.hide... - for nested tabs - fails in ie
                                 }
             };
             this.updateLinks = function(on, n) {
-                if (n.id) this.b("", 'a[href="#' + n.id + '"]', "", function(n) {
+                if (n.id) this.b("", "a[href='#" + n.id + "']", "", function(n) {
                     n.classList[on ? "add" : "remove"]("act");
                 });
             };
@@ -172,7 +184,7 @@
                 if (localStorage) {
                     for (var i = 0; i < localStorage.length; i++) {
                         var k = localStorage.key(i);
-                        //if (k.substr(0, 4) == 'vis#') this.show(k.substr(3)); //store only shown
+                        //if (k.substr(0, 4) == "vis#") this.show(k.substr(3)); //store only shown
                                                 if (k.substr(0, 4) == "vis#") {
                             var d = this.q(k.substr(3), 0);
                             if (d && d.matches(this.mem)) this.handleState(d, null, localStorage.getItem(k) == 1);
@@ -188,7 +200,7 @@
  //ctrl+z
                                 if (e.keyCode == 27 || e.button === 0) {
                     //escape or click with no active ancestor
-                    if (e.keyCode || this.ancestor("a.close", e.target) || !this.ancestor("a, .hide, .nav, .pop>div", e.target)) {
+                    if (e.keyCode || this.ancestor("a.close", e.target) || !this.ancestor("a, .hide, .nav, .pop>div, .drawer", e.target)) {
                         this.b("", this.escapable, "", this.hide);
                         location.hash = "#cancel";
                     }
@@ -216,6 +228,8 @@
                                 this.b(n, "table[class]", "", this.alignCells);
                 //gallery back
                                 this.b(n, ".gal a[id]", "click", this.gotoPrev);
+                //color
+                                this.b(n, "input[type='color']", "", this.prepareColor);
                 //drop image
                                 this.b(n, ".drop", "change", this.dropImage);
                 //prepere nav
@@ -229,7 +243,7 @@
                 //prepare hash
                                 if (location.hash) this.show(location.hash);
                 //toggle
-                                this.b(n, 'a[href^="#"]', "click", this.handleState);
+                                this.b(n, "a[href^='#']", "click", this.handleState);
                 //escape closes targeted elements
                                 if (!n) this.b("", [ window ], "keydown", this.esc);
                 //close on click out
@@ -245,10 +259,10 @@
         }();
         // end module
                 if (typeof module !== "undefined") {
-            //console.log('npm require ' + name);
+            //console.log("npm require " + name);
             module.exports /*[name]*/ = main;
         } else if (window) {
-            //console.log('browser include ' + name);
+            //console.log("browser include " + name);
             window[name] = main;
             //main.run();
                 }
