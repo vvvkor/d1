@@ -1,5 +1,4 @@
 /*! d1css v# */
-/*! d1css v# */
 
 (function(window, document, Element){
 	
