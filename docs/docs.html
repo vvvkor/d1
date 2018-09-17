@@ -34,8 +34,8 @@ todo
 	-->
 	
 	<!-- CDN -->
-	<link href="https://cdn.jsdelivr.net/npm/d1css@1.1.36/dist/d1.raw.css" rel="stylesheet" id="cdn-css">
-	<!--script src="https://cdn.jsdelivr.net/npm/d1css@1.1.36/dist/d1.min.js"></script-->
+	<link href="https://cdn.jsdelivr.net/npm/d1css@1.1.37/dist/d1.raw.css" rel="stylesheet" id="cdn-css">
+	<!--script src="https://cdn.jsdelivr.net/npm/d1css@1.1.37/dist/d1.min.js"></script-->
 	<!-- local -->
 	<!--
 	<link href="../src/css/d1.css" rel="stylesheet">
@@ -49,7 +49,7 @@ todo
 			if(local){
 				//override cdn style with local
 				var link = document.createElement('link');
-				link.href = local ? '../src/css/d1.css' : 'https://cdn.jsdelivr.net/npm/d1css@1.1.36/dist/d1.raw.css';
+				link.href = local ? '../src/css/d1.css' : 'https://cdn.jsdelivr.net/npm/d1css@1.1.37/dist/d1.raw.css';
 				link.rel = 'stylesheet';
 				document.getElementsByTagName( "head" )[0].appendChild( link );
 				console.log('css: ' + link.href);
@@ -62,7 +62,7 @@ todo
 			//add script (local/cdn)
 			var script = document.createElement('script');
 			script.onload = function(){ d1.init(); };
-			script.src = local ? '../src/js/d1.js' : 'https://cdn.jsdelivr.net/npm/d1css@1.1.36/dist/d1.min.js';
+			script.src = local ? '../src/js/d1.js' : 'https://cdn.jsdelivr.net/npm/d1css@1.1.37/dist/d1.min.js';
 			console.log('js: ' + script.src);
 			document.head.appendChild(script);
 			
@@ -194,9 +194,9 @@ d1.run();</pre>
 <p>To use from CDN just add following code to the <code>head</code> of your page.
 
 <pre>
-&lt;link href="https://cdn.jsdelivr.net/npm/d1css@1.1.36/dist/d1.min.css" rel="stylesheet"&gt;
+&lt;link href="https://cdn.jsdelivr.net/npm/d1css@1.1.37/dist/d1.min.css" rel="stylesheet"&gt;
 &lt;!-- optional --&gt;
-&lt;script src="https://cdn.jsdelivr.net/npm/d1css@1.1.36/dist/d1.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/d1css@1.1.37/dist/d1.min.js"&gt;&lt;/script&gt;
 &lt;script&gt; d1.run(); &lt;/script&gt;
 </pre>
 

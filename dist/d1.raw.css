@@ -1,4 +1,4 @@
-/*! d1css v1.1.36 https://github.com/vvvkor/d1 */
+/*! d1css v1.1.37 https://github.com/vvvkor/d1 */
 
 :root {
     --text: #222;
@@ -60,7 +60,7 @@ button::-moz-focus-inner, [type="submit"]::-moz-focus-inner {
 body {
     color: var(--text);
     background-color: var(--bg);
-    font: 120%/1.5 "pt sans", sans-serif;
+    font: 120%/1.5 "pt sans", Roboto, "Segoe UI", sans-serif;
     margin: 0;
 }
 
