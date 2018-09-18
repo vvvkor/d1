@@ -1,7 +1,8 @@
-/*! d1css v1.1.37 */
+/*! d1css v1.1.38 */
 (function(window, document, Element) {
+    "use strict";
     //module name
-    var name = "d1";
+        var name = "d1";
     //check single instance
         if (window && window[name]) {
         console.log(name + " already included");
@@ -208,6 +209,25 @@
             this.control = function(d) {
                 d.classList.add("js-control");
             }
+            //ajax
+            ;
+            this.getAjax = function(n, e) {
+                e.preventDefault();
+                this.ajax(n.getAttribute("href"), this.q(n.getAttribute("data-target"), 0));
+            };
+            this.ajax = function(url, node, callback) {
+                if (typeof node === "string" && node) node = document.querySelector(node);
+                var x = new XMLHttpRequest();
+                var ref = this;
+                if (node || callback) x.addEventListener("load", function(e) {
+                    if (this.status == "200") {
+                        if (node) node.innerHTML = this.responseText;
+                        if (callback) callback(this, node, e);
+                    } else console.error("XHTTP request failed", this);
+                });
+                x.open("GET", url + "?t=" + new Date().getTime());
+                x.send();
+            }
             //run
             ;
             this.refresh = function(n) {
@@ -248,7 +268,9 @@
                 //close on click out
                                 if (!n) this.b("", "html, .close", "click", this.esc);
  //mousedown
-                        };
+                //ajax [data-target]
+                                this.b("", "a.ajax", "click", this.getAjax);
+            };
             this.init = function() {
                 if (location.hash == "#disable-js") return;
                 if (!Element.prototype.matches) Element.prototype.matches = Element.prototype.msMatchesSelector;

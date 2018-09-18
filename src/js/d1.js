@@ -2,6 +2,8 @@
 
 (function(window, document, Element){
 	
+	"use strict";
+
 	//module name
 	var name = "d1";
 
@@ -246,6 +248,28 @@ var main = new(function() {
 		d.classList.add("js-control");
 	}
 	
+	//ajax
+	
+	this.getAjax = function(n, e) {
+		e.preventDefault();
+		this.ajax(n.getAttribute("href"), this.q(n.getAttribute("data-target"),0));
+	}
+	
+	this.ajax = function(url, node, callback) {
+		if (typeof node === "string" && node) node = document.querySelector(node);
+		var x = new XMLHttpRequest();
+		var ref = this;
+		if (node || callback) x.addEventListener("load", function(e) {
+			if (this.status == "200") {
+				if (node) node.innerHTML = this.responseText;
+				if (callback) callback(this, node, e);
+			}
+			else console.error("XHTTP request failed",this);
+		});
+		x.open("GET", url + "?t=" + (new Date()).getTime());
+		x.send();
+	}
+	
 	//run
 
 	this.refresh = function(n) {
@@ -284,6 +308,8 @@ var main = new(function() {
 		if (!n) this.b("", [window], "keydown", this.esc);
 		//close on click out
 		if (!n) this.b("", "html, .close", "click", this.esc);//mousedown
+		//ajax [data-target]
+		this.b("", "a.ajax", "click", this.getAjax);
 	}
 
 	this.init = function() {
