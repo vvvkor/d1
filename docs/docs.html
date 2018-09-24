@@ -34,8 +34,8 @@ todo
 	-->
 	
 	<!-- CDN -->
-	<link href="https://cdn.jsdelivr.net/npm/d1css@1.1.38/dist/d1.raw.css" rel="stylesheet" id="cdn-css">
-	<!--script src="https://cdn.jsdelivr.net/npm/d1css@1.1.38/dist/d1.min.js"></script-->
+	<link href="https://cdn.jsdelivr.net/npm/d1css@1.1.39/dist/d1.raw.css" rel="stylesheet" id="cdn-css">
+	<!--script src="https://cdn.jsdelivr.net/npm/d1css@1.1.39/dist/d1.min.js"></script-->
 	<!-- local -->
 	<!--
 	<link href="../src/css/d1.css" rel="stylesheet">
@@ -49,7 +49,7 @@ todo
 			if(local){
 				//override cdn style with local
 				var link = document.createElement('link');
-				link.href = local ? '../src/css/d1.css' : 'https://cdn.jsdelivr.net/npm/d1css@1.1.38/dist/d1.raw.css';
+				link.href = local ? '../src/css/d1.css' : 'https://cdn.jsdelivr.net/npm/d1css@1.1.39/dist/d1.raw.css';
 				link.rel = 'stylesheet';
 				document.getElementsByTagName( "head" )[0].appendChild( link );
 				console.log('css: ' + link.href);
@@ -62,7 +62,7 @@ todo
 			//add script (local/cdn)
 			var script = document.createElement('script');
 			script.onload = function(){ d1.init(); };
-			script.src = local ? '../src/js/d1.js' : 'https://cdn.jsdelivr.net/npm/d1css@1.1.38/dist/d1.min.js';
+			script.src = local ? '../src/js/d1.js' : 'https://cdn.jsdelivr.net/npm/d1css@1.1.39/dist/d1.min.js';
 			console.log('js: ' + script.src);
 			document.head.appendChild(script);
 /*
@@ -200,9 +200,9 @@ d1.run();</pre>
 <p>To use from CDN just add following code to the <code>head</code> of your page.
 
 <pre>
-&lt;link href="https://cdn.jsdelivr.net/npm/d1css@1.1.38/dist/d1.min.css" rel="stylesheet"&gt;
+&lt;link href="https://cdn.jsdelivr.net/npm/d1css@1.1.39/dist/d1.min.css" rel="stylesheet"&gt;
 &lt;!-- optional --&gt;
-&lt;script src="https://cdn.jsdelivr.net/npm/d1css@1.1.38/dist/d1.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/d1css@1.1.39/dist/d1.min.js"&gt;&lt;/script&gt;
 &lt;script&gt; d1.run(); &lt;/script&gt;
 </pre>
 
@@ -654,9 +654,10 @@ Just add <code>nav</code> class to unordered list.
 
 <p>
 Add <code>flip</code> class to stack items on small screen.
+Add <code>l</code> class to stack items on any screen.
 With pure CSS, nested lists are shown on hover.
 Add <code>toggle</code> class to control behaviour with JavaScript.
-In this case, links' <code>href</code> must point to corresponding nested lists' <code>id</code>.
+In this case, link's <code>href</code> must point to corresponding nested list's <code>id</code>.
 With JavaScript, nested lists are toggled on click.
 
 <div id="s-nav">
@@ -1021,6 +1022,50 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 </div>
 	
 	<pre class="hide" data-src="#s-colors-blocks"></pre>
+	
+<h3 id="colors-icons">Links and Icons</h3>
+
+	<svg class="hide" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<symbol id="ok" viewBox="0 0 512 512">
+		<path d="m477 162c0 7-2 14-8 19l-206 207l-39 39c-6 5-12 8-20 8c-7 0-14-3-19-8l-142-142c-6-6-8-12-8-20c0-7 2-14 8-19l38-39c6-5 12-8 20-8c7 0 14 3 19 8l84 84l188-188c5-5 12-8 19-8c8 0 14 3 20 8l38 39c6 6 8 12 8 20z"/>
+		</symbol>
+	</svg>
+<div class="bg">
+	Icons:
+	<svg class="icon"><use xlink:href="#ok"></svg>
+	<svg class="icon text-y"><use xlink:href="#ok"></svg>
+	<br>
+	Simple links:
+	<a href="https://ya.ru" class=""><svg class="icon"><use xlink:href="#ok"></svg> Default</a>
+	<a href="https://ya.ru" class=""><svg class="icon text-y"><use xlink:href="#ok"></svg> Icon</a>
+	<a href="https://ya.ru" class="text-w"><svg class="icon"><use xlink:href="#ok"></svg> Link</a>
+	<a href="https://ya.ru" class="text-w"><svg class="icon text-y"><use xlink:href="#ok"></svg> Both</a>
+	<br>
+	Hover links:
+	<a href="https://ya.ru" class="hover"><svg class="icon"><use xlink:href="#ok"></svg> Default</a>
+	<a href="https://ya.ru" class="hover"><svg class="icon text-y"><use xlink:href="#ok"></svg> Icon</a>
+	<a href="https://ya.ru" class="hover text-w"><svg class="icon"><use xlink:href="#ok"></svg> Link</a>
+	<a href="https://ya.ru" class="hover text-w"><svg class="icon text-y"><use xlink:href="#ok"></svg> Both</a>
+	<table class="hover">
+		<tr><td>Table:
+		<td><a href="https://ya.ru" class=""><svg class="icon"><use xlink:href="#ok"></svg> Default</a>
+		<td><a href="https://ya.ru" class=""><svg class="icon text-y"><use xlink:href="#ok"></svg> Icon</a>
+		<td><a href="https://ya.ru" class="text-w"><svg class="icon"><use xlink:href="#ok"></svg> Link</a>
+		<td><a href="https://ya.ru" class="text-w"><svg class="icon text-y"><use xlink:href="#ok"></svg> Both</a>	
+	</table>
+	<ul class="nav -flip l">
+		<li><a>Nav:</a>
+		<li><a href="https://ya.ru" class=""><svg class="icon"><use xlink:href="#ok"></svg> Default</a>
+		<li><a href="https://ya.ru" class=""><svg class="icon text-y"><use xlink:href="#ok"></svg> Icon</a>
+		<li><a href="https://ya.ru" class="text-w"><svg class="icon"><use xlink:href="#ok"></svg> Link</a>
+		<li><a href="https://ya.ru" class="text-w"><svg class="icon text-y"><use xlink:href="#ok"></svg> Both</a>
+	</ul>
+	Buttons:
+	<a href="https://ya.ru" class="btn bg-i"><svg class="icon"><use xlink:href="#ok"></svg> Default</a>
+	<a href="https://ya.ru" class="btn bg-i"><svg class="icon text-y"><use xlink:href="#ok"></svg> Icon</a>
+	<a href="https://ya.ru" class="btn bg-i text-w"><svg class="icon"><use xlink:href="#ok"></svg> Link</a>
+	<a href="https://ya.ru" class="btn bg-i text-w"><svg class="icon text-y"><use xlink:href="#ok"> Both</svg> Link</a>
+</div>
 
 <h2 id="blocks">Blocks</h2>
 
@@ -1124,7 +1169,7 @@ most important:
 <tr><td>.row<td><a href="#grid">Grid</a><td>.col-0 div .col-2 .col-3<td>.flip .wrap .read .narrow .shift .stick
 <tr><td>.roll<td>Horizontal scroll<td><a href="#table">table</a>.hover<td>
 <tr><td>button<td><a href="#button">Button</a><td><a href="#form">form</a> .drop submit button a span<td>.bg-
-<tr><td>.nav<td><a href="#nav">Navigation</a><td>ul<td>.act .flip .shift .topbar .ajax
+<tr><td>.nav<td><a href="#nav">Navigation</a><td>ul<td>.act .flip .shift .topbar .ajax .l
 <tr><td>.drawer<td><a href="#drawer">Drawer</a><td>div<td>.close .fix .r .l
 <tr><td>.flip<td>Responsive<td>.row .nav<td>
 <tr><td>.hide<td><a href="#toggle">Togglable</a><td>div ul .close<td>.pop .dlg .full.c .tabs .show-mobile .show-desktop

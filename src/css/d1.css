@@ -129,13 +129,19 @@ abbr{border-bottom:thin dotted;}
 
 /* link */
 a{color:var(--link);}
-a:not([href^="#"]):not(.btn):visited{color:var(--visited);}
+:not([href^="#"]):visited{color:var(--visited);} /* a:not(.btn) */
+	.nav [href]{color:var(--link);}
 .act, a:hover{color:var(--hover);}
 abbr, a/*!!!*/ /*, .nav a, a.close, a.pad, a.btn,*/{text-decoration:none;}
 a.pad, a.btn{display:inline-block;line-height:normal;}
 
 /* hilite */
-.nav .act, a.hover:hover, .nav li>a:hover, table.hover tr:hover, .switch:checked+label, .switch+label:hover{color:var(--text-hilite);background-color:var(--bg-hilite);}
+.nav .act, .nav .act[href], a.hover:hover, .nav li>a:hover, table.hover tr:hover, .switch:checked+label, .switch+label:hover{color:var(--text-hilite);background-color:var(--bg-hilite);}
+table.hover tr:hover a{color:var(--text-hilite);}
+/* to invert icon */
+/*
+.nav .act .icon, a.hover:hover .icon, .nav li>a:hover .icon, table.hover tr:hover .icon, .switch:checked+label .icon, .switch+label:hover .icon{color:var(--text-hilite);}
+*/
 
 /* image */
 svg{fill:currentColor;}
@@ -194,6 +200,8 @@ input,button,select,textarea,.btn{border:thin solid rgba(0,0,0,.3);}
 
 /* nav */
 .nav{display:flex;flex-wrap:wrap;}
+	.nav.l{display:block;}
+	.nav.l ul{top:90%;left:3em;}
 .nav, .nav ul{list-style:none;padding:0;margin:0;}
 .nav li>:not(ul){display:block;padding:var(--gap-s) var(--gap-n);}
 	.nav li>form{padding:calc(var(--gap-s) - var(--gap-xs)) var(--gap-n);}

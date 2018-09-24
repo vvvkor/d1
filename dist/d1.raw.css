@@ -1,4 +1,4 @@
-/*! d1css v1.1.38 https://github.com/vvvkor/d1 */
+/*! d1css v1.1.39 https://github.com/vvvkor/d1 */
 
 :root {
     --text: #222;
@@ -108,8 +108,12 @@ a {
     color: var(--link);
 }
 
-a:not([href^="#"]):not(.btn):visited {
+:not([href^="#"]):visited {
     color: var(--visited);
+}
+
+.nav [href] {
+    color: var(--link);
 }
 
 .act, a:hover {
@@ -125,10 +129,14 @@ a.pad, a.btn {
     line-height: normal;
 }
 
-.nav .act, a.hover:hover, .nav li>a:hover, table.hover tr:hover,
+.nav .act, .nav .act[href], a.hover:hover, .nav li>a:hover, table.hover tr:hover,
 .switch:checked+label, .switch+label:hover {
     color: var(--text-hilite);
     background-color: var(--bg-hilite);
+}
+
+table.hover tr:hover a {
+    color: var(--text-hilite);
 }
 
 svg {
@@ -291,6 +299,15 @@ input[type="range"] {
 .nav {
     display: flex;
     flex-wrap: wrap;
+}
+
+.nav.l {
+    display: block;
+}
+
+.nav.l ul {
+    top: 90%;
+    left: 3em;
 }
 
 .nav, .nav ul {

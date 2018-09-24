@@ -1,4 +1,4 @@
-/*! d1css v1.1.38 */
+/*! d1css v1.1.39 */
 (function(window, document, Element) {
     "use strict";
     //module name
