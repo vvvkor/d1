@@ -65,12 +65,6 @@ todo
 			script.src = local ? '../src/js/d1.js' : 'https://cdn.jsdelivr.net/npm/d1css@1.1.39/dist/d1.min.js';
 			console.log('js: ' + script.src);
 			document.head.appendChild(script);
-/*
-script = document.createElement('script');
-script.onload = function(){ sort.refresh(); };
-script.src = '../src/js/d1.sort.js';
-document.head.appendChild(script);
-*/
 		}, true);
 
 		//configurator
@@ -356,8 +350,9 @@ Add <code>hover</code> class to highlight hovered row.
 Add <code>r#, l#, #c</code> (where # is any number) classes to align cells of column number # to the right, left or center, respectively (JavaScript required).
 Wrap table inside <code>div</code> with class <code>roll</code> to have independent horizontal scrolling of table when it is too wide.
 </p>
+
 	<div class="roll">
-	<table class="hover r1 c4 c5 sort">
+	<table class="hover r1 c4 c5">
 		<caption>Table caption</caption>
 		<thead>
 		<tr><th>Component<th>Pure CSS<th>JS enhance<wbr>ments <code>.toggle</code><th>Re<wbr>mem<wbr>ber state <code>.mem</code><th>Close on Escape<th>Modifi<wbr>cations
