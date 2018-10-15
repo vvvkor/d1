@@ -34,8 +34,8 @@ todo
 	-->
 	
 	<!-- CDN -->
-	<link href="https://cdn.jsdelivr.net/npm/d1css@1.1.39/dist/d1.raw.css" rel="stylesheet" id="cdn-css">
-	<!--script src="https://cdn.jsdelivr.net/npm/d1css@1.1.39/dist/d1.min.js"></script-->
+	<link href="https://cdn.jsdelivr.net/npm/d1css@1.1.40/dist/d1.raw.css" rel="stylesheet" id="cdn-css">
+	<!--script src="https://cdn.jsdelivr.net/npm/d1css@1.1.40/dist/d1.min.js"></script-->
 	<!-- local -->
 	<!--
 	<link href="../src/css/d1.css" rel="stylesheet">
@@ -49,7 +49,7 @@ todo
 			if(local){
 				//override cdn style with local
 				var link = document.createElement('link');
-				link.href = local ? '../src/css/d1.css' : 'https://cdn.jsdelivr.net/npm/d1css@1.1.39/dist/d1.raw.css';
+				link.href = local ? '../src/css/d1.css' : 'https://cdn.jsdelivr.net/npm/d1css@1.1.40/dist/d1.raw.css';
 				link.rel = 'stylesheet';
 				document.getElementsByTagName( "head" )[0].appendChild( link );
 				console.log('css: ' + link.href);
@@ -62,7 +62,7 @@ todo
 			//add script (local/cdn)
 			var script = document.createElement('script');
 			script.onload = function(){ d1.init(); };
-			script.src = local ? '../src/js/d1.js' : 'https://cdn.jsdelivr.net/npm/d1css@1.1.39/dist/d1.min.js';
+			script.src = local ? '../src/js/d1.js' : 'https://cdn.jsdelivr.net/npm/d1css@1.1.40/dist/d1.min.js';
 			console.log('js: ' + script.src);
 			document.head.appendChild(script);
 		}, true);
@@ -194,9 +194,9 @@ d1.run();</pre>
 <p>To use from CDN just add following code to the <code>head</code> of your page.
 
 <pre>
-&lt;link href="https://cdn.jsdelivr.net/npm/d1css@1.1.39/dist/d1.min.css" rel="stylesheet"&gt;
+&lt;link href="https://cdn.jsdelivr.net/npm/d1css@1.1.40/dist/d1.min.css" rel="stylesheet"&gt;
 &lt;!-- optional --&gt;
-&lt;script src="https://cdn.jsdelivr.net/npm/d1css@1.1.39/dist/d1.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/d1css@1.1.40/dist/d1.min.js"&gt;&lt;/script&gt;
 &lt;script&gt; d1.run(); &lt;/script&gt;
 </pre>
 
@@ -634,6 +634,8 @@ Table will become stacked on small screen.
 
 <p>
 Just add <code>nav</code> class to unordered list.
+<p>
+Add <code>shift</code> class to list item to shift (and following items) to the right.
 
 <div id="s-pagenav">
 <ul class="nav bg mar">
@@ -641,9 +643,24 @@ Just add <code>nav</code> class to unordered list.
 	<li><a href="?p=1">1</a></li>
 	<li><a href="?p=2">2</a></li>
 	<li><a href="?p=3">3</a></li>
+	<li class="shift"><a href="?p=4">4</a></li>
 </ul>
 </div>
 	<pre class="hide" data-src="#s-pagenav"></pre>
+
+<h3>Vertical navbar</h3>
+
+<p>
+Add <code>nav l</code> classes to unordered list.
+
+<div id="s-pagenavv">
+<ul class="nav l bg mar">
+	<li><a href="?n=1">One</a></li>
+	<li><a href="?n=2">Two</a></li>
+	<li><a href="?n=3">Three</a></li>
+</ul>
+</div>
+	<pre class="hide" data-src="#s-pagenavv"></pre>
 
 <h3>Responsive dropdown, stacked on small screen</h3>
 
@@ -674,6 +691,12 @@ With JavaScript, nested lists are toggled on click.
 		<a href="#s-3">Third</a>
 		<ul id="s-3">
 			<li><a href="#s-3-1">Subitem 3</a></li>
+		</ul>
+	</li>
+	<li class="shift">
+		<a href="#s-4">Fourth</a>
+		<ul id="s-4">
+			<li><a href="#s-4-1">Subitem 4</a></li>
 		</ul>
 	</li>
 </ul>

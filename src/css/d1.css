@@ -313,6 +313,7 @@ div.bord, p.bord, div.bg, p.bg, div[class*="bg-"], p[class*="bg-"]{padding:var(-
 	form>table td:first-child{min-width:8em;}
 	.dlg.hide{min-width:20em;}
 	.shift{margin-left:auto;}
+	.nav:not(.l)>li.shift>ul, .nav:not(.l)>li.shift~li>ul{left:auto;right:0;}
 	.stick{position:sticky;top:0;align-self:flex-start;z-index:3;overflow:auto;max-height:100vh;}
 }
 

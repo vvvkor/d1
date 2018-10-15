@@ -1,4 +1,4 @@
-/*! d1css v1.1.39 https://github.com/vvvkor/d1 */
+/*! d1css v1.1.40 https://github.com/vvvkor/d1 */
 
 :root {
     --text: #222;
@@ -686,6 +686,11 @@ div.bord, p.bord, div.bg, p.bg, div[class*="bg-"], p[class*="bg-"] {
 
     .shift {
         margin-left: auto;
+    }
+
+    .nav:not(.l)>li.shift>ul, .nav:not(.l)>li.shift~li>ul {
+        left: auto;
+        right: 0;
     }
 
     .stick {
