@@ -1,4 +1,4 @@
-/*! d1css v1.1.40 */
+/*! d1css v1.1.41 */
 (function(window, document, Element) {
     "use strict";
     //module name
@@ -200,9 +200,9 @@
  //ctrl+z
                                 if (e.keyCode == 27 || e.button === 0) {
                     //escape or click with no active ancestor
-                    if (e.keyCode || this.ancestor("a.close", e.target) || !this.ancestor("a, .hide, .nav, .pop>div, .drawer", e.target)) {
+                    if (e.keyCode || this.ancestor("a.close", e.target) || !this.ancestor("a, .hide, .nav, .pop>div, .drawer, .unesc", e.target)) {
                         this.b("", this.escapable, "", this.hide);
-                        location.hash = "#cancel";
+                        if (location.hash.length > 0) location.hash = "#cancel";
                     }
                 }
             };
