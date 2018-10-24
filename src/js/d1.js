@@ -236,10 +236,10 @@ var main = new(function() {
 			//escape or click with no active ancestor
 			if( e.keyCode 
 				|| this.ancestor("a.close", e.target)
-				|| !this.ancestor("a, .hide, .nav, .pop>div, .drawer", e.target)
+				|| !this.ancestor("a, .hide, .nav, .pop>div, .drawer, .unesc", e.target)
 			) {
 				this.b("", this.escapable, "", this.hide);
-				location.hash = "#cancel";
+				if(location.hash.length > 0) location.hash = "#cancel";
 			}
 		}
 	}
