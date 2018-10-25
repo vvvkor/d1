@@ -4,12 +4,9 @@
 	
 	"use strict";
 
-	//module name
-	var name = "d1";
-
 	//check single instance
-	if (window && window[name]) {
-		console.log(name + " already included");
+	if (window && window.d1) {
+		console.log("d1 already included");
 	}
 	else {
 
@@ -26,15 +23,17 @@ var main = new(function() {
 
 	//common
 
-	this.run = function(func) {
-		//console.log("run", func ||"d1");
-		if (document.addEventListener //ie9
-			&& ("classList" in document.createElement("p")) //ie10
-		) {
-			this.b("", [document], "DOMContentLoaded", func || this.init);
-		}
+	this.load = function(obj, opt) {
+    if (!obj) obj = this;
+		this.b("", [document], "DOMContentLoaded", obj.init.bind(obj, opt));
 	}
 	
+	this.init = function(opt) {
+		if (location.hash == "#disable-js") return;
+		if (window && !Element.prototype.matches) Element.prototype.matches = Element.prototype.msMatchesSelector; //ie9+
+		this.refresh();
+	}
+  
 	this.q = function(s, i, n) {
 		if (!s) return i === undefined ? [] : null;
 		var f = (i === 0) ? "querySelector" : "querySelectorAll";
@@ -312,24 +311,18 @@ var main = new(function() {
 		this.b("", "a.ajax", "click", this.getAjax);
 	}
 
-	this.init = function() {
-		if (location.hash == "#disable-js") return;
-		if (!Element.prototype.matches) Element.prototype.matches = Element.prototype.msMatchesSelector; //ie9+
-		this.refresh();
-	}
 })();
 
 
 // end module
 
 		if (typeof module !== "undefined") {
-			//console.log("npm require " + name);
-			module.exports/*[name]*/ = main;
+			//console.log("npm require d1", module);
+			module.exports = main;
 		}
 		else if(window) {
-			//console.log("browser include " + name);
-			window[name] = main;
-			//main.run();
+			//console.log("browser include d1");
+			window.d1 = main;
 		}
 	}
 
