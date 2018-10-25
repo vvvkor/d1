@@ -1296,26 +1296,28 @@ wwwwwwwwwww1wwwwwwwwwwwwwww2wwwwwwwwwwwww3wwwwwwwwwwwwww4wwwwwwwwwwwwww5wwwwwwww
 
 	<h2 id="addons">Add-ons</h2>
 	
-	<h3 id="dialog">Dialog</h3>
+	<h3 id="dialog"><a href="https://github.com/vvvkor/d1dialog">Dialog</a></h3>
 	
 	<p>Replacement for standard Javascript dialogs.</p>
 
-	<ul>
-		<li><a href="?">Reset</a>
-		<li><a href="#done" class="alert" title="Hello!">Alert</a>
-		<li><a href="?x=1&count=2" class="dialog" title="Continue?">Confirm link</a>
-		<li><a href="#go" class="dialog" title="Continue?">Confirm hash</a>
-		<li><a href="?x=1&count=привет&y=q" class="dialog text-w" data-prompt="count" data-caption="Quantity:" data-ok="Fine" data-cancel="No way">Prompt link</a>
-		<!--li><a href="#go" class="dialog text-w" data-prompt="count" data-caption="Quantity:">Prompt hash</a-->
-		<li><form method="get" action="?" class="ib">
-			<input type="text" name="nm" id="nm" value="qq" required pattern="[A-Za-z]{2,}" title="Two or more letters">
-			<input type="submit" value="OK">
-			<input type="submit" value="Confirm form" class="dialog bg-w" title="Warning!">
-			<a href="?nm=" class="dialog" data-prompt="nm" data-caption="Name:" data-src="#nm">Prompt from input</a>
-			</form>
-	</ul>
+<div id="s-dialog">
+<p>
+	<a href="#done" class="alert" title="Hello!">Alert</a>,
+	<a href="?a=1&b=2" class="dialog" title="Continue?">Confirm link</a>,
+	<a href="#go" class="dialog" title="Continue?">Confirm hash</a>,
+	<a href="?a=1&b=привет&c=3" class="dialog text-w" data-prompt="b" data-caption="Quantity:" data-ok="Fine" data-cancel="No way">Prompt link</a>.
+</p>
+<form>
+	<input type="text" name="nm" id="nm" value="qq" required pattern="[A-Za-z]{2,}" title="Two or more letters">
+	<input type="submit" value="OK">
+	<input type="submit" value="Confirm form" class="dialog bg-w" title="Warning!">
+	<a href="?nm=" class="dialog" data-prompt="nm" data-caption="Name:" data-src="#nm">Prompt from input</a>
+</form>
+</div>
 
-	<h3 id="calendar">Calendar</h3>
+	<pre data-src="#s-dialog"></pre>
+
+	<h3 id="calendar"><a href="https://github.com/vvvkor/d1calendar">Calendar</a></h3>
 	
 	<p>Replacement of standard HTML date inputs.
 	
@@ -1329,32 +1331,35 @@ wwwwwwwwwww1wwwwwwwwwwwwwww2wwwwwwwwwwwww3wwwwwwwwwwwwww4wwwwwwwwwwwwww5wwwwwwww
 	</form>
 	
 	
-	<div class="hide" id="s-calendar">
-		<input class="calendar" type="date">
-		<input class="calendar datetime" type="datetime-local" data-def="2001-02-03T04:05:06" min="2001-02-02T10:00" max="2001-02-15T20:00">
-	</div>
-	<pre class="hide" data-src="#s-calendar"></pre>
+<pre data-src="#s-calendar">
+&lt;input class="calendar" type="date"&gt;
+&lt;input class="calendar datetime" type="datetime-local" data-def="2001-02-03T04:05:06" min="2001-02-02T10:00" max="2001-02-15T20:00"&gt;
+</pre>
 
-	<h3 id="tablex">Tablex</h3>
+	<h3 id="tablex"><a href="https://github.com/vvvkor/d1tablex">Tablex</a></h3>
 	
 	<p>Filter and sort HTML table.
 	
-	<p><input name="q" value="" type="search" id="srch" placeholder="filter table" autocomplete="off"> <span id="rep"></span></p>
-	<table class="sort" data-filter="#srch" data-filter-report="#rep" data-filter-cols="0 2 4" data-case>
-		<!--caption>Table caption</caption-->
-		<thead>
-		<tr><th>String<th>Number<th>Bytes<th>Interval<th>Date
-		<tbody>
-		<tr><td>beta<td>.001<td>9 b<td>1y<td>2.1.2018
-		<tr><td>Alpha<td>9<td>10 kb<td>2m<td>1/15/2018
-		<tr><td>kappa<td>123<td>2KB<td>4 h<td>2018-01-05
-		<tr><td>Gamma<td>12.3<td>1 MB<td>3d<td>21.01.2018
-		</tbody>
-		<tfoot>
-		<tr><th>Totals<th>144.301<th>1.1 MB<th>1y 2m 3d 4h<th>-
-	</table>
+<div id="s-tablex">
+<p>
+	<input name="q" value="" type="search" id="srch" placeholder="filter table" autocomplete="off">
+	<span id="rep"></span>
+</p>
+<table class="sort" data-filter="#srch" data-filter-report="#rep" data-filter-cols="0 2 4" data-case>
+	<thead>
+	<tr><th>String<th>Number<th>Bytes<th>Interval<th>Date
+	<tbody>
+	<tr><td>beta<td>.001<td>9 b<td>1y<td>2.1.2018
+	<tr><td>Alpha<td>9<td>10 kb<td>2m<td>1/15/2018
+	<tr><td>kappa<td>123<td>2KB<td>4 h<td>2018-01-05
+	<tr><td>Gamma<td>12.3<td>1 MB<td>3d<td>21.01.2018
+	</tbody>
+	<tfoot>
+	<tr><th>Totals<th>144.301<th>1.1 MB<th>1y 2m 3d 4h<th>-
+</table>
+</div>
 
-
+	<pre data-src="#s-tablex"></pre>
 
  </div>
 </div>
