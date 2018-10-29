@@ -24,7 +24,7 @@ It aims to implement most widely used interface components with less code.
 
 ## Add-ons
 
-* [d1calendar](https://github.com/vvvkor/d1calendar) - replaces standard HTML ``date`` and ``datetime-local`` inputs with custom dropdown calendar
+* [d1calendar](https://github.com/vvvkor/d1calendar) replaces standard HTML ``date`` and ``datetime-local`` inputs with custom dropdown calendar
 * [d1dialog](https://github.com/vvvkor/d1dialog) replaces standard Javascript dialogs: ``alert``, ``confirm``, ``prompt``
 * [d1tablex](https://github.com/vvvkor/d1tablex) makes HTML table searchable and sortable
 
@@ -39,7 +39,7 @@ It aims to implement most widely used interface components with less code.
 <!-- optional -->
 <script src="https://cdn.jsdelivr.net/npm/d1css@1/dist/d1.min.js"></script>
 <script>
-  d1.run();
+  d1.load();
 </script>
 ```
 
@@ -50,7 +50,7 @@ It aims to implement most widely used interface components with less code.
 <!-- optional -->
 <script src="https://gitcdn.link/repo/vvvkor/d1/master/dist/d1.min.js"></script>
 <script>
-  d1.run();
+  d1.load();
 </script>
 ```
 
@@ -67,7 +67,7 @@ Then use in your CSS file:
 And optionally bundle into your JavaScript file:
 ```javascript
 var d1 = require("d1css");
-d1.run();
+d1.load();
 ```
 
 ### Install manually
@@ -79,7 +79,7 @@ Download minified [d1 files](https://github.com/vvvkor/d1/tree/master/dist).
 <!-- optional -->
 <script src="d1.min.js"></script>
 <script>
-  d1.run();
+  d1.load();
 </script>
 ```
 
