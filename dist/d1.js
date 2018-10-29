@@ -1,4 +1,4 @@
-/*! d1css v1.1.48 */
+/*! d1css v1.1.50 */
 (function(window, document, Element) {
     "use strict";
     //check single instance
@@ -8,6 +8,9 @@
         // begin module
         var main = new function() {
             "use strict";
+            this.opt = {
+                hashCancel: "#cancel"
+            };
             this.togglable = ".hide.toggle[id], .pop>div.toggle[id], ul.toggle ul[id], .tabs>.hide[id]";
             this.escapable = ".pop>div, ul.nav.toggle ul, .esc";
             this.mem = ".mem, .tabs.mem>.hide, ul.mem ul[id]";
@@ -137,7 +140,7 @@
                                         if (e && e.type == "click") {
                         e.preventDefault();
                         if (!n.matches(this.unhover)) {
-                            if (on) this.addHistory("#" + n.id); else location.hash = "#cancel";
+                            if (on) this.addHistory("#" + n.id); else location.hash = this.opt.hashCancel;
                         }
                     }
                 }
@@ -204,7 +207,7 @@
                     //escape or click with no active ancestor
                     if (e.keyCode || this.ancestor("a.close", e.target) || !this.ancestor("a, .hide, .nav, .pop>div, .drawer, .unesc", e.target)) {
                         this.b("", this.escapable, "", this.hide);
-                        if (location.hash.length > 0) location.hash = "#cancel";
+                        if (location.hash.length > 0) location.hash = this.opt.hashCancel;
                     }
                 }
             };

@@ -16,6 +16,10 @@ var main = new(function() {
 
   "use strict";
 
+  this.opt = {
+    hashCancel: '#cancel',
+  };
+  
   this.togglable = ".hide.toggle[id], .pop>div.toggle[id], ul.toggle ul[id], .tabs>.hide[id]";
   this.escapable = ".pop>div, ul.nav.toggle ul, .esc";
   this.mem = ".mem, .tabs.mem>.hide, ul.mem ul[id]";
@@ -164,7 +168,7 @@ var main = new(function() {
         e.preventDefault();
         if (!n.matches(this.unhover)) {
           if (on) this.addHistory("#" + n.id);
-          else location.hash = "#cancel";
+          else location.hash = this.opt.hashCancel;
         }
       }
     }
@@ -238,7 +242,7 @@ var main = new(function() {
         || !this.ancestor("a, .hide, .nav, .pop>div, .drawer, .unesc", e.target)
       ) {
         this.b("", this.escapable, "", this.hide);
-        if(location.hash.length > 0) location.hash = "#cancel";
+        if(location.hash.length > 0) location.hash = this.opt.hashCancel;
       }
     }
   }
