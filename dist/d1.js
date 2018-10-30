@@ -230,8 +230,35 @@
                         if (callback) callback(this, node, e);
                     } else console.error("XHTTP request failed", this);
                 });
-                x.open("GET", url + "?t=" + new Date().getTime());
+                x.open("GET", url /* + "?t=" + (new Date()).getTime()*/);
                 x.send();
+            }
+            //common
+            //after: 0 = appendChild, 1 = siblingAfter
+            ;
+            this.ins = function(tag, t, attrs, n, after) {
+                var c = document.createElement(tag || "span");
+                if (t) c.innerHTML = t;
+ //c.appendChild(document.createTextNode(t||''));
+                                if (attrs) {
+                    for (var i in attrs) c[i] = attrs[i];
+                }
+                return n ? after ? n.parentNode.insertBefore(c, n.nextSibling) : n.appendChild(c) : c;
+            };
+            this.svg = function(i, c, alt) {
+                if (!document.getElementById(i)) return this.ins("span", alt, {
+                    className: c || ""
+                });
+                return d1.ins("span", '<svg class="icon ' + (c || "") + '" width="24" height="24"><use xlink:href="#' + i + '"></use></svg>');
+            };
+            this.arg = function(u, a) {
+                var i = 0, k, s;
+                for (k in a) {
+                    s = !i && u.indexOf("?") == -1 ? "?" : "&";
+                    u += s + k + "=" + a[k];
+                    i++;
+                }
+                return u;
             }
             //run
             ;

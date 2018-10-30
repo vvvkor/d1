@@ -356,6 +356,7 @@ input[type="range"] {
     left: 0;
     top: 100%;
     min-width: 12em;
+    max-width: 80vw;
 }
 
 .nav ul ul {
@@ -364,7 +365,6 @@ input[type="range"] {
 }
 
 .pop>div {
-    padding: var(--gap-s) var(--gap-n);
 }
 
 .dlg {
