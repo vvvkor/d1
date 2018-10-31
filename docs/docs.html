@@ -121,15 +121,17 @@ todo
 		}
 	</script>
 	
-	<!-- sdd-ons -->
+	<!-- add-ons -->
 	<script src="https://cdn.jsdelivr.net/npm/d1dialog/d1dialog.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d1calendar/d1calendar.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d1tablex/d1tablex.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/d1lookup/d1lookup.min.js"></script>
 	<script>
 		document.addEventListener('DOMContentLoaded',function(){
 			d1dialog.init({hashCancel:'#wtf'});
 			d1calendar.init({dateFormat:'d', strNow: 'now', strPrev: '-', strNext: '+'});
 			d1tablex.init({cDesc: 'bg-i'});
+			d1lookup.init({listId: 'found-items'});
 		}, false);
 	</script>
 </head>
@@ -184,6 +186,7 @@ todo
 			<li><a href="#dialog">Dialog</a>
 			<li><a href="#calendar">Calendar</a>
 			<li><a href="#tablex">Tablex</a>
+			<li><a href="#lookup">Lookup</a>
 			</ul>
 	</ul>
 </div></div>
@@ -1360,6 +1363,16 @@ wwwwwwwwwww1wwwwwwwwwwwwwww2wwwwwwwwwwwww3wwwwwwwwwwwwww4wwwwwwwwwwwwww5wwwwwwww
 </div>
 
 	<pre data-src="#s-tablex"></pre>
+
+	<h3 id="lookup"><a href="https://github.com/vvvkor/d1lookup">Lookup</a></h3>
+	
+	<p>Autocomplete lookups with data from XHTTP request.
+	
+<div id="s-lookup">
+<input type="text" name="id" value="1" data-lookup="data.json?q={q}" data-label="User One" data-url="/users/{id}">
+</div>
+
+	<pre data-src="#s-lookup"></pre>
 
  </div>
 </div>

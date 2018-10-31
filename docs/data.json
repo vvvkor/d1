@@ -1,0 +1,26 @@
+{
+	"time": 1540892417713,
+	"seq": 1,
+	"request": {
+		"method": "lookup",
+		"table": "sec",
+		"value": "sof"
+	},
+	"data": [
+		{
+			"value": "1",
+			"label": "One",
+			"info": "#1, /one/"
+		},
+		{
+			"value": "2",
+			"label": "Two",
+			"info1": "#2, /two/"
+		},
+		{
+			"value": "4",
+			"label": "Four",
+			"info": "#4, /four/"
+		}
+	]
+}
