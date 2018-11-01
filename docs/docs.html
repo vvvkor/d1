@@ -34,8 +34,8 @@ todo
 	-->
 	
 	<!-- CDN -->
-	<link href="https://cdn.jsdelivr.net/npm/d1css@1.1.53/dist/d1.raw.css" rel="stylesheet" id="cdn-css">
-	<!--script src="https://cdn.jsdelivr.net/npm/d1css@1.1.53/dist/d1.min.js"></script-->
+	<link href="https://cdn.jsdelivr.net/npm/d1css@1.1.54/dist/d1.raw.css" rel="stylesheet" id="cdn-css">
+	<!--script src="https://cdn.jsdelivr.net/npm/d1css@1.1.54/dist/d1.min.js"></script-->
 	<!-- local -->
 	<!--
 	<link href="../src/css/d1.css" rel="stylesheet">
@@ -50,7 +50,7 @@ todo
 			if(local){
 				//override cdn style with local
 				var link = document.createElement('link');
-				link.href = local ? '../src/css/d1.css' : 'https://cdn.jsdelivr.net/npm/d1css@1.1.53/dist/d1.raw.css';
+				link.href = local ? '../src/css/d1.css' : 'https://cdn.jsdelivr.net/npm/d1css@1.1.54/dist/d1.raw.css';
 				link.rel = 'stylesheet';
 				document.getElementsByTagName( "head" )[0].appendChild( link );
 				console.log('css: ' + link.href);
@@ -63,7 +63,7 @@ todo
 			//add script (local/cdn)
 			var script = document.createElement('script');
 			script.onload = function(){ d1.init(); };
-			script.src = local ? '../src/js/d1.js' : 'https://cdn.jsdelivr.net/npm/d1css@1.1.53/dist/d1.min.js';
+			script.src = local ? '../src/js/d1.js' : 'https://cdn.jsdelivr.net/npm/d1css@1.1.54/dist/d1.min.js';
 			console.log('js: ' + script.src);
 			var s1 = document.head.querySelector('script');
 			if(s1) document.head.insertBefore(script, s1);
@@ -126,7 +126,7 @@ todo
 	</script>
 	
 	<!-- add-ons -->
-	<script src="https://cdn.jsdelivr.net/npm/d1css@1.1.53/dist/d1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/d1css@1.1.54/dist/d1.min.js"></script>
 	<!--script src="../src/js/d1.js"></script-->
 	<script src="https://cdn.jsdelivr.net/npm/d1dialog/d1dialog.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d1calendar/d1calendar.min.js"></script>
@@ -222,9 +222,9 @@ d1.load();</pre>
 <p>To use from CDN just add following code to the <code>head</code> of your page.
 
 <pre>
-&lt;link href="https://cdn.jsdelivr.net/npm/d1css@1.1.53/dist/d1.min.css" rel="stylesheet"&gt;
+&lt;link href="https://cdn.jsdelivr.net/npm/d1css@1.1.54/dist/d1.min.css" rel="stylesheet"&gt;
 &lt;!-- optional --&gt;
-&lt;script src="https://cdn.jsdelivr.net/npm/d1css@1.1.53/dist/d1.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/d1css@1.1.54/dist/d1.min.js"&gt;&lt;/script&gt;
 &lt;script&gt; d1.load(); &lt;/script&gt;
 </pre>
 
@@ -1350,7 +1350,6 @@ wwwwwwwwwww1wwwwwwwwwwwwwww2wwwwwwwwwwwww3wwwwwwwwwwwwww4wwwwwwwwwwwwww5wwwwwwww
 	
 	<p>Filter and sort HTML table.
 	
-<div id="s-tablex">
 <p>
 	<input name="q" value="" type="search" id="srch" placeholder="filter table" autocomplete="off">
 	<span id="rep"></span>
@@ -1358,6 +1357,7 @@ wwwwwwwwwww1wwwwwwwwwwwwwww2wwwwwwwwwwwww3wwwwwwwwwwwwww4wwwwwwwwwwwwww5wwwwwwww
 <table class="sort" data-filter="#srch" data-filter-report="#rep" data-filter-cols="0 2 4" data-case>
 	<thead>
 	<tr><th>String<th>Number<th>Bytes<th>Interval<th>Date
+	</thead>
 	<tbody>
 	<tr><td>beta<td>.001<td>9 b<td>1y<td>2.1.2018
 	<tr><td>Alpha<td>9<td>10 kb<td>2m<td>1/15/2018
@@ -1366,10 +1366,27 @@ wwwwwwwwwww1wwwwwwwwwwwwwww2wwwwwwwwwwwww3wwwwwwwwwwwwww4wwwwwwwwwwwwww5wwwwwwww
 	</tbody>
 	<tfoot>
 	<tr><th>Totals<th>144.301<th>1.1 MB<th>1y 2m 3d 4h<th>-
+	</tfoot>
 </table>
-</div>
 
-	<pre data-src="#s-tablex"></pre>
+<pre>&lt;p&gt;
+  &lt;input name="q" value="" type="search"
+    id="table-filter"
+    placeholder="filter table"
+    autocomplete="off"&gt;
+  &lt;span id="filter-report"&gt;&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;table class="sort" 
+       data-filter="#table-filter"
+       data-filter-report="#filter-report"
+       data-filter-cols="0 2 4"
+       data-case&gt;
+  &lt;thead&gt;&lt;tr&gt;&lt;th&gt;...
+  &lt;tbody&gt;&lt;tr&gt;&lt;td&gt;...
+  &lt;tfoot&gt;&lt;tr&gt;&lt;th&gt;...
+&lt;/table&gt;
+</pre>
 
 	<h3 id="lookup"><a href="https://github.com/vvvkor/d1lookup">Lookup</a></h3>
 	
