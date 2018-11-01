@@ -1,4 +1,4 @@
-/*! d1css v1.1.50 https://github.com/vvvkor/d1 */
+/*! d1css v1.1.53 https://github.com/vvvkor/d1 */
 
 :root {
 }
@@ -164,7 +164,7 @@ table {
 }
 
 th, td {
-    padding: .2em .5em;
+    padding: .25em .5em;
     text-align: left;
     vertical-align: top;
     background-clip: padding-box;
@@ -281,7 +281,7 @@ input[type="range"] {
     display: block !important;
 }
 
-.nav {
+ul.nav {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
@@ -297,7 +297,7 @@ input[type="range"] {
     left: 3em;
 }
 
-.nav, .nav ul {
+ul.nav, .nav ul {
     list-style: none;
     padding: 0;
     margin: 0;

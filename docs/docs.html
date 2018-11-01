@@ -34,8 +34,8 @@ todo
 	-->
 	
 	<!-- CDN -->
-	<link href="https://cdn.jsdelivr.net/npm/d1css@1.1.50/dist/d1.raw.css" rel="stylesheet" id="cdn-css">
-	<!--script src="https://cdn.jsdelivr.net/npm/d1css@1.1.50/dist/d1.min.js"></script-->
+	<link href="https://cdn.jsdelivr.net/npm/d1css@1.1.53/dist/d1.raw.css" rel="stylesheet" id="cdn-css">
+	<!--script src="https://cdn.jsdelivr.net/npm/d1css@1.1.53/dist/d1.min.js"></script-->
 	<!-- local -->
 	<!--
 	<link href="../src/css/d1.css" rel="stylesheet">
@@ -44,12 +44,13 @@ todo
 	<!--script> d1.load(); </script-->
 	
 	<script>
+		/*
 		window.addEventListener('DOMContentLoaded', function(){
 			var local = (location.href.indexOf('localhost')!=-1 || location.href.indexOf('file:')!=-1);
 			if(local){
 				//override cdn style with local
 				var link = document.createElement('link');
-				link.href = local ? '../src/css/d1.css' : 'https://cdn.jsdelivr.net/npm/d1css@1.1.50/dist/d1.raw.css';
+				link.href = local ? '../src/css/d1.css' : 'https://cdn.jsdelivr.net/npm/d1css@1.1.53/dist/d1.raw.css';
 				link.rel = 'stylesheet';
 				document.getElementsByTagName( "head" )[0].appendChild( link );
 				console.log('css: ' + link.href);
@@ -62,11 +63,14 @@ todo
 			//add script (local/cdn)
 			var script = document.createElement('script');
 			script.onload = function(){ d1.init(); };
-			script.src = local ? '../src/js/d1.js' : 'https://cdn.jsdelivr.net/npm/d1css@1.1.50/dist/d1.min.js';
+			script.src = local ? '../src/js/d1.js' : 'https://cdn.jsdelivr.net/npm/d1css@1.1.53/dist/d1.min.js';
 			console.log('js: ' + script.src);
-			document.head.appendChild(script);
+			var s1 = document.head.querySelector('script');
+			if(s1) document.head.insertBefore(script, s1);
+			else document.head.appendChild(script);
 		}, true);
-
+		*/
+		
 		//configurator
 		window.addEventListener('DOMContentLoaded', function(){//return;
 			var f = document.querySelector('#cfg');
@@ -122,12 +126,15 @@ todo
 	</script>
 	
 	<!-- add-ons -->
+	<script src="https://cdn.jsdelivr.net/npm/d1css@1.1.53/dist/d1.min.js"></script>
+	<!--script src="../src/js/d1.js"></script-->
 	<script src="https://cdn.jsdelivr.net/npm/d1dialog/d1dialog.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d1calendar/d1calendar.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d1tablex/d1tablex.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d1lookup/d1lookup.min.js"></script>
 	<script>
 		document.addEventListener('DOMContentLoaded',function(){
+			d1.init();
 			d1dialog.init({hashCancel:'#wtf'});
 			d1calendar.init({dateFormat:'d', strNow: 'now', strPrev: '-', strNext: '+'});
 			d1tablex.init({cDesc: 'bg-i'});
@@ -215,9 +222,9 @@ d1.load();</pre>
 <p>To use from CDN just add following code to the <code>head</code> of your page.
 
 <pre>
-&lt;link href="https://cdn.jsdelivr.net/npm/d1css@1.1.50/dist/d1.min.css" rel="stylesheet"&gt;
+&lt;link href="https://cdn.jsdelivr.net/npm/d1css@1.1.53/dist/d1.min.css" rel="stylesheet"&gt;
 &lt;!-- optional --&gt;
-&lt;script src="https://cdn.jsdelivr.net/npm/d1css@1.1.50/dist/d1.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/d1css@1.1.53/dist/d1.min.js"&gt;&lt;/script&gt;
 &lt;script&gt; d1.load(); &lt;/script&gt;
 </pre>
 
@@ -997,7 +1004,7 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 <h2 id="ajax">AJAX</h2>
 
 <div id="s-ajax">
-<a href="?x" class="ajax" data-target="#preview">Link</a>
+<a href="data.json" class="ajax" data-target="#preview">Link</a>
 <pre class="bg-i" id="preview">(preview)</pre>
 </div>
 	<pre class="hide" data-src="#s-ajax"></pre>
@@ -1427,6 +1434,9 @@ wwwwwwwwwww1wwwwwwwwwwwwwww2wwwwwwwwwwwww3wwwwwwwwwwwwww4wwwwwwwwwwwwww5wwwwwwww
 </symbol>
 <symbol id="svg-ok" viewBox="0 0 512 512">
 <path d="m477 162c0 7-2 14-8 19l-206 207l-39 39c-6 5-12 8-20 8c-7 0-14-3-19-8l-142-142c-6-6-8-12-8-20c0-7 2-14 8-19l38-39c6-5 12-8 20-8c7 0 14 3 19 8l84 84l188-188c5-5 12-8 19-8c8 0 14 3 20 8l38 39c6 6 8 12 8 20z"/>
+</symbol>
+<symbol id="edit" viewBox="0 0 512 512">
+<path d="m424 87c11 11 19 22 24 33c5 11 8 19 8 24c0 0 0 9 0 9c0 0-129 129-129 129c0 0-149 147-149 147c0 0-122 27-122 27c0 0 26-123 26-123c0 0 148-148 148-148c0 0 129-129 129-129c19-4 40 6 65 31m-253 328c0 0 12-13 12-13c0-15-9-31-26-48c-8-7-16-13-23-18c-8-4-14-6-18-6c0 0-7-1-7-1c0 0-12 12-12 12c0 0-9 41-9 41c10 5 17 11 24 17c8 9 14 17 18 25c0 0 41-9 41-9"/>
 </symbol>
 </svg> 
 

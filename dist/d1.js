@@ -1,4 +1,4 @@
-/*! d1css v1.1.50 */
+/*! d1css v1.1.53 */
 (function(window, document, Element) {
     "use strict";
     //check single instance

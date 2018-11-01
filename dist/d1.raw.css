@@ -1,4 +1,4 @@
-/*! d1css v1.1.50 https://github.com/vvvkor/d1 */
+/*! d1css v1.1.53 https://github.com/vvvkor/d1 */
 
 :root {
     --text: #222;
@@ -12,11 +12,14 @@
     --visited: #90c;
     --rad: .2;
     --gap: 1;
+    --gap-rate: .5;
     --radius: calc(var(--rad) * 1em);
     --gap-n: calc(var(--gap) * 1em);
     --gap-s: calc(var(--gap-n) * .5);
     --gap-xs: calc(var(--gap-n) * .2);
     --gap-l: calc(var(--gap-n) * 2);
+    --gaps-n: calc(var(--gap-n) * var(--gap-rate)) var(--gap-n);
+    --gaps-s: calc(var(--gap-s) * var(--gap-rate)) var(--gap-s);
 }
 
 button, input, select, textarea {
@@ -86,7 +89,7 @@ h1:first-child, h2:first-child, h3:first-child {
 }
 
 blockquote, pre, fieldset {
-    padding: var(--gap-s) var(--gap-n);
+    padding: var(--gaps-n);
 }
 
 pre, code {
@@ -180,7 +183,7 @@ table {
 }
 
 th, td {
-    padding: var(--gap-xs) var(--gap-s);
+    padding: var(--gaps-s);
     text-align: left;
     vertical-align: top;
     background-clip: padding-box;
@@ -221,7 +224,7 @@ input, button, select, textarea, .btn {
 }
 
 .btn, button, [type="submit"] {
-    padding: var(--gap-s) var(--gap-n);
+    padding: var(--gaps-n);
     border-radius: var(--radius);
     margin: var(--gap-xs) 0;
     border-color: transparent;
@@ -296,7 +299,7 @@ input[type="range"] {
     display: block !important;
 }
 
-.nav {
+ul.nav {
     display: flex;
     flex-wrap: wrap;
 }
@@ -310,7 +313,7 @@ input[type="range"] {
     left: 3em;
 }
 
-.nav, .nav ul {
+ul.nav, .nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -318,11 +321,11 @@ input[type="range"] {
 
 .nav li>:not(ul) {
     display: block;
-    padding: var(--gap-s) var(--gap-n);
+    padding: var(--gaps-n);
 }
 
 .nav li>form {
-    padding: calc(var(--gap-s) - var(--gap-xs)) var(--gap-n);
+    padding: calc(var(--gap-n) * var(--gap-rate) - var(--gap-xs)) var(--gap-n);
 }
 
 .nav li>a:nth-last-child(2):after {
@@ -558,7 +561,7 @@ div.hide {
 }
 
 div.bord, p.bord, div.bg, p.bg, div[class*="bg-"], p[class*="bg-"] {
-    padding: var(--gap-s) var(--gap-n);
+    padding: var(--gaps-n);
 }
 
 .row {
@@ -740,7 +743,7 @@ div.bord, p.bord, div.bg, p.bg, div[class*="bg-"], p[class*="bg-"] {
 }
 
 .pad {
-    padding: var(--gap-s) var(--gap-n);
+    padding: var(--gaps-n);
 }
 
 .bord {
