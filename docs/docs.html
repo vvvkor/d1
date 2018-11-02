@@ -34,8 +34,8 @@ todo
 	-->
 	
 	<!-- CDN -->
-	<link href="https://cdn.jsdelivr.net/npm/d1css@1.1.54/dist/d1.raw.css" rel="stylesheet" id="cdn-css">
-	<!--script src="https://cdn.jsdelivr.net/npm/d1css@1.1.54/dist/d1.min.js"></script-->
+	<link href="https://cdn.jsdelivr.net/npm/d1css@1.1.55/dist/d1.raw.css" rel="stylesheet" id="cdn-css">
+	<!--script src="https://cdn.jsdelivr.net/npm/d1css@1.1.55/dist/d1.min.js"></script-->
 	<!-- local -->
 	<!--
 	<link href="../src/css/d1.css" rel="stylesheet">
@@ -50,7 +50,7 @@ todo
 			if(local){
 				//override cdn style with local
 				var link = document.createElement('link');
-				link.href = local ? '../src/css/d1.css' : 'https://cdn.jsdelivr.net/npm/d1css@1.1.54/dist/d1.raw.css';
+				link.href = local ? '../src/css/d1.css' : 'https://cdn.jsdelivr.net/npm/d1css@1.1.55/dist/d1.raw.css';
 				link.rel = 'stylesheet';
 				document.getElementsByTagName( "head" )[0].appendChild( link );
 				console.log('css: ' + link.href);
@@ -63,7 +63,7 @@ todo
 			//add script (local/cdn)
 			var script = document.createElement('script');
 			script.onload = function(){ d1.init(); };
-			script.src = local ? '../src/js/d1.js' : 'https://cdn.jsdelivr.net/npm/d1css@1.1.54/dist/d1.min.js';
+			script.src = local ? '../src/js/d1.js' : 'https://cdn.jsdelivr.net/npm/d1css@1.1.55/dist/d1.min.js';
 			console.log('js: ' + script.src);
 			var s1 = document.head.querySelector('script');
 			if(s1) document.head.insertBefore(script, s1);
@@ -126,7 +126,7 @@ todo
 	</script>
 	
 	<!-- add-ons -->
-	<script src="https://cdn.jsdelivr.net/npm/d1css@1.1.54/dist/d1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/d1css@1.1.55/dist/d1.min.js"></script>
 	<!--script src="../src/js/d1.js"></script-->
 	<script src="https://cdn.jsdelivr.net/npm/d1dialog/d1dialog.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d1calendar/d1calendar.min.js"></script>
@@ -138,7 +138,7 @@ todo
 			d1dialog.init({hashCancel:'#wtf'});
 			d1calendar.init({dateFormat:'d', strNow: 'now', strPrev: '-', strNext: '+'});
 			d1tablex.init({cDesc: 'bg-i'});
-			d1lookup.init({listId: 'found-items'});
+			d1lookup.init({idList: 'found-items'});
 		}, false);
 	</script>
 </head>
@@ -190,10 +190,10 @@ todo
 		<li><a href="#ref">Reference</a>
 		<li><a href="#addons">Add-ons</a>
 			<ul>
-			<li><a href="#dialog">Dialog</a>
 			<li><a href="#calendar">Calendar</a>
-			<li><a href="#tablex">Tablex</a>
+			<li><a href="#dialog">Dialog</a>
 			<li><a href="#lookup">Lookup</a>
+			<li><a href="#tablex">Tablex</a>
 			</ul>
 	</ul>
 </div></div>
@@ -222,9 +222,9 @@ d1.load();</pre>
 <p>To use from CDN just add following code to the <code>head</code> of your page.
 
 <pre>
-&lt;link href="https://cdn.jsdelivr.net/npm/d1css@1.1.54/dist/d1.min.css" rel="stylesheet"&gt;
+&lt;link href="https://cdn.jsdelivr.net/npm/d1css@1.1.55/dist/d1.min.css" rel="stylesheet"&gt;
 &lt;!-- optional --&gt;
-&lt;script src="https://cdn.jsdelivr.net/npm/d1css@1.1.54/dist/d1.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/d1css@1.1.55/dist/d1.min.js"&gt;&lt;/script&gt;
 &lt;script&gt; d1.load(); &lt;/script&gt;
 </pre>
 
@@ -1004,8 +1004,10 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 <h2 id="ajax">AJAX</h2>
 
 <div id="s-ajax">
-<a href="data.json" class="ajax" data-target="#preview">Link</a>
+<a href="data.json" data-target="#preview">Load</a><br>
+<a href="data.json" data-target="#dlg-inner">Load in modal</a>
 <pre class="bg-i" id="preview">(preview)</pre>
+<div id="preview-dlg" class="hide full"><pre id="dlg-inner">(preview)</pre></div>
 </div>
 	<pre class="hide" data-src="#s-ajax"></pre>
 
@@ -1215,7 +1217,7 @@ most important:
 <tr><td>.row<td><a href="#grid">Grid</a><td>.col-0 div .col-2 .col-3<td>.flip .wrap .read .narrow .shift .stick
 <tr><td>.roll<td>Horizontal scroll<td><a href="#table">table</a>.hover<td>
 <tr><td>button<td><a href="#button">Button</a><td><a href="#form">form</a> .drop submit button a span<td>.bg-
-<tr><td>.nav<td><a href="#nav">Navigation</a><td>ul<td>.act .flip .shift .topbar .ajax .l
+<tr><td>.nav<td><a href="#nav">Navigation</a><td>ul<td>.act .flip .shift .topbar [data-target] .l
 <tr><td>.drawer<td><a href="#drawer">Drawer</a><td>div<td>.close .fix .r .l
 <tr><td>.flip<td>Responsive<td>.row .nav<td>
 <tr><td>.hide<td><a href="#toggle">Togglable</a><td>div ul .close<td>.pop .dlg .full.c .tabs .show-mobile .show-desktop
@@ -1241,7 +1243,7 @@ most important:
 <div id="ref-alpha" class="hide toggle mem">
 <ol>
 <li><code>.act</code> &mdash; active link
-<li><code>.ajax</code> &mdash; asynchronous request
+<li><code>[data-target]</code> &mdash; asynchronous request
 <li><code>.bg</code> &mdash; light background
 <li><code>.bg-e</code> &mdash; nominal "red" background
 <li><code>.bg-i</code> &mdash; nominal "blue" background 
@@ -1306,27 +1308,6 @@ wwwwwwwwwww1wwwwwwwwwwwwwww2wwwwwwwwwwwww3wwwwwwwwwwwwww4wwwwwwwwwwwwww5wwwwwwww
 
 	<h2 id="addons">Add-ons</h2>
 	
-	<h3 id="dialog"><a href="https://github.com/vvvkor/d1dialog">Dialog</a></h3>
-	
-	<p>Replacement for standard Javascript dialogs.</p>
-
-<div id="s-dialog">
-<p>
-	<a href="#done" class="alert" title="Hello!">Alert</a>,
-	<a href="?a=1&b=2" class="dialog" title="Continue?">Confirm link</a>,
-	<a href="#go" class="dialog" title="Continue?">Confirm hash</a>,
-	<a href="?a=1&b=привет&c=3" class="dialog text-w" data-prompt="b" data-caption="Quantity:" data-ok="Fine" data-cancel="No way">Prompt link</a>.
-</p>
-<form>
-	<input type="text" name="nm" id="nm" value="qq" required pattern="[A-Za-z]{2,}" title="Two or more letters">
-	<input type="submit" value="OK">
-	<input type="submit" value="Confirm form" class="dialog bg-w" title="Warning!">
-	<a href="?nm=" class="dialog" data-prompt="nm" data-caption="Name:" data-src="#nm">Prompt from input</a>
-</form>
-</div>
-
-	<pre data-src="#s-dialog"></pre>
-
 	<h3 id="calendar"><a href="https://github.com/vvvkor/d1calendar">Calendar</a></h3>
 	
 	<p>Replacement of standard HTML date inputs.
@@ -1345,6 +1326,38 @@ wwwwwwwwwww1wwwwwwwwwwwwwww2wwwwwwwwwwwww3wwwwwwwwwwwwww4wwwwwwwwwwwwww5wwwwwwww
 &lt;input class="calendar" type="date"&gt;
 &lt;input class="calendar datetime" type="datetime-local" data-def="2001-02-03T04:05:06" min="2001-02-02T10:00" max="2001-02-15T20:00"&gt;
 </pre>
+
+
+	<h3 id="dialog"><a href="https://github.com/vvvkor/d1dialog">Dialog</a></h3>
+	
+	<p>Replacement for standard Javascript dialogs.</p>
+
+<div id="s-dialog">
+<p>
+	<a href="#done" class="alert" title="Hello!">Alert</a>,
+	<a href="?a=1&b=2" class="dialog" title="Continue?">Confirm link</a>,
+	<a href="#go" class="dialog" title="Continue?">Confirm hash</a>,
+	<a href="?a=1&b=привет&c=3" class="dialog text-w" data-prompt="b" data-caption="Quantity:" data-ok="Fine" data-cancel="No way">Prompt link</a>.
+</p>
+<form>
+	<input type="text" name="nm" id="nm" value="qq" required pattern="[A-Za-z]{2,}" title="Two or more letters">
+	<input type="submit" value="OK">
+	<input type="submit" value="Confirm form" class="dialog bg-w" title="Warning!">
+	<a href="?nm=" class="dialog" data-prompt="nm" data-caption="Name:" data-src="#nm">Prompt from input</a>
+</form>
+</div>
+	<pre data-src="#s-dialog"></pre>
+
+
+	<h3 id="lookup"><a href="https://github.com/vvvkor/d1lookup">Lookup</a></h3>
+	
+	<p>Autocomplete lookups with data from XHTTP request.
+	
+<div id="s-lookup">
+<input type="text" name="id" value="1" data-lookup="data.json?q={q}" data-label="User One" data-url="/users/{id}">
+</div>
+	<pre data-src="#s-lookup"></pre>
+
 
 	<h3 id="tablex"><a href="https://github.com/vvvkor/d1tablex">Tablex</a></h3>
 	
@@ -1387,16 +1400,6 @@ wwwwwwwwwww1wwwwwwwwwwwwwww2wwwwwwwwwwwww3wwwwwwwwwwwwww4wwwwwwwwwwwwww5wwwwwwww
   &lt;tfoot&gt;&lt;tr&gt;&lt;th&gt;...
 &lt;/table&gt;
 </pre>
-
-	<h3 id="lookup"><a href="https://github.com/vvvkor/d1lookup">Lookup</a></h3>
-	
-	<p>Autocomplete lookups with data from XHTTP request.
-	
-<div id="s-lookup">
-<input type="text" name="id" value="1" data-lookup="data.json?q={q}" data-label="User One" data-url="/users/{id}">
-</div>
-
-	<pre data-src="#s-lookup"></pre>
 
  </div>
 </div>

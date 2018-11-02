@@ -264,7 +264,11 @@ var main = new(function() {
     var ref = this;
     if (node || callback) x.addEventListener("load", function(e) {
       if (this.status == "200") {
-        if (node) node.innerHTML = this.responseText;
+        if (node){
+          node.innerHTML = this.responseText;
+          var dlg = ref.ancestor('.dlg, .full', node);
+          if(dlg && dlg.id) location.hash = '#'+dlg.id;//ref.setState(dlg, 1);
+        }
         if (callback) callback(this, node, e);
       }
       else console.error("XHTTP request failed",this);
@@ -338,8 +342,8 @@ var main = new(function() {
     if (!n) this.b("", [window], "keydown", this.esc);
     //close on click out
     if (!n) this.b("", "html, .close", "click", this.esc);//mousedown
-    //ajax [data-target]
-    this.b("", "a.ajax", "click", this.getAjax);
+    //[data-target]
+    this.b("", "a[data-target]", "click", this.getAjax);
   }
 
 })();
