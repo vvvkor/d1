@@ -26,6 +26,7 @@ It aims to implement most widely used interface components with less code.
 
 * [d1calendar](https://github.com/vvvkor/d1calendar) replaces standard HTML ``date`` and ``datetime-local`` inputs with custom dropdown calendar
 * [d1dialog](https://github.com/vvvkor/d1dialog) replaces standard Javascript dialogs: ``alert``, ``confirm``, ``prompt``
+* [d1lookup](https://github.com/vvvkor/d1lookup) autocompletes lookups with data from XHTTP request
 * [d1tablex](https://github.com/vvvkor/d1tablex) makes HTML table searchable and sortable
 
 ## Getting Started
