@@ -18,7 +18,6 @@ process:
 
 todo
 + css vars
-- demo drop
 - what is unique
 - use native html semantics
 - font var?
@@ -34,8 +33,9 @@ todo
 	-->
 	
 	<!-- CDN -->
-	<link href="https://cdn.jsdelivr.net/npm/d1css@1.1.56/dist/d1.raw.css" rel="stylesheet" id="cdn-css">
-	<!--script src="https://cdn.jsdelivr.net/npm/d1css@1.1.56/dist/d1.min.js"></script-->
+	<!--link href="d1.css" rel="stylesheet"-->
+	<link href="https://cdn.jsdelivr.net/npm/d1css@1.2.0/dist/d1.raw.css" rel="stylesheet" id="cdn-css">
+	<!--script src="https://cdn.jsdelivr.net/npm/d1css@1.2.0/dist/d1.min.js"></script-->
 	<!-- local -->
 	<!--
 	<link href="../src/css/d1.css" rel="stylesheet">
@@ -44,13 +44,29 @@ todo
 	<!--script> d1.load(); </script-->
 	
 	<script>
+		var prepareCode = function(n) {
+			var s = d1.q(n.getAttribute("data-src"), 0);
+			if(s){
+			  n.textContent = s.innerHTML.
+				replace(/^\s*\r?\n|\s+$/g, "").
+				replace(/\t/g, "  ").
+				replace(/=""/g, "");
+			  n.classList.remove("hide");
+			  /*
+			  n.classList.add("toggle");
+			  n.id = 'pre-' + s.id;
+			  var a = d1.ins('a', 'Sample', {href: '#' + n.id, className: 'bg-i'});
+			  n.parentNode.insertBefore(a, n);
+			  */
+			}
+		}
 		/*
 		window.addEventListener('DOMContentLoaded', function(){
 			var local = (location.href.indexOf('localhost')!=-1 || location.href.indexOf('file:')!=-1);
 			if(local){
 				//override cdn style with local
 				var link = document.createElement('link');
-				link.href = local ? '../src/css/d1.css' : 'https://cdn.jsdelivr.net/npm/d1css@1.1.56/dist/d1.raw.css';
+				link.href = local ? '../src/css/d1.css' : 'https://cdn.jsdelivr.net/npm/d1css@1.2.0/dist/d1.raw.css';
 				link.rel = 'stylesheet';
 				document.getElementsByTagName( "head" )[0].appendChild( link );
 				console.log('css: ' + link.href);
@@ -63,7 +79,7 @@ todo
 			//add script (local/cdn)
 			var script = document.createElement('script');
 			script.onload = function(){ d1.init(); };
-			script.src = local ? '../src/js/d1.js' : 'https://cdn.jsdelivr.net/npm/d1css@1.1.56/dist/d1.min.js';
+			script.src = local ? '../src/js/d1.js' : 'https://cdn.jsdelivr.net/npm/d1css@1.2.0/dist/d1.min.js';
 			console.log('js: ' + script.src);
 			var s1 = document.head.querySelector('script');
 			if(s1) document.head.insertBefore(script, s1);
@@ -125,14 +141,52 @@ todo
 		}
 	</script>
 	
-	<!-- add-ons -->
-	<script src="https://cdn.jsdelivr.net/npm/d1css@1.1.56/dist/d1.min.js"></script>
-	<!--script src="../src/js/d1.js"></script-->
+	<!-- plugins -->
+	<!--script src="d1bundle.js"></script-->
+	<!--
+	<script src="d1.js"></script>
+	<script src="d1dialog.js"></script>
+	<script src="d1gallery.js"></script>
+	<script src="d1tablex.js"></script>
+	<script src="d1calendar.js"></script>
+	<script src="d1lookup.js"></script>
+	<script src="d1edit.js"></script>
+	-->
+	<script src="https://cdn.jsdelivr.net/npm/d1css@1.2.0/dist/d1.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d1dialog/d1dialog.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/d1lookup/d1gallery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d1calendar/d1calendar.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d1tablex/d1tablex.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d1lookup/d1lookup.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/d1lookup/d1edit.min.js"></script>
 	<script>
+		d1.load(function(){
+			var ico = {
+				close: 'svg-close',
+				delete: 'svg-delete',
+				edit: 'svg-edit',
+				now: 'svg-ok',
+				date: 'svg-date',
+				prev: 'svg-left',
+				next: 'svg-right',
+				prev2: 'svg-first',
+				next2: 'svg-last'
+			}
+			
+			d1.b('', "pre[data-src]", "", prepareCode);
+			
+			d1.init({}, {}, /*{}*/ ico);
+
+			d1dialog.init();
+			d1gallery.init();
+			d1calendar.init();
+			d1lookup.init();
+			d1edit.init();
+			d1tablex.init();
+			
+		});
+	</script>
+	<!--script>
 		document.addEventListener('DOMContentLoaded',function(){
 			d1.init();
 			d1dialog.init({hashCancel:'#wtf'});
@@ -140,7 +194,7 @@ todo
 			d1tablex.init({cDesc: 'bg-i'});
 			d1lookup.init({idList: 'found-items'});
 		}, false);
-	</script>
+	</script-->
 </head>
 <body>
 
@@ -152,7 +206,7 @@ todo
 </div-->
 
 <div class="-pad row -wrap -center flip">
-<div class="stick pad -bg screen"><div class="pad">
+<div class="stick pad -bg hide-print"><div class="pad">
 
 	<p><a href="#top" class="text-n"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="102" height="82" >
 		<path d="M0 10Q 15 9 20 9C35 9 62.5 9 62.5 42C62.5 75 35 75 20 75Q15 75 0 74L0 80L20 80C35 80 70 80 70 42C70 4 35 4 20 4L0 4z"/>
@@ -188,10 +242,12 @@ todo
 		<!--li><a href="#blocks">Images and icons</a-->
 		<li><a href="#js">JS</a>
 		<li><a href="#ref">Reference</a>
-		<li><a href="#addons">Add-ons</a>
+		<li><a href="#plugins">Plugins</a>
 			<ul>
 			<li><a href="#calendar">Calendar</a>
 			<li><a href="#dialog">Dialog</a>
+			<li><a href="#edit">Edit</a>
+			<li><a href="#gallery">Gallery</a>
 			<li><a href="#lookup">Lookup</a>
 			<li><a href="#tablex">Tablex</a>
 			</ul>
@@ -222,15 +278,15 @@ d1.load();</pre>
 <p>To use from CDN just add following code to the <code>head</code> of your page.
 
 <pre>
-&lt;link href="https://cdn.jsdelivr.net/npm/d1css@1.1.56/dist/d1.min.css" rel="stylesheet"&gt;
+&lt;link href="https://cdn.jsdelivr.net/npm/d1css@1.2.0/dist/d1.min.css" rel="stylesheet"&gt;
 &lt;!-- optional --&gt;
-&lt;script src="https://cdn.jsdelivr.net/npm/d1css@1.1.56/dist/d1.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/d1css@1.2.0/dist/d1.min.js"&gt;&lt;/script&gt;
 &lt;script&gt; d1.load(); &lt;/script&gt;
 </pre>
 
 <h3>Install manually</h3>
 
-<p><a href="https://github.com/vvvkor/d1/archive/master.zip">Download from GitHub</a><span class="print">:<br> https://github.com/vvvkor/d1</span>
+<p><a href="https://github.com/vvvkor/d1/archive/master.zip">Download from GitHub</a><span class="hide-screen">:<br> https://github.com/vvvkor/d1</span>
 
 <p>Add following code to the <code>head</code> of your page:
 <pre>
@@ -315,6 +371,8 @@ By default, they all have equal width.
 <p>
 To stack columns on small screen, add <code>flip</code> class to the container.
 <p>
+To allow row wrapping add <code>l</code> class to the container.
+<p>
 To set various proportions, add following classes to the columns:
 <code>col-0</code> for minimal required width,
 <code>col-2</code> for double width,
@@ -367,6 +425,14 @@ Wrap your rows into <code>div</code> with <code>wrap</code> class to limit maxim
 		<div class="bg">div</div>
 		<div class="bg">div</div>
 	</div>
+	<div class="row l mar flip">
+		<div class="bg-i">aaaaaaaaaaaaaaa</div>
+		<div class="bg-i">bbbbbbbbbbbbbbbbbb</div>
+		<div class="bg-i">ccccccccccccccc</div>
+		<div class="bg-i">ddddddddddddddd</div>
+		<div class="bg-i">eeeeeeeeeeeeeeee</div>
+		<div class="bg-i">wwwwwwwwwwrap!</div>
+	</div>
 	
 	<pre class="hide" data-src="#s-grid"></pre>
 
@@ -388,20 +454,20 @@ Wrap table inside <code>div</code> with class <code>roll</code> to have independ
 		<tr>				<th>Dropdown	<td>H	<td>=/T	<td>-	<td>+	<td>
 		<tr>				<th>Tree		<td>tC	<td>=/T	<td>+	<td>-	<td><code>.accor<wbr>dion</code>
 		<tr>				<th>Toggle		<td>tC	<td>=/T	<td>+	<td>-	<td>
-		<tr>				<th>Popup		<td>HFtC<td>=/T<td>-	<td>+	<td>
+		<tr>				<th>Popup		<td>HtC	<td>=/T<td>-	<td>+	<td>
 		<tr>				<th>Tabs		<td>tC	<td>T	<td>+	<td>-	<td>
-		<!--tr class="bg-w">	<th>Tooltip		<td>HF	<td>HF	<td>-	<td>+	<td-->
-		<tr>				<th>Modal		<td>T	<td>=	<td>-	<td>=+	<td><code>.full</code>
-		<!--tr class="bg-w">	<th>Drawer		<td>T	<td>=	<td>	<td>	<td-->
-		<tr>				<th>Gallery		<td>T	<td>=	<td>-	<td>=+	<td>
+		<!--tr class="bg-w"><th>Tooltip		<td>HF	<td>HF	<td>-	<td>+	<td-->
+		<tr>				<th>Modal		<td>T	<td>=	<td>-	<td>(+)	<td><code>.full</code>
+		<tr>				<th>Drawer		<td>T	<td>=	<td>-	<td>(+)	<td>
+		<tr>				<th>Gallery		<td>T	<td>=	<td>-	<td>(+)	<td>
 		</tbody>
 	</table>
 	</div>
 	
-	<p class="bg-n">
+	<p class="pad bg-n">
 		<b>Legend</b><br>
 		H &mdash; <code>:hover</code><br>
-		F &mdash; <code>:focus</code><br>
+		<!--F &mdash; <code>:focus</code><br>-->
 		T &mdash; <code>:target</code> (t &mdash; with undesirable scroll)<br>
 		C &mdash; <code>:checked</code> (checkbox hack)
 	</p>
@@ -546,12 +612,9 @@ Table will become stacked on small screen.
 		<tr>
 			<td><label for="nm">Name</label>
 			<td><input type="text" name="nm" id="nm" required pattern="[A-Za-z]{2,}" title="Two or more letters">
-			<!--
-			set: 
-			<a href="#nm" data-value="test">test</a>,
-			<a href="#nm" data-value="default">default</a>
-			<a href="?val=~" class="prompt" title="Value" data-src="#nm">goto</a>
-			-->
+			<a href="#nm" data-value="test">Test</a>,
+			<a href="#nm" data-value="">Reset</a>
+			
 			
 		<tr><td colspan="2">
 		<fieldset>
@@ -661,12 +724,14 @@ Table will become stacked on small screen.
 <h3>Horizontal navbar</h3>
 
 <p>
-Just add <code>nav</code> class to unordered list.
+Just add <code>nav</code> class to unordered list.<br>
 <p>
-Add <code>shift</code> class to list item to shift (and following items) to the right.
+Add <code>shift</code> class to list item to shift (and following items) to the right.<br>
+<p>
+Add <code>hover</code> class to highlight item's background on hover.
 
 <div id="s-pagenav">
-<ul class="nav bg mar">
+<ul class="nav hover bg mar">
 	<li><b>Pages</b></li>
 	<li><a href="?p=1">1</a></li>
 	<li><a href="?p=2">2</a></li>
@@ -701,7 +766,7 @@ In this case, link's <code>href</code> must point to corresponding nested list's
 With JavaScript, nested lists are toggled on click.
 
 <div id="s-nav">
-<ul class="nav flip toggle bg">
+<ul class="nav hover flip toggle bg">
 	<li>
 		<a href="#">First</a>
 	</li>
@@ -735,14 +800,14 @@ With JavaScript, nested lists are toggled on click.
 
 <p>
 Following code shows how to collapse navigation to a single hamburger icon on small screen,
-and expand it to horizontal dropdown navbar on large screen.
+and expand it to horizontal dropdown navbar on large screen (add <code>flip</code> class).
 
 <div id="s-nav-hamb">
-<div class="hide show-mobile">
+<div class="hide-desktop">
 	<a href="#navi" class="pad hover" title="Menu">&equiv;</a>
 </div>
-<nav class="hide show-desktop toggle" id="navi">
-	<ul class="nav flip toggle bg">
+<nav class="hide-mobile toggle" id="navi">
+	<ul class="nav hover flip toggle bg">
 		<li>
 			<a href="#">First</a>
 		</li>
@@ -779,7 +844,9 @@ and expand it to horizontal dropdown navbar on large screen.
 <a class="pad hover" href="#drw">&equiv;</a>
 <div class="drawer r pad" id="drw">
 	<a class="close pad" href="#cancel">&times;</a>
+	<div class="l">
 	Demo drawer
+	</div>
 </div>
 </div>
 	<pre class="hide" data-src="#s-drawer"></pre>
@@ -807,7 +874,13 @@ Modals do not require such enhancements.
 <div id="s-popup">
 <div class="pop">
 	<a href="#pop">Popup</a>
-	<div id="pop" class="toggle pad">Pop</div>
+	<div id="pop" class="toggle pad">
+		Pop
+		<div class="pop">
+			<a href="#pops">Internal popup</a>
+			<div id="pops" class="toggle pad">Pops</div>
+		</div>
+	</div>
 </div>
 </div>
 	<pre class="hide" data-src="#s-popup"></pre>
@@ -817,7 +890,7 @@ Modals do not require such enhancements.
 
 <div id="s-toggle">
 <a href="#tog">Toggle</a>
-<div id="tog" class="hide bord yel toggle mem">Togglable</div>
+<div id="tog" class="hide pad bord yel toggle mem">Togglable</div>
 </div>
 	<pre class="hide" data-src="#s-toggle"></pre>
 
@@ -825,9 +898,9 @@ Modals do not require such enhancements.
 
 <div id="s-modal">
 <a href="#modal">Dialog</a>
-<div id="modal" class="hide dlg c">
+<div id="modal" class="hide dlg c pad">
 	<a class="close pad" href="#cancel">&times;</a>
-	Dialog
+	<p>Dialog</p>
 </div>
 </div>
 	<pre class="hide" data-src="#s-modal"></pre>
@@ -837,42 +910,35 @@ Modals do not require such enhancements.
 
 <div id="s-modal-full">
 <a href="#full">Fullscreen</a>
-<div id="full" class="hide full c">
+<div id="full" class="hide full c pad bg-w">
 	<a class="close pad" href="#cancel">&times;</a>
 	Full
 </div>
 </div>
 	<pre class="hide" data-src="#s-modal-full"></pre>
 
-<h3 id="gallery">Gallery</h3>
+<h3 id="gallery-pure">Gallery</h3>
 
 <div class="hide">
 	Hidden gallery: non-CSS fallback
 	<a href="http://vadimkor.ru/src/ir.png">#1</a>
-	<a href="http://vadimkor.ru/src/ir.png">#2</a>
-	<a href="http://vadimkor.ru/src/ir.png">#3</a>
+	<a href="http://vadimkor.ru/src/ig.png">#2</a>
+	<a href="http://vadimkor.ru/src/ib.png">#3</a>
 </div>
 
 <p>Pure CSS gallery is based on CSS variables.
 Images are lazy loaded.
 Next image is preloaded.
 Enter key press navigates to the next image.
-<i class="text-w">Not supported in IE</i>.
+<p>
+<i class="bg-w">Warning.</i> For IE support, use <code>background-image</code> instead of <code>--img</code> in <code>style</code> attribute. No lazy-loading in this case.
 
 <p><a href="#gal1">Open gallery</a>
+<div id="s-gal">
 <div class="gal">
-	<a id="gal1" href="#gal2" data-info="1/3 - ir.png" style="--img:url(http://vadimkor.ru/src/ir.png)"></a>
-	<a id="gal2" href="#gal3" data-info="2/3 - ig.png" style="--img:url(http://vadimkor.ru/src/ig.png)"></a>
-	<a id="gal3" href="#gal1" data-info="3/3 - ib.png" style="--img:url(http://vadimkor.ru/src/ib.png)"></a>
-	<a class="close" href="#cancel">&times;</a>
-</div>
-
-<div id="s-gal" class="hide">
-<a href="#pic1">Gallery</a>
-<div class="gal">
-	<a id="pic1" href="#pic2" data-info="Caption 1" style="--img:url(1.jpg)"></a>
-	<a id="pic2" href="#pic3" data-info="Caption 2" style="--img:url(2.jpg)"></a>
-	<a id="pic3" href="#pic1" data-info="Caption 3" style="--img:url(3.jpg)"></a>
+	<a id="gal1" href="#gal2" data-info="1/3 - Red" style="--img:url(ir.png)"></a>
+	<a id="gal2" href="#gal3" data-info="2/3 - Green" style="--img:url(ig.png)"></a>
+	<a id="gal3" href="#gal1" data-info="3/3 - Blue" style="--img:url(ib.png)"></a>
 	<a class="close" href="#cancel">&times;</a>
 </div>
 </div>
@@ -881,12 +947,12 @@ Enter key press navigates to the next image.
 <h3>Tabs</h3>
 
 <div id="s-tabs">
-<ul class="nav">
+<ul class="nav tabs toggle mem">
 	<li><a href="#tab1">Tab1</a></li>
 	<li><a href="#tab2">Tab2</a></li>
 	<li><a href="#tab3">Tab3</a></li>
 </ul>
-<div class="tabs mem bord">
+<div class="bord pad">
 	<div id="tab2" class="hide">2<br>2</div>
 	<div id="tab3" class="hide">3<br>3<br>3</div>
 	<div id="tab1" class="hide">1</div>
@@ -897,10 +963,14 @@ Enter key press navigates to the next image.
 <h3>Tree</h3>
 
 <div id="s-tree">
-<ul class="toggle mem">
+<ul class="toggle mem accordion">
 	<li><a href="#ul1">List 1</a>
 		<ul id="ul1">
-			<li>Item 1.1</li>
+			<li><a href="#ul11">Item 1.1</a></li>
+			<ul id="ul11">
+				<li>Item 1.1.1</li>
+				<li>Item 1.1.2</li>
+			</ul>
 			<li>Item 1.2</li>
 		</ul>
 	</li>
@@ -922,7 +992,7 @@ Enter key press navigates to the next image.
 <div id="s-details">
 <details class="mar">
 	<summary>Summary</summary>
-	<div class="bg">Details</div>
+	<div class="bg pad">Details</div>
 </details>
 </div>
 	<pre class="hide" data-src="#s-details"></pre>
@@ -951,7 +1021,7 @@ But it overcomes drawbacks of <a href="#toggle"><code>:target</code>-based toggl
 <div id="s-toggle2">
 <input type="checkbox" class="switch" id="tog2">
 <label for="tog2">Toggle 2</label>
-<div class="bord">Togglable 2</div>
+<div class="bord pad">Togglable 2</div>
 </div>
 	<pre class="hide" data-src="#s-toggle2"></pre>
 
@@ -962,15 +1032,15 @@ But it overcomes drawbacks of <a href="#toggle"><code>:target</code>-based toggl
 	<!-- tab 1 -->
 	<input type="radio" class="switch" id="tb1" name="tb" checked>
 	<label for="tb1">Tab 1</label>
-	<div class="bord">1</div>
+	<div class="bord pad">1</div>
 	<!-- tab 2 -->
 	<input type="radio" class="switch" id="tb2" name="tb">
 	<label for="tb2">Tab 2</label>
-	<div class="bord">2<br>2</div>
+	<div class="bord pad">2<br>2</div>
 	<!-- tab 3 -->
 	<input type="radio" class="switch" id="tb3" name="tb">
 	<label for="tb3">Tab 3</label>
-	<div class="bord">3<br>3<br>3</div>
+	<div class="bord pad">3<br>3<br>3</div>
 </div>
 </div>
 	<pre class="hide" data-src="#s-tabs2"></pre>
@@ -1007,7 +1077,7 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 <a href="data.json" data-target="#preview">Load</a><br>
 <a href="data.json" data-target="#dlg-inner">Load in modal</a>
 <pre class="bg-i" id="preview">(preview)</pre>
-<div id="preview-dlg" class="hide full"><pre id="dlg-inner">(preview)</pre></div>
+<div id="preview-dlg" class="hide dlg pad"><div id="dlg-inner">(preview)</div></div>
 </div>
 	<pre class="hide" data-src="#s-ajax"></pre>
 
@@ -1057,15 +1127,15 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 <h3 id="colors-blocks">Blocks</h3>
 
 <div id="s-colors-blocks">
-<p class="bg-e">Error	<span class="text-e">Error</span></p>
-<p class="bg-w">Warning	<span class="text-w">Warning</span></p>
-<p class="bg-i">Info	<span class="text-i">Info</span></p>
-<p class="bg-y">Yes	<span class="text-y">Yes</span></p>
-<p class="bg-n">No <span class="text-n">No</span></p>
-<p class="bg">Bg</p>
-<p class="bord">Border</p>
-<p class="bg bord">Bg+Border</p>
-<p class="bg-i bord">Status+Border</p>
+<p class="pad bg-e">Error	<span class="text-e">Error</span></p>
+<p class="pad bg-w">Warning	<span class="text-w">Warning</span></p>
+<p class="pad bg-i">Info	<span class="text-i">Info</span></p>
+<p class="pad bg-y">Yes	<span class="text-y">Yes</span></p>
+<p class="pad bg-n">No <span class="text-n">No</span></p>
+<p class="pad bg">Bg</p>
+<p class="pad bord">Border</p>
+<p class="pad bg bord">Bg+Border</p>
+<p class="pad bg-i bord">Status+Border</p>
 <p class="btn bg-y">Button-like</p>
 </div>
 	
@@ -1078,7 +1148,7 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 		<path d="m477 162c0 7-2 14-8 19l-206 207l-39 39c-6 5-12 8-20 8c-7 0-14-3-19-8l-142-142c-6-6-8-12-8-20c0-7 2-14 8-19l38-39c6-5 12-8 20-8c7 0 14 3 19 8l84 84l188-188c5-5 12-8 19-8c8 0 14 3 20 8l38 39c6 6 8 12 8 20z"/>
 		</symbol>
 	</svg>
-<div class="bg">
+<div class="bg pad">
 	Icons:
 	<svg class="icon"><use xlink:href="#ok"></svg>
 	<svg class="icon text-y"><use xlink:href="#ok"></svg>
@@ -1160,7 +1230,7 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 	
 <h3>Empty filler</h3>
 
-	<div class="dlg c">
+	<div class="dlg c pad">
 		<svg class="text-n" width="80" height="80" viewBox="0 0 16 16" version="1.1" aria-hidden="true"><path  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
 		<p><b>No items yet</b>
 		<p>Click the button to create new item</p>
@@ -1185,19 +1255,27 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 <h2 id="js">JavaScript enhancements</h2>
 
 <ul>
-	<li>Dropdown &mdash; toggle, escape
-	<li>Tree &mdash; multiple, unscroll, toggle, remember, <code>.accordion</code>
-	<li>Toggle &mdash; multiple, unscroll, toggle, remember
-	<li>Popup &mdash; multiple, unscroll, toggle, escape
-	<li>Tabs &mdash; multiple, unscroll, remember
+	<li>Dropdown <code>.toggle</code> &mdash; toggle, escape
+	<li>Tree <code>.toggle</code> &mdash; multiple, unscroll, toggle, remember (<code>.mem</code>), <code>.accordion</code>
+	<li>Toggle <code>.toggle</code> &mdash; multiple, unscroll, toggle, remember (<code>.mem</code>)
+	<li>Popup <code>.toggle</code> &mdash; multiple, unscroll, toggle, escape
+	<li>Tabs <code>.toggle</code> &mdash; multiple, unscroll, remember (<code>.mem</code>)
 	<li>Dialog &mdash; escape
 	<li>Gallery &mdash; previous, escape
-	<li>Output HTML code (<code>pre[data-src]</code>)
-	<li>Link or button with confirmation (<code>.confirm[title]</code>)
-	<li>Link with prompt (<code>a.prompt[title][data-default]</code>)
-	<li>Check group of boxes (<code>input[data-group]</code>, <code>[class~="data-group"]</code>)
-	<li>Align table columns (<code>table.r5</code>)
-	<li>Show dropped uploaded image (<code>input.drop</code>)
+	<!--
+	<li>Output HTML code: <code>pre[data-src]</code>
+	-->
+	<li>Link or button with confirmation: <code>.dialog[title]</code>
+	<li>Link with prompt: <code>a.dialog[title][data-prompt]</code>
+	<li>Check group of boxes: <code>input[data-group]</code>, <code>[class~="data-group"]</code>
+	<li>Set value of target input: <code>a[href^='#'][data-value]</code>
+	<li>Show value of color input: <code>input[type="color"]</code>
+	<!--
+	<li>Submit target button: <code>a[href^='#'][data-submit]</code>
+	<li>Submit form: <code>(select|[type="checkbox"]|[type="search"])[data-submit]</code>
+	-->
+	<li>Align table columns: <code>table.r5</code>
+	<li>Asynchronous request: <code>[data-target]</code>
 </ul>
 
 
@@ -1214,16 +1292,16 @@ most important:
 <div class="roll">
 <table class="hover">
 <tr><th>CSS class<th>Description<th>Used with<th>Modifications
-<tr><td>.row<td><a href="#grid">Grid</a><td>.col-0 div .col-2 .col-3<td>.flip .wrap .read .narrow .shift .stick
+<tr><td>.row<td><a href="#grid">Grid</a><td>.col-0 div .col-2 .col-3<td>.flip .stick .l <i>.wrap .read .narrow .shift</i>
 <tr><td>.roll<td>Horizontal scroll<td><a href="#table">table</a>.hover<td>
-<tr><td>button<td><a href="#button">Button</a><td><a href="#form">form</a> .drop submit button a span<td>.bg-
-<tr><td>.nav<td><a href="#nav">Navigation</a><td>ul<td>.act .flip .shift .topbar [data-target] .l
-<tr><td>.drawer<td><a href="#drawer">Drawer</a><td>div<td>.close .fix .r .l
+<tr><td>button, a.btn<td><a href="#colors-buttons">Button</a><td><a href="#form">form</a> submit button a span<td>.bg-x <i>[data-target]</i>
+<tr><td>.nav<td><a href="#nav">Navigation</a><td>ul<td>.flip .hover .l .bg <i>.act .shift <!--.topbar--></i>
+<tr><td>.drawer<td><a href="#drawer">Drawer</a><td>div a.close<td>.fix .r .l
 <tr><td>.flip<td>Responsive<td>.row .nav<td>
-<tr><td>.hide<td><a href="#toggle">Togglable</a><td>div ul .close<td>.pop .dlg .full.c .tabs .show-mobile .show-desktop
+<tr><td>.hide<td><a href="#toggle">Togglable</a><td>div ul .close<td>.dlg .full.c .hide-mobile .hide-desktop <i>.pop .tabs</i>
 <tr><td>.switch<td><a href="#toggle2">Togglable 2</a><td>label div<td>.pop .tabs
-<tr><td>.gal<td><a href="#gallery">Gallery</a><td>a .close<td>[data-info]
-<tr><td>.toggle<td><a href="#js">JavaScript toggle</a><td>ul div .js-control .js-show<td>.mem
+<tr><td>.gal<td><a href="#gallery-pure">Gallery</a><td>a .close<td><i>[data-info]</i>
+<tr><td>.toggle<td><a href="#js">JavaScript toggle</a><td>ul div .js-control .js-hide<td>.mem
 <tr><td>.icon<td>Small image<td>img svg a button<td>
 <tr><td>.text-<td><a href="#colors">Text color</a><td>*<td>.text-e .text-w .text-i .text-y .text-n
 <tr><td>.bg<td><a href="#colors">Background color</a><td>*<td>.bg-e .bg-w .bg-i .bg-y .bg-n .yel
@@ -1234,7 +1312,7 @@ most important:
 <tr><td>.pad<td>Padding<td>*<td>
 <tr><td>.bord<td>Border<td>*<td>
 <tr><td>.rad<td>Border radius<td>*<td>
-<tr><td>.print .screen<td>Show by media<td>*<td>
+<tr><td>.hide-print .hide-screen<td>Show by media<td>*<td>
 </table>
 </div>
 
@@ -1243,7 +1321,6 @@ most important:
 <div id="ref-alpha" class="hide toggle mem">
 <ol>
 <li><code>.act</code> &mdash; active link
-<li><code>[data-target]</code> &mdash; asynchronous request
 <li><code>.bg</code> &mdash; light background
 <li><code>.bg-e</code> &mdash; nominal "red" background
 <li><code>.bg-i</code> &mdash; nominal "blue" background 
@@ -1251,6 +1328,7 @@ most important:
 <li><code>.bg-w</code> &mdash; nominal "yellow" background
 <li><code>.bg-y</code> &mdash; nominal "green" background
 <li><code>.bord</code> &mdash; add border
+<li><code>.btn</code> &mdash; button-like
 <li><code>.c</code> &mdash; centrify content inside block
 <li><code>.center</code> &mdash; centrify block itself
 <li><code>.close</code> &mdash; link to close togglable block
@@ -1259,32 +1337,31 @@ most important:
 <li><code>.col-3</code> &mdash; grid cell with expanding width (x3)
 <li><code>.dlg</code> &mdash; card-like block
 <li><code>.drawer</code> &mdash; drawer
-<li><code>.drop</code> &mdash; file input to show dragged image
 <li><code>.fix</code> &mdash; fixed in corner
 <li><code>.flip</code> &mdash; responsive component, stacked view on small screen
 <li><code>.full</code> &mdash; fullscreen block
 <li><code>.gal</code> &mdash; fullscreen gallery
 <li><code>.hide</code> &mdash; hidden
+<li><code>.hide-desktop</code> &mdash; hidden only on large screen
+<li><code>.hide-mobile</code> &mdash; hidden only on small screen
+<li><code>.hide-print</code> &mdash; hidden on print
+<li><code>.hide-screen</code> &mdash; hidden on screen
 <li><code>.hover</code> &mdash; highlight link or table row on hover
 <li><code>.icon</code> &mdash; small image
-<li><code>.js-control</code> &mdash; visibility is controlled by JavaScript, hidden by default
-<li><code>.js-show</code> &mdash; shown with JavaScript
+<li><code>.js-control</code> &mdash; visibility is controlled by JavaScript, shown by default
+<li><code>.js-hide</code> &mdash; hidden with JavaScript
 <li><code>.l</code> &mdash; align content to the left
 <li><code>.mar</code> &mdash; add vertical margins
 <li><code>.narrow</code> &mdash; narrow block width
 <li><code>.nav</code> &mdash; horizontal dropdown navigation
 <li><code>.pad</code> &mdash; add padding
 <li><code>.pop</code> &mdash; popup component wrapper
-<li><code>.print</code> &mdash; show only on print (not on screen)
 <li><code>.r</code> &mdash; align content to the right
 <li><code>.rad</code> &mdash; rounded corners
 <li><code>.read</code> &mdash; block width for comfortable reading
 <li><code>.roll</code> &mdash; horizontal scrolling of contents
 <li><code>.row</code> &mdash; row of grid
-<li><code>.screen</code> &mdash; show only on screen (not on print)
 <li><code>.shift</code> &mdash; shift item of <code>.row</code> or <code>.nav</code> to the right
-<li><code>.show-desktop</code> &mdash; force visibility on large screen (overrides <code>.hide</code>)
-<li><code>.show-mobile</code> &mdash; force visibility on small screen (overrides <code>.hide</code>)
 <li><code>.small</code> &mdash; small font size
 <li><code>.stick</code> &mdash; stick block to the top
 <li><code>.switch</code> &mdash; input controlling visibility of following block
@@ -1294,7 +1371,7 @@ most important:
 <li><code>.text-n</code> &mdash; nominal "gray" text color
 <li><code>.text-w</code> &mdash; nominal "yellow" text color
 <li><code>.text-y</code> &mdash; nominal "green" text color
-<li><code>.topbar</code> &mdash; sticky top app bar
+<!--li><code>.topbar</code> &mdash; sticky top app bar-->
 <li><code>.wrap</code> &mdash; reasonable page width limit
 <li><code>.yel</code> &mdash; temporary highlight targeted block
 </ol>
@@ -1306,7 +1383,7 @@ wwwwwwwwwww1wwwwwwwwwwwwwww2wwwwwwwwwwwww3wwwwwwwwwwwwww4wwwwwwwwwwwwww5wwwwwwww
 </div>
 </div-->
 
-	<h2 id="addons">Add-ons</h2>
+	<h2 id="plugins">Plugins</h2>
 	
 	<h3 id="calendar"><a href="https://github.com/vvvkor/d1calendar">Calendar</a></h3>
 	
@@ -1322,10 +1399,11 @@ wwwwwwwwwww1wwwwwwwwwwwwwww2wwwwwwwwwwwww3wwwwwwwwwwwwww4wwwwwwwwwwwwww5wwwwwwww
 	</form>
 	
 	
-<pre data-src="#s-calendar">
-&lt;input class="calendar" type="date"&gt;
-&lt;input class="calendar datetime" type="datetime-local" data-def="2001-02-03T04:05:06" min="2001-02-02T10:00" max="2001-02-15T20:00"&gt;
-</pre>
+<div id="s-calendar" class="hide">
+<input class="calendar" type="date">
+<input class="calendar datetime" type="datetime-local" data-def="2001-02-03T04:05:06" min="2001-02-02T10:00" max="2001-02-15T20:00">
+</div>
+	<pre class="hide" data-src="#s-calendar"></pre>
 
 
 	<h3 id="dialog"><a href="https://github.com/vvvkor/d1dialog">Dialog</a></h3>
@@ -1340,14 +1418,46 @@ wwwwwwwwwww1wwwwwwwwwwwwwww2wwwwwwwwwwwww3wwwwwwwwwwwwww4wwwwwwwwwwwwww5wwwwwwww
 	<a href="?a=1&b=привет&c=3" class="dialog text-w" data-prompt="b" data-caption="Quantity:" data-ok="Fine" data-cancel="No way">Prompt link</a>.
 </p>
 <form>
-	<input type="text" name="nm" id="nm" value="qq" required pattern="[A-Za-z]{2,}" title="Two or more letters">
+	<input type="text" name="nm" id="nms" value="qq" required pattern="[A-Za-z]{2,}" title="Two or more letters">
 	<input type="submit" value="OK">
 	<input type="submit" value="Confirm form" class="dialog bg-w" title="Warning!">
-	<a href="?nm=" class="dialog" data-prompt="nm" data-caption="Name:" data-src="#nm">Prompt from input</a>
+	<a href="?nm=" class="dialog" data-prompt="nm" data-caption="Name:" data-src="#nms">Prompt from input</a>
 </form>
 </div>
-	<pre data-src="#s-dialog"></pre>
+	<pre class="hide" data-src="#s-dialog"></pre>
 
+	
+	<h3 id="edit"><a href="https://github.com/vvvkor/d1edit">Edit</a></h3>
+
+	<p>
+	Add class <code>adjust</code> to <code>textarea</code> for height auto-adjustment to content.
+	<p>
+	Add class <code>edit</code> to <code>textarea</code> tu turn it into WYSIWYG editor.<br>
+	Optional <code>data-tools</code> attribute defines custom set of tools.<br>
+	Optional <code>data-wys</code> attribute defines initial mode: <code>"1"</code> for WYSIWYG, <code>""</code> for source editing.
+	If absent, mode is defined automatically based on whether HTML tags are contained in text.
+	</p>
+
+<div>
+<textarea class="edit adjust" data-tools="/*@xbi_.pqf" data-wys="1" cols="50" rows="5">Write <b>formatted</b> text.</textarea>
+</div>
+	<pre class="hide" data-src="#s-edit"></pre>
+
+	<h3 id="gallery"><a href="https://github.com/vvvkor/d1gallery">Gallery</a></h3>
+	
+	<p>
+	Place links with class <code>pic</code> inside <code>div</code> with class <code>gallery</code>
+	to generate gallery similar to <a href="#gallery-pure">pure CSS gallery</a>.
+	</p>
+	
+<div id="s-gallery">
+<div class="gallery">
+	<a href="ir.png" class="pic" title="Picture 1">Red</a>
+	<a href="ig.png" class="pic" title="Picture 2">Green</a>
+	<a href="ib.png" class="pic" title="Picture 3">Blue</a>
+</div>
+</div>
+	<pre class="hide" data-src="#s-gallery"></pre>
 
 	<h3 id="lookup"><a href="https://github.com/vvvkor/d1lookup">Lookup</a></h3>
 	
@@ -1356,7 +1466,7 @@ wwwwwwwwwww1wwwwwwwwwwwwwww2wwwwwwwwwwwww3wwwwwwwwwwwwww4wwwwwwwwwwwwww5wwwwwwww
 <div id="s-lookup">
 <input type="text" name="id" value="1" data-lookup="data.json?q={q}" data-label="User One" data-url="/users/{id}">
 </div>
-	<pre data-src="#s-lookup"></pre>
+	<pre class="hide" data-src="#s-lookup"></pre>
 
 
 	<h3 id="tablex"><a href="https://github.com/vvvkor/d1tablex">Tablex</a></h3>
@@ -1382,24 +1492,25 @@ wwwwwwwwwww1wwwwwwwwwwwwwww2wwwwwwwwwwwww3wwwwwwwwwwwwww4wwwwwwwwwwwwww5wwwwwwww
 	</tfoot>
 </table>
 
-<pre>&lt;p&gt;
-  &lt;input name="q" value="" type="search"
+<div class="hide" id="s-tablex"><p>
+  <input name="q" value="" type="search"
     id="table-filter"
     placeholder="filter table"
-    autocomplete="off"&gt;
-  &lt;span id="filter-report"&gt;&lt;/span&gt;
-&lt;/p&gt;
+    autocomplete="off">
+  <span id="filter-report"></span>
+</p>
 
-&lt;table class="sort" 
+<table class="sort" 
        data-filter="#table-filter"
        data-filter-report="#filter-report"
        data-filter-cols="0 2 4"
-       data-case&gt;
-  &lt;thead&gt;&lt;tr&gt;&lt;th&gt;...
-  &lt;tbody&gt;&lt;tr&gt;&lt;td&gt;...
-  &lt;tfoot&gt;&lt;tr&gt;&lt;th&gt;...
-&lt;/table&gt;
-</pre>
+       data-case>
+  <thead><tr><th>...
+  <tbody><tr><td>...
+  <tfoot><tr><th>...
+</table>
+</div>
+	<pre class="hide" data-src="#s-tablex"></pre>
 
  </div>
 </div>
@@ -1409,8 +1520,8 @@ wwwwwwwwwww1wwwwwwwwwwwwwww2wwwwwwwwwwwww3wwwwwwwwwwwwww4wwwwwwwwwwwwww5wwwwwwww
 	footer
 </footer-->
 
-<a class="fix r pad hover screen" href="#draw">Config</a>
-<div class="drawer r pad screen" id="draw">
+<a class="fix r pad hover hide-print" href="#draw">Config</a>
+<div class="drawer r pad hide-print" id="draw">
 	<a class="close pad" href="#cancel">&times;</a>
 	<form id="cfg" class="pad">
 		<h3>Style configurator</h3>
@@ -1460,7 +1571,7 @@ wwwwwwwwwww1wwwwwwwwwwwwwww2wwwwwwwwwwwww3wwwwwwwwwwwwww4wwwwwwwwwwwwww5wwwwwwww
 </symbol>
 </svg> 
 
-<a class="fix r l pad hover screen" href="#">&uarr;</a>
+<a class="fix r l pad hover hide-print" href="#">&uarr;</a>
 
 </body>
 </html>

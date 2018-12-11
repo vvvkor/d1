@@ -1,4 +1,4 @@
-/*! d1css v1.1.56 */
+/*! d1css v1.2.0 */
 (function(window, document, Element) {
     "use strict";
     //check single instance
@@ -9,32 +9,71 @@
         var main = new function() {
             "use strict";
             this.opt = {
-                hashCancel: "#cancel"
+                cAct: "act",
+                cAlert: "alert",
+                cClose: "close",
+                cDialog: "dialog",
+                cGallery: "gal",
+                cHide: "hide",
+                cIcon: "icon",
+                cTabs: "tabs",
+                hashCancel: "#cancel",
+                //internal
+                cToggle: "toggle",
+                cJsControl: "js-control",
+                cJsHide: "js-hide",
+                attrStr: "data-str",
+                qsEsc: ".pop>div.toggle, .nav.toggle ul",
+                //, .dlg, .full
+                qsMem: ".mem, ul.tabs.mem+div>div, ul.mem ul[id]",
+                qsRehash: "",
+                //secondary
+                qsJsShow: ".js-control:not(.js-hide)"
             };
-            this.togglable = ".hide.toggle[id], .pop>div.toggle[id], ul.toggle ul[id], .tabs>.hide[id]";
-            this.escapable = ".pop>div, ul.nav.toggle ul, .esc";
-            this.mem = ".mem, .tabs.mem>.hide, ul.mem ul[id]";
-            this.unhover = "ul.toggle ul[id], .pop>div.toggle[id]";
+            this.str = {
+                cancel: "Cancel",
+                ok: "OK",
+                //icons
+                _close: "&#10005;",
+                //'&#10005;',//'&times;',
+                _delete: "&#10005;",
+                _edit: "&rarr;",
+                _now: "&#10003;",
+                //'&bull;',
+                _date: "&#9744;",
+                //'&#9744;', '&#10063;', '&#8862;', '&darr;',
+                _prev: "&lsaquo;",
+                _next: "&rsaquo;",
+                _prev2: "&laquo;",
+                _next2: "&raquo;"
+            };
+            this.ico = {};
+            this.noMem = 0;
             //common
                         this.load = function(obj, opt) {
                 if (!obj) obj = this;
-                this.b("", [ document ], "DOMContentLoaded", obj.init.bind(obj, opt));
+                this.b("", [ document ], "DOMContentLoaded", typeof obj === "function" ? obj : obj.init.bind(obj, opt));
             };
-            this.init = function(opt) {
+            this.init = function(opt, str, ico) {
+                var i;
+                for (i in opt) this.opt[i] = opt[i];
+                for (i in str) this.str[i] = str[i];
+                for (i in ico) this.ico[i] = ico[i];
+                this.opt.qsJsShow = "." + this.opt.cJsControl + ":not(." + this.opt.cJsHide + ")";
                 if (location.hash == "#disable-js") return;
                 if (window && !Element.prototype.matches) Element.prototype.matches = Element.prototype.msMatchesSelector;
  //ie9+
-                                this.refresh();
+                                this.getStrings();
+                this.refresh();
             };
             this.q = function(s, i, n) {
-                if (!s) return i === undefined ? [] : null;
+                if (!s || s.match(/\.\d|[?&]/)) return i === undefined ? [] : null;
                 var f = i === 0 ? "querySelector" : "querySelectorAll";
                 var a = (n || document)[f](s);
                 if (i) a = a[i < 0 ? a.length + i : i];
                 return a;
             };
             this.b = function(n, sel, type, fn) {
-                var ref = this;
                 var a = typeof sel === "string" ? (n || document).querySelectorAll(sel) : sel;
                 if (a.length) [].forEach.call(a, this.handle.bind(this, type, fn));
             };
@@ -49,13 +88,41 @@
             }
             //basic
             ;
-            this.askConfirm = function(n, e) {
-                if (n.form && !n.form.checkValidity()) ; else if (!confirm(n.title)) e.preventDefault();
+            this.showDialog = function(t, ask, enter, def) {
+                t = t.replace(/<.*?>/g, "");
+                if (!ask) return alert(t); else if (!enter) {
+                    if (confirm(t)) ask();
+                } else {
+                    var v = prompt(t, def);
+                    if (v !== null) ask(v);
+                }
             };
-            this.askPrompt = function(n, e) {
-                var x = prompt(n.title + ":", n.getAttribute("data-default") || "");
-                if (x != null) location.href = n.href + x;
-                e.preventDefault();
+            this.dialog = function(n, e) {
+                if (n.form && !n.form.checkValidity()) return;
+                var p = n.getAttribute("data-prompt") || "";
+                var t = n.getAttribute("data-caption") || n.title || p || "!";
+                var h = false;
+                var a = {
+                    _confirm: 1
+                };
+                if (n.classList.contains(this.opt.cAlert)) {
+                    alert(t);
+                    h = n.href || false;
+                } else if (p) {
+                    var x = prompt(t, this.get(n.href, p) || "");
+                    if (x != null) {
+                        a[p] = x;
+                        h = this.arg(n.href, a);
+                    }
+                } else {
+                    if (confirm(t)) h = n.form ? true : this.arg(n.href, a);
+ //optional
+                                }
+                if (h !== true) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    if (h) location.href = h;
+                }
             };
             this.checkBoxes = function(b) {
                 this.b(b.form, "input[type='checkbox'][class~='" + b.getAttribute("data-group") + "']", "", function(n, e) {
@@ -73,52 +140,35 @@
                 }
             };
             this.gotoPrev = function(n, e) {
-                if (e.clientX < n.clientWidth / 3) {
+                if (!e || e.clientX + e.clientY > 0 && e.clientX < n.clientWidth / 3) {
                     var p = n.previousElementSibling || this.q("a[id]", -1, n.parentNode);
                     if (p.id) {
                         location.hash = "#" + p.id;
-                        e.preventDefault();
+                        if (e) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                        }
                     }
-                }
-            };
-            this.prepareColor = function(n, e) {
-                var m = document.createElement("input");
-                m.type = "text";
-                m.value = n.value;
-                m.size = 7;
-                n.parentNode.insertBefore(m, n);
-                n.parentNode.insertBefore(document.createTextNode(" "), n);
-                this.b("", [ n, m ], "input", function(x, e) {
-                    (x == n ? m : n).value = x.value;
-                });
-            };
-            this.dropImage = function(n, e) {
-                var f = new FileReader();
-                f.onloadend = function() {
-                    n.style["background-image"] = "url('" + f.result + "')";
-                    n.title = e.target.files[0].name + ", " + e.target.files[0].size + " B";
-                };
-                f.readAsDataURL(e.target.files[0]);
-            };
-            this.prepareCode = function(n) {
-                var s = this.q(n.getAttribute("data-src"), 0);
-                if (s) {
-                    n.textContent = s.innerHTML.replace(/^\s*\r?\n|\s+$/g, "").replace(/\t/g, "  ").replace(/=""/g, "");
-                    n.classList.remove("hide");
                 }
             }
             //toggle
             ;
-            this.getState = function(n) {
-                return n.classList.contains("js-show");
+            this.setToggle = function(n) {
+                n.classList.add(this.opt.cToggle);
             };
             this.setState = function(n, on) {
-                n.classList.add("js-control");
-                n.classList[on ? "add" : "remove"]("js-show");
+                n.classList.add(this.opt.cJsControl);
+                n.classList[on ? "remove" : "add"](this.opt.cJsHide);
+            };
+            this.getState = function(n) {
+                return !n.classList.contains(n.classList.contains(this.opt.cJsControl) ? this.opt.cJsHide : this.opt.cHide);
+            };
+            this.toggle = function(n) {
+                d1.setState(n, !d1.getState(n));
             };
             this.targetState = function(n, e, on) {
                 if (e && on === undefined) {
-                    if (n.parentNode.matches(".tabs")) on = true; //tabs: on
+                    if (n.matches("ul." + this.opt.cTabs + "+div>div")) on = true; //tabs: on
                      else on = !this.getState(n);
  //toggle
                                 }
@@ -127,20 +177,23 @@
             //n = #hash|link|target
             ;
             this.handleState = function(n, e, on) {
-                if (n.hash || !n.tagName) n = this.q(n.hash || n, 0);
+                if (n && (n.hash || !n.tagName)) n = this.q(n.hash || n, 0);
  //target
-                                if (n && n.matches(this.togglable)) {
+                                if (n && n.matches("." + this.opt.cToggle + "[id]")) {
                     on = this.targetState(n, e, on);
-                    this.setState(n, on);
                     if (on) this.hideSiblings(n);
-                    this.store(n, on);
+ //before setState!
+                                        this.setState(n, on);
+                    this.updateLinks(on, n);
+                    if (!this.noMem) {
+                        this.store(n, on);
  //mem
-                                        this.updateLinks(on, n);
-                    //hash change
-                                        if (e && e.type == "click") {
-                        e.preventDefault();
-                        if (!n.matches(this.unhover)) {
-                            if (on) this.addHistory("#" + n.id); else location.hash = this.opt.hashCancel;
+                        //hash change
+                                                if (e && e.type == "click") {
+                            e.preventDefault();
+                            if (this.opt.qsRehash && n.matches(this.opt.qsRehash)) {
+                                if (on) this.addHistory("#" + n.id); else location.hash = this.opt.hashCancel;
+                            }
                         }
                     }
                 }
@@ -151,25 +204,17 @@
             this.hide = function(n) {
                 this.handleState(n, null, false);
             };
-            this.showFirstTab = function(n) {
-                var a = this.q("a[href^='#']", 0, n.parentNode);
- //first link
-                                var d = this.q(a.hash, 0, n);
- //corresponding tab
-                                if (d && !d.matches(".js-control")) this.show(d);
-            };
             this.hideSiblings = function(n) {
                 var p = n.parentNode;
-                if (this.ancestor("ul.nav.toggle, ul.accordion", p)) {
-                    this.b(this.ancestor("ul", p), "ul:not([id='" + n.id + "'])", "", this.hide);
-                } else if (p.matches(".tabs")) {
-                    this.b(p, ".hide:not([id='" + n.id + "'])", "", this.hide);
-                    //:scope>.hide... - for nested tabs - fails in ie
-                                }
+                if (p.matches("ul.accordion li")) {
+                    this.b(p.parentNode, "ul", "", this.hide);
+                } else if (p.matches("ul." + this.opt.cTabs + "+div")) {
+                    this.b(p, [].slice.call(p.children), "", this.hide);
+                }
             };
             this.updateLinks = function(on, n) {
                 if (n.id) this.b("", "a[href='#" + n.id + "']", "", function(n) {
-                    n.classList[on ? "add" : "remove"]("act");
+                    n.classList[on ? "add" : "remove"](this.opt.cAct);
                 });
             };
             this.addHistory = function(h) {
@@ -178,41 +223,75 @@
                 history.go(-1);
             };
             this.store = function(n, on) {
-                if (n && n.id && localStorage && n.matches(this.mem)) {
-                    localStorage[on ? "setItem" : "removeItem"]("vis#" + n.id, 1);
- //store only shown
-                                        localStorage.setItem("vis#" + n.id, on ? 1 : 0);
+                if (n && n.id && localStorage && n.matches(this.opt.qsMem)) {
+                    //localStorage[on ? "setItem" : "removeItem"]("vis#" + n.id, 1); //store only shown
+                    localStorage.setItem("vis#" + n.id, on ? 1 : 0);
  //also store hidden
                                 }
             };
             this.restore = function(n, e) {
-                if (localStorage) {
+                this.noMem = 1;
+                //hilite first tab
+                                this.b(n, "ul." + this.opt.cTabs + ">li:first-child>a", "", this.show);
+                //restore from mem
+                                if (localStorage) {
                     for (var i = 0; i < localStorage.length; i++) {
                         var k = localStorage.key(i);
-                        //if (k.substr(0, 4) == "vis#") this.show(k.substr(3)); //store only shown
+                        //if (k.substr(0, 4) == "vis#") this.show(k.substr(3)); //restore only shown
                                                 if (k.substr(0, 4) == "vis#") {
                             var d = this.q(k.substr(3), 0);
-                            if (d && d.matches(this.mem)) this.handleState(d, null, localStorage.getItem(k) == 1);
- //also store hidden
+                            if (d && d.matches(this.opt.qsMem)) this.handleState(d, null, localStorage.getItem(k) == 1);
+ //also restore hidden
                                                 }
                     }
                 }
+                this.noMem = 0;
             }
             //esc
             ;
             this.esc = function(n, e) {
-                if (e.keyCode == 90 && e.ctrlKey) localStorage.clear();
+                if (e && e.keyCode == 90 && e.ctrlKey) localStorage.clear();
  //ctrl+z
-                                if (e.keyCode == 27 || e.button === 0) {
-                    //escape or click with no active ancestor
-                    if (e.keyCode || this.ancestor("a.close", e.target) || !this.ancestor("a, .hide, .nav, .pop>div, .drawer, .unesc", e.target)) {
-                        this.b("", this.escapable, "", this.hide);
-                        if (location.hash.length > 0) location.hash = this.opt.hashCancel;
+                                if (!e || e.keyCode == 27 || e.button === 0) {
+                    //escape or click - check ancestor
+                    this.b("", this.opt.qsEsc, "", e ? this.checkHide.bind(this, e.keyCode ? null : e.target) : this.hide);
+                    //if(n && n.hash==this.opt.hashCancel) this.hide(this.ancestor(this.opt.qsEsc, n));
+                                        if (location.hash.length > 0) {
+                        var d = this.q(location.hash, 0);
+                        if (!e || e.keyCode == 27 || document.body.contains(e.target) && !this.ancestor(location.hash, e.target)) location.hash = this.opt.hashCancel;
                     }
                 }
             };
-            this.control = function(d) {
-                d.classList.add("js-control");
+            this.checkHide = function(t, n) {
+                if (n.matches(this.opt.qsJsShow)) {
+                    if (t ? !n.parentNode.contains(t) : !this.q(this.opt.qsJsShow, 0, n)) this.hide(n);
+                }
+            };
+            this.onHash = function() {
+                if (location.hash) {
+                    var d = this.q(location.hash + " [name]", 0);
+                    if (d) d.focus();
+                }
+            };
+            this.setValue = function(n, e) {
+                e.preventDefault();
+                var d = this.q(n.hash, 0);
+                if (d) {
+                    d.value = n.getAttribute("data-value");
+                    this.esc();
+                }
+            };
+            this.prepareColor = function(n, e) {
+                var m = document.createElement("input");
+                m.type = "text";
+                m.value = n.value;
+                m.size = 7;
+                m.className = "color";
+                n.parentNode.insertBefore(m, n);
+                n.parentNode.insertBefore(document.createTextNode(" "), n);
+                this.b("", [ n, m ], "input", function(x, e) {
+                    (x == n ? m : n).value = x.value;
+                });
             }
             //ajax
             ;
@@ -220,30 +299,59 @@
                 e.preventDefault();
                 this.ajax(n.getAttribute("href"), this.q(n.getAttribute("data-target"), 0));
             };
-            this.ajax = function(url, node, callback) {
-                if (typeof node === "string" && node) node = document.querySelector(node);
-                var x = new XMLHttpRequest();
-                var ref = this;
-                if (node || callback) x.addEventListener("load", function(e) {
-                    if (this.status == "200") {
-                        if (node) {
-                            node.innerHTML = this.responseText;
-                            var dlg = ref.ancestor(".dlg, .full", node);
-                            if (dlg && dlg.id) location.hash = "#" + dlg.id;
- //ref.setState(dlg, 1);
-                                                }
-                        if (callback) callback(this, node, e);
-                    } else console.error("XHTTP request failed", this);
-                });
-                x.open("GET", url /* + "?t=" + (new Date()).getTime()*/);
-                x.send();
+            this.ajax = function(url, n, callback) {
+                if (typeof n === "string" && n) n = document.querySelector(n);
+                var req = new XMLHttpRequest();
+                if (n || callback) req.addEventListener("load", this.recv.bind(this, req, n, callback));
+                req.open("GET", url);
+                req.send();
+            };
+            this.recv = function(req, n, callback, e) {
+                if (req.status == "200") {
+                    if (n) {
+                        n.innerHTML = req.responseText;
+                        var dlg = this.ancestor(".dlg, .full", n);
+                        if (dlg && dlg.id) location.hash = "#" + dlg.id;
+                    }
+                    if (callback) callback(req, n, e);
+ // JSON.parse(req.responseText)
+                                } else console.error("XHTTP request failed", req);
             }
-            //common
+            //url
+            ;
+            this.get = function(h, p) {
+                var v = false;
+                if (p) {
+                    var re = new RegExp("([?&]" + p + "=)([^&]*)");
+                    var m = h.match(re);
+                    if (m) v = decodeURIComponent(m[2]).replace(/\+/, " ");
+                }
+                return v;
+            };
+            this.arg = function(u, a) {
+                var i = 0, h = "", k, s, re, m;
+                m = u.match(/#.*$/);
+                if (m) {
+                    h = m[0];
+                    u = u.substr(0, u.length - m[0].length);
+                }
+                for (k in a) {
+                    re = new RegExp("([?&]" + k + "=)([^&]*)");
+                    m = u.match(re);
+                    if (m) u = u.replace(re, "$1" + a[k]); else {
+                        s = !i && u.indexOf("?") == -1 ? "?" : "&";
+                        u += s + k + "=" + encodeURIComponent(a[k]);
+                    }
+                    i++;
+                }
+                return u + h;
+            }
+            //insert
             //after: 0 = appendChild, 1 = siblingAfter
             ;
             this.ins = function(tag, t, attrs, n, after) {
                 var c = document.createElement(tag || "span");
-                if (t) c.innerHTML = t;
+                if (t && t.tagName) c.appendChild(t); else if (t) c.innerHTML = t;
  //c.appendChild(document.createTextNode(t||''));
                                 if (attrs) {
                     for (var i in attrs) c[i] = attrs[i];
@@ -254,16 +362,22 @@
                 if (!document.getElementById(i)) return this.ins("span", alt, {
                     className: c || ""
                 });
-                return d1.ins("span", '<svg class="icon ' + (c || "") + '" width="24" height="24"><use xlink:href="#' + i + '"></use></svg>');
+                return this.ins("span", '<svg class="' + this.opt.cIcon + " " + (c || "") + '" width="24" height="24"><use xlink:href="#' + i + '"></use></svg>');
             };
-            this.arg = function(u, a) {
-                var i = 0, k, s;
-                for (k in a) {
-                    s = !i && u.indexOf("?") == -1 ? "?" : "&";
-                    u += s + k + "=" + a[k];
-                    i++;
+            this.i = function(s, c) {
+                return this.svg(this.ico[s] || "", c || "", this.s("_" + s));
+            }
+            //localization
+            ;
+            this.getStrings = function() {
+                var d = document.querySelector("[" + this.opt.attrStr + "]");
+                if (d) {
+                    var s = JSON.parse(d.getAttribute(this.opt.attrStr));
+                    for (var i in s) this.str[i] = s[i];
                 }
-                return u;
+            };
+            this.s = function(s, def) {
+                return this.str[s] || (def === undefined ? s : def);
             }
             //run
             ;
@@ -272,41 +386,38 @@
                 if (!n) this.b("", "body", "", function(n) {
                     n.classList.add("js");
                 });
-                //pre
-                                this.b(n, "pre[data-src]", "", this.prepareCode);
-                //a.confirm[href][title], input.confirm [title]
-                                this.b(n, "a.confirm[href], .confirm[name]", "click", this.askConfirm);
-                //a.prompt[href] [title] [data-default]
-                                this.b(n, "a.prompt[href]", "click", this.askPrompt);
+                //a.dialog[href]([title]|[data-caption])[data-prompt], a.alert, input.dialog
+                                this.b(n, "." + this.opt.cAlert + ", ." + this.opt.cDialog, "click", this.dialog);
                 //check all checkbox [data-group] to [class]
                                 this.b(n, "input[data-group]", "click", this.checkBoxes);
                 //table cells align
                                 this.b(n, "table[class]", "", this.alignCells);
                 //gallery back
-                                this.b(n, ".gal a[id]", "click", this.gotoPrev);
-                //color
-                                this.b(n, "input[type='color']", "", this.prepareColor);
-                //drop image
-                                this.b(n, ".drop", "change", this.dropImage);
-                //prepere nav
-                                this.b(n, this.unhover, "", function(n) {
-                    n.classList.add("js-control");
-                });
-                //prepare mem
+                                this.b(n, "." + this.opt.cGallery + " a[id]", "click", this.gotoPrev);
+                //prepere nav & tabs
+                                this.b(n, "ul." + this.opt.cToggle + " ul[id], ul." + this.opt.cToggle + "." + this.opt.cTabs + "+div>div[id]", "", this.setToggle);
+ //,.dlg,.full
+                //prepare togglers
+                                this.b(n, "." + this.opt.cToggle + "[id]", "", this.setState);
+                //prepare tabs, mem
                                 this.restore();
-                //prepare tabs (hilite first if not remembered)
-                                this.b(n, ".nav+.tabs", "", this.showFirstTab);
                 //prepare hash
                                 if (location.hash) this.show(location.hash);
                 //toggle
                                 this.b(n, "a[href^='#']", "click", this.handleState);
+                //set input value
+                                this.b(n, "a[href^='#'][data-value]", "click", this.setValue);
+                //color input
+                                this.b(n, "input[type='color']", "", this.prepareColor);
                 //escape closes targeted elements
                                 if (!n) this.b("", [ window ], "keydown", this.esc);
                 //close on click out
-                                if (!n) this.b("", "html, .close", "click", this.esc);
+                                if (!n) this.b("", "html, a[href='" + this.opt.hashCancel + "']", "click", this.esc);
  //mousedown
                 //[data-target]
                                 this.b("", "a[data-target]", "click", this.getAjax);
+                //focus dialog
+                                this.b("", [ window ], "hashchange", this.onHash);
             };
         }();
         // end module

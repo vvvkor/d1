@@ -1,0 +1,15 @@
+{
+  "use": ["postcss-cssnext", "postcss-discard-comments", "perfectionist"],
+  "input": "src/css/d1.css",
+  "output": "dist/d1.css",
+  "local-plugins": "true",
+  "postcss-cssnext": {
+    "browsers": "last 2 versions",
+    "verbose":  true
+  },
+  "postcss-discard-comments": {
+  },
+  "perfectionist": {
+    "format": "expanded"
+  }
+}

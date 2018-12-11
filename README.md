@@ -5,7 +5,7 @@ It aims to implement most widely used interface components with less code.
 
 ## Features
 
-* lightweight (minified and gzipped: CSS ~2.5 KB, optional JS ~2.5 KB)
+* lightweight (minified and gzipped: CSS <4 KB, optional JS <4 KB)
 * non-bloated class names
 * functional
 * modern
@@ -26,6 +26,8 @@ It aims to implement most widely used interface components with less code.
 
 * [d1calendar](https://github.com/vvvkor/d1calendar) replaces standard HTML ``date`` and ``datetime-local`` inputs with custom dropdown calendar
 * [d1dialog](https://github.com/vvvkor/d1dialog) replaces standard Javascript dialogs: ``alert``, ``confirm``, ``prompt``
+* [d1edit](https://github.com/vvvkor/d1edit) turns textarea into lightweight WYSIWYG editor
+* [d1gallery](https://github.com/vvvkor/d1gallery) makes lighweight image gallery
 * [d1lookup](https://github.com/vvvkor/d1lookup) autocompletes lookups with data from XHTTP request
 * [d1tablex](https://github.com/vvvkor/d1tablex) makes HTML table searchable and sortable
 
