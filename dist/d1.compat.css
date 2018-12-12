@@ -13,22 +13,14 @@
     --rad: .2;
     --gap: 1;
     --gap-rate: .5;
-    --radius: .2em;
-    --radius: calc(var(--rad) * 1em);
-    --gap-n: 1em;
-    --gap-n: calc(var(--gap) * 1em);
-    --gap-s: .5em;
-    --gap-s: calc(var(--gap-n) * .5);
-    --gap-xs: .2em;
-    --gap-xs: calc(var(--gap-n) * .2);
-    --gap-l: 2em;
-    --gap-l: calc(var(--gap-n) * 2);
-    --gaps-n: .5em 1em;
-    --gaps-n: calc(var(--gap-n) * var(--gap-rate)) var(--gap-n);
-    --gaps-s: .25em .5em;
-    --gaps-s: calc(var(--gap-s) * var(--gap-rate)) var(--gap-s);
-    --gaps-l: 1em 2em;
-    --gaps-l: calc(var(--gap-l) * var(--gap-rate)) var(--gap-l);
+    --radius: calc(var(--rad)*1em);
+    --gap-n: calc(var(--gap)*1em);
+    --gap-s: calc(var(--gap-n)*0.5);
+    --gap-xs: calc(var(--gap-n)*0.2);
+    --gap-l: calc(var(--gap-n)*2);
+    --gaps-n: calc(var(--gap-n)*var(--gap-rate)) var(--gap-n);
+    --gaps-s: calc(var(--gap-s)*var(--gap-rate)) var(--gap-s);
+    --gaps-l: calc(var(--gap-l)*var(--gap-rate)) var(--gap-l);
 }
 
 button, input, select, textarea {
@@ -363,7 +355,7 @@ ul.nav, .nav ul {
 
 .nav li>form {
     padding: .3em 1em;
-    padding: calc(var(--gap-n) * var(--gap-rate) - var(--gap-xs)) var(--gap-n);
+    padding: calc(var(--gap-n)*var(--gap-rate) - var(--gap-xs)) var(--gap-n);
 }
 
 .nav li>a:nth-last-child(2):after {
@@ -472,7 +464,6 @@ div.hide {
     color: #fff;
     background: #000 50% 50% / contain no-repeat;
     background-image: var(--img);
-    background-image: var(--img);
     z-index: 40;
     display: block;
     position: fixed;
@@ -484,7 +475,6 @@ div.hide {
 }
 
 .gal a:target+a {
-    background-image: var(--img);
     background-image: var(--img);
     background-position: 999em 999em;
 }
@@ -863,7 +853,6 @@ form .mar {
 
 .switch+label {
     cursor: pointer;
-    color: #03c;
     color: #03b;
     color: var(--link, #03c);
 }

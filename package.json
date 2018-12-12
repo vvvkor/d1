@@ -1,6 +1,6 @@
 {
   "name": "d1css",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Functional CSS microframework",
   "main": "dist/d1.js",
   "directories": {
@@ -12,7 +12,7 @@
     "minify:css": "postcss -u cssnano dist/d1.css -o dist/d1.min.css",
     "minify:css.compat": "postcss -u cssnano dist/d1.compat.css -o dist/d1.compat.min.css",
     "build:js": "uglifyjs --verbose --beautify --comments '/^/*!/' --output ./dist/d1.js ./src/d1.js",
-    "minify-old:js": "uglifyjs --comments '/^!/' --output ./dist/d1.min.js ./src/d1.js",
+    "minify-comments:js": "uglifyjs --comments '/^!/' --output ./dist/d1.min.js ./src/d1.js",
     "minify:js": "uglifyjs --output ./dist/d1.min.js ./src/d1.js",
     "build:version.dist": "cross-var replace-in-file \"/d1css v#/g\" \"d1css v$npm_package_version\" \"dist/*.*\" --isRegex",
     "build:version.docs": "cross-var replace-in-file \"/d1css@\\d+\\.\\d+\\.\\d+/g\" \"d1css@$npm_package_version\" \"docs/*.*\" --isRegex",
