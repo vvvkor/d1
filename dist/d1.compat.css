@@ -1,4 +1,4 @@
-/*! d1css https://github.com/vvvkor/d1 */
+/*! d1css v1.2.2 https://github.com/vvvkor/d1 */
 
 :root {
     --text: #222;
@@ -653,27 +653,21 @@ ul.tabs+div>div:target~div:not(.js-control) {
     box-sizing: border-box;
     overflow-y: auto;
     z-index: 7;
+    transition: left .4s;
 }
 
 .drawer:target {
     left: 0;
 }
 
-.drawer.r {
+.drawer.shift {
     left: auto;
     right: -21em;
-}
-
-.drawer.r:target {
-    right: 0;
-}
-
-.drawer {
-    transition: left .4s;
-}
-
-.drawer.r {
     transition-property: right;
+}
+
+.drawer.shift:target {
+    right: 0;
 }
 
 @media (max-width: 54.99em) {

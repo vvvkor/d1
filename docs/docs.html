@@ -17,9 +17,10 @@ process:
 - publish html
 -->
 	
-	<!-- CDN -->
-	<link href="https://cdn.jsdelivr.net/npm/d1css@1.2.0/dist/d1.raw.css" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/npm/d1css@1.2.0/dist/d1.min.js"></script>
+	<!-- CDN -- >
+	<!--link href="https://cdn.jsdelivr.net/npm/d1css@1.2.2/dist/d1.compat.min.css" rel="stylesheet"-->
+	<link href="https://cdn.jsdelivr.net/npm/d1css/dist/d1.compat.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/d1css/dist/d1.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d1calendar/d1calendar.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d1dialog/d1dialog.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d1edit/d1edit.min.js"></script>
@@ -44,7 +45,8 @@ process:
 	<script src="d1calendar.js"></script>
 	<script src="d1lookup.js"></script>
 	<script src="d1edit.js"></script>
-	<!---->
+	<!-- -->
+	
 	<script>
 		d1.load(function(){
 			var ico = {
@@ -219,7 +221,7 @@ It aims to implement most widely used interface components with less code.
 <p>Install to your repository:
 <pre>npm install d1css</pre>
 <p>Then use in your CSS file:
-<pre>@import "../node_modules/d1css/dist/d1.min.css";</pre>
+<pre>@import "../node_modules/d1css/dist/d1.compat.min.css";</pre>
 <p>And optionally bundle into your JavaScript file:
 <pre>var d1 = require("d1css");
 d1.load();</pre>
@@ -228,9 +230,9 @@ d1.load();</pre>
 <p>To use from CDN just add following code to the <code>head</code> of your page.
 
 <pre>
-&lt;link href="https://cdn.jsdelivr.net/npm/d1css@1.2.0/dist/d1.min.css" rel="stylesheet"&gt;
+&lt;link href="https://cdn.jsdelivr.net/npm/d1css/dist/d1.compat.min.css" rel="stylesheet"&gt;
 &lt;!-- optional --&gt;
-&lt;script src="https://cdn.jsdelivr.net/npm/d1css@1.2.0/dist/d1.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/d1css/dist/d1.min.js"&gt;&lt;/script&gt;
 &lt;script&gt; d1.load(); &lt;/script&gt;
 </pre>
 
@@ -240,7 +242,7 @@ d1.load();</pre>
 
 <p>Add following code to the <code>head</code> of your page:
 <pre>
-&lt;link href="d1.min.css" rel="stylesheet"&gt;
+&lt;link href="d1.compat.min.css" rel="stylesheet"&gt;
 &lt;!-- optional --&gt;
 &lt;script src="d1.min.js"&gt;&lt;/script&gt;
 &lt;script&gt; d1.load(); &lt;/script&gt;
@@ -784,11 +786,9 @@ and expand it to horizontal dropdown navbar on large screen (add <code>flip</cod
 
 <div id="s-drawer">
 <a class="pad hover" href="#drw">&equiv;</a>
-<div class="drawer r pad" id="drw">
+<div class="drawer shift pad" id="drw">
 	<a class="close pad" href="#cancel">&times;</a>
-	<div class="l">
 	Demo drawer
-	</div>
 </div>
 </div>
 	<pre class="hide" data-src="#s-drawer"></pre>
@@ -1235,8 +1235,9 @@ most important:
 <tr><td>.roll<td>Horizontal scroll<td><a href="#table">table</a>.hover<td>
 <tr><td>button, a.btn<td><a href="#colors-buttons">Button</a><td><a href="#form">form</a> submit button a span<td>.bg-x <i>[data-target]</i>
 <tr><td>.nav<td><a href="#nav">Navigation</a><td>ul<td>.flip .hover .l .bg <i>.act .shift <!--.topbar--></i>
-<tr><td>.drawer<td><a href="#drawer">Drawer</a><td>div a.close<td>.fix .r .l
+<tr><td>.drawer<td><a href="#drawer">Drawer</a><td>div a.close<td>.shift
 <tr><td>.flip<td>Responsive<td>.row .nav<td>
+<tr><td>.fix<td><a data-href="#fix">Fixed block</a><td><td>.r .l
 <tr><td>.hide<td><a href="#toggle">Togglable</a><td>div ul .close<td>.dlg .full.c .hide-mobile .hide-desktop <i>.pop .tabs</i>
 <tr><td>.switch<td><a href="#toggle2">Togglable 2</a><td>label div<td>.pop .tabs
 <tr><td>.gal<td><a href="#gallery-pure">Gallery</a><td>a .close<td><i>[data-info]</i>
@@ -1460,8 +1461,7 @@ wwwwwwwwwww1wwwwwwwwwwwwwww2wwwwwwwwwwwww3wwwwwwwwwwwwww4wwwwwwwwwwwwww5wwwwwwww
 </footer-->
 
 <a class="fix r pad hover hide-print" href="#draw">Config</a>
-<div class="drawer r pad hide-print" id="draw">
-<div class="l">
+<div class="drawer shift pad hide-print" id="draw">
 	<a class="close pad" href="#cancel">&times;</a>
 	<form id="cfg" class="pad">
 		<h3>Style configurator</h3>
@@ -1494,7 +1494,6 @@ wwwwwwwwwww1wwwwwwwwwwwwwww2wwwwwwwwwwwww3wwwwwwwwwwwwww4wwwwwwwwwwwwww5wwwwwwww
 		<input type="range" name="gap" value="1" min="0" max="2" step=".1"> Gap<br>
 		<pre class="small"></pre>
 	</form>
-</div>
 </div>
 
 <svg class="hide" width="0" height="0">

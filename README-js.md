@@ -13,7 +13,7 @@ npm install d1
 
 On page load call:
 ```
-d1.init(options);
+d1.init(options [ , strings ] [ , icons ]);
 ```
 
 ## Features
@@ -92,6 +92,25 @@ Default: ``"js-hide"``
 Hash of "close" and "cancel" links.  
 Default: ``"#cancel"``
 
+
+## Strings
+
+Optional localization strings.  
+Keys of alternative texts for icons are prefixed with underscore.
+
+Example:
+```
+{ok: 'Si', cancel: 'No', _close: 'x'}
+```
+
+## Icons
+
+Optional icon IDs (references to SVG ``symbol`` elements included in HTML).
+
+Example:
+```
+{close: 'svg-close', edit: 'svg-edit'}
+```
 
 ## Browser Support
 

@@ -1,24 +1,7 @@
-/*! d1css https://github.com/vvvkor/d1 */
+/*! d1css v# https://github.com/vvvkor/d1 */
+/* Functional CSS microframework */
+
 /*
-modules
-	+theme vars
-	+reset
-	+typo
-	+link (act, hover, icon)
-	+grid
-	+print
-	+table + roll
-	+button
-	+form [table, button]
-	+nav (shift hor)
-	+hide (toggle, modal, tabs, pop, gal) + close
-	+color (text-, bg-, bg, yel) [button]
-	+helpers (mar, pad, c, center, wrap, shift, small...)
-	+switch
-	+drawer
-	+js
-	-tooltip
-	
 classes
 	main
 		.row .col-0 .col-2 .col-3 .flip .stick
@@ -27,7 +10,7 @@ classes
 	action
 		.hide .pop .dlg .full(.c) .gal .tabs .close
 	js
-		.toggle .js-control .js-hide .drop pre[data-src]
+		.toggle .js-control .js-hide pre[data-src]
 	decorative
 		.bg .text-x .bg-x
 		.wrap .read .narrow .shift .stick
@@ -292,14 +275,11 @@ ul.tabs+div>div:target~div:not(.js-control){display:none;/*@x*/}
 /* top bar */
 .topbar{position:sticky;top:0;width:100%;z-index:4;}
 .topbar, .drawer{background-color:var(--bg);box-shadow:0 0 .8em  rgba(0,0,0,.15);}
-/* drawer */
-.drawer{position:fixed;top:0;left:-21em;height:100vh;width:80%;max-width:20em;box-sizing:border-box;overflow-y:auto;z-index:7;}
+/* drawer + effect */
+.drawer{position:fixed;top:0;left:-21em;height:100vh;width:80%;max-width:20em;box-sizing:border-box;overflow-y:auto;z-index:7;transition:left .4s;}
 .drawer:target{left:0;}
-.drawer.r{left:auto;right:-21em;}
-.drawer.r:target{right:0;}
-/* drawer effect */
-.drawer{transition:left .4s;}
-.drawer.r{transition-property:right;}
+.drawer.shift{left:auto;right:-21em;transition-property:right;}
+.drawer.shift:target{right:0;}
 
 /* media */
 
