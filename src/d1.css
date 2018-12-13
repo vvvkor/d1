@@ -305,7 +305,7 @@ ul.tabs+div>div:target~div:not(.js-control){display:none;/*@x*/}
 	form>table td:first-child:not([colspan]){/*min-*/width:12em;text-align:right;}
 		fieldset table td:first-child:not([colspan]){/*min-*/width:calc(12em - var(--gap-n) - var(--gap-s));}
 	.dlg.hide{min-width:20em;}
-	.dlg.pad{padding:var(--gap-l);}
+	.dlg.pad{padding:var(--gaps-l);}
 	.shift{margin-left:auto;}
 	.nav:not(.l)>li.shift>ul, .nav:not(.l)>li.shift~li>ul, .pop>div.shift{left:auto;right:0;}
 	.stick{position:sticky;top:0;align-self:flex-start;z-index:3;overflow:auto;max-height:100vh;}
