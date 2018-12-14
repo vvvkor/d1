@@ -17,7 +17,7 @@ process:
 - publish html
 -->
 	
-	<!--link href="https://cdn.jsdelivr.net/npm/d1css@1.2.3/dist/d1.compat.min.css" rel="stylesheet"-->
+	<!--link href="https://cdn.jsdelivr.net/npm/d1css@1.2.4/dist/d1.compat.min.css" rel="stylesheet"-->
 	<!-- CDN -->
 	<link href="https://cdn.jsdelivr.net/npm/d1css/dist/d1.compat.min.css" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/d1css/dist/d1.min.js"></script>
@@ -160,8 +160,7 @@ process:
 <div class="stick pad -bg hide-print"><div class="pad">
 
 	<p>
-	<a href="#top" class="text-n">
-	<svg width="102" height="82"><use xlink:href="#svg-logo"/></svg>
+	<a href="#top" class="text-n"><svg width="102" height="82"><use xlink:href="#svg-logo"/></svg></a>
 	</p>
 
 	<!--p><b>d1</b> CSS framework</p-->
@@ -177,25 +176,56 @@ process:
 	<!--p class="print"><code class="-pad">npm install d1css</code></p>
 	<p class="print"><code class="-pad">github.com/vvvkor/d1</code></p-->
 
-	<div class="hide -show-mobile"><a href="#menu" class="pad hover" title="Menu">&equiv;</a></div>
-	<ul id="menu" class="-hide -show-desktop -toggle">
+	<div class="hide-desktop"><a href="#menu" class="pad hover" title="Menu">&equiv;</a></div>
+	<div class="hide-mobile toggle mem" id="menu">
+	<ul class="toggle mem">
 		<li><a href="#start">Get started</a>
 		<li><a href="#typo">Typography</a>
 		<li><a href="#grid">Grid</a>
 		<li><a href="#table">Table</a>
 		<li><a href="#buttons">Buttons</a>
-		<li><a href="#forms">Forms</a>
-		<li><a href="#nav">Navigation</a>
-		<li><a href="#togglers">Togglers</a>
-		<li><a href="#togglers2">Togglers 2</a>
-		<li><a href="#ajax">AJAX</a>
+		<li><a href="#n-forms">Forms</a>
+			<ul id="n-forms">
+			<li><a href="#form-inline">Inline</a>
+			<li><a href="#form-stacked">Stacked</a>
+			<li><a href="#form-grid">Grid</a>
+			<li><a href="#form-table">Table</a>
+			</ul>
+		<li><a href="#n-nav">Navigation</a>
+			<ul id="n-nav">
+			<li><a href="#nav-horizontal">Horizontal</a>
+			<li><a href="#nav-vertical">Vertical</a>
+			<li><a href="#nav-responsive">Responsive</a>
+			<li><a href="#nav-hamburger">Hamburger</a>
+			<li><a href="#nav-drawer">Drawer</a>
+			</ul>
+		<li><a href="#n-togglers">Toggle (hash)</a>
+			<ul id="n-togglers">
+			<li><a href="#toggle">Overview</a>
+			<li><a href="#toggle-popup">Popup</a>
+			<li><a href="#toggle-div">Toggle</a>
+			<li><a href="#toggle-dlg">Dialog</a>
+			<li><a href="#toggle-full">Fullscreen</a>
+			<li><a href="#toggle-gallery">Gallery</a>
+			<li><a href="#toggle-tabs">Tabs</a>
+			<li><a href="#toggle-tree">Tree</a>
+			<li><a href="#toggle-details">Details</a>
+			</ul>
+		<li><a href="#n-togglers-radio">Toggle (radio)</a>
+			<ul id="n-togglers-radio">
+			<li><a href="#toggle-radio">Overview</a>
+			<li><a href="#toggle-radio-popup">Popup</a>
+			<li><a href="#toggle-radio-div">Toggle</a>
+			<li><a href="#toggle-radio-tabs">Tabs</a>
+			<li><a href="#toggle-radio-tree">Tree</a>
+			</ul>
 		<li><a href="#colors">Colors</a>
 		<li><a href="#blocks">Blocks</a>
 		<!--li><a href="#blocks">Images and icons</a-->
-		<li><a href="#js">JS</a>
-		<li><a href="#ref">Reference</a>
-		<li><a href="#plugins">Plugins</a>
-			<ul>
+		<li><a href="#js">Javascript</a>
+		<li><a href="#ajax">AJAX</a>
+		<li><a href="#n-plugins">Plugins</a>
+			<ul id="n-plugins">
 			<li><a href="#calendar">Calendar</a>
 			<li><a href="#dialog">Dialog</a>
 			<li><a href="#edit">Edit</a>
@@ -203,7 +233,9 @@ process:
 			<li><a href="#lookup">Lookup</a>
 			<li><a href="#tablex">Tablex</a>
 			</ul>
+		<li><a href="#ref">Reference</a>
 	</ul>
+	</div>
 </div></div>
 <div class="col-3 pad" id="top">
  <div class="read pad">
@@ -459,7 +491,7 @@ For color options see <a href="#colors-buttons">Colors</a> section.
 </button>
 <a href="#" class="btn"><svg class="icon" width="32" height="32"><use xlink:href="#svg-ok"/></svg> Link</a>
 <span class="btn bg-n">Span</span>
-<a href="#" class="pad hover">Link-pad</a>
+<a href="#" class="pad rad hover">Link-pad-rad</a>
 <a href="#">Link</a>
 
 
@@ -480,7 +512,7 @@ For color options see <a href="#colors-buttons">Colors</a> section.
 
 <h2 id="forms">Forms</h2>
 
-<h3>Inline form</h3>
+<h3 id="form-inline">Inline form</h3>
 
 <div id="s-form-inline">
 <form>
@@ -491,7 +523,7 @@ For color options see <a href="#colors-buttons">Colors</a> section.
 
 	<pre class="hide" data-src="#s-form-inline"></pre>
 
-<h3>Stacked form</h3>
+<h3 id="form-stacked">Stacked form</h3>
 
 <div id="s-form-stacked">
 <form method="post">
@@ -511,7 +543,7 @@ For color options see <a href="#colors-buttons">Colors</a> section.
 </div>
 	<pre class="hide" data-src="#s-form-stacked"></pre>
 
-<h3>Aligned form using grid</h3>
+<h3 id="form-grid">Aligned form using grid</h3>
 
 <div id="s-form-grid">
 <form method="post">
@@ -544,7 +576,7 @@ For color options see <a href="#colors-buttons">Colors</a> section.
 	<pre class="hide" data-src="#s-form-grid"></pre>
 
 
-<h3>Aligned form using table</h3>
+<h3 id="form-table">Aligned form using table</h3>
 
 <p>
 For aligned form, <code>table</code> may be used, which is arguably not semantic, but still very convenient.
@@ -665,7 +697,7 @@ Table will become stacked on small screen.
 
 <h2 id="nav">Navigation</h2>
 
-<h3>Horizontal navbar</h3>
+<h3 id="nav-horizontal">Horizontal navbar</h3>
 
 <p>
 Just add <code>nav</code> class to unordered list.<br>
@@ -685,7 +717,7 @@ Add <code>hover</code> class to highlight item's background on hover.
 </div>
 	<pre class="hide" data-src="#s-pagenav"></pre>
 
-<h3>Vertical navbar</h3>
+<h3 id="nav-vertical">Vertical navbar</h3>
 
 <p>
 Add <code>nav l</code> classes to unordered list.
@@ -699,7 +731,7 @@ Add <code>nav l</code> classes to unordered list.
 </div>
 	<pre class="hide" data-src="#s-pagenavv"></pre>
 
-<h3>Responsive dropdown, stacked on small screen</h3>
+<h3 id="nav-responsive">Responsive dropdown, stacked on small screen</h3>
 
 <p>
 Add <code>flip</code> class to stack items on small screen.
@@ -740,7 +772,7 @@ With JavaScript, nested lists are toggled on click.
 </div>
 	<pre class="hide" data-src="#s-nav"></pre>
 
-<h3>Responsive dropdown, hamburger on small screen</h3>
+<h3 id="nav-hamburger">Responsive dropdown, hamburger on small screen</h3>
 
 <p>
 Following code shows how to collapse navigation to a single hamburger icon on small screen,
@@ -782,7 +814,7 @@ and expand it to horizontal dropdown navbar on large screen (add <code>flip</cod
 </div>
 	<pre class="hide" data-src="#s-nav-hamb"></pre>
 
-<h3 id="drawer">Drawer</h3>
+<h3 id="nav-drawer">Drawer</h3>
 
 <div id="s-drawer">
 <a class="pad hover" href="#drw">&equiv;</a>
@@ -793,7 +825,9 @@ and expand it to horizontal dropdown navbar on large screen (add <code>flip</cod
 </div>
 	<pre class="hide" data-src="#s-drawer"></pre>
 
-<h2 id="togglers">Togglers</h2>
+
+
+<h2 id="toggle">Toggle</h2>
 
 <p>
 Pure CSS togglers based on <code>:target</code> behaviour.
@@ -811,7 +845,7 @@ Add <code>toggle</code> class like in following examples for popup, toggle, tree
 Tabs component is enhanced anyway.
 Modals do not require such enhancements.
 
-<h3>Popup</h3>
+<h3 id="toggle-popup">Popup</h3>
 
 <div id="s-popup">
 <div class="pop">
@@ -828,7 +862,7 @@ Modals do not require such enhancements.
 	<pre class="hide" data-src="#s-popup"></pre>
 
 
-<h3>Toggle</h3>
+<h3 id="toggle-div">Toggle</h3>
 
 <div id="s-toggle">
 <a href="#tog">Toggle</a>
@@ -836,7 +870,7 @@ Modals do not require such enhancements.
 </div>
 	<pre class="hide" data-src="#s-toggle"></pre>
 
-<h3>Modal dialog</h3>
+<h3 id="toggle-dlg">Modal dialog</h3>
 
 <div id="s-modal">
 <a href="#modal">Dialog</a>
@@ -848,7 +882,7 @@ Modals do not require such enhancements.
 	<pre class="hide" data-src="#s-modal"></pre>
 	
 		
-<h3>Modal fullscreen</h3>
+<h3 id="toggle-full">Modal fullscreen</h3>
 
 <div id="s-modal-full">
 <a href="#full">Fullscreen</a>
@@ -859,7 +893,7 @@ Modals do not require such enhancements.
 </div>
 	<pre class="hide" data-src="#s-modal-full"></pre>
 
-<h3 id="gallery-pure">Gallery</h3>
+<h3 id="toggle-gallery">Gallery</h3>
 
 <div class="hide">
 	Hidden gallery: non-CSS fallback
@@ -886,7 +920,7 @@ Enter key press navigates to the next image.
 </div>
 	<pre class="hide" data-src="#s-gal"></pre>
 
-<h3>Tabs</h3>
+<h3 id="toggle-tabs">Tabs</h3>
 
 <div id="s-tabs">
 <ul class="nav tabs toggle mem">
@@ -902,17 +936,18 @@ Enter key press navigates to the next image.
 </div>
 	<pre class="hide" data-src="#s-tabs"></pre>
 
-<h3>Tree</h3>
+<h3 id="toggle-tree">Tree</h3>
 
 <div id="s-tree">
 <ul class="toggle mem accordion">
 	<li><a href="#ul1">List 1</a>
 		<ul id="ul1">
-			<li><a href="#ul11">Item 1.1</a></li>
+			<li><a href="#ul11">Item 1.1</a>
 			<ul id="ul11">
 				<li>Item 1.1.1</li>
 				<li>Item 1.1.2</li>
 			</ul>
+			</li>
 			<li>Item 1.2</li>
 		</ul>
 	</li>
@@ -926,7 +961,7 @@ Enter key press navigates to the next image.
 </div>
 	<pre class="hide" data-src="#s-tree"></pre>
 
-<h3>Details</h3>
+<h3 id="toggle-details">Details</h3>
 
 <p>This element natively has similar functionality.
 <i class="text-w">Not supported in IE and Edge</i>.
@@ -940,13 +975,13 @@ Enter key press navigates to the next image.
 	<pre class="hide" data-src="#s-details"></pre>
 
 	
-<h2 id="togglers2">Togglers 2</h2>
+<h2 id="toggle-radio">Toggle with radio buttons</h2>
 
 Pure CSS togglers based on <a href="https://css-tricks.com/the-checkbox-hack/">checkbox hack</a>.
 This approach introduces bad semantics and is <b>not generally recommended</b>.
 But it overcomes drawbacks of <a href="#toggle"><code>:target</code>-based togglers</a> without using JavaScipt.
 
-<h3>Popup 2</h3>
+<h3 id="toggle-radio-popup">Popup with radio buttons</h3>
 
 <div id="s-popup2">
 <div class="pop">
@@ -958,7 +993,7 @@ But it overcomes drawbacks of <a href="#toggle"><code>:target</code>-based toggl
 	<pre class="hide" data-src="#s-popup2"></pre>
 
 
-<h3>Toggle 2</h3>
+<h3 id="toggle-radio-div">Toggle with radio buttons</h3>
 
 <div id="s-toggle2">
 <input type="checkbox" class="switch" id="tog2">
@@ -967,7 +1002,7 @@ But it overcomes drawbacks of <a href="#toggle"><code>:target</code>-based toggl
 </div>
 	<pre class="hide" data-src="#s-toggle2"></pre>
 
-<h3>Tabs 2</h3>
+<h3 id="toggle-radio-tabs">Tabs with radio buttons</h3>
 
 <div id="s-tabs2">
 <div class="tabs">
@@ -987,7 +1022,7 @@ But it overcomes drawbacks of <a href="#toggle"><code>:target</code>-based toggl
 </div>
 	<pre class="hide" data-src="#s-tabs2"></pre>
 
-<h3>Tree 2</h3>
+<h3 id="toggle-radio-tree">Tree with radio buttons</h3>
 
 You can use checkbox inputs to toggle branches independently or radio inputs with the same name for accordion.
 
@@ -1012,16 +1047,6 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 </ul>
 </div>
 	<pre class="hide" data-src="#s-tree2"></pre>
-
-<h2 id="ajax">AJAX</h2>
-
-<div id="s-ajax">
-<a href="data.json" data-target="#preview">Load</a><br>
-<a href="data.json" data-target="#dlg-inner">Load in modal</a>
-<pre class="bg-i" id="preview">(preview)</pre>
-<div id="preview-dlg" class="hide dlg pad"><div id="dlg-inner">(preview)</div></div>
-</div>
-	<pre class="hide" data-src="#s-ajax"></pre>
 
 
 <h2 id="colors">Colors</h2>
@@ -1119,7 +1144,7 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 	<a href="https://ya.ru" class="btn bg-i"><svg class="icon"><use xlink:href="#svg-ok"/></svg> Default</a>
 	<a href="https://ya.ru" class="btn bg-i"><svg class="icon text-y"><use xlink:href="#svg-ok"/></svg> Icon</a>
 	<a href="https://ya.ru" class="btn bg-i text-w"><svg class="icon"><use xlink:href="#svg-ok"/></svg> Link</a>
-	<a href="https://ya.ru" class="btn bg-i text-w"><svg class="icon text-y"><use xlink:href="#svg-ok"/> Both</svg> Link</a>
+	<a href="https://ya.ru" class="btn bg-i text-w"><svg class="icon text-y"><use xlink:href="#svg-ok"/></svg> Both</a>
 </div>
 
 <h2 id="blocks">Blocks</h2>
@@ -1167,7 +1192,7 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 	
 <h3>Empty filler</h3>
 
-	<div class="dlg c pad">
+	<div class="dlg c pad rad">
 		<svg class="text-n" width="80" height="80"><use xlink:href="#svg-github"/></svg>
 		<p><b>No items yet</b>
 		<p>Click the button to create new item</p>
@@ -1217,113 +1242,19 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 	<li>Asynchronous request: <code>[data-target]</code>
 </ul>
 
+<h2 id="ajax">AJAX</h2>
 
-<h2 id="ref">Reference</h2>
-
-<!--
-most important:
-- .wrap
-- .row.flip .col-2
-- .nav.flip
-- .hide.dlg .close
--->
-
-<div class="roll">
-<table class="hover">
-<tr><th>CSS class<th>Description<th>Used with<th>Modifications
-<tr><td>.row<td><a href="#grid">Grid</a><td>.col-0 div .col-2 .col-3<td>.flip .stick .l <i>.wrap .read .narrow .shift</i>
-<tr><td>.roll<td>Horizontal scroll<td><a href="#table">table</a>.hover<td>
-<tr><td>button, a.btn<td><a href="#colors-buttons">Button</a><td><a href="#form">form</a> submit button a span<td>.bg-x <i>[data-target]</i>
-<tr><td>.nav<td><a href="#nav">Navigation</a><td>ul<td>.flip .hover .l .bg <i>.act .shift <!--.topbar--></i>
-<tr><td>.drawer<td><a href="#drawer">Drawer</a><td>div a.close<td>.shift
-<tr><td>.flip<td>Responsive<td>.row .nav<td>
-<tr><td>.fix<td><a data-href="#fix">Fixed block</a><td><td>.r .l
-<tr><td>.hide<td><a href="#toggle">Togglable</a><td>div ul .close<td>.dlg .full.c .hide-mobile .hide-desktop <i>.pop .tabs</i>
-<tr><td>.switch<td><a href="#toggle2">Togglable 2</a><td>label div<td>.pop .tabs
-<tr><td>.gal<td><a href="#gallery-pure">Gallery</a><td>a .close<td><i>[data-info]</i>
-<tr><td>.toggle<td><a href="#js">JavaScript toggle</a><td>ul div .js-control .js-hide<td>.mem
-<tr><td>.icon<td>Small image<td>img svg a button<td>
-<tr><td>.text-<td><a href="#colors">Text color</a><td>*<td>.text-e .text-w .text-i .text-y .text-n
-<tr><td>.bg<td><a href="#colors">Background color</a><td>*<td>.bg-e .bg-w .bg-i .bg-y .bg-n .yel
-<tr><td>.r .c .l<td>Align<td>*<td>
-<tr><td>.center<td>Centrify<td>*<td>
-<tr><td>.small<td>Small font<td>*<td>
-<tr><td>.mar<td>Vertical margin<td>*<td>
-<tr><td>.pad<td>Padding<td>*<td>
-<tr><td>.bord<td>Border<td>*<td>
-<tr><td>.rad<td>Border radius<td>*<td>
-<tr><td>.hide-print .hide-screen<td>Show by media<td>*<td>
-</table>
+<div id="s-ajax">
+<a href="data.json" data-target="#preview">Load</a><br>
+<a href="data.json" data-target="#dlg-inner">Load in modal</a>
+<pre class="bg-i" id="preview">(preview)</pre>
+<div id="preview-dlg" class="hide dlg pad"><div id="dlg-inner">(preview)</div></div>
 </div>
+	<pre class="hide" data-src="#s-ajax"></pre>
 
-<h3><a href="#ref-alpha">Alphabetical</a></h3>
 
-<div id="ref-alpha" class="hide toggle mem">
-<ol>
-<li><code>.act</code> &mdash; active link
-<li><code>.bg</code> &mdash; light background
-<li><code>.bg-e</code> &mdash; nominal "red" background
-<li><code>.bg-i</code> &mdash; nominal "blue" background 
-<li><code>.bg-n</code> &mdash; nominal "gray" background
-<li><code>.bg-w</code> &mdash; nominal "yellow" background
-<li><code>.bg-y</code> &mdash; nominal "green" background
-<li><code>.bord</code> &mdash; add border
-<li><code>.btn</code> &mdash; button-like
-<li><code>.c</code> &mdash; centrify content inside block
-<li><code>.center</code> &mdash; centrify block itself
-<li><code>.close</code> &mdash; link to close togglable block
-<li><code>.col-0</code> &mdash; grid cell with non-expanding width
-<li><code>.col-2</code> &mdash; grid cell with expanding width (x2)
-<li><code>.col-3</code> &mdash; grid cell with expanding width (x3)
-<li><code>.dlg</code> &mdash; card-like block
-<li><code>.drawer</code> &mdash; drawer
-<li><code>.fix</code> &mdash; fixed in corner
-<li><code>.flip</code> &mdash; responsive component, stacked view on small screen
-<li><code>.full</code> &mdash; fullscreen block
-<li><code>.gal</code> &mdash; fullscreen gallery
-<li><code>.hide</code> &mdash; hidden
-<li><code>.hide-desktop</code> &mdash; hidden only on large screen
-<li><code>.hide-mobile</code> &mdash; hidden only on small screen
-<li><code>.hide-print</code> &mdash; hidden on print
-<li><code>.hide-screen</code> &mdash; hidden on screen
-<li><code>.hover</code> &mdash; highlight link or table row on hover
-<li><code>.icon</code> &mdash; small image
-<li><code>.js-control</code> &mdash; visibility is controlled by JavaScript, shown by default
-<li><code>.js-hide</code> &mdash; hidden with JavaScript
-<li><code>.l</code> &mdash; align content to the left
-<li><code>.mar</code> &mdash; add vertical margins
-<li><code>.narrow</code> &mdash; narrow block width
-<li><code>.nav</code> &mdash; horizontal dropdown navigation
-<li><code>.pad</code> &mdash; add padding
-<li><code>.pop</code> &mdash; popup component wrapper
-<li><code>.r</code> &mdash; align content to the right
-<li><code>.rad</code> &mdash; rounded corners
-<li><code>.read</code> &mdash; block width for comfortable reading
-<li><code>.roll</code> &mdash; horizontal scrolling of contents
-<li><code>.row</code> &mdash; row of grid
-<li><code>.shift</code> &mdash; shift item of <code>.row</code> or <code>.nav</code> to the right
-<li><code>.small</code> &mdash; small font size
-<li><code>.stick</code> &mdash; stick block to the top
-<li><code>.switch</code> &mdash; input controlling visibility of following block
-<li><code>.tabs</code> &mdash; tabs component
-<li><code>.text-e</code> &mdash; nominal "red" text color
-<li><code>.text-i</code> &mdash; nominal "blue" text color
-<li><code>.text-n</code> &mdash; nominal "gray" text color
-<li><code>.text-w</code> &mdash; nominal "yellow" text color
-<li><code>.text-y</code> &mdash; nominal "green" text color
-<!--li><code>.topbar</code> &mdash; sticky top app bar-->
-<li><code>.wrap</code> &mdash; reasonable page width limit
-<li><code>.yel</code> &mdash; temporary highlight targeted block
-</ol>
-</div>
 
-<!--div style="overflow:hidden;height:1.5em;">
-<div style="overflow-x:scroll;overflow-y:hide;/*-webkit-overflow-scrolling:touch;*/">
-wwwwwwwwwww1wwwwwwwwwwwwwww2wwwwwwwwwwwww3wwwwwwwwwwwwww4wwwwwwwwwwwwww5wwwwwwwwwwwww6wwwwwwwwwwwwwwww.
-</div>
-</div-->
-
-	<h2 id="plugins">Plugins</h2>
+<h2 id="plugins">Plugins</h2>
 	
 	<h3 id="calendar"><a href="https://github.com/vvvkor/d1calendar">Calendar</a></h3>
 	
@@ -1387,14 +1318,14 @@ wwwwwwwwwww1wwwwwwwwwwwwwww2wwwwwwwwwwwww3wwwwwwwwwwwwww4wwwwwwwwwwwwww5wwwwwwww
 	
 	<p>
 	Place links with class <code>pic</code> inside <code>div</code> with class <code>gallery</code>
-	to generate gallery similar to <a href="#gallery-pure">pure CSS gallery</a>.
+	to generate gallery similar to <a href="#toggle-gallery">pure CSS gallery</a>.
 	</p>
 	
 <div id="s-gallery">
 <div class="gallery">
 	<a href="http://vadimkor.ru/projects/d1/c.jpg" class="pic" title="Sunset">#1</a>
 	<a href="http://vadimkor.ru/projects/d1/s.jpg" class="pic" title="Boat">#2</a>
-	<a href="http://vadimkor.ru/projects/d1/t.jpg" class="pic" xtitle="Ocean">#3</a>
+	<a href="http://vadimkor.ru/projects/d1/t.jpg" class="pic" title="Ocean">#3</a>
 </div>
 </div>
 	<pre class="hide" data-src="#s-gallery"></pre>
@@ -1409,7 +1340,7 @@ wwwwwwwwwww1wwwwwwwwwwwwwww2wwwwwwwwwwwww3wwwwwwwwwwwwww4wwwwwwwwwwwwww5wwwwwwww
 	<pre class="hide" data-src="#s-lookup"></pre>
 
 
-	<h3 id="tablex"><a href="https://github.com/vvvkor/d1tablex">Tablex</a></h3>
+<h3 id="tablex"><a href="https://github.com/vvvkor/d1tablex">Tablex</a></h3>
 	
 	<p>Filter and sort HTML table.
 	
@@ -1452,12 +1383,112 @@ wwwwwwwwwww1wwwwwwwwwwwwwww2wwwwwwwwwwwww3wwwwwwwwwwwwww4wwwwwwwwwwwwww5wwwwwwww
 </div>
 	<pre class="hide" data-src="#s-tablex"></pre>
 
- </div>
-</div>
+
+<h2 id="ref">Reference</h2>
+
+<!--
+most important:
+- .wrap
+- .row.flip .col-2
+- .nav.flip
+- .hide.dlg .close
+-->
+
+<div class="roll">
+<table class="hover">
+<tr><th>CSS class<th>Description<th>Used with<th>Modifications
+<tr><td>.row<td><a href="#grid">Grid</a><td>.col-0 div .col-2 .col-3<td>.flip .stick .l <i>.wrap .read .narrow .shift</i>
+<tr><td>.roll<td>Horizontal scroll<td><a href="#table">table</a>.hover<td>
+<tr><td>button, a.btn<td><a href="#colors-buttons">Button</a><td><a href="#form">form</a> submit button a span<td>.bg-x <i>[data-target]</i>
+<tr><td>.nav<td><a href="#nav">Navigation</a><td>ul<td>.flip .hover .l .bg <i>.act .shift <!--.topbar--></i>
+<tr><td>.drawer<td><a href="#nav-drawer">Drawer</a><td>div a.close<td>.shift
+<tr><td>.flip<td>Responsive<td>.row .nav<td>
+<tr><td>.fix<td><a data-href="#fix">Fixed block</a><td><td>.r .l
+<tr><td>.hide<td><a href="#toggle">Togglable (hash)</a><td>div ul .close<td>.dlg .full.c .hide-mobile .hide-desktop <i>.pop .tabs</i>
+<tr><td>.switch<td><a href="#toggle-radio">Togglable (radio)</a><td>label div<td>.pop .tabs
+<tr><td>.gal<td><a href="#toggle-gallery">Gallery</a><td>a .close<td><i>[data-info]</i>
+<tr><td>.toggle<td><a href="#js">JavaScript toggle</a><td>ul div .js-control .js-hide<td>.mem
+<tr><td>.icon<td>Small image<td>img svg a button<td>
+<tr><td>.text-<td><a href="#colors">Text color</a><td>*<td>.text-e .text-w .text-i .text-y .text-n
+<tr><td>.bg<td><a href="#colors">Background color</a><td>*<td>.bg-e .bg-w .bg-i .bg-y .bg-n .yel
+<tr><td>.r .c .l<td>Align<td>*<td>
+<tr><td>.center<td>Centrify<td>*<td>
+<tr><td>.small<td>Small font<td>*<td>
+<tr><td>.mar<td>Vertical margin<td>*<td>
+<tr><td>.pad<td>Padding<td>*<td>
+<tr><td>.bord<td>Border<td>*<td>
+<tr><td>.rad<td>Border radius<td>*<td>
+<tr><td>.hide-print .hide-screen<td>Show by media<td>*<td>
+</table>
 </div>
 
+<h3><a href="#ref-alpha">Alphabetical reference</a></h3>
+
+<div id="ref-alpha" class="hide toggle mem">
+<ol>
+<li><code>.act</code> &mdash; active link
+<li><code>.bg</code> &mdash; light background
+<li><code>.bg-e</code> &mdash; nominal "red" background
+<li><code>.bg-i</code> &mdash; nominal "blue" background 
+<li><code>.bg-n</code> &mdash; nominal "gray" background
+<li><code>.bg-w</code> &mdash; nominal "yellow" background
+<li><code>.bg-y</code> &mdash; nominal "green" background
+<li><code>.bord</code> &mdash; add border
+<li><code>.btn</code> &mdash; button-like
+<li><code>.c</code> &mdash; centrify content inside block
+<li><code>.center</code> &mdash; centrify block itself
+<li><code>.close</code> &mdash; link to close togglable block
+<li><code>.col-0</code> &mdash; grid cell with non-expanding width
+<li><code>.col-2</code> &mdash; grid cell with expanding width (x2)
+<li><code>.col-3</code> &mdash; grid cell with expanding width (x3)
+<li><code>.dlg</code> &mdash; card-like block
+<li><code>.drawer</code> &mdash; drawer
+<li><code>.fix</code> &mdash; fixed in corner
+<li><code>.flip</code> &mdash; responsive component, stacked view on small screen
+<li><code>.full</code> &mdash; fullscreen block
+<li><code>.gal</code> &mdash; fullscreen gallery
+<li><code>.hide</code> &mdash; hidden
+<li><code>.hide-desktop</code> &mdash; hidden only on large screen
+<li><code>.hide-mobile</code> &mdash; hidden only on small screen
+<li><code>.hide-print</code> &mdash; hidden on print
+<li><code>.hide-screen</code> &mdash; hidden on screen
+<li><code>.hover</code> &mdash; highlight link or table row on hover
+<li><code>.icon</code> &mdash; small image
+<li><code>.js-control</code> &mdash; visibility is controlled by JavaScript, shown by default
+<li><code>.js-hide</code> &mdash; hidden with JavaScript
+<li><code>.l</code> &mdash; align content to the left
+<li><code>.mar</code> &mdash; add vertical margins
+<li><code>.narrow</code> &mdash; narrow block width
+<li><code>.nav</code> &mdash; horizontal dropdown navigation
+<li><code>.pad</code> &mdash; add padding
+<li><code>.pop</code> &mdash; popup component wrapper
+<li><code>.r</code> &mdash; align content to the right
+<li><code>.rad</code> &mdash; rounded corners
+<li><code>.read</code> &mdash; block width for comfortable reading
+<li><code>.roll</code> &mdash; horizontal scrolling of contents
+<li><code>.row</code> &mdash; row of grid
+<li><code>.shift</code> &mdash; shift item of <code>.row</code> or <code>.nav</code> to the right
+<li><code>.small</code> &mdash; small font size
+<li><code>.stick</code> &mdash; stick block to the top
+<li><code>.switch</code> &mdash; input controlling visibility of following block
+<li><code>.tabs</code> &mdash; tabs component
+<li><code>.text-e</code> &mdash; nominal "red" text color
+<li><code>.text-i</code> &mdash; nominal "blue" text color
+<li><code>.text-n</code> &mdash; nominal "gray" text color
+<li><code>.text-w</code> &mdash; nominal "yellow" text color
+<li><code>.text-y</code> &mdash; nominal "green" text color
+<!--li><code>.topbar</code> &mdash; sticky top app bar-->
+<li><code>.wrap</code> &mdash; reasonable page width limit
+<li><code>.yel</code> &mdash; temporary highlight targeted block
+</ol>
+</div>
+
+ </div><!-- /read -->
+</div><!-- /col -->
+</div><!-- /row -->
+
 <!--footer class="pad bg">
-	footer
+	d1 is created by <a href="mailto:vadimkor@yandex.ru">Vadim Korolev</a>
 </footer-->
 
 <a class="fix r pad hover hide-print" href="#draw">Config</a>

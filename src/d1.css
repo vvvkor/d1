@@ -2,26 +2,28 @@
 /* Functional CSS microframework */
 
 /*
-classes
-	main
-		.row .col-0 .col-2 .col-3 .flip .stick
-		.nav .act .hover .flip .shift
-		button, [type="submit"], a.btn, span.btn
-	action
-		.hide .pop .dlg .full(.c) .gal .tabs .close
-	js
-		.toggle .js-control .js-hide pre[data-src]
-	decorative
-		.bg .text-x .bg-x
-		.wrap .read .narrow .shift .stick
+classes 53
+	main 12
+		.row .col-0 .col-2 .col-3 .flip .stick .fix
+		.nav .act .hover .shift
+		.btn, button, [type="submit"], 
+	action 8
+		.hide .pop .dlg .full(.c) .gal .tabs .close .drawer
+	decorative 16
+		.bg .text-y .bg-y
+		.wrap .read .narrow
 		.roll
 		.icon
-	optional
-		.small .r .c .l .center .yel
+	optional 15
+		.small .r .c .l .center .yel 
 		.mar .pad .bord .rad
 		.hide-print .hide-screen
 		.hide-mobile .hide-desktop
 		.switch
+	js 2
+		.js-control .js-hide ; .toggle .pic .mem  pre[data-src]
+	unused
+		.wide .topbar
 tags
 	.pop>div
 	form>button - inline
@@ -105,7 +107,7 @@ abbr{border-bottom:thin dotted;}
 /*
 	color priority:
 	- hilited (--hilite)
-	- status (--text-x)
+	- status (text-x)
 	- btn (--bg)
 	- no href (--text)
 	- hover, act (--hover)
