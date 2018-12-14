@@ -17,7 +17,7 @@ It aims to implement most widely used interface components with less code.
 * JavaScript not required
 * [enhanced with JavaScript](README-js.md)
 * neutral style
-* configurable (css vars)
+* [customizable style with css vars](README-css.md)
 * no floats
 * no hacks
 * accessibility is not much covered

@@ -31,6 +31,7 @@ var main = new(function() {
     cToggle: 'toggle',
     cJsControl: 'js-control',
     cJsHide: 'js-hide',
+    cHashed: 'js-hashed',
     attrStr: 'data-str',
     qsEsc: ".pop>div.toggle, .nav.toggle ul",//, .dlg, .full
     qsMem: ".mem, ul.tabs.mem+div>div, ul.mem ul[id]",
@@ -243,9 +244,15 @@ var main = new(function() {
     }
   }
 
-  this.updateLinks = function(on, n) {
-    if (n.id) this.b("", "a[href='#" + n.id + "']", "", function(n) {
-      n.classList[on ? "add" : "remove"](this.opt.cAct)
+  this.updateLinks = function(on, n, hash) {
+    var id  = (typeof n === "string") ? n : n.id;
+    if(hash) this.b("", "." + this.opt.cHashed, "", function(m) {
+      m.classList.remove(this.opt.cHashed);
+      m.classList.remove(this.opt.cAct);
+    });
+    if (id) this.b("", "a[href='#" + id + "']", "", function(m) {
+      m.classList[on ? "add" : "remove"](this.opt.cAct);
+      if(hash) m.classList[on ? "add" : "remove"](this.opt.cHashed);
     });
   }
 
@@ -303,6 +310,8 @@ var main = new(function() {
 
   this.onHash = function() {
     if (location.hash) {
+      this.show(location.hash);
+      this.updateLinks(1, location.hash.substr(1), 1);
       var d = this.q(location.hash+' [name]', 0);
       if (d) d.focus();
     }
@@ -445,7 +454,8 @@ var main = new(function() {
     //prepare tabs, mem
     this.restore();
     //prepare hash
-    if (location.hash) this.show(location.hash);
+    //if (location.hash) this.show(location.hash);
+    this.onHash();
     //toggle
     this.b(n, "a[href^='#']", "click", this.handleState);
     //set input value

@@ -1,4 +1,4 @@
-/*! d1css v1.2.4 https://github.com/vvvkor/d1 */
+/*! d1css v1.2.6 https://github.com/vvvkor/d1 */
 
 :root {
     --text: #222;
@@ -8,7 +8,7 @@
     --bg-hilite: rgba(0, 0, 0, .05);
     --text-hilite: inherit;
     --link: #03b;
-    --hover: #d00;
+    --hover: #003;
     --visited: #90c;
     --rad: .2;
     --gap: 1;
@@ -125,7 +125,7 @@ a {
 }
 
 a.act, a:hover {
-    color: #d00;
+    color: #003;
     color: var(--hover);
 }
 

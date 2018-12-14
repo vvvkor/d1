@@ -17,7 +17,7 @@ process:
 - publish html
 -->
 	
-	<!--link href="https://cdn.jsdelivr.net/npm/d1css@1.2.4/dist/d1.compat.min.css" rel="stylesheet"-->
+	<!--link href="https://cdn.jsdelivr.net/npm/d1css@1.2.6/dist/d1.compat.min.css" rel="stylesheet"-->
 	<!-- CDN -->
 	<link href="https://cdn.jsdelivr.net/npm/d1css/dist/d1.compat.min.css" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/d1css/dist/d1.min.js"></script>
@@ -233,6 +233,7 @@ process:
 			<li><a href="#lookup">Lookup</a>
 			<li><a href="#tablex">Tablex</a>
 			</ul>
+		<li><a href="#custom">Customization</a>
 		<li><a href="#ref">Reference</a>
 	</ul>
 	</div>
@@ -1384,6 +1385,25 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 	<pre class="hide" data-src="#s-tablex"></pre>
 
 
+<h2 id="custom">Customization with CSS vars</h2>
+
+<ul>
+<li><code>--text</code> - base text color; default: <code>#222</code></li>
+<li><code>--bg</code> - base background color; default: <code>#fff</code></li>
+<li><code>--bg-pane</code> - panel background color; default: <code>rgba(0,0,0,.05)</code></li>
+<li><code>--border</code> - border style; default: <code>thin solid rgba(0,0,0,.16)</code></li>
+<li><code>--bg-hilite</code> - highlighted element background; default: <code>rgba(0,0,0,.05)</code></li>
+<li><code>--text-hilite</code> - highlighted element text color; default: <code>inherit</code></li>
+<li><code>--link</code> - base link text color; default: <code>#03b</code></li>
+<li><code>--hover</code> - hovered link text color; default: <code>#003</code></li>
+<li><code>--visited</code> - visited link text color; default: <code>#90c</code></li>
+<li><code>--rad</code> - border radius in <code>em</code>s; default: <code>.2</code></li>
+<li><code>--gap</code> - base gap for margins and paddings in <code>em</code>s; default: <code>1</code></li>
+<li><code>--gap-rate</code> - rate of vertical and horizontal gap; default: <code>.5</code></li>
+</ul>
+
+<a class="btn bg-i" href="#customize">Custimize</a>
+
 <h2 id="ref">Reference</h2>
 
 <!--
@@ -1491,8 +1511,8 @@ most important:
 	d1 is created by <a href="mailto:vadimkor@yandex.ru">Vadim Korolev</a>
 </footer-->
 
-<a class="fix r pad hover hide-print" href="#draw">Config</a>
-<div class="drawer shift pad hide-print" id="draw">
+<a class="fix r pad hover hide-print" href="#customize">Custimize</a>
+<div class="drawer shift pad hide-print" id="customize">
 	<a class="close pad" href="#cancel">&times;</a>
 	<form id="cfg" class="pad">
 		<h3>Style configurator</h3>
@@ -1518,7 +1538,7 @@ most important:
 		<!--input type="color" name="link" value="#0033bb"> Link<br-->
 		<input type="range" name="link" value="240" min="-255" max="360" data-func="vivid"> Link<br>
 		<!--input type="color" name="hover" value="#0088ff"> Hover link<br-->
-		<input type="range" name="hover" value="360" min="-255" max="360" data-func="vivid"> <small class="text-n">hover</small><br>
+		<input type="range" name="hover" value="-230" min="-255" max="360" data-func="vivid"> <small class="text-n">hover</small><br>
 		<!--input type="color" name="visited" value="#888888"> Visited link<br-->
 		<input type="range" name="visited" value="280" min="-255" max="360" data-func="vivid"> <small class="text-n">visited</small><br>
 		<input type="range" name="rad" value=".2" min="0" max="2" step=".1"> Radius <br>
