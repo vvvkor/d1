@@ -1,4 +1,4 @@
-/*! d1css v1.2.7 https://github.com/vvvkor/d1 */
+/*! d1css v1.2.8 https://github.com/vvvkor/d1 */
 
 :root {
     --text: #222;
@@ -8,19 +8,19 @@
     --bg-hilite: rgba(0, 0, 0, .05);
     --text-hilite: inherit;
     --link: #03b;
-    --hover: #003;
+    --hover: #07f;
     --visited: #90c;
     --rad: .2;
     --gap: 1;
     --gap-rate: .5;
-    --radius: calc(var(--rad)*1em);
-    --gap-n: calc(var(--gap)*1em);
-    --gap-s: calc(var(--gap-n)*0.5);
-    --gap-xs: calc(var(--gap-n)*0.2);
-    --gap-l: calc(var(--gap-n)*2);
-    --gaps-n: calc(var(--gap-n)*var(--gap-rate)) var(--gap-n);
-    --gaps-s: calc(var(--gap-s)*var(--gap-rate)) var(--gap-s);
-    --gaps-l: calc(var(--gap-l)*var(--gap-rate)) var(--gap-l);
+    --radius: calc(var(--rad) * 1em);
+    --gap-n: calc(var(--gap) * 1em);
+    --gap-s: calc(var(--gap-n) * .5);
+    --gap-xs: calc(var(--gap-n) * .2);
+    --gap-l: calc(var(--gap-n) * 2);
+    --gaps-n: calc(var(--gap-n) * var(--gap-rate)) var(--gap-n);
+    --gaps-s: calc(var(--gap-s) * var(--gap-rate)) var(--gap-s);
+    --gaps-l: calc(var(--gap-l) * var(--gap-rate)) var(--gap-l);
 }
 
 button, input, select, textarea {
@@ -53,7 +53,6 @@ button, [type="submit"], [type="search"] {
 }
 
 [type="search"] {
-    -webkit-border-radius: .2em;
     -webkit-border-radius: var(--radius);
 }
 
@@ -62,9 +61,7 @@ button::-moz-focus-inner, [type="submit"]::-moz-focus-inner {
 }
 
 body {
-    color: #222;
     color: var(--text);
-    background-color: #fff;
     background-color: var(--bg);
     font: 120%/1.5 "pt sans", Roboto, "Segoe UI", sans-serif;
     margin: 0;
@@ -75,7 +72,6 @@ main {
 }
 
 ul, ol, dl, blockquote, pre, hr, p, figure {
-    margin: 1em 0;
     margin: var(--gap-n) 0;
 }
 
@@ -89,7 +85,6 @@ h1+h2, h2+h3, h3+h4, h4+h5, h5+h6 {
 }
 
 blockquote, pre, fieldset {
-    padding: .5em 1em;
     padding: var(--gaps-n);
 }
 
@@ -101,7 +96,6 @@ pre, code {
 pre {
     overflow: auto;
     max-height: 80vh;
-    padding: 1em;
     padding: var(--gap-n);
 }
 
@@ -110,22 +104,18 @@ abbr {
 }
 
 a {
-    color: #03b;
     color: var(--link);
 }
 
 :visited {
-    color: #90c;
     color: var(--visited);
 }
 
 .nav a, a[href^="#"] {
-    color: #03b;
     color: var(--link);
 }
 
 a.act, a:hover {
-    color: #003;
     color: var(--hover);
 }
 
@@ -144,14 +134,11 @@ a.pad, a.btn {
 
 .nav .act, a.hover.act, a.hover:hover, .nav.hover li>a:hover,
 table.hover tr:hover, .switch:checked+label, .switch+label:hover {
-    color: inherit;
     color: var(--text-hilite);
-    background-color: rgba(0, 0, 0, .05);
     background-color: var(--bg-hilite);
 }
 
 table.hover tr:hover a {
-    color: inherit;
     color: var(--text-hilite);
 }
 
@@ -167,7 +154,6 @@ svg {
 }
 
 a .icon:not(:last-child), button .icon:not(:last-child) {
-    margin-right: .5em;
     margin-right: var(--gap-s);
 }
 
@@ -176,12 +162,10 @@ ul {
 }
 
 ul, ol {
-    padding: 0 0 0 1.5em;
     padding: 0 0 0 calc(var(--gap-n)*1.5);
 }
 
 li ul, li ol {
-    margin: .2em 0;
     margin: var(--gap-xs) 0;
 }
 
@@ -190,7 +174,6 @@ dt {
 }
 
 dd {
-    margin-bottom: .5em;
     margin-bottom: var(--gap-s);
 }
 
@@ -200,7 +183,6 @@ table {
 }
 
 th, td {
-    padding: .25em .5em;
     padding: var(--gaps-s);
     text-align: left;
     vertical-align: top;
@@ -208,7 +190,6 @@ th, td {
 }
 
 table tr>*, fieldset, hr, .roll>table {
-    border: thin solid rgba(0, 0, 0, .16);
     border: var(--border);
 }
 
@@ -237,13 +218,11 @@ hr {
 }
 
 form>p, form>.row {
-    margin: .5em 0;
     margin: var(--gap-s) 0;
 }
 
 input, button, select, textarea {
     font: inherit;
-    padding: .2em;
     padding: var(--gap-xs);
     line-height: normal;
 }
@@ -253,18 +232,14 @@ input, button, select, textarea, .btn {
 }
 
 .btn, button, [type="submit"] {
-    padding: .5em 1em;
     padding: var(--gaps-n);
-    border-radius: .2em;
     border-radius: var(--radius);
-    margin: .2em 0;
     margin: var(--gap-xs) 0;
     border-color: transparent;
     cursor: pointer;
 }
 
 form>.btn, form>button, form>[type="submit"], form>a>button {
-    padding: .2em .5em;
     padding: var(--gap-xs) var(--gap-s);
     margin: 0;
 }
@@ -345,7 +320,6 @@ ul.nav, .nav ul {
 }
 
 .nav li>:not(ul) {
-    padding: .5em 1em;
     padding: var(--gaps-n);
 }
 
@@ -354,8 +328,7 @@ ul.nav, .nav ul {
 }
 
 .nav li>form {
-    padding: .3em 1em;
-    padding: calc(var(--gap-n)*var(--gap-rate) - var(--gap-xs)) var(--gap-n);
+    padding: calc(var(--gap-n) * var(--gap-rate) - var(--gap-xs)) var(--gap-n);
 }
 
 .nav li>a:nth-last-child(2):after {
@@ -380,7 +353,6 @@ ul.nav, .nav ul {
 }
 
 .nav ul, .pop>div, .dlg, .full.hide {
-    background: #fff;
     background: var(--bg);
     background-clip: padding-box;
     box-shadow: 0 .2em .8em rgba(0, 0, 0, .5);
@@ -406,7 +378,6 @@ ul.nav, .nav ul {
     width: 80%;
     min-width: 10em;
     max-width: 24em;
-    margin: 1em auto;
     margin: var(--gap-n) auto;
 }
 
@@ -484,7 +455,6 @@ div.hide {
     z-index: 41;
     position: fixed;
     color: #fff;
-    padding: 0 .5em;
     padding: 0 var(--gap-s);
 }
 
@@ -503,19 +473,15 @@ ul.tabs+div>div:target~div:not(.js-control) {
 }
 
 .bg, blockquote, pre, code, thead, tfoot {
-    background-color: rgba(0, 0, 0, .05);
     background-color: var(--bg-pane);
 }
 
 .btn[class], button, [type="submit"] {
-    background-color: #03b;
     background-color: var(--link);
-    color: #fff;
     color: var(--bg);
 }
 
 .btn .icon, button .icon {
-    color: #fff;
     color: var(--bg);
 }
 
@@ -614,7 +580,6 @@ ul.tabs+div>div:target~div:not(.js-control) {
 }
 
 .row>*:not(:last-child):not(.center) {
-    margin-right: 1em;
     margin-right: var(--gap-n);
 }
 
@@ -638,7 +603,6 @@ ul.tabs+div>div:target~div:not(.js-control) {
 }
 
 .topbar, .drawer {
-    background-color: #fff;
     background-color: var(--bg);
     box-shadow: 0 0 .8em rgba(0, 0, 0, .15);
 }
@@ -692,7 +656,6 @@ ul.tabs+div>div:target~div:not(.js-control) {
     }
 
     .row.flip.mar[class]>*+*:not(.mar) {
-        margin-top: .2em;
         margin-top: var(--gap-xs);
     }
 
@@ -702,7 +665,6 @@ ul.tabs+div>div:target~div:not(.js-control) {
     }
 
     form>table tr {
-        padding-bottom: .5em;
         padding-bottom: var(--gap-s);
     }
 
@@ -736,7 +698,6 @@ ul.tabs+div>div:target~div:not(.js-control) {
     }
 
     fieldset table td:first-child:not([colspan]) {
-        width: 10.5em;
         width: calc(12em - var(--gap-n) - var(--gap-s));
     }
 
@@ -745,7 +706,6 @@ ul.tabs+div>div:target~div:not(.js-control) {
     }
 
     .dlg.pad {
-        padding: 1em 2em;
         padding: var(--gaps-l);
     }
 
@@ -792,7 +752,6 @@ ul.tabs+div>div:target~div:not(.js-control) {
     }
 
     pre, code {
-        border-left: thin solid rgba(0, 0, 0, .16);
         border-left: var(--border);
     }
 }
@@ -802,17 +761,14 @@ ul.tabs+div>div:target~div:not(.js-control) {
 }
 
 .mar {
-    margin: 1em 0;
     margin: var(--gap-n) 0;
 }
 
 form .mar {
-    margin: .5em 0;
     margin: var(--gap-s) 0;
 }
 
 .pad {
-    padding: .5em 1em;
     padding: var(--gaps-n);
 }
 
@@ -821,7 +777,6 @@ form .mar {
 }
 
 .rad {
-    border-radius: .2em;
     border-radius: var(--radius);
 }
 
@@ -847,7 +802,6 @@ form .mar {
 
 .switch+label {
     cursor: pointer;
-    color: #03b;
     color: var(--link, #03c);
 }
 

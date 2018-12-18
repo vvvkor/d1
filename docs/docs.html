@@ -17,9 +17,9 @@ process:
 - publish html
 -->
 	
-	<!--link href="https://cdn.jsdelivr.net/npm/d1css@1.2.7/dist/d1.compat.min.css" rel="stylesheet"-->
+	<!--link href="https://cdn.jsdelivr.net/npm/d1css@1.2.8/dist/d1.min.css" rel="stylesheet"-->
 	<!-- CDN -->
-	<link href="https://cdn.jsdelivr.net/npm/d1css/dist/d1.compat.min.css" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/d1css/dist/d1.min.css" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/d1css/dist/d1.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d1calendar/d1calendar.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d1dialog/d1dialog.min.js"></script>
@@ -27,9 +27,18 @@ process:
 	<script src="https://cdn.jsdelivr.net/npm/d1gallery/d1gallery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d1lookup/d1lookup.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d1tablex/d1tablex.min.js"></script>
-	<!-- local-npm -- >
+	<!-- local-npm-src -- >
 	<link href="../src/d1.css" rel="stylesheet">
 	<script src="../src/d1.js"></script>
+	<script src="../../d1dialog/d1dialog.js"></script>
+	<script src="../../d1gallery/d1gallery.js"></script>
+	<script src="../../d1tablex/d1tablex.js"></script>
+	<script src="../../d1calendar/d1calendar.js"></script>
+	<script src="../../d1lookup/d1lookup.js"></script>
+	<script src="../../d1edit/d1edit.js"></script>
+	<!-- local-npm-dist -- >
+	<link href="../dist/d1.min.css" rel="stylesheet">
+	<script src="../dist/d1.min.js"></script>
 	<script src="../../d1dialog/d1dialog.js"></script>
 	<script src="../../d1gallery/d1gallery.js"></script>
 	<script src="../../d1tablex/d1tablex.js"></script>
@@ -138,6 +147,7 @@ process:
 		}
 		function grey(h, a){ return 'hsla(0,0%,'+Math.round(h/255*100)+'%,'+(a==undefined ? '1' : a)+')'; }
 		function vivid(h, a){ return hsla(h, 75, 45, a); }
+		function bright(h, a){ return hsla(h, 100, 60, a); }
 		function mid(h, a){ return hsla(h, 65, 80, a); }
 		function pale(h, a){ return hsla(h, 50, 95, a); }
 		function lite(h, a){ return hsla(h, 50, 100*a, 1 /*h>0 ? 1 : 1-a*/); }
@@ -254,7 +264,7 @@ It aims to implement most widely used interface components with less code.
 <p>Install to your repository:
 <pre>npm install d1css</pre>
 <p>Then use in your CSS file:
-<pre>@import "../node_modules/d1css/dist/d1.compat.min.css";</pre>
+<pre>@import "../node_modules/d1css/dist/d1.min.css";</pre>
 <p>And optionally bundle into your JavaScript file:
 <pre>var d1 = require("d1css");
 d1.load();</pre>
@@ -263,7 +273,7 @@ d1.load();</pre>
 <p>To use from CDN just add following code to the <code>head</code> of your page.
 
 <pre>
-&lt;link href="https://cdn.jsdelivr.net/npm/d1css/dist/d1.compat.min.css" rel="stylesheet"&gt;
+&lt;link href="https://cdn.jsdelivr.net/npm/d1css/dist/d1.min.css" rel="stylesheet"&gt;
 &lt;!-- optional --&gt;
 &lt;script src="https://cdn.jsdelivr.net/npm/d1css/dist/d1.min.js"&gt;&lt;/script&gt;
 &lt;script&gt; d1.load(); &lt;/script&gt;
@@ -275,7 +285,7 @@ d1.load();</pre>
 
 <p>Add following code to the <code>head</code> of your page:
 <pre>
-&lt;link href="d1.compat.min.css" rel="stylesheet"&gt;
+&lt;link href="d1.min.css" rel="stylesheet"&gt;
 &lt;!-- optional --&gt;
 &lt;script src="d1.min.js"&gt;&lt;/script&gt;
 &lt;script&gt; d1.load(); &lt;/script&gt;
@@ -1249,7 +1259,7 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 <a href="data.json" data-target="#preview">Load</a><br>
 <a href="data.json" data-target="#dlg-inner">Load in modal</a>
 <pre class="bg-i" id="preview">(preview)</pre>
-<div id="preview-dlg" class="hide dlg pad"><div id="dlg-inner">(preview)</div></div>
+<div id="preview-dlg" class="hide dlg pad"><a class="close pad" href="#cancel">&times;</a><div id="dlg-inner">(preview)</div></div>
 </div>
 	<pre class="hide" data-src="#s-ajax"></pre>
 
@@ -1324,9 +1334,9 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 	
 <div id="s-gallery">
 <div class="gallery">
-	<a href="http://vadimkor.ru/projects/d1/c.jpg" class="pic" title="Sunset">#1</a>
-	<a href="http://vadimkor.ru/projects/d1/s.jpg" class="pic" title="Boat">#2</a>
-	<a href="http://vadimkor.ru/projects/d1/t.jpg" class="pic" title="Ocean">#3</a>
+	<a href="http://vadimkor.ru/projects/d1/c.jpg" class="btn pic" title="Sunset">#1</a>
+	<a href="http://vadimkor.ru/projects/d1/s.jpg" class="btn pic" title="Boat">#2</a>
+	<a href="http://vadimkor.ru/projects/d1/t.jpg" class="btn pic" title="Ocean">#3</a>
 </div>
 </div>
 	<pre class="hide" data-src="#s-gallery"></pre>
@@ -1349,6 +1359,7 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 	<input name="q" value="" type="search" id="srch" placeholder="filter table" autocomplete="off">
 	<span id="rep"></span>
 </p>
+<div class="roll">
 <table class="sort" data-filter="#srch" data-filter-report="#rep" data-filter-cols="0 2 4" data-case>
 	<thead>
 	<tr><th>String<th>Number<th>Bytes<th>Interval<th>Date
@@ -1363,8 +1374,10 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 	<tr><th>Totals<th>144.301<th>1.1 MB<th>1y 2m 3d 4h<th>-
 	</tfoot>
 </table>
+</div>
 
-<div class="hide" id="s-tablex"><p>
+<div class="hide" id="s-tablex">
+<p>
   <input name="q" value="" type="search"
     id="table-filter"
     placeholder="filter table"
@@ -1538,7 +1551,7 @@ most important:
 		<!--input type="color" name="link" value="#0033bb"> Link<br-->
 		<input type="range" name="link" value="240" min="-255" max="360" data-func="vivid"> Link<br>
 		<!--input type="color" name="hover" value="#0088ff"> Hover link<br-->
-		<input type="range" name="hover" value="-230" min="-255" max="360" data-func="vivid"> <small class="text-n">hover</small><br>
+		<input type="range" name="hover" value="220" min="-255" max="360" data-func="bright"> <small class="text-n">hover</small><br>
 		<!--input type="color" name="visited" value="#888888"> Visited link<br-->
 		<input type="range" name="visited" value="280" min="-255" max="360" data-func="vivid"> <small class="text-n">visited</small><br>
 		<input type="range" name="rad" value=".2" min="0" max="2" step=".1"> Radius <br>
