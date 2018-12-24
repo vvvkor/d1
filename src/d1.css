@@ -143,6 +143,8 @@ ul, ol{padding:0 0 0 calc(var(--gap-n)*1.5);}
 li ul, li ol{margin:var(--gap-xs) 0;}
 dt{font-weight:bold;}
 dd{margin-bottom:var(--gap-s);}
+	ul.l, ul.l ul{list-style:none;}
+	ul.l{padding-left:0;}
 
 
 /* table */
@@ -157,7 +159,7 @@ th,td{padding:var(--gaps-s);text-align:left;vertical-align:top;background-clip:p
 	hr{border-width:thin 0 0 0;}
 .roll{overflow-x:auto;}
 	.roll>table{border-width:medium;}
-
+table.l>*>tr>*{border:none;}
 
 /* form, button */
 

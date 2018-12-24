@@ -1,4 +1,4 @@
-/*! d1css v1.2.10 https://github.com/vvvkor/d1 */
+/*! d1css v1.2.12 https://github.com/vvvkor/d1 */
 
 :root {
     --text: #222;
@@ -181,6 +181,14 @@ dd {
     margin-bottom: var(--gap-s);
 }
 
+ul.l, ul.l ul {
+    list-style: none;
+}
+
+ul.l {
+    padding-left: 0;
+}
+
 table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -219,6 +227,10 @@ hr {
 
 .roll>table {
     border-width: medium;
+}
+
+table.l>*>tr>* {
+    border: none;
 }
 
 form>p, form>.row {
