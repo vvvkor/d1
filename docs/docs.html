@@ -17,8 +17,8 @@ process:
 - publish html
 -->
 	
-	<!--link href="https://cdn.jsdelivr.net/npm/d1css@1.2.9/dist/d1.min.css" rel="stylesheet"-->
-	<!-- CDN -->
+	<!--link href="https://cdn.jsdelivr.net/npm/d1css@1.2.10/dist/d1.min.css" rel="stylesheet"-->
+	<!-- CDN -- >
 	<link href="https://cdn.jsdelivr.net/npm/d1css/dist/d1.min.css" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/d1css/dist/d1.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d1calendar/d1calendar.min.js"></script>
@@ -27,7 +27,7 @@ process:
 	<script src="https://cdn.jsdelivr.net/npm/d1gallery/d1gallery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d1lookup/d1lookup.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d1tablex/d1tablex.min.js"></script>
-	<!-- local-npm-src -- >
+	<!-- local-npm-src -->
 	<link href="../src/d1.css" rel="stylesheet">
 	<script src="../src/d1.js"></script>
 	<script src="../../d1dialog/d1dialog.js"></script>
@@ -337,12 +337,12 @@ Nothing special here. Mostly, default styling is kept.
 
 	<p>Paragraph<br>New line</p>
 	<p>Paragraph</p>
-	<pre>Preformatted</pre>
-	<blockquote>Blockqoute</blockquote>
+	<pre class="-l">Preformatted</pre>
+	<blockquote class="-l">Blockqoute</blockquote>
 
-<h3>Lists</h3>
+<h3 class="-l">Lists</h3>
 
-	<ul>
+	<ul class="-l">
 		<li>Unordered
 		<li>List
 			<ol>
@@ -357,7 +357,7 @@ Nothing special here. Mostly, default styling is kept.
 		<dd>Another definition</dd>
 	</dl>
 	
-<h2 id="grid">Grid</h2>
+<h2 id="grid" class="-l">Grid</h2>
 
 <p>
 For the container, add <code>row</code> class.
@@ -390,6 +390,8 @@ Wrap your rows into <code>div</code> with <code>wrap</code> class to limit maxim
 		<div class="bg-y read center">read</div>
 	</div>
 	-->
+<div class="bord">
+<div class="pad">
 <div id="s-grid">
 <div class="row mar flip">
 	<div class="bg col-0">div.col-0</div>
@@ -428,9 +430,10 @@ Wrap your rows into <code>div</code> with <code>wrap</code> class to limit maxim
 		<div class="bg-i">eeeeeeeeeeeeeeee</div>
 		<div class="bg-i">wwwwwwwwwwrap!</div>
 	</div>
+</div>	
+	<pre class="hide l" data-src="#s-grid"></pre>
+</div>
 	
-	<pre class="hide" data-src="#s-grid"></pre>
-
 <h2 id="table">Table</h2>
 
 <p>
@@ -440,6 +443,8 @@ Add <code>r#, l#, #c</code> (where # is any number) classes to align cells of co
 Wrap table inside <code>div</code> with class <code>roll</code> to have independent horizontal scrolling of table when it is too wide.
 </p>
 
+<div class="bord">
+<div class="pad">
 	<div class="roll">
 	<table class="hover r1 c4 c5">
 		<caption>Table caption</caption>
@@ -466,7 +471,8 @@ Wrap table inside <code>div</code> with class <code>roll</code> to have independ
 		T &mdash; <code>:target</code> (t &mdash; with undesirable scroll)<br>
 		C &mdash; <code>:checked</code> (checkbox hack)
 	</p>
-	
+</div>
+
 <div id="s-table" class="hide">
 <div class="roll">
 	<table class="hover r1">
@@ -480,8 +486,8 @@ Wrap table inside <code>div</code> with class <code>roll</code> to have independ
 	</table>
 </div>
 </div>
-	<pre class="hide" data-src="#s-table"></pre>
-
+	<pre class="hide l" data-src="#s-table"></pre>
+</div>
 
 <h2 id="buttons">Buttons</h2>
 
@@ -491,6 +497,8 @@ Add <code>btn</code> class to the element (usually a link) to make it look like 
 For color options see <a href="#colors-buttons">Colors</a> section.
 </p>
 
+<div class="bord">
+<div class="pad">
 <input type="submit" value="Submit">
 <input type="submit" value="Disabled" disabled>
 <button type="submit">Button</button>
@@ -517,26 +525,30 @@ For color options see <a href="#colors-buttons">Colors</a> section.
 <a href="#" class="btn bg-i">Link-button</a>
 <a href="#" class="pad hover">Link-pad</a>
 <a href="#">Link</a>
-</div>	
-	<pre class="hide" data-src="#s-button"></pre>
+</div>
+</div>
+	<pre class="hide l" data-src="#s-button"></pre>
+</div>
 
 
 <h2 id="forms">Forms</h2>
 
 <h3 id="form-inline">Inline form</h3>
 
-<div id="s-form-inline">
+<div class="bord">
+<div id="s-form-inline" class="pad">
 <form>
 	<input type="search" size="10" title="search string">
 	<input type="submit" value="Find">
 </form>
 </div>	
-
-	<pre class="hide" data-src="#s-form-inline"></pre>
+	<pre class="hide l" data-src="#s-form-inline"></pre>
+</div>
 
 <h3 id="form-stacked">Stacked form</h3>
 
-<div id="s-form-stacked">
+<div class="bord">
+<div id="s-form-stacked" class="pad">
 <form method="post">
 	<p>
 		<label for="name">Name</label><br>
@@ -552,11 +564,13 @@ For color options see <a href="#colors-buttons">Colors</a> section.
 	</p>
 </form>
 </div>
-	<pre class="hide" data-src="#s-form-stacked"></pre>
+	<pre class="hide l" data-src="#s-form-stacked"></pre>
+</div>
 
 <h3 id="form-grid">Aligned form using grid</h3>
 
-<div id="s-form-grid">
+<div class="bord">
+<div id="s-form-grid" class="pad">
 <form method="post">
 	<div class="row flip">
 		<label for="i1">Label one</label>
@@ -584,7 +598,8 @@ For color options see <a href="#colors-buttons">Colors</a> section.
 	</div>
 </form>
 </div>
-	<pre class="hide" data-src="#s-form-grid"></pre>
+	<pre class="hide l" data-src="#s-form-grid"></pre>
+</div>
 
 
 <h3 id="form-table">Aligned form using table</h3>
@@ -594,6 +609,8 @@ For aligned form, <code>table</code> may be used, which is arguably not semantic
 In this case, <code>table</code> must be a direct descendant of <code>form</code>.
 Table will become stacked on small screen.
 
+<div class="bord">
+<div class="pad">
 	<form method="post">
 		<table>
 		<tr>
@@ -702,8 +719,9 @@ Table will become stacked on small screen.
 					</fieldset>
 				</td>
 			</tr-->
-
-	<pre class="hide" data-src="#s-form-table"></pre>
+</div>
+	<pre class="hide l" data-src="#s-form-table"></pre>
+</div>
 
 
 <h2 id="nav">Navigation</h2>
@@ -717,7 +735,8 @@ Add <code>shift</code> class to list item to shift (and following items) to the 
 <p>
 Add <code>hover</code> class to highlight item's background on hover.
 
-<div id="s-pagenav">
+<div class="bord">
+<div id="s-pagenav" class="pad">
 <ul class="nav hover bg mar">
 	<li><b>Pages</b></li>
 	<li><a href="?p=1">1</a></li>
@@ -726,21 +745,24 @@ Add <code>hover</code> class to highlight item's background on hover.
 	<li class="shift"><a href="?p=4">4</a></li>
 </ul>
 </div>
-	<pre class="hide" data-src="#s-pagenav"></pre>
+	<pre class="hide l" data-src="#s-pagenav"></pre>
+</div>
 
 <h3 id="nav-vertical">Vertical navbar</h3>
 
 <p>
 Add <code>nav l</code> classes to unordered list.
 
-<div id="s-pagenavv">
+<div class="bord">
+<div id="s-nav-vert" class="pad">
 <ul class="nav l bg mar">
 	<li><a href="?n=1">One</a></li>
 	<li><a href="?n=2">Two</a></li>
 	<li><a href="?n=3">Three</a></li>
 </ul>
 </div>
-	<pre class="hide" data-src="#s-pagenavv"></pre>
+	<pre class="hide l" data-src="#s-nav-vert"></pre>
+</div>
 
 <h3 id="nav-responsive">Responsive dropdown, stacked on small screen</h3>
 
@@ -752,7 +774,8 @@ Add <code>toggle</code> class to control behaviour with JavaScript.
 In this case, link's <code>href</code> must point to corresponding nested list's <code>id</code>.
 With JavaScript, nested lists are toggled on click.
 
-<div id="s-nav">
+<div class="bord">
+<div id="s-nav" class="pad">
 <ul class="nav hover flip toggle bg">
 	<li>
 		<a href="#">First</a>
@@ -781,7 +804,8 @@ With JavaScript, nested lists are toggled on click.
 	</li>
 </ul>
 </div>
-	<pre class="hide" data-src="#s-nav"></pre>
+	<pre class="hide l" data-src="#s-nav"></pre>
+</div>
 
 <h3 id="nav-hamburger">Responsive dropdown, hamburger on small screen</h3>
 
@@ -789,7 +813,8 @@ With JavaScript, nested lists are toggled on click.
 Following code shows how to collapse navigation to a single hamburger icon on small screen,
 and expand it to horizontal dropdown navbar on large screen (add <code>flip</code> class).
 
-<div id="s-nav-hamb">
+<div class="bord">
+<div id="s-nav-hamb" class="pad">
 <div class="hide-desktop">
 	<a href="#navi" class="pad hover" title="Menu">&equiv;</a>
 </div>
@@ -823,7 +848,8 @@ and expand it to horizontal dropdown navbar on large screen (add <code>flip</cod
 	</ul>
 </nav>
 </div>
-	<pre class="hide" data-src="#s-nav-hamb"></pre>
+	<pre class="hide l" data-src="#s-nav-hamb"></pre>
+</div>
 
 
 
@@ -862,15 +888,15 @@ Optionally add <code>shift</code> class to the target element to pop up leftward
 		</div>
 	</div>
 </div>
-
-<div id="s-popup">
+<div class="bord">
+<div id="s-popup" class="pad">
 <div class="pop">
 	<a href="#pop">Popup</a>
 	<div id="pop" class="toggle pad">Pop</div>
 </div>
 </div>
-	<pre class="hide" data-src="#s-popup"></pre>
-
+	<pre class="hide l" data-src="#s-popup"></pre>
+</div>
 
 <h3 id="toggle-div">Toggle</h3>
 
@@ -878,11 +904,13 @@ Optionally add <code>shift</code> class to the target element to pop up leftward
 Use link pointing at element with <code>hide</code> class.
 </p>
 
-<div id="s-toggle">
+<div class="bord">
+<div id="s-toggle" class="pad">
 <a href="#tog">Toggle</a>
 <div id="tog" class="hide pad bord yel toggle mem">Togglable</div>
 </div>
-	<pre class="hide" data-src="#s-toggle"></pre>
+	<pre class="hide l" data-src="#s-toggle"></pre>
+</div>
 
 <h3 id="toggle-drawer">Drawer</h3>
 
@@ -892,14 +920,16 @@ Optionally add <code>shift</code> class to the drawer element for right side dra
 Optionally use closing link pointing at <code>#cancel</code> inside target element.
 </p>
 
-<div id="s-drawer">
+<div class="bord">
+<div id="s-drawer" class="pad">
 <a class="pad hover" href="#drw">&equiv;</a>
 <div class="drawer shift pad" id="drw">
 	<a class="close pad" href="#cancel">&times;</a>
 	Demo drawer
 </div>
 </div>
-	<pre class="hide" data-src="#s-drawer"></pre>
+	<pre class="hide l" data-src="#s-drawer"></pre>
+</div>
 
 
 <h3 id="toggle-dlg">Modal dialog</h3>
@@ -909,14 +939,16 @@ Use link pointing at element with <code>hide dlg</code> classes.<br>
 Optionally use closing link pointing at <code>#cancel</code> inside target element.
 </p>
 
-<div id="s-modal">
+<div class="bord">
+<div id="s-modal" class="pad">
 <a href="#modal">Dialog</a>
 <div id="modal" class="hide dlg c pad">
 	<a class="close pad" href="#cancel">&times;</a>
 	<p>Dialog</p>
 </div>
 </div>
-	<pre class="hide" data-src="#s-modal"></pre>
+	<pre class="hide l" data-src="#s-modal"></pre>
+</div>
 	
 		
 <h3 id="toggle-full">Modal fullscreen</h3>
@@ -926,14 +958,16 @@ Use link pointing at element with <code>hide full</code> classes.<br>
 Optionally use closing link pointing at <code>#cancel</code> inside target element.
 </p>
 
-<div id="s-modal-full">
+<div class="bord">
+<div id="s-modal-full" class="pad">
 <a href="#full">Fullscreen</a>
 <div id="full" class="hide full c pad bg-w">
 	<a class="close pad" href="#cancel">&times;</a>
 	Full
 </div>
 </div>
-	<pre class="hide" data-src="#s-modal-full"></pre>
+	<pre class="hide l" data-src="#s-modal-full"></pre>
+</div>
 
 <h3 id="toggle-gallery">Gallery</h3>
 
@@ -956,7 +990,9 @@ Enter key press navigates to the next image (depends on browser).
 <p>
 <i class="bg-w">Warning</i>: for IE support, use <code>background-image</code> instead of <code>--img</code> in <code>style</code> attribute; no lazy-loading in this case.
 
-<p><a href="#gal1">Open gallery</a>
+<div class="bord">
+<div class="pad">
+<a href="#gal1">Open gallery</a>
 <div id="s-gal">
 <div class="gal">
 	<a id="gal1" href="#gal2" style="--img:url(http://vadimkor.ru/projects/d1/c.jpg)" data-info="1/3 - Sunset"  ></a>
@@ -965,7 +1001,9 @@ Enter key press navigates to the next image (depends on browser).
 	<a class="close" href="#cancel">&times;</a>
 </div>
 </div>
-	<pre class="hide" data-src="#s-gal"></pre>
+</div>
+	<pre class="hide l" data-src="#s-gal"></pre>
+</div>
 
 <h3 id="toggle-tabs">Tabs</h3>
 
@@ -975,7 +1013,8 @@ Each list item should contain a link pointing at tab panel.<br>
 Next sibling <code>div</code> should contain <code>div</code> tab panels.
 </p>
 
-<div id="s-tabs">
+<div class="bord">
+<div id="s-tabs" class="pad">
 <ul class="nav tabs toggle mem">
 	<li><a href="#tab1">Tab1</a></li>
 	<li><a href="#tab2">Tab2</a></li>
@@ -987,7 +1026,8 @@ Next sibling <code>div</code> should contain <code>div</code> tab panels.
 	<div id="tab1" class="hide">1</div>
 </div>
 </div>
-	<pre class="hide" data-src="#s-tabs"></pre>
+	<pre class="hide l" data-src="#s-tabs"></pre>
+</div>
 
 <h3 id="toggle-tree">Tree</h3>
 
@@ -996,7 +1036,8 @@ Inside list items, use links pointing at nested lists.<br>
 Optionally add <code>accordion</code> class for accordion behaviour.
 </p>
 
-<div id="s-tree">
+<div class="bord">
+<div id="s-tree" class="pad">
 <ul class="toggle mem accordion">
 	<li><a href="#ul1">List 1</a>
 		<ul id="ul1">
@@ -1017,20 +1058,23 @@ Optionally add <code>accordion</code> class for accordion behaviour.
 	</li>
 </ul>
 </div>
-	<pre class="hide" data-src="#s-tree"></pre>
+	<pre class="hide l" data-src="#s-tree"></pre>
+</div>
 
 <h3 id="toggle-details">Details</h3>
 
 <p>This element natively has similar functionality.<br>
 <i class="bg-w">Warning</i>: not supported in IE and Edge.
 
-<div id="s-details">
-<details class="mar">
+<div class="bord">
+<div id="s-details" class="pad">
+<details>
 	<summary>Summary</summary>
 	<div class="bg pad">Details</div>
 </details>
 </div>
-	<pre class="hide" data-src="#s-details"></pre>
+	<pre class="hide l" data-src="#s-details"></pre>
+</div>
 
 	
 <h2 id="toggle-radio">Toggle with radio buttons</h2>
@@ -1041,28 +1085,33 @@ But it overcomes drawbacks of <a href="#toggle"><code>:target</code>-based toggl
 
 <h3 id="toggle-radio-popup">Popup with radio buttons</h3>
 
-<div id="s-popup2">
+<div class="bord">
+<div id="s-popup2" class="pad">
 <div class="pop">
-	<input type="checkbox" class="switch" id="pop2">
-	<label for="pop2">Popup 2</label>
+	<input type="checkbox" class="switch" id="popup2">
+	<label for="popup2">Popup 2</label>
 	<div class="pad">Pop 2</div>
 </div>
 </div>
-	<pre class="hide" data-src="#s-popup2"></pre>
+	<pre class="hide l" data-src="#s-popup2"></pre>
+</div>
 
 
 <h3 id="toggle-radio-div">Toggle with radio buttons</h3>
 
-<div id="s-toggle2">
+<div class="bord">
+<div id="s-toggle2" class="pad">
 <input type="checkbox" class="switch" id="tog2">
 <label for="tog2">Toggle 2</label>
 <div class="bord pad">Togglable 2</div>
 </div>
-	<pre class="hide" data-src="#s-toggle2"></pre>
+	<pre class="hide l" data-src="#s-toggle2"></pre>
+</div>
 
 <h3 id="toggle-radio-tabs">Tabs with radio buttons</h3>
 
-<div id="s-tabs2">
+<div class="bord">
+<div id="s-tabs2" class="pad">
 <div class="tabs">
 	<!-- tab 1 -->
 	<input type="radio" class="switch" id="tb1" name="tb" checked>
@@ -1078,13 +1127,15 @@ But it overcomes drawbacks of <a href="#toggle"><code>:target</code>-based toggl
 	<div class="bord pad">3<br>3<br>3</div>
 </div>
 </div>
-	<pre class="hide" data-src="#s-tabs2"></pre>
+	<pre class="hide l" data-src="#s-tabs2"></pre>
+</div>
 
 <h3 id="toggle-radio-tree">Tree with radio buttons</h3>
 
 You can use checkbox inputs to toggle branches independently or radio inputs with the same name for accordion.
 
-<div id="s-tree2">
+<div class="bord">
+<div id="s-tree2" class="pad">
 <ul class="toggle mem">
 	<li>
 		<input type="radio" class="switch" id="u1" name="xul">
@@ -1104,13 +1155,16 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 	</li>
 </ul>
 </div>
-	<pre class="hide" data-src="#s-tree2"></pre>
+	<pre class="hide l" data-src="#s-tree2"></pre>
+</div>
 
 
 <h2 id="colors">Colors</h2>
 
 <h3 id="colors-inline">Inline</h3>
 
+<div class="bord">
+<div class="pad">
 	<a href="#" class="text-e">Error</a>
 	<a href="#" class="text-w">Warning</a>
 	<a href="#" class="text-i">Info</a>
@@ -1134,24 +1188,27 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 	<span class="bg-i">Info</span>
 	<span class="bg-y">Yes</span>
 	<span class="bg-n">No</span>
-	
-	<pre class="hide" data-src="#s-colors-text"></pre>
+</div>	
+	<pre class="hide l" data-src="#s-colors-text"></pre>
+</div>	
 	
 <h3 id="colors-buttons">Buttons</h3>
-	
-<div id="s-colors-buttons">
+
+<div class="bord">	
+<div id="s-colors-buttons" class="pad">
 <button type="button" class="bg-e">Error</button>
 <button type="button" class="bg-w">Warning</button>
 <button type="button" class="bg-i">Info</button>
 <button type="button" class="bg-y">Yes</button>
 <button type="button" class="bg-n">No</button>
 </div>
-	
-	<pre class="hide" data-src="#s-colors-buttons"></pre>
+	<pre class="hide l" data-src="#s-colors-buttons"></pre>
+</div>
 
 <h3 id="colors-blocks">Blocks</h3>
 
-<div id="s-colors-blocks">
+<div class="bord">
+<div id="s-colors-blocks" class="pad">
 <p class="pad bg-e">Error	<span class="text-e">Error</span></p>
 <p class="pad bg-w">Warning	<span class="text-w">Warning</span></p>
 <p class="pad bg-i">Info	<span class="text-i">Info</span></p>
@@ -1163,8 +1220,8 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 <p class="pad bg-i bord">Status+Border</p>
 <p class="btn bg-y">Button-like</p>
 </div>
-	
-	<pre class="hide" data-src="#s-colors-blocks"></pre>
+	<pre class="hide l" data-src="#s-colors-blocks"></pre>
+</div>
 	
 <h3 id="colors-icons">Links and Icons</h3>
 
@@ -1209,7 +1266,9 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 
 <h3>Media object</h3>
 
-	<div class="row mar">
+<div class="bord">
+<div class="pad">
+	<div class="row">
 		<a href="#media" class="col-0"><img alt="pic" width="80" src="data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAQUlEQVR4nGNkaPjPQApgIkk1AwMDC6bQ/3oEm7GRYhuo4SRMZ+DTgOwBrJop9gN+91DDBrprQAs0cmwgOeJItgEAkbkIq9GVLncAAAAASUVORK5CYII="></a>
 		<div>
 			Some description
@@ -1229,10 +1288,14 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 	<div>Some description</div>
 </div>
 </div>
-	<pre class="hide" data-src="#s-media"></pre>
+</div>
+	<pre class="hide l" data-src="#s-media"></pre>
+</div>
 	
 <h3>Figure</h3>
 
+<div class="bord">
+<div class="pad">
 	<figure class="bg c pad">
 		<img alt="figure" src="data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAQUlEQVR4nGNkaPjPQApgIkk1AwMDC6bQ/3oEm7GRYhuo4SRMZ+DTgOwBrJop9gN+91DDBrprQAs0cmwgOeJItgEAkbkIq9GVLncAAAAASUVORK5CYII=">
 		<figcaption>
@@ -1246,10 +1309,14 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 	<figcaption>Figure caption</figcaption>
 </figure>
 </div>
-	<pre class="hide" data-src="#s-fig"></pre>
+</div>
+	<pre class="hide l" data-src="#s-fig"></pre>
+</div>
 	
-<h3>Empty filler</h3>
+<h3>Box</h3>
 
+<div class="bord">
+<div class="pad">
 	<div class="dlg c pad rad">
 		<svg class="text-n" width="80" height="80"><use xlink:href="#svg-github"/></svg>
 		<p><b>No items yet</b>
@@ -1265,14 +1332,18 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 	<p>No items yet</p>
 </div>
 </div>
-	<pre class="hide" data-src="#s-dlg"></pre>
+</div>
+	<pre class="hide l" data-src="#s-dlg"></pre>
+</div>
 	
 <h3>Full height</h3>
-	
-<div id="s-full">
+
+<div class="bord">
+<div id="s-full" class="pad">
 <div class="full bg-w c">Full</div>
 </div>
-	<pre class="hide" data-src="#s-full"></pre>
+	<pre class="hide l" data-src="#s-full"></pre>
+</div>
 
 <h2 id="js">JavaScript enhancements</h2>
 
@@ -1302,13 +1373,15 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 
 <h2 id="ajax">AJAX</h2>
 
-<div id="s-ajax">
+<div class="bord">
+<div id="s-ajax" class="pad">
 <a href="data.json" data-target="#preview">Load</a><br>
 <a href="data.json" data-target="#dlg-inner">Load in modal</a>
 <pre class="bg-i" id="preview">(preview)</pre>
 <div id="preview-dlg" class="hide dlg pad"><a class="close pad" href="#cancel">&times;</a><div id="dlg-inner">(preview)</div></div>
 </div>
-	<pre class="hide" data-src="#s-ajax"></pre>
+	<pre class="hide l" data-src="#s-ajax"></pre>
+</div>
 
 
 
@@ -1317,7 +1390,10 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 	<h3 id="calendar"><a href="https://github.com/vvvkor/d1calendar">Calendar</a></h3>
 	
 	<p>Replacement of standard HTML date inputs.
-	
+
+<div class="bord">
+<div class="pad">
+
 	<form action="?" method="get">
 	<table>
 	<tr><td>Text<td><input type="text">
@@ -1332,28 +1408,32 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 <input class="calendar" type="date">
 <input class="calendar datetime" type="datetime-local" data-def="2001-02-03T04:05:06" min="2001-02-02T10:00" max="2001-02-15T20:00">
 </div>
-	<pre class="hide" data-src="#s-calendar"></pre>
+</div>
+	<pre class="hide l" data-src="#s-calendar"></pre>
+</div>
 
 
 	<h3 id="dialog"><a href="https://github.com/vvvkor/d1dialog">Dialog</a></h3>
 	
 	<p>Replacement for standard Javascript dialogs.</p>
 
-<div id="s-dialog">
+<div class="bord">
+<div id="s-dialog" class="pad">
 <p>
 	<a href="#done" class="alert" title="Hello!">Alert</a>,
 	<a href="?a=1&b=2" class="dialog" title="Continue?">Confirm link</a>,
 	<a href="#go" class="dialog" title="Continue?">Confirm hash</a>,
 	<a href="?a=1&b=привет&c=3" class="dialog text-w" data-prompt="b" data-caption="Quantity:" data-ok="Fine" data-cancel="No way">Prompt link</a>.
 </p>
-<form>
+<form class="mar">
 	<input type="text" name="nm" id="nms" value="qq" required pattern="[A-Za-z]{2,}" title="Two or more letters">
 	<input type="submit" value="OK">
 	<input type="submit" value="Confirm form" class="dialog bg-w" title="Warning!">
 	<a href="?nm=" class="dialog" data-prompt="nm" data-caption="Name:" data-src="#nms">Prompt from input</a>
 </form>
 </div>
-	<pre class="hide" data-src="#s-dialog"></pre>
+	<pre class="hide l" data-src="#s-dialog"></pre>
+</div>
 
 	
 	<h3 id="edit"><a href="https://github.com/vvvkor/d1edit">Edit</a></h3>
@@ -1367,10 +1447,12 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 	If absent, mode is defined automatically based on whether HTML tags are contained in text.
 	</p>
 
-<div>
+<div class="bord">
+<div id="s-edit" class="pad">
 <textarea class="edit adjust" data-tools="/*@xbi_.pqf" data-wys="1" cols="50" rows="5">Write <b>formatted</b> text.</textarea>
 </div>
-	<pre class="hide" data-src="#s-edit"></pre>
+	<pre class="hide l" data-src="#s-edit"></pre>
+</div>
 
 	<h3 id="gallery"><a href="https://github.com/vvvkor/d1gallery">Gallery</a></h3>
 	
@@ -1379,29 +1461,35 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 	to generate gallery similar to <a href="#toggle-gallery">pure CSS gallery</a>.
 	</p>
 	
-<div id="s-gallery">
+<div class="bord">
+<div id="s-gallery" class="pad">
 <div class="gallery">
 	<a href="http://vadimkor.ru/projects/d1/c.jpg" class="btn pic" title="Sunset">#1</a>
 	<a href="http://vadimkor.ru/projects/d1/s.jpg" class="btn pic" title="Boat">#2</a>
 	<a href="http://vadimkor.ru/projects/d1/t.jpg" class="btn pic" title="Ocean">#3</a>
 </div>
 </div>
-	<pre class="hide" data-src="#s-gallery"></pre>
+	<pre class="hide l" data-src="#s-gallery"></pre>
+</div>
 
 	<h3 id="lookup"><a href="https://github.com/vvvkor/d1lookup">Lookup</a></h3>
 	
 	<p>Autocomplete lookups with data from XHTTP request.
-	
-<div id="s-lookup">
+
+<div class="bord">
+<div id="s-lookup" class="pad">
 <input type="text" name="id" value="1" data-lookup="data.json?q={q}" data-label="User One" data-url="/users/{id}">
 </div>
-	<pre class="hide" data-src="#s-lookup"></pre>
+	<pre class="hide l" data-src="#s-lookup"></pre>
+</div>
 
 
 <h3 id="tablex"><a href="https://github.com/vvvkor/d1tablex">Tablex</a></h3>
 	
 	<p>Filter and sort HTML table.
-	
+
+<div class="bord">
+<div class="pad">
 <p>
 	<input name="q" value="" type="search" id="srch" placeholder="filter table" autocomplete="off">
 	<span id="rep"></span>
@@ -1442,7 +1530,9 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
   <tfoot><tr><th>...
 </table>
 </div>
-	<pre class="hide" data-src="#s-tablex"></pre>
+</div>
+	<pre class="hide l" data-src="#s-tablex"></pre>
+</div>
 
 
 <h2 id="custom">Customization with CSS vars</h2>
@@ -1536,7 +1626,7 @@ most important:
 <li><code>.icon</code> &mdash; small image
 <li><code>.js-control</code> &mdash; visibility is controlled by JavaScript, shown by default
 <li><code>.js-hide</code> &mdash; hidden with JavaScript
-<li><code>.l</code> &mdash; align content to the left
+<li><code>.l</code> &mdash; align content to the left; remove margin
 <li><code>.mar</code> &mdash; add vertical margins
 <li><code>.narrow</code> &mdash; narrow block width
 <li><code>.nav</code> &mdash; horizontal dropdown navigation

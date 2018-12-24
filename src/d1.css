@@ -93,10 +93,11 @@ button::-moz-focus-inner, [type="submit"]::-moz-focus-inner{border:none;}
 
 body{color:var(--text);background-color:var(--bg);font:120%/1.5 "pt sans",Roboto,"Segoe UI",sans-serif;margin:0;}
 main{display:block;}/*ie*/
-/**{box-sizing:border-box;}*/
+/* *{box-sizing:border-box;} */
 ul,ol,dl,blockquote,pre,hr,p,figure{margin:var(--gap-n) 0;}
 h1,h2,h3,h4,h5,h6{margin:3rem 0 1.5rem 0;line-height:1.2;}
 	h1+h2, h2+h3, h3+h4, h4+h5, h5+h6{margin-top:2rem;}
+	ul.l,ol.l,dl.l,blockquote.l,pre.l,figure.l,h1.l,h2.l,h3.l{margin:0;}
 	/* h1:first-child, h2:first-child, h3:first-child{margin-top:1.5rem;} */
 blockquote,pre,fieldset{padding:var(--gaps-n);}
 pre,code{font-family:monospace;white-space:pre-wrap;}
@@ -337,9 +338,9 @@ ul.tabs+div>div:target~div:not(.js-control){display:none;/*@x*/}
 
 
 .small{font-size:85%;}
-.r{text-align:right;}
-.c{text-align:center;}
 .l{text-align:left;}
+.c{text-align:center;}
+.r{text-align:right;}
 
 /*.wide{width:100%;}*/
 .narrow{max-width:16em;}
