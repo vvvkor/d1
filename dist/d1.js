@@ -1,4 +1,4 @@
-/*! d1css v1.2.15 https://github.com/vvvkor/d1 */
+/*! d1css v1.2.16 https://github.com/vvvkor/d1 */
 /* Enhancements for d1css microframework */
 
 (function(window, document, Element) {
@@ -125,7 +125,7 @@ var main = new(function() {
     var p = n.getAttribute("data-prompt") || '';
     var t = n.getAttribute("data-caption") || n.title || p || '!'
     var h = false;
-    var a = {_confirm: 1};
+    var a = ((n.getAttribute("href") || "").substr(0, 1) == "#") ? {} : {_confirm: 1};
     if (n.classList.contains(this.opt.cAlert)) {
       alert(t);
       h = n.href || false;
