@@ -476,6 +476,8 @@ var main = new(function() {
 
 
 // end module
+// var isNode    = (typeof module !== 'undefined' && this.module !== module); // use module or global
+// var isBrowser = (typeof window !== 'undefined' && this.window === this);
 
     if (typeof module !== "undefined") {
       //console.log("npm require d1", module);
