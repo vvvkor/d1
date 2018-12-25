@@ -97,6 +97,7 @@ main{display:block;}/*ie*/
 ul,ol,dl,blockquote,pre,hr,p,figure{margin:var(--gap-n) 0;}
 h1,h2,h3,h4,h5,h6{margin:3rem 0 1.5rem 0;line-height:1.2;}
 	h1+h2, h2+h3, h3+h4, h4+h5, h5+h6{margin-top:2rem;}
+	h1.mar,h2.mar,h3.mar{margin:calc(var(--gap) * 1rem) 0;}
 	ul.l,ol.l,dl.l,blockquote.l,pre.l,figure.l,h1.l,h2.l,h3.l{margin:0;}
 	/* h1:first-child, h2:first-child, h3:first-child{margin-top:1.5rem;} */
 blockquote,pre,fieldset{padding:var(--gaps-n);}

@@ -1,4 +1,4 @@
-/*! d1css v1.2.12 https://github.com/vvvkor/d1 */
+/*! d1css v1.2.15 https://github.com/vvvkor/d1 */
 
 :root {
     --text: #222;
@@ -82,6 +82,10 @@ h1, h2, h3, h4, h5, h6 {
 
 h1+h2, h2+h3, h3+h4, h4+h5, h5+h6 {
     margin-top: 2rem;
+}
+
+h1.mar, h2.mar, h3.mar {
+    margin: calc(var(--gap) * 1rem) 0;
 }
 
 ul.l, ol.l, dl.l, blockquote.l, pre.l, figure.l, h1.l, h2.l, h3.l {
