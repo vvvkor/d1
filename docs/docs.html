@@ -1267,27 +1267,22 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 <h3>Media object</h3>
 
 <div class="bord">
-<div class="pad">
-	<div class="row">
-		<a href="#media" class="col-0"><img alt="pic" width="80" src="data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAQUlEQVR4nGNkaPjPQApgIkk1AwMDC6bQ/3oEm7GRYhuo4SRMZ+DTgOwBrJop9gN+91DDBrprQAs0cmwgOeJItgEAkbkIq9GVLncAAAAASUVORK5CYII="></a>
-		<div>
-			Some description
-			<div>
-				<time class="text-n" datetime="1970-01-01">January 1970</time>
-				&bull;
-				<a href="#media" class="-btn -inv">Link</a>
-			</div>
-		</div>
-	</div>
-
-<div id="s-media" class="hide">
-<div class="row mar">
+<div id="s-media" class="pad">
+<div class="row">
 	<a href="#media" class="col-0">
-		<img alt="pic" width="80" src="?">
+		<svg class="text-w" width="80" height="80">
+			<use xlink:href="#svg-github"/>
+		</svg>
 	</a>
-	<div>Some description</div>
+	<div>
+		Some description
+		<br>
+		<time class="text-n" datetime="1970-01-01">January 1970</time>
+		<br>
+		<a href="#media" class="-btn -inv">Link</a>
+	</div>
 </div>
-</div>
+
 </div>
 	<pre class="hide l" data-src="#s-media"></pre>
 </div>
@@ -1295,20 +1290,15 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 <h3>Figure</h3>
 
 <div class="bord">
-<div class="pad">
+<div id="s-fig" class="pad">
 	<figure class="bg c pad">
-		<img alt="figure" src="data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAQUlEQVR4nGNkaPjPQApgIkk1AwMDC6bQ/3oEm7GRYhuo4SRMZ+DTgOwBrJop9gN+91DDBrprQAs0cmwgOeJItgEAkbkIq9GVLncAAAAASUVORK5CYII=">
+		<svg class="text-i" width="80" height="80">
+			<use xlink:href="#svg-github"/>
+		</svg>
 		<figcaption>
 			Figure caption
 		</figcaption>
 	</figure>
-
-<div id="s-fig" class="hide">
-<figure class="bg c pad">
-	<img alt="figure" src="?">
-	<figcaption>Figure caption</figcaption>
-</figure>
-</div>
 </div>
 	<pre class="hide l" data-src="#s-fig"></pre>
 </div>
