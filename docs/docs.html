@@ -17,7 +17,7 @@ process:
 - publish html
 -->
 	
-	<!--link href="https://cdn.jsdelivr.net/npm/d1css@1.2.16/dist/d1.min.css" rel="stylesheet"-->
+	<!--link href="https://cdn.jsdelivr.net/npm/d1css@1.2.17/dist/d1.min.css" rel="stylesheet"-->
 	<!-- CDN -->
 	<link href="https://cdn.jsdelivr.net/npm/d1css/dist/d1.min.css" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/d1css/dist/d1.min.js"></script>
@@ -81,6 +81,9 @@ process:
 			d1edit.init();
 			d1tablex.init();
 			
+			d1.b('', 'a[data-nodes][data-class]', 'click', function(n, e){
+				d1.b('', "pre[data-src]", "", prepareCode);
+			});
 		});
 	</script>
 	
@@ -755,7 +758,7 @@ Add <code>nav l</code> classes to unordered list.
 
 <div class="bord">
 <div id="s-nav-vert" class="pad">
-<ul class="nav l bg mar">
+<ul class="nav l bg mar" id="nav-v">
 	<li><a href="?n=1">One</a></li>
 	<li><a href="?n=2">Two</a></li>
 	<li><a href="?n=3">Three</a></li>
@@ -1337,7 +1340,7 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 
 <h2 id="js">JavaScript enhancements</h2>
 
-<ul>
+<ul id="js-behaviours">
 	<li>Dropdown <code>.toggle</code> &mdash; toggle, escape
 	<li>Tree <code>.toggle</code> &mdash; multiple, unscroll, toggle, remember (<code>.mem</code>), <code>.accordion</code>
 	<li>Toggle <code>.toggle</code> &mdash; multiple, unscroll, toggle, remember (<code>.mem</code>)
@@ -1351,6 +1354,7 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 	<li>Link or button with confirmation: <code>.dialog[title]</code>
 	<li>Link with prompt: <code>a.dialog[title][data-prompt]</code>
 	<li>Check group of boxes: <code>input[data-group]</code>, <code>[class~="data-group"]</code>
+	<li>Toggle class of nodes: <code id="test1">a[data-nodes][data-class]</code> (<a href="?test1" data-class="bg-w" data-nodes="#js-behaviours code">test</a>)
 	<li>Set value of target input: <code>a[href^='#'][data-value]</code>
 	<li>Show value of color input: <code>input[type="color"]</code>
 	<!--

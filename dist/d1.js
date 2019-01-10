@@ -1,4 +1,4 @@
-/*! d1css v1.2.16 https://github.com/vvvkor/d1 */
+/*! d1css v1.2.17 https://github.com/vvvkor/d1 */
 /* Enhancements for d1css microframework */
 
 (function(window, document, Element) {
@@ -119,6 +119,10 @@ var main = new(function() {
     }
   }
   
+  this.openDialog = function(n, e) {
+    return this.dialog(n, e);
+  }
+  
   this.dialog = function(n, e) {
     if (n.form && !n.form.checkValidity()) return;
     
@@ -151,6 +155,19 @@ var main = new(function() {
     this.b(b.form, "input[type='checkbox'][class~='" + b.getAttribute('data-group') + "']", "", function(n, e) {
       n.checked = b.checked;
     })
+  }
+  
+  this.toggleClass = function(n, e) {
+    if(e) e.preventDefault();
+    var q = n.getAttribute("data-nodes");
+    var c = n.getAttribute("data-class");
+    var d = this.q(q, 0);
+    if(d && c) this.b("", q, "", this.setClass.bind(this, n, c, d.classList.contains(c), e));
+  }
+  
+  this.setClass = function(a, c, on, e, n){
+    if(e) n.classList[on ? "remove" : "add"](c);
+    a.classList[(e ? on : !on) ? "remove" : "add"](this.opt.cAct);
   }
 
   this.alignCells = function(n) {
@@ -439,9 +456,12 @@ var main = new(function() {
     if (!n) this.b("", "body", "", function(n) { n.classList.add("js"); });
 
     //a.dialog[href]([title]|[data-caption])[data-prompt], a.alert, input.dialog
-    this.b(n, "." + this.opt.cAlert + ", ." + this.opt.cDialog, "click", this.dialog);
+    this.b(n, "." + this.opt.cAlert + ", ." + this.opt.cDialog, "click", this.openDialog);
     //check all checkbox [data-group] to [class]
     this.b(n, "input[data-group]", "click", this.checkBoxes);
+    //toggle class
+    this.b(n, "a[data-nodes][data-class]", "", this.toggleClass);
+    this.b(n, "a[data-nodes][data-class]", "click", this.toggleClass);
     //table cells align
     this.b(n, "table[class]", "", this.alignCells);
     //gallery back
@@ -476,6 +496,8 @@ var main = new(function() {
 
 
 // end module
+// var isNode    = (typeof module !== 'undefined' && this.module !== module); // use module or global
+// var isBrowser = (typeof window !== 'undefined' && this.window === this);
 
     if (typeof module !== "undefined") {
       //console.log("npm require d1", module);
