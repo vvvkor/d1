@@ -157,19 +157,6 @@ var main = new(function() {
     })
   }
   
-  this.toggleClass = function(n, e) {
-    if(e) e.preventDefault();
-    var q = n.getAttribute("data-nodes");
-    var c = n.getAttribute("data-class");
-    var d = this.q(q, 0);
-    if(d && c) this.b("", q, "", this.setClass.bind(this, n, c, d.classList.contains(c), e));
-  }
-  
-  this.setClass = function(a, c, on, e, n){
-    if(e) n.classList[on ? "remove" : "add"](c);
-    a.classList[(e ? on : !on) ? "remove" : "add"](this.opt.cAct);
-  }
-
   this.alignCells = function(n) {
     var m = n.className.match(/\b[lcr]\d\d?\b/g);
     if (m) {
@@ -221,8 +208,23 @@ var main = new(function() {
     return on;
   }
 
+  this.toggleClass = function(n, e) {
+    var box = (n.type == 'checkbox');
+    if (e && !box) e.preventDefault();
+    var q = n.getAttribute("data-nodes") || n.hash;
+    var c = n.getAttribute("data-class");
+    var on = box ? !n.checked : n.classList.contains(this.opt.cAct);
+    if (c) this.b("", q, "", this.setClass.bind(this, n, c, on, e));
+  }
+  
+  this.setClass = function(a, c, on, e, n){
+    if (e) n.classList[on ? "remove" : "add"](c);
+    a.classList[(e ? on : !on) ? "remove" : "add"](this.opt.cAct);
+  }
+
   //n = #hash|link|target
   this.handleState = function(n, e, on) {
+    if (on===undefined && n.hasAttribute("data-class")) return this.toggleClass(n, e);
     if (n && (n.hash || !n.tagName)) n = this.q(n.hash || n, 0); //target
     if (n && n.matches("." + this.opt.cToggle + "[id]")) {
       on = this.targetState(n, e, on);
@@ -459,9 +461,6 @@ var main = new(function() {
     this.b(n, "." + this.opt.cAlert + ", ." + this.opt.cDialog, "click", this.openDialog);
     //check all checkbox [data-group] to [class]
     this.b(n, "input[data-group]", "click", this.checkBoxes);
-    //toggle class
-    this.b(n, "a[data-nodes][data-class]", "", this.toggleClass);
-    this.b(n, "a[data-nodes][data-class]", "click", this.toggleClass);
     //table cells align
     this.b(n, "table[class]", "", this.alignCells);
     //gallery back
@@ -476,8 +475,8 @@ var main = new(function() {
     //prepare hash
     //if (location.hash) this.show(location.hash);
     this.onHash();
-    //toggle
-    this.b(n, "a[href^='#']", "click", this.handleState);
+    //toggle visiblity or class
+    this.b(n, "a[href^='#'], [data-class]", "click", this.handleState);
     //set input value
     this.b(n, "a[href^='#'][data-value]", "click", this.setValue);
     //color input
