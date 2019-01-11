@@ -213,13 +213,14 @@ var main = new(function() {
     if (e && !box) e.preventDefault();
     var q = n.getAttribute("data-nodes") || n.hash;
     var c = n.getAttribute("data-class");
-    var on = box ? !n.checked : n.classList.contains(this.opt.cAct);
+    var on = box ? n.checked : n.classList.contains(this.opt.cAct);
+    if(e && !box) on = !on;
     if (c) this.b("", q, "", this.setClass.bind(this, n, c, on, e));
   }
   
   this.setClass = function(a, c, on, e, n){
-    if (e) n.classList[on ? "remove" : "add"](c);
-    a.classList[(e ? on : !on) ? "remove" : "add"](this.opt.cAct);
+    n.classList[on ? "add" : "remove"](c);
+    a.classList[on ? "add" : "remove"](this.opt.cAct);
   }
 
   //n = #hash|link|target
@@ -476,6 +477,7 @@ var main = new(function() {
     //if (location.hash) this.show(location.hash);
     this.onHash();
     //toggle visiblity or class
+    this.b(n, "[data-class]", "", this.handleState);
     this.b(n, "a[href^='#'], [data-class]", "click", this.handleState);
     //set input value
     this.b(n, "a[href^='#'][data-value]", "click", this.setValue);
