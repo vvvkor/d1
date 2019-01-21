@@ -1,6 +1,6 @@
 {
   "name": "d1css",
-  "version": "1.2.20",
+  "version": "1.2.22",
   "description": "Functional CSS microframework",
   "main": "dist/d1.js",
   "directories": {
@@ -17,7 +17,8 @@
     "build:version.dist": "cross-var replace-in-file \"/d1css v#/g\" \"d1css v$npm_package_version\" \"dist/*.*\" --isRegex",
     "build:version.docs": "cross-var replace-in-file \"/d1css@\\d+\\.\\d+\\.\\d+/g\" \"d1css@$npm_package_version\" \"docs/*.*\" --isRegex",
     "build": "npm run build:css && npm run build:css.vars && npm run minify:css && npm run minify:css.vars && npm run build:js && npm run minify:js && npm run build:version.dist && npm run build:version.docs",
-    "//prepublishOnly": "npm version patch"
+    "//prepublishOnly": "npm version patch",
+	"test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,7 @@
   },
   "keywords": [
     "css",
+    "lightweight",
     "micro",
     "framework"
   ],

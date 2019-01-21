@@ -38,7 +38,7 @@ It aims to implement most widely used interface components with less code.
 #### [jsDelivr](https://www.jsdelivr.com/package/npm/d1css)
 
 ```html
-<link href="https://cdn.jsdelivr.net/npm/d1css@1/dist/d1.compat.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/d1css@1/dist/d1.min.css" rel="stylesheet">
 <!-- optional -->
 <script src="https://cdn.jsdelivr.net/npm/d1css@1/dist/d1.min.js"></script>
 <script>
@@ -49,7 +49,7 @@ It aims to implement most widely used interface components with less code.
 #### [GitCDN](https://gitcdn.link/)
 
 ```html
-<link href="https://gitcdn.link/repo/vvvkor/d1/master/dist/d1.compat.min.css" rel="stylesheet">
+<link href="https://gitcdn.link/repo/vvvkor/d1/master/dist/d1.min.css" rel="stylesheet">
 <!-- optional -->
 <script src="https://gitcdn.link/repo/vvvkor/d1/master/dist/d1.min.js"></script>
 <script>
@@ -65,7 +65,7 @@ npm install d1css
 ```
 Then use in your CSS file:
 ```css
-@import "../node_modules/d1css/dist/d1.compat.min.css";
+@import "../node_modules/d1css/dist/d1.min.css";
 ```
 And optionally bundle into your JavaScript file:
 ```javascript
@@ -78,7 +78,7 @@ d1.load();
 Download minified [d1 files](https://github.com/vvvkor/d1/tree/master/dist).
 
 ```html
-<link href="d1.compat.min.css" rel="stylesheet">
+<link href="d1.min.css" rel="stylesheet">
 <!-- optional -->
 <script src="d1.min.js"></script>
 <script>
