@@ -1,6 +1,6 @@
 {
   "name": "d1css",
-  "version": "1.2.24",
+  "version": "1.2.25",
   "description": "Functional CSS microframework",
   "main": "dist/d1.js",
   "directories": {
@@ -14,7 +14,7 @@
     "build-beautify:js": "uglifyjs --verbose --beautify --comments '/^/*!/' --output ./dist/d1.js ./src/d1.js",
     "build:js": "copyfiles ./src/d1.js ./dist -f",
     "minify:js": "uglifyjs --verbose --comments /^!/ --output ./dist/d1.min.js ./src/d1.js",
-	"build:docs": "copyfiles ./src/d1.html ./docs -f",
+	"build:docs": "copyfiles ./src/index.html ./docs -f",
     "build:version.dist": "cross-var replace-in-file \"/d1css v#/g\" \"d1css v$npm_package_version\" \"dist/*.*\" --isRegex",
     "build:version.docs": "cross-var replace-in-file \"/d1css@\\d+\\.\\d+\\.\\d+/g\" \"d1css@$npm_package_version\" \"docs/*.*\" --isRegex",
     "build:version.docs.path": "cross-var replace-in-file \"/d1\\.(css|js)/g\" \"https://cdn.jsdelivr.net/npm/d1css@$npm_package_version/dist/d1.min.$1\" \"docs/*.*\" --isRegex",

@@ -96,7 +96,7 @@ Download minified [d1 files](https://github.com/vvvkor/d1/tree/master/dist).
 
 ## Docs
 
-[Docs and demo](http://vadimkor.ru/projects/d1/)
+[Docs and demo](https://vvvkor.github.io/d1/)
 
 ## Thanks
 
