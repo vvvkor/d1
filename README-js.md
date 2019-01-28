@@ -1,7 +1,7 @@
 # d1 Javascript
 
 Javascript enhancements for [d1 CSS](https://github.com/vvvkor/d1).  
-[Demo & docs](http://vadimkor.ru/projects/d1#js)
+[Demo & docs](https://vvvkor.github.io/d1/#js)
 
 ## Install
 

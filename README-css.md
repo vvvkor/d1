@@ -1,7 +1,7 @@
 # d1 CSS
 
 Customization with CSS variables of [d1 CSS](https://github.com/vvvkor/d1).  
-[Demo & docs](http://vadimkor.ru/projects/d1#custom) 
+[Demo & docs](https://vvvkor.github.io/d1/#custom) 
 
 * ``--text`` - base text color; default: ``#222``
 * ``--bg`` - base background color; default: ``#fff``
