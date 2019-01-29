@@ -15,9 +15,9 @@ It aims to implement most widely used interface components with less code.
 * valid
 * cross-browser
 * JavaScript not required
-* [enhanced with JavaScript](README-js.md)
+* [enhanced with JavaScript](js.md)
 * neutral style
-* [customizable style with css vars](README-css.md)
+* [customizable style with css vars](css.md)
 * no floats
 * no hacks
 * accessibility is not much covered
