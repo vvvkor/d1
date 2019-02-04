@@ -217,10 +217,11 @@ ul.nav, .nav ul{list-style:none;padding:0;margin:0;}
 	/*div.hide,*/ .pop>div{/*padding:var(--gaps-n);*/}
 	
 	.dlg{width:80%;min-width:10em;max-width:24em;margin:var(--gap-n) auto;}
-	.full{left:0;top:0;width:100%;height:100vh;/*border:1em solid #eee;*//*box-sizing:border-box;*/}
+	.full{left:0;top:0;width:100%;min-height:100vh;/*border:1em solid #eee;*//*box-sizing:border-box;*/}
 	.full.c{display:flex;align-items:center;justify-content:center;}
 	.dlg[class],.full{/*padding:var(--gap-l);*/overflow:auto;}
 		.dlg.hide{border:200vw solid rgba(0,0,0,.85);left:50%;top:50%;transform:translate(-50%,-50%);min-width:10em;max-width:80vw;max-height:80vh;width:auto;box-sizing:content-box;}
+		.full.hide{height:100vh;}
 		.dlg.hide, .full.hide{position:fixed;z-index:50;}
 /* z-index */	
 div.hide{z-index:10;}
