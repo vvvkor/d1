@@ -1,4 +1,4 @@
-/*! d1css v1.2.28 https://github.com/vvvkor/d1 */
+/*! d1css v1.2.29 https://github.com/vvvkor/d1 */
 
 :root {
     --text: #222;
@@ -403,8 +403,11 @@ ul.nav, .nav ul {
     min-width: 10em;
     max-width: 80vw;
     max-height: 80vh;
-    width: auto;
     box-sizing: content-box;
+}
+
+.dlg.hide:not(.l) {
+    width: auto;
 }
 
 .full.hide {
