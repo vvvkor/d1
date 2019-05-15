@@ -43,6 +43,19 @@ var main = new(function() {
   this.str = {
     cancel: 'Cancel',
     ok: 'OK',
+    //input validation localization
+    /*
+    valueMissing: '- Please fill out this field.',
+    typeMismatch: '- Please enter a valid %type%.',
+    tooLong: '- Please shorten this text to %maxlength% characters or less.',
+    tooShort: '- Please lengthen this text to %minlength% characters or more.',
+    patternMismatch: '- Please match the requested format.',
+    rangeUnderflow: '- Value must be greater then or equal to %min%.',
+    rangeOverflow: '- Value must be less then or equal to %max%.',
+    stepMismatch: '- Please enter a valid value. Value step is %step%.',
+    badInput: '- Please enter a valid %type%!',
+    //customError: '',
+    */
     //icons
     _close: '&#10005;',//'&#10005;',//'&times;',
     _delete: '&#10005;',
@@ -58,6 +71,20 @@ var main = new(function() {
   this.ico = {};
   
   this.noMem = 0;
+  
+  this.validationErrors = [
+    'valueMissing',
+    'typeMismatch',
+    'tooLong',
+    'tooShort',
+    'patternMismatch',
+    'rangeUnderflow',
+    'rangeOverflow',
+    'stepMismatch',
+    'badInput',
+    'customError'
+    //,'valid'
+   ];
 
   //common
 
@@ -452,6 +479,33 @@ var main = new(function() {
     return this.str[s] || (def===undefined ? s : def);
   }
 
+  //validation
+
+  this.initValidate = function(n) {
+    if (n.willValidate) {
+      if (n.tagName == 'select' || n.type == 'radio' || n.type == 'checkbox') n.onchange = this.customValidate.bind(this, n);
+      else n.oninput = this.customValidate.bind(this, n);
+      n.oninvalid = this.customMessage.bind(this, n);
+    }
+  }
+
+  this.customValidate = function(n) {
+    if(n.type == 'radio') app.nbind(n.form, '[name="'+n.name+'"]', '', function(){ this.setCustomValidity(''); });
+    else n.setCustomValidity('');
+    n.checkValidity();
+  }
+
+  this.customMessage = function(n) {
+    console.log('NOT VAL',n,n.validity);
+    var x = '', err = '', i = 0;
+    while (!x && (err=this.validationErrors[i++])){
+      console.log('chk '+err);
+      if(n.validity[err]) x = this.s(err + ('_' + (n.type || n.tagName.toLowerCase() || '')), '') || this.s(err,'');
+    }
+    if (x) x = x.replace(/%(\w+)%/g, function(m,v){ return /*'['+*/n.getAttribute(v)/*+']'*/; });
+    n.setCustomValidity(x);
+  }
+
   //run
 
   this.refresh = function(n) {
@@ -491,6 +545,8 @@ var main = new(function() {
     this.b("", "a[data-target]", "click", this.getAjax);
     //focus dialog
     this.b("", [window], "hashchange", this.onHash);
+    //custom validity
+    this.b(n, "form[lang] input, form[lang] textarea, form[lang] select", "", this.initValidate);
   }
 
 })();
