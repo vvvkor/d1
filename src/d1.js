@@ -490,7 +490,7 @@ var main = new(function() {
   }
 
   this.customValidate = function(n) {
-    if(n.type == 'radio') app.nbind(n.form, '[name="'+n.name+'"]', '', function(){ this.setCustomValidity(''); });
+    if (n.type == 'radio') app.nbind(n.form, '[name="'+n.name+'"]', '', function(){ this.setCustomValidity(''); });
     else n.setCustomValidity('');
     n.checkValidity();
   }
@@ -502,7 +502,10 @@ var main = new(function() {
       console.log('chk '+err);
       if(n.validity[err]) x = this.s(err + ('_' + (n.type || n.tagName.toLowerCase() || '')), '') || this.s(err,'');
     }
-    if (x) x = x.replace(/%(\w+)%/g, function(m,v){ return /*'['+*/n.getAttribute(v)/*+']'*/; });
+    if (x) {
+      x = x.replace(/%(\w+)%/g, function(m,v){ return /*'['+*/n.getAttribute(v)/*+']'*/; });
+      if (n.title.length > 0) x += " \n" + n.title;
+    }
     n.setCustomValidity(x);
   }
 
