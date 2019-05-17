@@ -1,4 +1,4 @@
-/*! d1css v1.2.31 https://github.com/vvvkor/d1 */
+/*! d1css v1.2.32 https://github.com/vvvkor/d1 */
 
 :root {
     --text: #222;
@@ -713,7 +713,7 @@ mark {
     }
 
     input, button, select, textarea, .btn {
-        border: thin solid rgba(0, 0, 0, .3);
+        border: thin solid #aaa;
     }
 
     .btn, button, [type="submit"] {
@@ -744,8 +744,12 @@ mark {
         opacity: .5;
     }
 
-    input:invalid {
+    form:focus-within input:invalid {
         box-shadow: 0 0 0 .15em rgba(255, 200, 80, .8);
+    }
+
+    form:not(:focus-within) input~.small, form:focus-within input:valid~.small {
+        display: none;
     }
 
     input[type="range"], input[type="color"] {

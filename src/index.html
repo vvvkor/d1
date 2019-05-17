@@ -160,7 +160,7 @@ process:
 		}
 	</script>
 </head>
-<body data-str='{"valueMissing":"Value missing!"}'>
+<body>
 
 <!--div class="topbar">
 	<div class="pad -bg">
@@ -205,7 +205,7 @@ process:
 			<li><a href="#form-stacked">Stacked</a>
 			<li><a href="#form-grid">Grid</a>
 			<li><a href="#form-table">Table</a>
-			<li><a href="#form-localize">Localize</a>
+			<li><a href="#form-validate">Validation</a>
 			</ul>
 		<li><a href="#n-nav">Navigation</a>
 			<ul id="n-nav">
@@ -617,13 +617,17 @@ Table will become stacked on small screen.
 
 <div class="bord">
 <div class="pad roll">
-	<form method="post" lang="en">
+	<form method="post">
 		<table>
 		<tr>
 			<td><label for="nm">Name</label>
-			<td><input type="text" name="nm" id="nm" required pattern="[A-Za-z]{2,}" title="Two or more letters" autocomplete="off" minlength="2" maxlength="4">
-			<a href="#nm" data-value="test">Test</a>,
-			<a href="#nm" data-value="">Reset</a>
+			<td><input type="text" name="nm" id="nm" required pattern="[A-Za-z]{2,}" data-hint="Enter %minlength% up to %maxlength% letters" title="Two up to four letters" autocomplete="off" minlength="2" maxlength="4">
+			<span class="small text-w">Validation hint inside span</span>
+			<div class="small text-e mar">Validation hint inside div</div>
+			<div>
+				<a href="#nm" data-value="test">Test</a>,
+				<a href="#nm" data-value="">Reset</a>
+			</div>
 			
 			
 		<tr><td colspan="2">
@@ -652,7 +656,7 @@ Table will become stacked on small screen.
 				<td><input type="datetime-local" name="dtl" id="dtl">
 			<tr>
 				<td><label for="num">Number</label>
-				<td><input type="number" name="num" id="num" min="1" max="10" step="0.1">
+				<td><input type="number" name="num" id="num" min="1" max="10" step="0.1" data-info="some info" data-hint="Enter number between %min% and %max%, step %step% (%data-info%).">
 			<tr>
 				<td><label for="rng">Range</label>
 				<td><input type="range" name="rng" id="rng">
@@ -691,7 +695,7 @@ Table will become stacked on small screen.
 				<tr>
 					<td>Radio
 					<td>
-						<label for="rd1"><input id="rd1" type="radio" name="ra1" value="sun"> Sun</label><br>
+						<label for="rd1"><input id="rd1" type="radio" name="ra1" required value="sun"> Sun</label><br>
 						<label for="rd2"><input id="rd2" type="radio" name="ra1" value="moon"> Moon</label><br>
 			</table>
 		</fieldset>
@@ -738,22 +742,27 @@ Table will become stacked on small screen.
 	<pre class="hide l" data-src="#s-form-table"></pre>
 </div>
 
-<h3 id="form-localize">Localization</h3>
-<p>
-To localize input validation messages, add <code>lang</code> attribute to the <code>form</code> and provide localization strings in <code>data-str</code> attribute in some element on page or in second argument of <code>d1.init()</code> method. Placeholders inside percent characters are replaced with value of corresponding attribute of input element.
+<h3 id="form-validate">Validation</h3>
 
-<pre class="">&lt;body data-str='{
-  "valueMissing": "Fill out this field.",
-  "typeMismatch": "Enter a valid %type%.",
-  "tooLong": "Shorten this text to %maxlength% characters or less.",
-  "tooShort": "Lengthen this text to %minlength% characters or more.",
-  "patternMismatch": "Match the requested format.",
-  "rangeUnderflow": "Value must be greater then or equal to %min%.",
-  "rangeOverflow": "Value must be less then or equal to %max%.",
-  "stepMismatch": "Enter a valid value. Value step is %step%.",
-  "badInput": "Enter a valid %type%!"
-}'&gt;</pre>
+<p>To customize input validation messages, provide validation hint in <code>data-hint</code> <!-- or <code>title</code> --> attribute of input element. Placeholders inside percent characters are replaced with value of corresponding attribute of input element.
 
+<pre class="">&lt;input
+  type="text"
+  name="nm"
+  required
+  pattern="[A-Za-z]{2,}"
+  data-hint="Enter %minlength% up to %maxlength% letters"
+  title="Two up to four letters"
+  minlength="2"
+  maxlength="4"&gt;</pre>
+
+<p>Another option is to add sibling element with class <code>small</code> after input. It will be visible only if input value is not valid.
+
+<pre class="">
+  &lt;input type="text" name="nm" required&gt;
+  &lt;p class="small text-e">Value required&lt;/div&gt;</p></pre>
+
+  
 <h2 id="nav">Navigation</h2>
 
 <h3 id="nav-horizontal">Horizontal navbar</h3>

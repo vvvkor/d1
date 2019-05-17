@@ -122,6 +122,7 @@ blockquote,pre,fieldset{padding:var(--gaps-n);}
 pre,code{font-family:monospace;white-space:pre-wrap;}
 pre{overflow:auto;max-height:80vh;padding:var(--gap-n);/*max-width:100%;*/}
 abbr{border-bottom:thin dotted;}
+/* q{quotes:"`" "`";} */
 
 /* link */
 /*
@@ -312,7 +313,7 @@ mark{background-color:var(--bg-warning);}
 	/* form */
 	
 	input,button,select,textarea{padding:var(--gap-xs);line-height:normal;}
-	input,button,select,textarea,.btn{border:thin solid rgba(0,0,0,.3);}
+	input,button,select,textarea,.btn{border:thin solid #aaa;} /* rgba(0,0,0,.3) fails for select */
 	.btn,button,[type="submit"]{padding:var(--gaps-n);border-radius:var(--radius);margin:var(--gap-xs) 0;border-color:transparent;cursor:pointer;}
 	form>.btn, form>button, form>[type="submit"], form>a>button{padding:var(--gap-xs) var(--gap-s);margin:0;}/* see [.nav a] padding */
 	a.btn:hover, button:hover:not([disabled]), [type="submit"]:hover:not([disabled]),
@@ -320,7 +321,8 @@ mark{background-color:var(--bg-warning);}
 		box-shadow:0 0 0 .15em rgba(0,0,0,.1);outline:none;
 	}
 	button[disabled],[type="submit"][disabled]{opacity:.5;}
-	input:invalid{box-shadow:0 0 0 .15em rgba(255,200,80,.8);}
+	form:focus-within input:invalid{box-shadow:0 0 0 .15em rgba(255,200,80,.8);}
+		form:not(:focus-within) input~.small, form:focus-within input:valid~.small{display:none;}
 	input[type="range"], input[type="color"]{vertical-align:middle;padding:unset;}
 		input[type="range"]{border:initial;}
 

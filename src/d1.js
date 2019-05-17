@@ -496,17 +496,20 @@ var main = new(function() {
   }
 
   this.customMessage = function(n) {
-    console.log('NOT VAL',n,n.validity);
+    var t = n.getAttribute('data-hint') || '';// || n.title;
+    t = t.replace(/%([\w\-]+)%/g, function(m,v){ return n.getAttribute(v); })
+    n.setCustomValidity(t);
+    /*
     var x = '', err = '', i = 0;
     while (!x && (err=this.validationErrors[i++])){
-      console.log('chk '+err);
       if(n.validity[err]) x = this.s(err + ('_' + (n.type || n.tagName.toLowerCase() || '')), '') || this.s(err,'');
     }
     if (x) {
-      x = x.replace(/%(\w+)%/g, function(m,v){ return /*'['+*/n.getAttribute(v)/*+']'*/; });
+      x = x.replace(/%(\w+)%/g, function(m,v){ return n.getAttribute(v); });
       if (n.title.length > 0) x += " \n" + n.title;
     }
     n.setCustomValidity(x);
+    */
   }
 
   //run
@@ -549,7 +552,7 @@ var main = new(function() {
     //focus dialog
     this.b("", [window], "hashchange", this.onHash);
     //custom validity
-    this.b(n, "form[lang] input, form[lang] textarea, form[lang] select", "", this.initValidate);
+    this.b(n, "input, textarea, select", "", this.initValidate);
   }
 
 })();
