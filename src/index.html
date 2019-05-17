@@ -617,7 +617,7 @@ Table will become stacked on small screen.
 
 <div class="bord">
 <div class="pad roll">
-	<form method="post">
+	<form method="post" novalidate>
 		<table>
 		<tr>
 			<td><label for="nm">Name</label>
@@ -677,7 +677,7 @@ Table will become stacked on small screen.
 				<td><label class="drop" title="Drop image" for="up"><input id="up" type="file" name="up[]" multiple></label>
 			<tr>
 				<td>Box
-				<td><label for="bx0"><input id="bx0" type="checkbox" required class="" name="bx0" value="1" title="You need to check the box to continue"> Required box</label><br>
+				<td><label for="bx0"><input id="bx0" type="checkbox" required class="" name="bx0" value="1" title="You need to check the box to continue"> Required box<div class="small text-e mar">Check to continue</div></label>
 				
 			</table>
 		</fieldset>
@@ -696,7 +696,8 @@ Table will become stacked on small screen.
 					<td>Radio
 					<td>
 						<label for="rd1"><input id="rd1" type="radio" name="ra1" required value="sun"> Sun</label><br>
-						<label for="rd2"><input id="rd2" type="radio" name="ra1" value="moon"> Moon</label><br>
+						<label for="rd2"><input id="rd2" type="radio" name="ra1" value="moon"> Moon<div class="small text-e mar">Select to continue</div></label><br>
+						
 			</table>
 		</fieldset>
 		<tr>
