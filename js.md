@@ -87,6 +87,11 @@ Default: ``"js-control"``
 CSS class of hidden elements with Javascript-controlled visibility.  
 Default: ``"js-hide"``
 
+### cValidate
+
+CSS class of form elements with Javascript-controlled validation messages.  
+Default: ``"js-validate"``
+
 ### hashCancel
 
 Hash of "close" and "cancel" links.  

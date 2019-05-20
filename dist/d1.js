@@ -1,4 +1,4 @@
-/*! d1css v1.2.32 https://github.com/vvvkor/d1 */
+/*! d1css v1.2.34 https://github.com/vvvkor/d1 */
 /* Enhancements for d1css microframework */
 
 (function(window, document, Element) {
@@ -32,6 +32,7 @@ var main = new(function() {
     cJsControl: 'js-control',
     cJsHide: 'js-hide',
     cHashed: 'js-hashed',
+    cValidate: 'js-validate',
     attrStr: 'data-str',
     qsEsc: ".pop>div.toggle, .nav.toggle ul",//, .dlg, .full
     qsMem: ".mem, ul.tabs.mem+div>div, ul.mem ul[id]",
@@ -490,7 +491,7 @@ var main = new(function() {
   }
 
   this.customValidate = function(n) {
-    if (n.type == 'radio') app.nbind(n.form, '[name="'+n.name+'"]', '', function(){ this.setCustomValidity(''); });
+    if (n.type == 'radio') this.b(n.form, '[name="'+n.name+'"]', '', function(m){ m.setCustomValidity(''); });
     else n.setCustomValidity('');
     n.checkValidity();
   }
@@ -510,6 +511,18 @@ var main = new(function() {
     }
     n.setCustomValidity(x);
     */
+  }
+  
+  this.customValidateFormPrepare = function(n, e) {
+    n.setAttribute('novalidate',true);
+  }
+  
+  this.customValidateForm = function(n, e) {
+    n.classList.remove(this.opt.cValidate);
+    if (n.checkValidity() === false) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
   }
 
   //run
@@ -553,6 +566,8 @@ var main = new(function() {
     this.b("", [window], "hashchange", this.onHash);
     //custom validity
     this.b(n, "input, textarea, select", "", this.initValidate);
+    this.b(n, "form."+this.opt.cValidate, "", this.customValidateFormPrepare);
+    this.b(n, "form."+this.opt.cValidate, "submit", this.customValidateForm);
   }
 
 })();

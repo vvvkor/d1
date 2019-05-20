@@ -323,8 +323,7 @@ mark{background-color:var(--bg-warning);}
 	button[disabled],[type="submit"][disabled]{opacity:.5;}
 	/*form:focus-within*/ input:invalid{box-shadow:0 0 0 .15em rgba(255,200,80,.8);}
 		/*form:not(:focus-within) input~.small, form:focus-within input:valid~.small{display:none;}*/
-		input:valid~.small{display:none;}
-		form[novalidate]:not(.js-validated) input~.small{display:none;}
+		:valid~.small, form.js-validate :invalid~.small{display:none;}
 	input[type="range"], input[type="color"]{vertical-align:middle;padding:unset;}
 		input[type="range"]{border:initial;}
 

@@ -1,4 +1,4 @@
-/*! d1css v1.2.32 https://github.com/vvvkor/d1 */
+/*! d1css v1.2.34 https://github.com/vvvkor/d1 */
 
 :root {
     --text: #222;
@@ -704,11 +704,11 @@ mark {
         opacity: .5;
     }
 
-    form:focus-within input:invalid {
+    input:invalid {
         box-shadow: 0 0 0 .15em rgba(255, 200, 80, .8);
     }
 
-    form:not(:focus-within) input~.small, form:focus-within input:valid~.small {
+    :valid~.small, form.js-validate :invalid~.small {
         display: none;
     }
 

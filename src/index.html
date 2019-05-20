@@ -617,7 +617,7 @@ Table will become stacked on small screen.
 
 <div class="bord">
 <div class="pad roll">
-	<form method="post" novalidate>
+	<form method="post" class="js-validate">
 		<table>
 		<tr>
 			<td><label for="nm">Name</label>
@@ -638,10 +638,12 @@ Table will become stacked on small screen.
 			<tr>
 				<td><label for="lng">Select</label>
 				<td>
-				<select name="lng" id="lng">
-					<option value="en" selected>English</option>
+				<select name="lng" id="lng" required>
+					<option value="" selected>-</option>
+					<option value="en">English</option>
 					<option value="ru">Russian</option>
 				</select>
+				<div class="small text-e mar">Select language</div>
 			<tr>
 				<td><label for="dis">Disabled</label>
 				<td><input type="text" name="dis" id="dis" disabled>
@@ -671,7 +673,8 @@ Table will become stacked on small screen.
 				<td><input type="url" name="ur" id="ur" value="">
 			<tr>
 				<td><label for="msg">Textarea</label>
-				<td><textarea class="wys" name="msg" id="msg" cols="20" rows="5">text<b></textarea>
+				<td><textarea class="wys" name="msg" id="msg" cols="20" rows="5" required></textarea>
+					<div class="small text-e mar">Type something</div>
 			<tr>
 				<td>Upload
 				<td><label class="drop" title="Drop image" for="up"><input id="up" type="file" name="up[]" multiple></label>
@@ -757,7 +760,8 @@ Table will become stacked on small screen.
   minlength="2"
   maxlength="4"&gt;</pre>
 
-<p>Another option is to add sibling element with class <code>small</code> after input. It will be visible only if input value is not valid.
+<p>Another option is to add sibling element with class <code>small</code> after <code>input</code>. It will be visible only if input value is not valid.
+<p>To improve usability, add class <code>js-validate</code> to <code>form</code>. This will disble default brower-specific tooltips and disables reporting empty required inputs as invalid until submitting.
 
 <pre class="">
   &lt;input type="text" name="nm" required&gt;

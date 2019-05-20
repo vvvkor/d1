@@ -32,7 +32,7 @@ var main = new(function() {
     cJsControl: 'js-control',
     cJsHide: 'js-hide',
     cHashed: 'js-hashed',
-    cValidated: 'js-validated',
+    cValidate: 'js-validate',
     attrStr: 'data-str',
     qsEsc: ".pop>div.toggle, .nav.toggle ul",//, .dlg, .full
     qsMem: ".mem, ul.tabs.mem+div>div, ul.mem ul[id]",
@@ -513,9 +513,13 @@ var main = new(function() {
     */
   }
   
+  this.customValidateFormPrepare = function(n, e) {
+    n.setAttribute('novalidate',true);
+  }
+  
   this.customValidateForm = function(n, e) {
+    n.classList.remove(this.opt.cValidate);
     if (n.checkValidity() === false) {
-      n.classList.add(this.opt.cValidated);
       e.preventDefault();
       e.stopPropagation();
     }
@@ -562,7 +566,8 @@ var main = new(function() {
     this.b("", [window], "hashchange", this.onHash);
     //custom validity
     this.b(n, "input, textarea, select", "", this.initValidate);
-    this.b(n, "form[novalidate]", "submit", this.customValidateForm);
+    this.b(n, "form."+this.opt.cValidate, "", this.customValidateFormPrepare);
+    this.b(n, "form."+this.opt.cValidate, "submit", this.customValidateForm);
   }
 
 })();
