@@ -73,6 +73,7 @@ var main = new(function() {
   
   this.noMem = 0;
   
+  /*
   this.validationErrors = [
     'valueMissing',
     'typeMismatch',
@@ -85,8 +86,9 @@ var main = new(function() {
     'badInput',
     'customError'
     //,'valid'
-   ];
-
+  ];
+  */
+  
   //common
 
   this.load = function(obj, opt) {
@@ -565,9 +567,11 @@ var main = new(function() {
     //focus dialog
     this.b("", [window], "hashchange", this.onHash);
     //custom validity
+    /*
     this.b(n, "input, textarea, select", "", this.initValidate);
     this.b(n, "form."+this.opt.cValidate, "", this.customValidateFormPrepare);
     this.b(n, "form."+this.opt.cValidate, "submit", this.customValidateForm);
+    */
   }
 
 })();

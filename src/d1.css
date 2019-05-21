@@ -321,9 +321,9 @@ mark{background-color:var(--bg-warning);}
 		box-shadow:0 0 0 .15em rgba(0,0,0,.1);outline:none;
 	}
 	button[disabled],[type="submit"][disabled]{opacity:.5;}
-	/*form:focus-within*/ input:invalid{box-shadow:0 0 0 .15em rgba(255,200,80,.8);}
-		/*form:not(:focus-within) input~.small, form:focus-within input:valid~.small{display:none;}*/
-		:valid~.small, form.js-validate :invalid~.small{display:none;}
+	/*form:focus-within*/ [name]:invalid{box-shadow:0 0 0 .15em rgba(255,200,80,.8);}
+		/*form:not(:focus-within) input~.text-e, form:focus-within input:valid~.text-e{display:none;}*/
+		:valid~.text-e, :invalid~.text-y, .js-validate :invalid~.text-e, .js-validate:invalid~.text-e{display:none;}
 	input[type="range"], input[type="color"]{vertical-align:middle;padding:unset;}
 		input[type="range"]{border:initial;}
 
