@@ -1,4 +1,4 @@
-/*! d1css v1.2.34 https://github.com/vvvkor/d1 */
+/*! d1css v1.2.35 https://github.com/vvvkor/d1 */
 
 :root {
     --text: #222;
@@ -704,11 +704,12 @@ mark {
         opacity: .5;
     }
 
-    input:invalid {
+    [name]:invalid {
         box-shadow: 0 0 0 .15em rgba(255, 200, 80, .8);
     }
 
-    :valid~.small, form.js-validate :invalid~.small {
+    :valid~.text-e, :invalid~.text-y, .js-validate :invalid~.text-e,
+    .js-validate:invalid~.text-e {
         display: none;
     }
 

@@ -1,4 +1,4 @@
-/*! d1css v1.2.34 https://github.com/vvvkor/d1 */
+/*! d1css v1.2.35 https://github.com/vvvkor/d1 */
 /* Enhancements for d1css microframework */
 
 (function(window, document, Element) {
@@ -32,7 +32,6 @@ var main = new(function() {
     cJsControl: 'js-control',
     cJsHide: 'js-hide',
     cHashed: 'js-hashed',
-    cValidate: 'js-validate',
     attrStr: 'data-str',
     qsEsc: ".pop>div.toggle, .nav.toggle ul",//, .dlg, .full
     qsMem: ".mem, ul.tabs.mem+div>div, ul.mem ul[id]",
@@ -73,20 +72,6 @@ var main = new(function() {
   
   this.noMem = 0;
   
-  this.validationErrors = [
-    'valueMissing',
-    'typeMismatch',
-    'tooLong',
-    'tooShort',
-    'patternMismatch',
-    'rangeUnderflow',
-    'rangeOverflow',
-    'stepMismatch',
-    'badInput',
-    'customError'
-    //,'valid'
-   ];
-
   //common
 
   this.load = function(obj, opt) {
@@ -480,51 +465,6 @@ var main = new(function() {
     return this.str[s] || (def===undefined ? s : def);
   }
 
-  //validation
-
-  this.initValidate = function(n) {
-    if (n.willValidate) {
-      if (n.tagName == 'select' || n.type == 'radio' || n.type == 'checkbox') n.onchange = this.customValidate.bind(this, n);
-      else n.oninput = this.customValidate.bind(this, n);
-      n.oninvalid = this.customMessage.bind(this, n);
-    }
-  }
-
-  this.customValidate = function(n) {
-    if (n.type == 'radio') this.b(n.form, '[name="'+n.name+'"]', '', function(m){ m.setCustomValidity(''); });
-    else n.setCustomValidity('');
-    n.checkValidity();
-  }
-
-  this.customMessage = function(n) {
-    var t = n.getAttribute('data-hint') || '';// || n.title;
-    t = t.replace(/%([\w\-]+)%/g, function(m,v){ return n.getAttribute(v); })
-    n.setCustomValidity(t);
-    /*
-    var x = '', err = '', i = 0;
-    while (!x && (err=this.validationErrors[i++])){
-      if(n.validity[err]) x = this.s(err + ('_' + (n.type || n.tagName.toLowerCase() || '')), '') || this.s(err,'');
-    }
-    if (x) {
-      x = x.replace(/%(\w+)%/g, function(m,v){ return n.getAttribute(v); });
-      if (n.title.length > 0) x += " \n" + n.title;
-    }
-    n.setCustomValidity(x);
-    */
-  }
-  
-  this.customValidateFormPrepare = function(n, e) {
-    n.setAttribute('novalidate',true);
-  }
-  
-  this.customValidateForm = function(n, e) {
-    n.classList.remove(this.opt.cValidate);
-    if (n.checkValidity() === false) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-  }
-
   //run
 
   this.refresh = function(n) {
@@ -564,10 +504,6 @@ var main = new(function() {
     this.b("", "a[data-target]", "click", this.getAjax);
     //focus dialog
     this.b("", [window], "hashchange", this.onHash);
-    //custom validity
-    this.b(n, "input, textarea, select", "", this.initValidate);
-    this.b(n, "form."+this.opt.cValidate, "", this.customValidateFormPrepare);
-    this.b(n, "form."+this.opt.cValidate, "submit", this.customValidateForm);
   }
 
 })();

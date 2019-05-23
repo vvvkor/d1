@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>https://cdn.jsdelivr.net/npm/d1css@1.2.34/dist/d1.min.css - Docs and Demo</title>
+	<title>https://cdn.jsdelivr.net/npm/d1css@1.2.35/dist/d1.min.css - Docs and Demo</title>
 
 <!--
 
@@ -19,23 +19,26 @@ process:
 	
 	<!--link href="https://cdn.jsdelivr.net/npm/d1css@1.2.23/dist/d1.min.css" rel="stylesheet"-->
 	<!-- CDN -->
-	<link href="https://cdn.jsdelivr.net/npm/d1css@1.2.34/dist/d1.min.css" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/npm/d1css@1.2.34/dist/d1.min.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/d1css@1.2.35/dist/d1.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/d1css@1.2.35/dist/d1.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d1calendar/d1calendar.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d1dialog/d1dialog.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d1edit/d1edit.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d1gallery/d1gallery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d1lookup/d1lookup.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d1tablex/d1tablex.min.js"></script>
+	<!--script src="https://cdn.jsdelivr.net/npm/d1tablex/d1valid.min.js"></script-->
+	<script src="https://cdn.jsdelivr.net/npm/d1valid/d1valid.min.js"></script>
 	<!-- local-npm-src -- >
-	<link href="../src/https://cdn.jsdelivr.net/npm/d1css@1.2.34/dist/d1.min.css" rel="stylesheet">
-	<script src="../src/https://cdn.jsdelivr.net/npm/d1css@1.2.34/dist/d1.min.js"></script>
+	<link href="../src/https://cdn.jsdelivr.net/npm/d1css@1.2.35/dist/d1.min.css" rel="stylesheet">
+	<script src="../src/https://cdn.jsdelivr.net/npm/d1css@1.2.35/dist/d1.min.js"></script>
 	<script src="../../d1dialog/d1dialog.js"></script>
 	<script src="../../d1gallery/d1gallery.js"></script>
 	<script src="../../d1tablex/d1tablex.js"></script>
 	<script src="../../d1calendar/d1calendar.js"></script>
 	<script src="../../d1lookup/d1lookup.js"></script>
 	<script src="../../d1edit/d1edit.js"></script>
+	<script src="../../d1valid/d1valid.js"></script>
 	<!-- local-npm-dist -- >
 	<link href="../dist/d1.min.css" rel="stylesheet">
 	<script src="../dist/d1.min.js"></script>
@@ -45,15 +48,17 @@ process:
 	<script src="../../d1calendar/d1calendar.js"></script>
 	<script src="../../d1lookup/d1lookup.js"></script>
 	<script src="../../d1edit/d1edit.js"></script>
+	<script src="../../d1valid/d1valid.js"></script>
 	<!-- local-insite -- >
-	<link href="https://cdn.jsdelivr.net/npm/d1css@1.2.34/dist/d1.min.css" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/npm/d1css@1.2.34/dist/d1.min.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/d1css@1.2.35/dist/d1.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/d1css@1.2.35/dist/d1.min.js"></script>
 	<script src="d1dialog.js"></script>
 	<script src="d1gallery.js"></script>
 	<script src="d1tablex.js"></script>
 	<script src="d1calendar.js"></script>
 	<script src="d1lookup.js"></script>
 	<script src="d1edit.js"></script>
+	<script src="d1valid.js"></script>
 	<!-- -->
 	
 	<script>
@@ -80,6 +85,7 @@ process:
 			d1lookup.init();
 			d1edit.init();
 			d1tablex.init();
+			d1valid.init();
 			
 			d1.b('', 'a[data-nodes][data-class]', 'click', function(n, e){
 				d1.b('', "pre[data-src]", "", prepareCode);
@@ -178,7 +184,7 @@ process:
 
 	<!--p><b>d1</b> CSS framework</p-->
 	
-	<p><code>v1.2.34</code></p>
+	<p><code>v1.2.35</code></p>
 
 	<div class="">
 		<p class=""><code class="pad">npm install d1css</code></p>
@@ -205,7 +211,7 @@ process:
 			<li><a href="#form-stacked">Stacked</a>
 			<li><a href="#form-grid">Grid</a>
 			<li><a href="#form-table">Table</a>
-			<li><a href="#form-validate">Validation</a>
+			<!--li><a href="#form-validate">Validation</a-->
 			</ul>
 		<li><a href="#n-nav">Navigation</a>
 			<ul id="n-nav">
@@ -248,6 +254,7 @@ process:
 			<li><a href="#gallery">Gallery</a>
 			<li><a href="#lookup">Lookup</a>
 			<li><a href="#tablex">Tablex</a>
+			<li><a href="#valid">Valid</a>
 			</ul>
 		<li><a href="#custom">Customization</a>
 		<li><a href="#ref">Reference</a>
@@ -622,8 +629,9 @@ Table will become stacked on small screen.
 		<tr>
 			<td><label for="nm">Name</label>
 			<td><input type="text" name="nm" id="nm" required pattern="[A-Za-z]{2,}" data-hint="Enter %minlength% up to %maxlength% letters" title="Two up to four letters" autocomplete="off" minlength="2" maxlength="4">
-			<span class="small text-w">Validation hint inside span</span>
-			<div class="small text-e mar">Validation hint inside div</div>
+				<small class="text-e">Validation hint inside small</small>
+				<div class="small text-e mar">Validation hint inside div</div>
+				<div class="small text-y mar">Looks good</div>
 			<div>
 				<a href="#nm" data-value="test">Test</a>,
 				<a href="#nm" data-value="">Reset</a>
@@ -703,6 +711,7 @@ Table will become stacked on small screen.
 						
 			</table>
 		</fieldset>
+		<div class="small text-e mar">Fieldset not valid</div>
 		<tr>
 			<td>
 			<td>
@@ -711,6 +720,7 @@ Table will become stacked on small screen.
 				<input type="submit" value="Confirm" class="bg-w dialog" name="btn2" title="Confirm?">
 		</table>
 	</form>
+	<div class="small text-e mar">Form not valid</div>
 	
 
 <div id="s-form-table" class="hide">
@@ -746,9 +756,10 @@ Table will become stacked on small screen.
 	<pre class="hide l" data-src="#s-form-table"></pre>
 </div>
 
+<!--
 <h3 id="form-validate">Validation</h3>
 
-<p>To customize input validation messages, provide validation hint in <code>data-hint</code> <!-- or <code>title</code> --> attribute of input element. Placeholders inside percent characters are replaced with value of corresponding attribute of input element.
+<p>To customize input validation messages, provide validation hint in <code>data-hint</code> attribute of input element. Placeholders inside percent characters are replaced with value of corresponding attribute of input element.
 
 <pre class="">&lt;input
   type="text"
@@ -765,8 +776,8 @@ Table will become stacked on small screen.
 
 <pre class="">
   &lt;input type="text" name="nm" required&gt;
-  &lt;p class="small text-e">Value required&lt;/div&gt;</p></pre>
-
+  &lt;p class="small text-e">Value required&lt;/p&gt;</pre>
+-->
   
 <h2 id="nav">Navigation</h2>
 
@@ -1568,6 +1579,130 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 </div>
 </div>
 	<pre class="hide l" data-src="#s-tablex"></pre>
+</div>
+
+<h3 id="valid"><a href="https://github.com/vvvkor/d1valid">Valid</a></h3>
+
+<p>Custom form validation.
+
+<h4>Custom input validation messages</h4>
+
+<p>To customize input validation messages, provide validation hint in <code>data-hint</code> attribute of input element. Placeholders inside percent characters are replaced with value of corresponding attribute of input element.
+
+<!--pre class="">&lt;input
+  type="text"
+  name="nm"
+  required
+  pattern="[A-Za-z]{2,}"
+  data-hint="Enter %minlength% up to %maxlength% letters"
+  title="Two up to four letters"
+  minlength="2"
+  maxlength="4"&gt;</pre-->
+
+<div class="bord">
+<div id="s-valid1" class="pad">
+	<form method="post">
+		<table>
+		<tbody>
+		<tr>
+			<td><label for="v-nm">Name</label>
+			<td><input type="text" name="nm" id="v-nm" required pattern="[A-Za-z]{2,}" data-hint="Enter %minlength% up to %maxlength% letters" title="Two up to four letters" autocomplete="off" minlength="2" maxlength="4">
+				<div class="small text-e mar">Enter 2 up to 4 latin letters</div>
+				<div class="small text-y mar">Looks good</div>
+		<tr>
+			<td><label for="v-lng">Select</label>
+			<td>
+			<select name="lng" id="v-lng" required data-hint="Select language">
+				<option value="" selected>-</option>
+				<option value="en">English</option>
+				<option value="ru">Russian</option>
+			</select>
+		<tr>
+			<td><label for="v-num">Number</label>
+			<td><input type="number" name="num" id="v-num" min="1" max="10" step="0.1" data-info="some info" data-hint="Enter number between %min% and %max%, step %step% (%data-info%).">
+		<tr>
+			<td><label for="v-msg">Textarea</label>
+			<td><textarea class="wys" name="msg" id="v-msg" cols="20" rows="5" required data-hint="Type something"></textarea>
+		<tr>
+			<td>Box
+			<td><label for="v-bx0"><input id="v-bx0" type="checkbox" required class="" name="bx0" value="1" data-hint="Check to continue"> Required box</label>
+			
+		<tr>
+			<td>Radio
+			<td>
+				<label for="v-rd1"><input id="v-rd1" type="radio" name="ra1" required value="sun" data-hint="Select to continue"> Sun</label><br>
+				<label for="v-rd2"><input id="v-rd2" type="radio" name="ra1" value="moon"> Moon</label><br>
+		<tr>
+			<td>
+			<td>
+				<input type="submit" value="Submit">
+				<input type="submit" value="Disabled" disabled>
+				<input type="submit" value="Confirm" class="bg-w dialog" name="btn2" title="Confirm?">
+		</tbody>
+		</table>
+	</form>
+</div>
+	<pre class="hide l" data-src="#s-valid1"></pre>
+</div>
+
+<h4>Custom hint elements for input validation</h4>
+
+<p>Another option is to add sibling element with class <code>text-e</code> after <code>input</code>. It will be visible only if input value is not valid. Contrary, sibling element with class <code>text-y</code> will be visible only if input value is valid.
+<p>To improve usability, add class <code>js-validate</code> to <code>form</code>. This will disble default brower-specific tooltips and disables reporting empty required inputs as invalid until submitting.
+
+<!--pre class="">
+  &lt;input type="text" name="nm" required&gt;
+  &lt;p class="small text-e">Value required&lt;/p&gt;</pre-->
+
+<div class="bord">
+<div id="s-valid2" class="pad">
+	<form method="post" class="js-validate">
+		<table>
+		<tbody>
+		<tr>
+			<td><label for="vv-nm">Name</label>
+			<td><input type="text" name="nm" id="vv-nm" required pattern="[A-Za-z]{2,}" data-hint="Enter %minlength% up to %maxlength% letters" title="Two up to four letters" autocomplete="off" minlength="2" maxlength="4">
+				<small class="text-e">Validation hint inside small</small>
+				<div class="small text-e mar">Validation hint inside div</div>
+				<div class="small text-y mar">Looks good</div>
+		<tr>
+			<td><label for="vv-lng">Select</label>
+			<td>
+			<select name="lng" id="vv-lng" required>
+				<option value="" selected>-</option>
+				<option value="en">English</option>
+				<option value="ru">Russian</option>
+			</select>
+			<div class="small text-e mar">Select language</div>
+		<tr>
+			<td><label for="vv-num">Number</label>
+			<td><input type="number" name="num" id="vv-num" min="1" max="10" step="0.1" data-info="some info" data-hint="Enter number between %min% and %max%, step %step% (%data-info%).">
+			<div class="small text-e mar">Enter number between 1 and 10, step 0.1</div>
+		<tr>
+			<td><label for="vv-msg">Textarea</label>
+			<td><textarea class="wys" name="msg" id="vv-msg" cols="20" rows="5" required></textarea>
+				<div class="small text-e mar">Type something</div>
+		<tr>
+			<td>Box
+			<td><label for="vv-bx0"><input id="vv-bx0" type="checkbox" required class="" name="bx0" value="1" title="You need to check the box to continue"> Required box<div class="small text-e mar">Check to continue</div></label>
+			
+		<tr>
+			<td>Radio
+			<td>
+				<label for="vv-rd1"><input id="vv-rd1" type="radio" name="ra1" required value="sun"> Sun</label><br>
+				<label for="vv-rd2"><input id="vv-rd2" type="radio" name="ra1" value="moon"> Moon<div class="small text-e mar">Select to continue</div></label><br>
+		<tr>
+			<td>
+			<td>
+				<input type="submit" value="Submit">
+				<input type="submit" value="Disabled" disabled>
+				<input type="submit" value="Confirm" class="bg-w dialog" name="btn2" title="Confirm?">
+		</tbody>
+		</table>
+	</form>
+	<div class="small text-e mar">Form not valid</div>
+</div>
+	<pre class="hide l" data-src="#s-valid2"></pre>
 </div>
 
 
