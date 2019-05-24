@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>https://cdn.jsdelivr.net/npm/d1css@1.2.35/dist/d1.min.css - Docs and Demo</title>
+	<title>https://cdn.jsdelivr.net/npm/d1css@1.2.36/dist/d1.min.css - Docs and Demo</title>
 
 <!--
 
@@ -19,19 +19,18 @@ process:
 	
 	<!--link href="https://cdn.jsdelivr.net/npm/d1css@1.2.23/dist/d1.min.css" rel="stylesheet"-->
 	<!-- CDN -->
-	<link href="https://cdn.jsdelivr.net/npm/d1css@1.2.35/dist/d1.min.css" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/npm/d1css@1.2.35/dist/d1.min.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/d1css@1.2.36/dist/d1.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/d1css@1.2.36/dist/d1.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d1calendar/d1calendar.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d1dialog/d1dialog.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d1edit/d1edit.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d1gallery/d1gallery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d1lookup/d1lookup.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d1tablex/d1tablex.min.js"></script>
-	<!--script src="https://cdn.jsdelivr.net/npm/d1tablex/d1valid.min.js"></script-->
 	<script src="https://cdn.jsdelivr.net/npm/d1valid/d1valid.min.js"></script>
 	<!-- local-npm-src -- >
-	<link href="../src/https://cdn.jsdelivr.net/npm/d1css@1.2.35/dist/d1.min.css" rel="stylesheet">
-	<script src="../src/https://cdn.jsdelivr.net/npm/d1css@1.2.35/dist/d1.min.js"></script>
+	<link href="../src/https://cdn.jsdelivr.net/npm/d1css@1.2.36/dist/d1.min.css" rel="stylesheet">
+	<script src="../src/https://cdn.jsdelivr.net/npm/d1css@1.2.36/dist/d1.min.js"></script>
 	<script src="../../d1dialog/d1dialog.js"></script>
 	<script src="../../d1gallery/d1gallery.js"></script>
 	<script src="../../d1tablex/d1tablex.js"></script>
@@ -50,8 +49,8 @@ process:
 	<script src="../../d1edit/d1edit.js"></script>
 	<script src="../../d1valid/d1valid.js"></script>
 	<!-- local-insite -- >
-	<link href="https://cdn.jsdelivr.net/npm/d1css@1.2.35/dist/d1.min.css" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/npm/d1css@1.2.35/dist/d1.min.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/d1css@1.2.36/dist/d1.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/d1css@1.2.36/dist/d1.min.js"></script>
 	<script src="d1dialog.js"></script>
 	<script src="d1gallery.js"></script>
 	<script src="d1tablex.js"></script>
@@ -184,7 +183,7 @@ process:
 
 	<!--p><b>d1</b> CSS framework</p-->
 	
-	<p><code>v1.2.35</code></p>
+	<p><code>v1.2.36</code></p>
 
 	<div class="">
 		<p class=""><code class="pad">npm install d1css</code></p>
@@ -624,14 +623,11 @@ Table will become stacked on small screen.
 
 <div class="bord">
 <div class="pad roll">
-	<form method="post" class="js-validate">
+	<form method="post">
 		<table>
 		<tr>
 			<td><label for="nm">Name</label>
-			<td><input type="text" name="nm" id="nm" required pattern="[A-Za-z]{2,}" data-hint="Enter %minlength% up to %maxlength% letters" title="Two up to four letters" autocomplete="off" minlength="2" maxlength="4">
-				<small class="text-e">Validation hint inside small</small>
-				<div class="small text-e mar">Validation hint inside div</div>
-				<div class="small text-y mar">Looks good</div>
+			<td><input type="text" name="nm" id="nm" required pattern="[A-Za-z]{2,}" title="Two up to four letters" data-hint="%minlength% up to %maxlength% letters" autocomplete="off" minlength="2" maxlength="4">
 			<div>
 				<a href="#nm" data-value="test">Test</a>,
 				<a href="#nm" data-value="">Reset</a>
@@ -651,7 +647,6 @@ Table will become stacked on small screen.
 					<option value="en">English</option>
 					<option value="ru">Russian</option>
 				</select>
-				<div class="small text-e mar">Select language</div>
 			<tr>
 				<td><label for="dis">Disabled</label>
 				<td><input type="text" name="dis" id="dis" disabled>
@@ -682,13 +677,12 @@ Table will become stacked on small screen.
 			<tr>
 				<td><label for="msg">Textarea</label>
 				<td><textarea class="wys" name="msg" id="msg" cols="20" rows="5" required></textarea>
-					<div class="small text-e mar">Type something</div>
 			<tr>
 				<td>Upload
 				<td><label class="drop" title="Drop image" for="up"><input id="up" type="file" name="up[]" multiple></label>
 			<tr>
 				<td>Box
-				<td><label for="bx0"><input id="bx0" type="checkbox" required class="" name="bx0" value="1" title="You need to check the box to continue"> Required box<div class="small text-e mar">Check to continue</div></label>
+				<td><label for="bx0"><input id="bx0" type="checkbox" required class="" name="bx0" value="1" title="You need to check the box to continue"> Required box</label>
 				
 			</table>
 		</fieldset>
@@ -707,11 +701,10 @@ Table will become stacked on small screen.
 					<td>Radio
 					<td>
 						<label for="rd1"><input id="rd1" type="radio" name="ra1" required value="sun"> Sun</label><br>
-						<label for="rd2"><input id="rd2" type="radio" name="ra1" value="moon"> Moon<div class="small text-e mar">Select to continue</div></label><br>
-						
+						<label for="rd2"><input id="rd2" type="radio" name="ra1" value="moon"> Moon</label><br>
 			</table>
 		</fieldset>
-		<div class="small text-e mar">Fieldset not valid</div>
+		
 		<tr>
 			<td>
 			<td>
@@ -720,7 +713,6 @@ Table will become stacked on small screen.
 				<input type="submit" value="Confirm" class="bg-w dialog" name="btn2" title="Confirm?">
 		</table>
 	</form>
-	<div class="small text-e mar">Form not valid</div>
 	
 
 <div id="s-form-table" class="hide">
@@ -1619,19 +1611,19 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 			</select>
 		<tr>
 			<td><label for="v-num">Number</label>
-			<td><input type="number" name="num" id="v-num" min="1" max="10" step="0.1" data-info="some info" data-hint="Enter number between %min% and %max%, step %step% (%data-info%).">
+			<td><input type="number" name="num" id="v-num" required min="1" max="10" step="0.1" data-info="some info" data-hint="Enter number between %min% and %max%, step %step% (%data-info%).">
 		<tr>
 			<td><label for="v-msg">Textarea</label>
 			<td><textarea class="wys" name="msg" id="v-msg" cols="20" rows="5" required data-hint="Type something"></textarea>
 		<tr>
 			<td>Box
-			<td><label for="v-bx0"><input id="v-bx0" type="checkbox" required class="" name="bx0" value="1" data-hint="Check to continue"> Required box</label>
+			<td><label for="v-bx0"><input id="v-bx0" type="checkbox" required class="" name="bx0" value="1" data-hint="Check to continue"> <span>Required box</span></label>
 			
 		<tr>
 			<td>Radio
 			<td>
-				<label for="v-rd1"><input id="v-rd1" type="radio" name="ra1" required value="sun" data-hint="Select to continue"> Sun</label><br>
-				<label for="v-rd2"><input id="v-rd2" type="radio" name="ra1" value="moon"> Moon</label><br>
+				<label for="v-rd1"><input id="v-rd1" type="radio" name="ra1" required value="sun" data-hint="Select to continue"> <span>Sun</span></label><br>
+				<label for="v-rd2"><input id="v-rd2" type="radio" name="ra1" value="moon"> <span>Moon</span></label>
 		<tr>
 			<td>
 			<td>
@@ -1676,7 +1668,7 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 			<div class="small text-e mar">Select language</div>
 		<tr>
 			<td><label for="vv-num">Number</label>
-			<td><input type="number" name="num" id="vv-num" min="1" max="10" step="0.1" data-info="some info" data-hint="Enter number between %min% and %max%, step %step% (%data-info%).">
+			<td><input type="number" name="num" id="vv-num" required min="1" max="10" step="0.1" data-info="some info" data-hint="Enter number between %min% and %max%, step %step% (%data-info%).">
 			<div class="small text-e mar">Enter number between 1 and 10, step 0.1</div>
 		<tr>
 			<td><label for="vv-msg">Textarea</label>
@@ -1684,13 +1676,13 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 				<div class="small text-e mar">Type something</div>
 		<tr>
 			<td>Box
-			<td><label for="vv-bx0"><input id="vv-bx0" type="checkbox" required class="" name="bx0" value="1" title="You need to check the box to continue"> Required box<div class="small text-e mar">Check to continue</div></label>
+			<td><label for="vv-bx0"><input id="vv-bx0" type="checkbox" required class="" name="bx0" value="1" title="You need to check the box to continue"> <span>Required box</span><div class="small text-e mar">Check to continue</div></label>
 			
 		<tr>
 			<td>Radio
 			<td>
-				<label for="vv-rd1"><input id="vv-rd1" type="radio" name="ra1" required value="sun"> Sun</label><br>
-				<label for="vv-rd2"><input id="vv-rd2" type="radio" name="ra1" value="moon"> Moon<div class="small text-e mar">Select to continue</div></label><br>
+				<label for="vv-rd1"><input id="vv-rd1" type="radio" name="ra1" required value="sun"> <span>Sun</span></label><br>
+				<label for="vv-rd2"><input id="vv-rd2" type="radio" name="ra1" value="moon"> <span>Moon</span><div class="small text-e mar">Select to continue</div></label>
 		<tr>
 			<td>
 			<td>
@@ -1700,7 +1692,9 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 		</tbody>
 		</table>
 	</form>
+	<!--div class="small text-e mar">Fieldset not valid</div-->
 	<div class="small text-e mar">Form not valid</div>
+
 </div>
 	<pre class="hide l" data-src="#s-valid2"></pre>
 </div>

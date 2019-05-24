@@ -1,4 +1,4 @@
-/*! d1css v1.2.35 https://github.com/vvvkor/d1 */
+/*! d1css v1.2.36 https://github.com/vvvkor/d1 */
 
 :root {
     --text: #222;
@@ -705,7 +705,15 @@ mark {
     }
 
     [name]:invalid {
-        box-shadow: 0 0 0 .15em rgba(255, 200, 80, .8);
+        border-color: var(--text-danger);
+    }
+
+    [type="checkbox"]:invalid+span, [type="radio"]:invalid+span {
+        color: var(--text-danger);
+    }
+
+    [name]:invalid:focus {
+        box-shadow: 0 0 0 .15em rgba(255, 100, 100, .3);
     }
 
     :valid~.text-e, :invalid~.text-y, .js-validate :invalid~.text-e,
