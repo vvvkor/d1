@@ -758,8 +758,8 @@ mark {
         box-shadow: 0 0 0 .15em rgba(255, 100, 100, .3);
     }
 
-    :valid~.text-e, :invalid~.text-y, .js-validate :invalid~.text-e,
-    .js-validate:invalid~.text-e {
+    :valid~.text-e, :invalid~.text-y, .js-unhint :invalid~.text-e,
+    .js-unhint:invalid~.text-e {
         display: none;
     }
 
