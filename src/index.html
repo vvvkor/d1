@@ -61,6 +61,7 @@ process:
 	<!-- -->
 	
 	<script>
+		//d1.loadAll();
 		d1.load(function(){
 			var ico = {
 				close: 'svg-close',
@@ -76,8 +77,8 @@ process:
 			
 			d1.b('', "pre[data-src]", "", prepareCode);
 			
-			d1.init({}, {}, /*{}*/ ico);
-
+			d1.init({}, {}, ico, true);
+			/*
 			d1dialog.init();
 			d1gallery.init();
 			d1calendar.init();
@@ -85,11 +86,13 @@ process:
 			d1edit.init();
 			d1tablex.init();
 			d1valid.init();
+			*/
 			
 			d1.b('', 'a[data-nodes][data-class]', 'click', function(n, e){
 				d1.b('', "pre[data-src]", "", prepareCode);
 			});
 		});
+		
 	</script>
 	
 	<script>

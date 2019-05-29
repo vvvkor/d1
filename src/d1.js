@@ -72,14 +72,20 @@ var main = new(function() {
   
   this.noMem = 0;
   
+  this.plugins = [];
+  
   //common
 
-  this.load = function(obj, opt) {
+  this.load = function(obj, opt, plug) {
     if (!obj) obj = this;
-    this.b("", [document], "DOMContentLoaded", typeof obj === "function" ? obj : obj.init.bind(obj, opt));
+    this.b("", [document], "DOMContentLoaded", typeof obj === "function" ? obj : obj.init.bind(obj, opt, [], [], plug));
   }
   
-  this.init = function(opt, str, ico) {
+  this.loadAll = function(opt){
+    this.load(this, opt, true);
+  }
+  
+  this.init = function(opt, str, ico, plug) {
     var i;
     for (i in opt) this.opt[i] = opt[i];
     for (i in str) this.str[i] = str[i];
@@ -90,6 +96,15 @@ var main = new(function() {
     if (window && !Element.prototype.matches) Element.prototype.matches = Element.prototype.msMatchesSelector; //ie9+
     this.getStrings();
     this.refresh();
+    if(plug) this.initPlugins();
+  }
+  
+  this.plug = function(p) {
+    this.plugins.push(p);
+  }
+  
+  this.initPlugins = function(){
+    for (var i in this.plugins) this.plugins[i].init();
   }
   
   this.q = function(s, i, n) {
