@@ -8,18 +8,18 @@
 	},
 	"data": [
 		{
-			"value": "1",
-			"label": "One",
+			"id": "1",
+			"nm": "One",
 			"info": "#1, /one/"
 		},
 		{
-			"value": "2",
-			"label": "Two",
+			"id": "2",
+			"nm": "Two",
 			"info1": "#2, /two/"
 		},
 		{
-			"value": "4",
-			"label": "Four",
+			"id": "4",
+			"nm": "Four",
 			"info": "#4, /four/"
 		}
 	]
