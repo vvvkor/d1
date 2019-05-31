@@ -1,10 +1,11 @@
-/*! d1css v1.2.39 https://github.com/vvvkor/d1 */
+/*! d1css v1.2.40 https://github.com/vvvkor/d1 */
 /* Enhancements for d1css microframework */
 
 (function(window, document, Element) {
   
   "use strict";
 
+  
   //check single instance
   if (window && window.d1) {
     console.log("d1 already included");
@@ -17,6 +18,8 @@ var main = new(function() {
 
   "use strict";
 
+  this.name = 'd1';
+  
   this.opt = {
     cAct: 'act',
     cAlert: 'alert',
@@ -76,13 +79,14 @@ var main = new(function() {
   
   //common
 
-  this.load = function(obj, opt, plug) {
+  this.load = function(obj, opt, str, ico, plug) {
     if (!obj) obj = this;
-    this.b("", [document], "DOMContentLoaded", typeof obj === "function" ? obj : obj.init.bind(obj, opt, [], [], plug));
+    this.b("", [document], "DOMContentLoaded", typeof obj === "function" ? obj : obj.init.bind(obj, opt, str, ico, plug));
   }
   
-  this.loadAll = function(opt){
-    this.load(this, opt, true);
+  this.loadAll = function(plug){
+    if(!plug) plug = {};
+    this.load(this, plug.opt, plug.str, plug.ico, plug);
   }
   
   this.init = function(opt, str, ico, plug) {
@@ -96,15 +100,15 @@ var main = new(function() {
     if (window && !Element.prototype.matches) Element.prototype.matches = Element.prototype.msMatchesSelector; //ie9+
     this.getStrings();
     this.refresh();
-    if(plug) this.initPlugins();
+    if(plug) this.initPlugins(plug);
   }
   
   this.plug = function(p) {
     this.plugins.push(p);
   }
   
-  this.initPlugins = function(){
-    for (var i in this.plugins) this.plugins[i].init();
+  this.initPlugins = function(opts){
+    for (var i in this.plugins) this.plugins[i].init(opts ? opts[this.plugins[i].name] : {});
   }
   
   this.q = function(s, i, n) {

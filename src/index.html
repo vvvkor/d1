@@ -61,9 +61,12 @@ process:
 	<!-- -->
 	
 	<script>
-		//d1.loadAll();
-		d1.load(function(){
-			var ico = {
+		//d1.loadAll(); //default
+		////d1.load(null, {}, {}, {}, {valid:{a:1}}); //custom
+		d1.loadAll({ //custom-short
+			opt:{hashCancel:'#quit'},
+			str:{ok:'Yep'},
+			ico:{
 				close: 'svg-close',
 				delete: 'svg-delete',
 				edit: 'svg-edit',
@@ -73,26 +76,15 @@ process:
 				next: 'svg-right',
 				prev2: 'svg-first',
 				next2: 'svg-last'
-			}
-			
-			d1.b('', "pre[data-src]", "", prepareCode);
-			
-			d1.init({}, {}, ico, true);
-			/*
-			d1dialog.init();
-			d1gallery.init();
-			d1calendar.init();
-			d1lookup.init();
-			d1edit.init();
-			d1tablex.init();
-			d1valid.init();
-			*/
-			
-			d1.b('', 'a[data-nodes][data-class]', 'click', function(n, e){
-				d1.b('', "pre[data-src]", "", prepareCode);
-			});
+			},
+			calendar:{hashNow:'#today'},
+			dialog:{hashCancel:'#no'},
+			edit:{height:'10vh'},
+			gallery:{hashCancel:'#back'},
+			lookup:{idList:'autocomplete-list'},
+			tablex:{cFilter:'bg-i'},
+			//valid:{qsValidate:'form.val'}
 		});
-		
 	</script>
 	
 	<script>
