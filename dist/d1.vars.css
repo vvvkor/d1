@@ -1,4 +1,4 @@
-/*! d1css v1.2.41 https://github.com/vvvkor/d1 */
+/*! d1css v1.2.42 https://github.com/vvvkor/d1 */
 
 :root {
     --text: #222;
@@ -119,6 +119,30 @@ h1.mar, h2.mar, h3.mar {
 
 ul.l, ol.l, dl.l, blockquote.l, pre.l, figure.l, h1.l, h2.l, h3.l {
     margin: 0;
+}
+
+h1 {
+    font-size: 200%;
+}
+
+h2 {
+    font-size: 150%;
+}
+
+h3 {
+    font-size: 117%;
+}
+
+h4 {
+    font-size: 100%;
+}
+
+h5 {
+    font-size: 83%;
+}
+
+h6 {
+    font-size: 67%;
 }
 
 blockquote, pre, fieldset {
