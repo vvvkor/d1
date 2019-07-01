@@ -61,6 +61,9 @@ process:
 	<!-- -->
 	
 	<script>
+		d1.load(function(){
+			d1.b('', "pre[data-src]", "", prepareCode);
+		});
 		//d1.loadAll(); //default
 		////d1.load(null, {}, {}, {}, {valid:{a:1}}); //custom
 		d1.loadAll({ //custom-short
@@ -84,9 +87,6 @@ process:
 			lookup:{idList:'autocomplete-list'},
 			tablex:{cFilter:'bg-i'},
 			//valid:{qsValidate:'form.val'}
-		});
-		d1.load(function(){
-			d1.b('', "pre[data-src]", "", prepareCode);
 		});
 	</script>
 	
