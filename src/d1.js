@@ -356,7 +356,8 @@ var main = new(function() {
   
   this.checkHide = function(t, n) {
     if (n.matches(this.opt.qsJsShow)) {
-      if (t ? (!n.parentNode.contains(t)) : !this.q(this.opt.qsJsShow, 0, n)) this.hide(n);
+      var a = t ? (this.ancestor('a',t) || t) : null;
+      if (t ? (!n.parentNode.contains(t) && a.hash != '#'+n.id) : !this.q(this.opt.qsJsShow, 0, n)) this.hide(n);
     }
   }
 
