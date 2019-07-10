@@ -1,4 +1,4 @@
-/*! d1css v1.2.46 https://github.com/vvvkor/d1 */
+/*! d1css v1.2.47 https://github.com/vvvkor/d1 */
 
 :root {
     --text: #222;
@@ -766,6 +766,11 @@ mark {
 
     button[disabled], [type="submit"][disabled] {
         opacity: .5;
+    }
+
+    input[readonly] {
+        background-color: #eee;
+        background-color: var(--bg-lite);
     }
 
     [name]:invalid {
