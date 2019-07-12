@@ -461,7 +461,10 @@ var main = new(function() {
     if (t && t.tagName) c.appendChild(t);
     else if (t) c.innerHTML = t; //c.appendChild(document.createTextNode(t||''));
     if (attrs) {
-      for (var i in attrs) c[i] = attrs[i];
+      for (var i in attrs) {
+        if(i.match(/-/)) c.setAttribute(i.replace(/^-/, ''), attrs[i]);
+        else c[i] = attrs[i];
+      }
     }
     return n ? (after ? n.parentNode.insertBefore(c, n.nextSibling) : n.appendChild(c)) : c;
   }

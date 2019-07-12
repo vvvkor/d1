@@ -1490,7 +1490,14 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 
 <div class="bord">
 <div id="s-edit" class="pad">
-<textarea class="edit adjust" data-tools="/*@xbi_.pqf" data-wys="1" cols="50" rows="5">Write <b>formatted</b> text.</textarea>
+<label for="wys">Label</label>
+<textarea
+  id="wys"
+  class="edit adjust"
+  data-tools="/*@xbi_.pqf"
+  data-wys="1"
+  cols="50"
+  rows="5">Write <b>formatted</b> text.</textarea>
 </div>
 	<pre class="hide l" data-src="#s-edit"></pre>
 </div>
@@ -1519,7 +1526,15 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 
 <div class="bord">
 <div id="s-lookup" class="pad">
-<input type="text" name="id" value="1" data-lookup="data.json?q={q}" data-label="User One" data-url="/users/{id}">
+<label for="lkp">Label</label>
+<input
+  type="text"
+  name="id"
+  id="lkp"
+  value="1"
+  data-lookup="data.json?q={q}"
+  data-label="User One"
+  data-url="/users/{id}">
 </div>
 	<pre class="hide l" data-src="#s-lookup"></pre>
 </div>
