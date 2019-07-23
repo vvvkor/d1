@@ -63,6 +63,7 @@ process:
 	<script>
 		d1.load(function(){
 			d1.b('', "pre[data-src]", "", prepareCode);
+			d1.ins('b','test',{},d1.q('code',0));
 		});
 		//d1.loadAll(); //default
 		////d1.load(null, {}, {}, {}, {valid:{a:1}}); //custom
@@ -181,7 +182,7 @@ process:
 
 	<!--p><b>d1</b> CSS framework</p-->
 	
-	<p><code>v0.0.0</code></p>
+	<p>[<code>v0.0.0</code>]</p>
 
 	<div class="">
 		<p class=""><code class="pad">npm install d1css</code></p>

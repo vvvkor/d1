@@ -1,4 +1,4 @@
-/*! d1css v1.2.48 https://github.com/vvvkor/d1 */
+/*! d1css v1.2.49 https://github.com/vvvkor/d1 */
 /* Enhancements for d1css microframework */
 
 (function(window, document, Element) {
@@ -466,7 +466,12 @@ var main = new(function() {
         else c[i] = attrs[i];
       }
     }
-    return n ? (after ? n.parentNode.insertBefore(c, n.nextSibling) : n.appendChild(c)) : c;
+    return n
+      ? (after
+        ? n.parentNode.insertBefore(c, after<0 ? n : n.nextSibling)
+        : (after===false ? n.insertBefore(c, n.firstChild) : n.appendChild(c))
+        )
+      : c;
   }
 
   this.svg = function(i, c, alt) {

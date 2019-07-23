@@ -466,7 +466,12 @@ var main = new(function() {
         else c[i] = attrs[i];
       }
     }
-    return n ? (after ? n.parentNode.insertBefore(c, n.nextSibling) : n.appendChild(c)) : c;
+    return n
+      ? (after
+        ? n.parentNode.insertBefore(c, after<0 ? n : n.nextSibling)
+        : (after===false ? n.insertBefore(c, n.firstChild) : n.appendChild(c))
+        )
+      : c;
   }
 
   this.svg = function(i, c, alt) {
