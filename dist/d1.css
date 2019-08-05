@@ -1,4 +1,4 @@
-/*! d1css v1.2.49 https://github.com/vvvkor/d1 */
+/*! d1css v1.2.50 https://github.com/vvvkor/d1 */
 
 :root {
     --text: #222;
@@ -122,7 +122,7 @@ h1.mar, h2.mar, h3.mar {
     margin: calc(var(--gap)*1rem) 0;
 }
 
-ul.l, ol.l, dl.l, blockquote.l, pre.l, figure.l, h1.l, h2.l, h3.l {
+.let {
     margin: 0;
 }
 
@@ -256,12 +256,16 @@ dd {
     margin-bottom: var(--gap-s);
 }
 
-ul.l, ul.l ul {
+ul.let li {
     list-style: none;
 }
 
-ul.l {
+ul.let {
     padding-left: 0;
+}
+
+.let li, .let ul, .let ol, .let dd {
+    margin: 0;
 }
 
 th, td {
@@ -296,7 +300,7 @@ hr {
     border-width: medium;
 }
 
-table.l>*>tr>* {
+table.let>*>tr>* {
     border: none;
 }
 
@@ -346,11 +350,11 @@ ul.nav {
     flex-wrap: wrap;
 }
 
-.nav.l {
+.nav.let {
     display: block;
 }
 
-.nav.l ul {
+.nav.let ul {
     top: 90%;
     left: 3em;
 }
@@ -455,7 +459,7 @@ ul.nav, .nav ul {
     box-sizing: content-box;
 }
 
-.dlg.hide:not(.l) {
+.dlg.hide:not(.let) {
     width: auto;
 }
 
@@ -549,11 +553,11 @@ mark {
     display: flex;
 }
 
-.row.l {
+.row.let {
     flex-wrap: wrap;
 }
 
-.row.l>* {
+.row.let>* {
     flex: none;
 }
 
@@ -702,7 +706,7 @@ mark {
         margin-left: auto;
     }
 
-    .nav:not(.l)>li.shift>ul, .nav:not(.l)>li.shift~li>ul, .pop>div.shift {
+    .nav:not(.let)>li.shift>ul, .nav:not(.let)>li.shift~li>ul, .pop>div.shift {
         left: auto;
         right: 0;
     }
