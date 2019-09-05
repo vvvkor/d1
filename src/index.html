@@ -1476,7 +1476,7 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 	<a href="#done" class="alert" title="Hello!">Alert</a>,
 	<a href="?a=1&b=2" class="dialog" title="Continue?">Confirm link</a>,
 	<a href="#go" class="dialog" title="Continue?">Confirm hash</a>,
-	<a href="?a=1&b=привет&c=3" class="dialog text-w" data-prompt="b" data-caption="Quantity:" data-ok="Fine" data-cancel="No way">Prompt link</a>.
+	<a href="?a=1&b=привет&c=3" class="dialog text-w" data-prompt="b" data-caption="Quantity:" data-ok="Fine" data-cancel="No way" data-reverse="">Prompt link</a>.
 </p>
 <form class="mar">
 	<input type="text" name="nm" id="nms" value="qq" required pattern="[A-Za-z]{2,}" title="Two or more letters">
@@ -1552,6 +1552,19 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 	<pre class="hide let" data-src="#s-lookup"></pre>
 </div>
 
+	<p>Chained selects.
+
+<div class="bord">
+<div id="s-chain" class="pad">
+  <select name="country" data-chain="#town">
+    <option value="">-</option>
+    <option value="ru">Russia</option>
+    <option value="fr">France</option>
+  </select>
+  <select name="town" id="town" data-filter="{q}.json" data-placeholder="..."></select>
+</div>
+	<pre class="hide let" data-src="#s-chain"></pre>
+</div>
 
 <h3 id="tablex"><a href="https://github.com/vvvkor/d1tablex">Tablex</a></h3>
 	

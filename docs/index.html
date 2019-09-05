@@ -19,8 +19,8 @@ process:
 	
 	<!--link href="https://cdn.jsdelivr.net/npm/d1css@1.2.23/dist/d1.min.css" rel="stylesheet"-->
 	<!-- CDN -->
-	<link href="https://cdn.jsdelivr.net/npm/d1css@1.2.51/dist/d1.min.css" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/npm/d1css@1.2.51/dist/d1.min.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/d1css@1.2.52/dist/d1.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/d1css@1.2.52/dist/d1.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d1calendar/d1calendar.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d1dialog/d1dialog.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d1edit/d1edit.min.js"></script>
@@ -176,13 +176,17 @@ process:
 <div class="-pad row -wrap -center flip">
 <div class="stick pad -bg hide-print"><div class="pad">
 
+<div class="-mar -pad -bg -c">
 	<p>
-	<a href="#top" class="text-n"><svg width="102" height="82"><use xlink:href="#svg-logo"/></svg></a>
+	<!-- font used on logo is "Rosario", ratio is 34x25 = 136 -->
+	<!-- lowercase: ratio is 300x265 = 60x53 -->
+	<!--a href="#top" class="text-n"><svg width="136" height="100"><use xlink:href="#svg-logo"/></svg></a-->
+	<a href="#top" class="text-n"><svg width="120" height="106"><use xlink:href="#svg-logo-lower"/></svg></a>
 	</p>
 
 	<!--p><b>d1</b> CSS framework</p-->
 	
-	<p><code>v1.2.51</code></p>
+	<p><code>v1.2.52</code></p>
 
 	<div class="">
 		<p class=""><code class="pad">npm install d1css</code></p>
@@ -191,7 +195,7 @@ process:
 			<svg class="icon" width="32" height="32"><use xlink:href="#svg-github"/></svg> <span>GitHub</span></a>
 		</p>
 	</div>
-
+</div>
 	<!--p class="print"><code class="-pad">npm install d1css</code></p>
 	<p class="print"><code class="-pad">github.com/vvvkor/d1</code></p-->
 
@@ -1472,7 +1476,7 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 	<a href="#done" class="alert" title="Hello!">Alert</a>,
 	<a href="?a=1&b=2" class="dialog" title="Continue?">Confirm link</a>,
 	<a href="#go" class="dialog" title="Continue?">Confirm hash</a>,
-	<a href="?a=1&b=привет&c=3" class="dialog text-w" data-prompt="b" data-caption="Quantity:" data-ok="Fine" data-cancel="No way">Prompt link</a>.
+	<a href="?a=1&b=привет&c=3" class="dialog text-w" data-prompt="b" data-caption="Quantity:" data-ok="Fine" data-cancel="No way" data-reverse="">Prompt link</a>.
 </p>
 <form class="mar">
 	<input type="text" name="nm" id="nms" value="qq" required pattern="[A-Za-z]{2,}" title="Two or more letters">
@@ -1548,6 +1552,19 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 	<pre class="hide let" data-src="#s-lookup"></pre>
 </div>
 
+	<p>Chained selects.
+
+<div class="bord">
+<div id="s-chain" class="pad">
+  <select name="country" data-chain="#town">
+    <option value="">-</option>
+    <option value="ru">Russia</option>
+    <option value="fr">France</option>
+  </select>
+  <select name="town" id="town" data-filter="{q}.json" data-placeholder="..."></select>
+</div>
+	<pre class="hide let" data-src="#s-chain"></pre>
+</div>
 
 <h3 id="tablex"><a href="https://github.com/vvvkor/d1tablex">Tablex</a></h3>
 	
@@ -1744,7 +1761,7 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 <li><code>--gap-rate</code> - rate of vertical and horizontal gap; default: <code>.5</code></li>
 </ul>
 
-<a class="btn bg-i" href="#customize">Custimize</a>
+<a class="btn bg-i" href="#customize">Customize</a>
 
 <h2 id="ref">Reference</h2>
 
@@ -1855,7 +1872,7 @@ most important:
 	d1 is created by <a href="mailto:vadimkor@yandex.ru">Vadim Korolev</a>
 </footer-->
 
-<a class="fix r pad hover hide-print" href="#customize">Custimize</a>
+<a class="fix r pad hover hide-print" href="#customize">Customize</a>
 <div class="drawer shift pad hide-print" id="customize">
 	<a class="close pad" href="#cancel">&times;</a>
 	<form id="cfg" class="pad">
@@ -1892,7 +1909,20 @@ most important:
 </div>
 
 <svg class="hide" width="0" height="0">
-<symbol id="svg-logo" viewBox="-2 0 105 82">
+
+<symbol id="svg-logo" viewBox="0 10 3400 2500">
+	<!--rect x="0" y="10" width="3400" height="2500" fill="#ff0000"/-->
+	<path d="M 2010,1271 C 2008,975 1954,736 1846,553 1739,371 1585,238 1386,155 1187,71 950,30 674,31 L 41,31 C 42,40 47,62 55,97 62,131 69,165 77,198 84,231 88,250 88,254 L 88,2497 891,2497 C 1145,2495 1354,2442 1520,2337 1685,2233 1808,2089 1889,1905 1970,1721 2010,1510 2010,1271 Z M 1681,1264 C 1682,1449 1656,1617 1603,1767 1549,1918 1462,2037 1340,2127 1218,2216 1055,2262 850,2264 L 402,2264 402,264 650,264 C 875,263 1064,297 1217,365 1370,432 1486,540 1564,687 1642,834 1681,1027 1681,1264 Z"/>
+	<path d="M 2323,2271 C 2323,2347 2323,2424 2323,2500 2676,2500 3029,2500 3382,2500 3382,2424 3382,2347 3382,2271 3255,2271 3127,2271 3000,2271 3000,1785 3000,1299 3000,814 2943,814 2887,814 2830,814 2637,907 2444,1001 2251,1095 2272,1148 2292,1201 2312,1254 2448,1212 2583,1170 2719,1129 2719,1509 2719,1890 2719,2271 2587,2271 2455,2271 2323,2271 Z"/>
+</symbol>
+
+<symbol id="svg-logo-lower" viewBox="0 10 3000 2650">
+	<!--rect x="0" y="10" width="3000" height="2650" fill="#ff0000"/-->
+	<path d="M 783,887 C 614,890 473,933 362,1017 251,1101 168,1210 113,1345 58,1480 31,1626 31,1782 31,1889 45,1994 74,2097 102,2200 145,2293 202,2377 260,2460 332,2527 420,2577 507,2627 610,2652 729,2653 827,2653 919,2631 1006,2589 1093,2546 1167,2486 1227,2409 1232,2449 1240,2487 1251,2526 1261,2565 1275,2603 1292,2640 L 1590,2603 C 1565,2560 1545,2511 1529,2455 1514,2399 1503,2342 1495,2284 1488,2226 1485,2173 1485,2125 L 1485,28 1160,28 1207,227 1207,857 C 1207,887 1208,918 1209,948 1211,979 1212,1009 1214,1039 1155,987 1088,949 1013,924 937,900 861,887 783,887 Z M 790,1117 C 888,1118 968,1141 1029,1186 1091,1231 1136,1290 1165,1365 1193,1439 1207,1522 1207,1612 L 1207,2182 C 1157,2240 1099,2292 1032,2336 965,2380 892,2404 814,2406 695,2404 599,2371 528,2307 457,2244 406,2163 375,2066 343,1968 328,1867 329,1762 328,1660 341,1560 369,1462 397,1364 445,1283 512,1218 580,1153 672,1120 790,1117 Z"/>
+	<path d="M 1927,2383 C 1927,2459 1927,2536 1927,2612 2280,2612 2633,2612 2986,2612 2986,2536 2986,2459 2986,2383 2859,2383 2731,2383 2604,2383 2604,1897 2604,1411 2604,926 2547,926 2491,926 2434,926 2241,1019 2048,1113 1855,1207 1876,1260 1896,1313 1916,1366 2052,1324 2187,1282 2323,1241 2323,1621 2323,2002 2323,2383 2191,2383 2059,2383 1927,2383 Z"/>
+</symbol>
+
+<symbol id="svg-logo-old" viewBox="-2 0 105 82">
 	<path d="M0 10Q 15 9 20 9C35 9 62.5 9 62.5 42C62.5 75 35 75 20 75Q15 75 0 74L0 80L20 80C35 80 70 80 70 42C70 4 35 4 20 4L0 4z"/>
 	<path d="M76 10L76 16L94 10L94 80L101 80L101 2z"/>
 </symbol>
