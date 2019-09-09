@@ -1,4 +1,4 @@
-/*! d1css v1.2.53 https://github.com/vvvkor/d1 */
+/*! d1css v1.2.54 https://github.com/vvvkor/d1 */
 /* Enhancements for d1css microframework */
 
 (function(window, document, Element) {

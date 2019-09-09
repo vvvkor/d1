@@ -1547,6 +1547,7 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
   placeholder="search"
   data-lookup="data.json?q={q}"
   data-label="User One"
+  data-cache="10"
   data-url="/users/{id}">
 </div>
 	<pre class="hide let" data-src="#s-lookup"></pre>
@@ -1562,7 +1563,7 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
     <option value="fr">France</option>
     <option value="no">No</option>
   </select>
-  <select name="town" id="town" data-filter="{q}.json" data-placeholder="..."></select>
+  <select name="town" id="town" data-filter="{q}.json" data-placeholder="..." data-cache="10"></select>
 </div>
 	<pre class="hide let" data-src="#s-chain"></pre>
 </div>
