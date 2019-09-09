@@ -30,6 +30,7 @@ It aims to implement most widely used interface components with less code.
 * [d1gallery](https://github.com/vvvkor/d1gallery) makes lighweight image gallery
 * [d1lookup](https://github.com/vvvkor/d1lookup) autocompletes lookups with data from XHTTP request
 * [d1tablex](https://github.com/vvvkor/d1tablex) makes HTML table searchable and sortable
+* [d1valid](https://github.com/vvvkor/d1valid) sets custom form validation.
 
 ## Getting Started
 
