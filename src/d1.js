@@ -36,6 +36,7 @@ var main = new(function() {
     cJsHide: 'js-hide',
     cHashed: 'js-hashed',
     attrStr: 'data-str',
+    minDesktop: 880,
     qsEsc: ".pop>div.toggle, .nav.toggle ul",//, .dlg, .full
     qsMem: ".mem, ul.tabs.mem+div>div, ul.mem ul[id]",
     qsRehash: "",
@@ -370,6 +371,13 @@ var main = new(function() {
     }
   }
   
+  this.onResize = function() {
+    var m = (window.innerWidth <= this.opt.minDesktop);
+    m
+      ? this.b('', '[data-class-mobile]', '', function(n){ n.className = n.getAttribute('data-class-mobile'); })
+      : this.b('', '[data-class-desktop]', '', function(n){ n.className = n.getAttribute('data-class-desktop'); });
+  }
+  
   this.setValue = function(n, e) {
     e.preventDefault();
     var d = this.q(n.hash, 0);
@@ -520,6 +528,7 @@ var main = new(function() {
     this.restore();
     //prepare hash
     //if (location.hash) this.show(location.hash);
+    this.onResize();
     this.onHash();
     //toggle visiblity or class
     this.b(n, "[data-class]", "", this.handleState);
@@ -536,6 +545,8 @@ var main = new(function() {
     this.b("", "a[data-target]", "click", this.getAjax);
     //focus dialog
     this.b("", [window], "hashchange", this.onHash);
+    //resize
+    this.b("", [window], "resize", this.onResize);
   }
 
 })();

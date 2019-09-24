@@ -174,7 +174,8 @@ process:
 </div-->
 
 <div class="-pad row -wrap -center flip">
-<div class="stick pad -bg hide-print"><div class="pad">
+<!--a href="#m">m</a-->
+<div class="stick pad -bg hide-print" data-class-mobile-="drawer" data-class-desktop-="stick pad" id="m"><div class="pad">
 
 <div class="-mar -pad -bg -c">
 	<p>
@@ -1421,6 +1422,7 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 	<li>Submit form: <code>(select|[type="checkbox"]|[type="search"])[data-submit]</code>
 	-->
 	<li>Align table columns: <code>table.r5</code>
+	<li>Class depending on resize (<code data-class-mobile="text-y" data-class-desktop="text-n">[data-class-mobile]</code> or <code data-class-desktop="text-y" data-class-mobile="text-n">[data-class-desktop]</code>).
 	<li>Asynchronous request: <code>[data-target]</code>
 </ul>
 

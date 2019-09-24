@@ -31,6 +31,7 @@ d1.init(options [ , strings ] [ , icons ]);
 * Set value of target input: ``a[href^='#'][data-value]``
 * Show value of color input: ``input[type="color"]``
 * Align table columns: ``table.r5``
+* Class depending on resize: ``[data-class-mobile]`` or ``[data-class-desktop]``
 * Asynchronous request: ``[data-target]``
 
 
@@ -97,6 +98,10 @@ Default: ``"js-validate"``
 Hash of "close" and "cancel" links.  
 Default: ``"#cancel"``
 
+### minDesktop
+
+Minimal width considered "desktop".  
+Default: ``880``
 
 ## Strings
 

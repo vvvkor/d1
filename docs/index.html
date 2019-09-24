@@ -19,8 +19,8 @@ process:
 	
 	<!--link href="https://cdn.jsdelivr.net/npm/d1css@1.2.23/dist/d1.min.css" rel="stylesheet"-->
 	<!-- CDN -->
-	<link href="https://cdn.jsdelivr.net/npm/d1css@1.2.56/dist/d1.min.css" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/npm/d1css@1.2.56/dist/d1.min.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/d1css@1.2.57/dist/d1.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/d1css@1.2.57/dist/d1.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d1calendar/d1calendar.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d1dialog/d1dialog.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d1edit/d1edit.min.js"></script>
@@ -174,7 +174,8 @@ process:
 </div-->
 
 <div class="-pad row -wrap -center flip">
-<div class="stick pad -bg hide-print"><div class="pad">
+<!--a href="#m">m</a-->
+<div class="stick pad -bg hide-print" data-class-mobile-="drawer" data-class-desktop-="stick pad" id="m"><div class="pad">
 
 <div class="-mar -pad -bg -c">
 	<p>
@@ -186,7 +187,7 @@ process:
 
 	<!--p><b>d1</b> CSS framework</p-->
 	
-	<p><code>v1.2.56</code></p>
+	<p><code>v1.2.57</code></p>
 
 	<div class="">
 		<p class=""><code class="pad">npm install d1css</code></p>
@@ -1421,6 +1422,7 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 	<li>Submit form: <code>(select|[type="checkbox"]|[type="search"])[data-submit]</code>
 	-->
 	<li>Align table columns: <code>table.r5</code>
+	<li>Class depending on resize (<code data-class-mobile="text-y" data-class-desktop="text-n">[data-class-mobile]</code> or <code data-class-desktop="text-y" data-class-mobile="text-n">[data-class-desktop]</code>).
 	<li>Asynchronous request: <code>[data-target]</code>
 </ul>
 
