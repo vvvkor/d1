@@ -1,6 +1,6 @@
 {
   "name": "d1css",
-  "version": "1.2.59",
+  "version": "1.2.60",
   "description": "Functional CSS microframework",
   "main": "dist/d1.js",
   "directories": {
@@ -43,15 +43,15 @@
   "homepage": "https://github.com/vvvkor/d1#readme",
   "dependencies": {},
   "devDependencies": {
-    "copyfiles": "^2.1.0",
+    "copyfiles": "^2.1.1",
     "cross-var": "^1.1.0",
     "cssnano": "^3.10.0",
     "perfectionist": "^2.4.0",
     "postcss-calc": "^7.0.1",
     "postcss-cli": "^2.6.0",
-    "postcss-custom-properties": "^8.0.9",
+    "postcss-custom-properties": "^8.0.11",
     "postcss-discard-comments": "^2.0.4",
-    "replace-in-file": "^3.4.2",
-    "uglify-js": "^3.3.27"
+    "replace-in-file": "^3.4.4",
+    "uglify-js": "^3.6.0"
   }
 }

@@ -1233,24 +1233,28 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 	<a href="#" class="text-i">Info</a>
 	<a href="#" class="text-y">Yes</a>
 	<a href="#" class="text-n">No</a>
+	<a href="#">Normal</a>
 	<br>
 	<a href="#" class="bg-e">Error</a>
 	<a href="#" class="bg-w">Warning</a>
 	<a href="#" class="bg-i">Info</a>
 	<a href="#" class="bg-y">Yes</a>
 	<a href="#" class="bg-n">No</a>
+	<a href="#">Normal</a>
 <div id="s-colors-text">
 <a href="#" class="text-e bg-e">Error</a>
 <a href="#" class="text-w bg-w">Warning</a>
 <a href="#" class="text-i bg-i">Info</a>
 <a href="#" class="text-y bg-y">Yes</a>
 <a href="#" class="text-n bg-n">No</a>
+<a href="#">Normal</a>
 </div>
-	<span tabindex="0" class="bg-e">Error</span>
+	<span class="bg-e">Error</span>
 	<span class="bg-w">Warning</span>
 	<span class="bg-i">Info</span>
 	<span class="bg-y">Yes</span>
 	<span class="bg-n">No</span>
+	<span tabindex="0">Normal</span>
 </div>	
 	<pre class="hide let" data-src="#s-colors-text"></pre>
 </div>	
@@ -1264,6 +1268,8 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 <button type="button" class="bg-i">Info</button>
 <button type="button" class="bg-y">Yes</button>
 <button type="button" class="bg-n">No</button>
+<button type="button">Normal</button>
+<button type="button" disabled>Disabled</button>
 </div>
 	<pre class="hide let" data-src="#s-colors-buttons"></pre>
 </div>
@@ -1398,6 +1404,19 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 	<pre class="hide let" data-src="#s-full"></pre>
 </div>
 
+<h3>Invert</h3>
+
+<div class="bord">
+<div id="s-invert" class="pad">
+<div class="invert pad">
+  Inverted text
+  <a href="#">link</a>
+  <span class="bg-e text-e">colors</span>
+</div>
+</div>
+	<pre class="hide let" data-src="#s-invert"></pre>
+</div>
+
 <h2 id="js">JavaScript enhancements</h2>
 
 <ul id="js-behaviours">
@@ -1414,7 +1433,11 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 	<li>Link or button with confirmation: <code>.dialog[title]</code>
 	<li>Link with prompt: <code>a.dialog[title][data-prompt]</code>
 	<li>Check group of boxes: <code>input[data-group]</code>, <code>[class~="data-group"]</code>
-	<li>Toggle class: <code>a[href^='#'][data-class]</code>, <code id="test1">a[data-nodes][data-class]</code> (<a href="#test1" data-class="bg-w" data-nodes="#js-behaviours code" class="">test</a> <input type="checkbox" name="chb" data-class="bg-y" data-nodes="#js-behaviours code">)
+	<li>Toggle class: <code>a[href^='#'][data-class]</code>, <code id="test1">a[data-nodes][data-class]</code> (
+		<a href="#test1" data-class="bg-w" data-nodes="#js-behaviours code" class="">test</a>
+		<input type="checkbox" name="chb" data-class="bg-y" data-nodes="#js-behaviours code">
+		<a href="#test2" data-class="invert" data-nodes="body" class="">invert</a>
+		)
 	<li>Set value of target input: <code>a[href^='#'][data-value]</code>
 	<li>Show value of color input: <code>input[type="color"]</code>
 	<!--
@@ -1794,8 +1817,8 @@ most important:
 <tr><td>.gal<td><a href="#toggle-gallery">Gallery</a><td>a .close<td><i>[data-info]</i>
 <tr><td>.toggle<td><a href="#js">JavaScript toggle</a><td>ul div .js-control .js-hide<td>.mem
 <tr><td>.icon<td>Small image<td>img svg a button<td>
-<tr><td>.text-<td><a href="#colors">Text color</a><td>*<td>.text-e .text-w .text-i .text-y .text-n
-<tr><td>.bg<td><a href="#colors">Background color</a><td>*<td>.bg-e .bg-w .bg-i .bg-y .bg-n .yel
+<tr><td>.text-<td><a href="#colors">Text color</a><td>* .invert<td>.text-e .text-w .text-i .text-y .text-n
+<tr><td>.bg<td><a href="#colors">Background color</a><td>* .invert<td>.bg-e .bg-w .bg-i .bg-y .bg-n .yel
 <tr><td>.r .c .l<td>Align<td>*<td>
 <tr><td>.center<td>Centrify<td>*<td>
 <tr><td>.small<td>Small font<td>*<td>
@@ -1840,6 +1863,7 @@ most important:
 <li><code>.hide-screen</code> &mdash; hidden on screen
 <li><code>.hover</code> &mdash; highlight link or table row on hover
 <li><code>.icon</code> &mdash; small image
+<li><code>.invert</code> &mdash; invert colors
 <li><code>.js-control</code> &mdash; visibility is controlled by JavaScript, shown by default
 <li><code>.js-hide</code> &mdash; hidden with JavaScript
 <li><code>.l</code> &mdash; align content to the left 

@@ -9,9 +9,13 @@ Customization with CSS variables of [d1 CSS](https://github.com/vvvkor/d1).
 * ``--border`` - border style; default: ``thin solid rgba(0,0,0,.16)``
 * ``--bg-hilite`` - highlighted element background; default: ``rgba(0,0,0,.05)``
 * ``--text-hilite`` - highlighted element text color; default: ``inherit``
+* ``--focus`` - focused input shadow color; default: ``rgba(0,0,0,.1)``
+* ``--focus-danger`` - focused invalid input shadow color; default: ``rgba(255,100,100,.3)``
 * ``--link`` - base link text color; default: ``#03b``
 * ``--hover`` - hovered link text color; default: ``#003``
 * ``--visited`` - visited link text color; default: ``#90c``
+* ``--bg-btn`` - default button background; default: ``var(--link)``
+* ``--text-btn`` - button text color; default: ``var(--bg)``
 * ``--rad`` - border radius in ``em``s; default: ``.2``
 * ``--gap`` - base gap for margins and paddings in ``em``s; default: ``1``
 * ``--gap-rate`` - rate of vertical and horizontal gap; default: ``.5``
