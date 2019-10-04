@@ -1,4 +1,4 @@
-/*! d1css v1.2.60 https://github.com/vvvkor/d1 */
+/*! d1css v1.2.61 https://github.com/vvvkor/d1 */
 
 :root {
     --text: #222;
@@ -43,8 +43,8 @@
 }
 
 .invert {
-    --text: #eee;
-    --bg: #333;
+    --text: #fff;
+    --bg: #222;
     --bg-pane: rgba(255, 255, 255, .15);
     --border: thin solid rgba(255, 255, 255, .2);
     --bg-hilite: rgba(255, 255, 255, .15);

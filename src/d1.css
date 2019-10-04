@@ -86,8 +86,8 @@ support ie
 }
 
 .invert{
---text: #eee;
---bg: #333;
+--text: #fff;
+--bg: #222;
 --bg-pane: rgba(255,255,255,.15);
 --border: thin solid rgba(255,255,255,.2);
 --bg-hilite: rgba(255,255,255,.15);
