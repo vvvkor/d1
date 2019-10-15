@@ -120,6 +120,7 @@ html{box-sizing:border-box;/*scroll-behavior:smooth;*/}
 *,*:before,*:after{box-sizing:inherit;}
 img,embed,iframe,object,audio,video{/*height:auto;*/max-width:100%;}
 img,iframe{border:0;}
+img{object-fit:cover;}
 html,body,li,dl,dt,dd,legend,iframe{margin:0;padding:0;}
 table{border-collapse:collapse;border-spacing:0}
 td,th{padding:0;text-align:left}

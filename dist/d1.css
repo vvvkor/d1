@@ -1,4 +1,4 @@
-/*! d1css v1.2.62 https://github.com/vvvkor/d1 */
+/*! d1css v1.2.63 https://github.com/vvvkor/d1 */
 
 :root {
     --text: #222;
@@ -86,6 +86,10 @@ img, embed, iframe, object, audio, video {
 
 img, iframe {
     border: 0;
+}
+
+img {
+    object-fit: cover;
 }
 
 html, body, li, dl, dt, dd, legend, iframe {
