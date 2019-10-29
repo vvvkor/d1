@@ -61,11 +61,11 @@ var main = new(function() {
     //customError: '',
     */
     //icons
-    _close: '&#10005;',//'&#10005;',//'&times;',
-    _delete: '&#10005;',
+    _close: '&#x2715;',//'&times;',
+    _delete: '&#x2715;',
     _edit: '&rarr;',
-    _now: '&#10003;',//'&bull;',
-    _date: '&#9744;',//'&#9744;', '&#10063;', '&#8862;', '&darr;',
+    _now: '&#x2713;',//'&bull;',
+    _date: '&#x274f;',//'&darr;',
     _prev: '&lsaquo;',
     _next: '&rsaquo;',
     _prev2: '&laquo;',
