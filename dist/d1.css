@@ -1,4 +1,4 @@
-/*! d1css v1.2.65 https://github.com/vvvkor/d1 */
+/*! d1css v1.2.66 https://github.com/vvvkor/d1 */
 
 :root {
     --text: #222;
@@ -161,6 +161,10 @@ h1.mar, h2.mar, h3.mar {
 
 .let {
     margin: 0;
+}
+
+.nobr {
+    white-space: nowrap;
 }
 
 h1 {

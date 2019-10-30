@@ -1,4 +1,4 @@
-/*! d1css v1.2.65 https://github.com/vvvkor/d1 */
+/*! d1css v1.2.66 https://github.com/vvvkor/d1 */
 /* Enhancements for d1css microframework */
 
 (function(window, document, Element) {
@@ -65,7 +65,7 @@ var main = new(function() {
     _delete: '&#x2715;',
     _edit: '&rarr;',
     _now: '&#x2713;',//'&bull;',
-    _date: '&#x274f;',//'&darr;',
+    _date: '#', //'&#x274f;',//'&darr;',
     _prev: '&lsaquo;',
     _next: '&rsaquo;',
     _prev2: '&laquo;',
@@ -80,28 +80,34 @@ var main = new(function() {
   
   //common
 
-  this.load = function(obj, opt, str, ico, plug) {
+  this.loadAll = function(cfg){
+    this.load(this, cfg);
+  }
+  
+  this.load = function(obj, cfg) {
     if (!obj) obj = this;
-    this.b("", [document], "DOMContentLoaded", typeof obj === "function" ? obj : obj.init.bind(obj, opt, str, ico, plug));
+    this.b("", [document], "DOMContentLoaded", typeof obj === "function" ? obj : obj.init.bind(obj, cfg));
   }
-  
-  this.loadAll = function(plug){
-    if(!plug) plug = {};
-    this.load(this, plug.opt, plug.str, plug.ico, plug);
-  }
-  
-  this.init = function(opt, str, ico, plug) {
+ 
+  this.init = function(cfg) {
+    if(!cfg){
+      cfg = document.body.getAttribute('data-d1');
+      if(cfg) cfg = JSON.parse(cfg);
+    }
     var i;
-    for (i in opt) this.opt[i] = opt[i];
-    for (i in str) this.str[i] = str[i];
-    for (i in ico) this.ico[i] = ico[i];
+    if(cfg){
+      var opt = cfg.opt || cfg;
+      for (i in opt) this.opt[i] = opt[i];
+      for (i in cfg.str) this.str[i] = cfg.str[i];
+      for (i in cfg.ico) this.ico[i] = cfg.ico[i];
+    }
     this.opt.qsJsShow = '.' + this.opt.cJsControl + ':not(.' + this.opt.cJsHide + ')';
     
     if (location.hash == "#disable-js") return;
     if (window && !Element.prototype.matches) Element.prototype.matches = Element.prototype.msMatchesSelector; //ie9+
     this.getStrings();
     this.refresh();
-    if(plug) this.initPlugins(plug);
+    this.initPlugins(cfg ? cfg.plug : {});
   }
   
   this.plug = function(p) {
