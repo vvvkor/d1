@@ -19,8 +19,8 @@ process:
 	
 	<!--link href="https://cdn.jsdelivr.net/npm/d1css@1.2.23/dist/d1.min.css" rel="stylesheet"-->
 	<!-- CDN -->
-	<link href="https://cdn.jsdelivr.net/npm/d1css@1.2.66/dist/d1.min.css" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/npm/d1css@1.2.66/dist/d1.min.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/d1css@1.2.67/dist/d1.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/d1css@1.2.67/dist/d1.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d1calendar/d1calendar.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d1dialog/d1dialog.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d1edit/d1edit.min.js"></script>
@@ -67,7 +67,7 @@ process:
 		});
 		//d1.loadAll(); //default
 		////d1.load(null, {}, {}, {}, {valid:{a:1}}); //custom
-		d1.loadAll(/*{ //custom-short
+		d1.loadAll({ //custom-short
 			opt:{hashCancel:'#quit'},
 			str:{ok:'Yep'},
 			ico:{
@@ -90,7 +90,7 @@ process:
 				//valid:{qsValidate:'form.val'},
 				tablex:{cFilter:'bg-i'}
 			}
-		}*/);
+		});
 	</script>
 	
 	<script>
@@ -166,7 +166,7 @@ process:
 		}
 	</script>
 </head>
-<body data-d1='{"str":{"_date":"x"},"plug":{"calendar":{"hashNow":"#set"}}}'>
+<body data-d1-x='{"opt":{"hashCancel":"#out"},"str":{"_date":"x"},"plug":{"calendar":{"hashNow":"#set"}}}'>
 
 <!--div class="topbar">
 	<div class="pad -bg">
@@ -189,7 +189,7 @@ process:
 
 	<!--p><b>d1</b> CSS framework</p-->
 	
-	<p><code>v1.2.66</code></p>
+	<p><code>v1.2.67</code></p>
 
 	<div class="">
 		<p class=""><code class="pad">npm install d1css</code></p>
@@ -1829,6 +1829,7 @@ most important:
 <tr><td>.bord<td>Border<td>*<td>
 <tr><td>.rad<td>Border radius<td>*<td>
 <tr><td>.let<td>Less formatting<td>*, ul, table, .row<td>
+<tr><td>.nobr<td>No wrapping<td>*<td>
 <tr><td>.hide-print .hide-screen<td>Show by media<td>*<td>
 </table>
 </div>
@@ -1873,6 +1874,7 @@ most important:
 <li><code>.mar</code> &mdash; add vertical margins
 <li><code>.narrow</code> &mdash; narrow block width
 <li><code>.nav</code> &mdash; horizontal dropdown navigation
+<li><code>.nobr</code> &mdash; prevent automatic text wrapping
 <li><code>.pad</code> &mdash; add padding
 <li><code>.pop</code> &mdash; popup component wrapper
 <li><code>.r</code> &mdash; align content to the right
