@@ -1477,9 +1477,9 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 
 	<form action="?" method="get">
 	<table>
-	<tr><td>Text<td><input type="text">
-	<tr><td>Date<td><input class="calendar" type="date">
-	<tr><td>Datetime<td><input class="calendar datetime" type="datetime-local" data-def="2001-02-03T04:05:06" min="2001-02-02T10:00" max="2001-02-15T20:00" data-modal="1">
+	<tr><td>Text<td><input name="txt" type="text">
+	<tr><td>Date<td><input name="dt" class="calendar" type="date">
+	<tr><td>Datetime<td><input name="dtm" class="calendar datetime" type="datetime-local" data-def="2001-02-03T04:05:06" min="2001-02-02T10:00" max="2001-02-15T20:00" data-modal="1">
 	<tr><td><td><input type="submit" value="OK">
 	</table>
 	</form>
@@ -1534,6 +1534,7 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 <label for="wys">Label</label>
 <textarea
   id="wys"
+  name="wys"
   class="edit adjust"
   data-tools="/*@xbi_.pqf"
   data-wys="1"
