@@ -358,12 +358,12 @@ mark{background-color:var(--bg-warning);}
 	.btn,button,[type="submit"]{padding:var(--gaps-n);border-radius:var(--radius);margin:var(--gap-xs) 0;border-color:transparent;cursor:pointer;}
 	form>.btn, form>button, form>[type="submit"], form>a>button{padding:var(--gap-xs) var(--gap-s);margin:0;}/* see [.nav a] padding */
 	a.btn:hover, button:hover:not([disabled]), [type="submit"]:hover:not([disabled]),
-	a.btn:focus, button:focus, input:focus, select:focus, textarea:focus{box-shadow:0 0 0 .15em var(--focus);outline:none;}
+	a.btn:focus, button:focus, input:focus, select:focus, textarea:focus, [contenteditable]:focus{box-shadow:0 0 0 .15em var(--focus);outline:none;}
 	button[disabled],[type="submit"][disabled]{opacity:.5;}
 	input[readonly]{background-color:var(--bg-lite);}
-	/*form:focus-within*/ [name]:invalid{/*box-shadow:0 0 0 .08em rgba(255,200,80,.8);*/border-color:var(--text-danger);}
+	/*form:focus-within*/ [name]:invalid, [name]:invalid+[contenteditable]{/*box-shadow:0 0 0 .08em rgba(255,200,80,.8);*/border-color:var(--text-danger);}
 		[type="checkbox"]:invalid+span, [type="radio"]:invalid+span{color:var(--text-danger);}
-		[name]:invalid:focus{box-shadow:0 0 0 .15em var(--focus-danger);}
+		[name]:invalid:focus, [name]:invalid+[contenteditable]:focus{box-shadow:0 0 0 .15em var(--focus-danger);}
 		/*form:not(:focus-within) input~.text-e, form:focus-within input:valid~.text-e{display:none;}*/
 		:valid~.text-e, :invalid~.text-y, /*.js-unhint :valid~.text-y,*/ .js-unhint :invalid~.text-e, .js-unhint:invalid~.text-e{display:none;}
 	input[type="range"], input[type="color"]{vertical-align:middle;padding:unset;}

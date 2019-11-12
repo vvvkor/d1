@@ -1713,6 +1713,15 @@ You can use checkbox inputs to toggle branches independently or radio inputs wit
 	<pre class="hide let" data-src="#s-valid1"></pre>
 </div>
 
+<!--form class="mar pad bg -js-unhint" id="testform">
+<div><input type="text" name="tx1" required xvalue="1"> <span class="text-e">required</span><span class="text-y">ok</span></div>
+<div><input type="datetime-local" name="dt1" class="calendar" required xvalue="2019-01-01T01:01"> <span class="text-e">required</span><span class="text-y">ok</span></div>
+<div><input type="text" name="lu1" data-lookup="data.json?q={q}" data-xlabel="1" xvalue="1" required> <span class="text-e">required</span><span class="text-y">ok</span></div>
+<div><textarea name="ta1" required class="adjust edit"></textarea> <span class="text-e">required</span><span class="text-y">ok</span></div>
+<div><input type="submit" value="ok" id="testsubmit">
+<a href="#" onclick="testsubmit.click();return false;">submit</a></div>
+</form-->
+
 <h4>Custom hint elements for input validation</h4>
 
 <p>Another option is to add sibling element with class <code>text-e</code> after <code>input</code>. It will be visible only if input value is not valid. Contrary, sibling element with class <code>text-y</code> will be visible only if input value is valid.

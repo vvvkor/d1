@@ -1,4 +1,4 @@
-/*! d1css v1.2.68 https://github.com/vvvkor/d1 */
+/*! d1css v1.2.69 https://github.com/vvvkor/d1 */
 
 :root {
     --text: #222;
@@ -764,7 +764,7 @@ mark {
 
     a.btn:hover, button:hover:not([disabled]),
     [type="submit"]:hover:not([disabled]), a.btn:focus, button:focus,
-    input:focus, select:focus, textarea:focus {
+    input:focus, select:focus, textarea:focus, [contenteditable]:focus {
         box-shadow: 0 0 0 .15em var(--focus);
         outline: none;
     }
@@ -777,7 +777,7 @@ mark {
         background-color: var(--bg-lite);
     }
 
-    [name]:invalid {
+    [name]:invalid, [name]:invalid+[contenteditable] {
         border-color: var(--text-danger);
     }
 
@@ -785,7 +785,7 @@ mark {
         color: var(--text-danger);
     }
 
-    [name]:invalid:focus {
+    [name]:invalid:focus, [name]:invalid+[contenteditable]:focus {
         box-shadow: 0 0 0 .15em var(--focus-danger);
     }
 
