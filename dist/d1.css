@@ -1,4 +1,4 @@
-/*! d1css v1.2.70 https://github.com/vvvkor/d1 */
+/*! d1css v1.2.71 https://github.com/vvvkor/d1 */
 
 :root {
     --text: #222;
@@ -819,8 +819,7 @@ mark {
         background-color: var(--bg-lite);
     }
 
-    [name]:invalid, [name]:invalid+[contenteditable],
-    [name]:invalid~.js-subinput>input {
+    [name]:invalid, [name]:invalid~.js-subinput>:first-child {
         border-color: #d00;
         border-color: var(--text-danger);
     }
@@ -830,8 +829,7 @@ mark {
         color: var(--text-danger);
     }
 
-    [name]:invalid:focus, [name]:invalid+[contenteditable]:focus,
-    [name]:invalid~.js-subinput>input:focus {
+    [name]:invalid:focus, [name]:invalid~.js-subinput>:first-child:focus {
         box-shadow: 0 0 0 .15em rgba(255, 100, 100, .3);
         box-shadow: 0 0 0 .15em var(--focus-danger);
     }
