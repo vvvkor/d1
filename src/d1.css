@@ -361,9 +361,9 @@ mark{background-color:var(--bg-warning);}
 	a.btn:focus, button:focus, input:focus, select:focus, textarea:focus, [contenteditable]:focus{box-shadow:0 0 0 .15em var(--focus);outline:none;}
 	button[disabled],[type="submit"][disabled]{opacity:.5;}
 	input[readonly]{background-color:var(--bg-lite);}
-	/*form:focus-within*/ [name]:invalid, [name]:invalid+[contenteditable]{/*box-shadow:0 0 0 .08em rgba(255,200,80,.8);*/border-color:var(--text-danger);}
+	/*form:focus-within*/ [name]:invalid, [name]:invalid+[contenteditable], [name]:invalid~.js-subinput>input{/*box-shadow:0 0 0 .08em rgba(255,200,80,.8);*/border-color:var(--text-danger);}
 		[type="checkbox"]:invalid+span, [type="radio"]:invalid+span{color:var(--text-danger);}
-		[name]:invalid:focus, [name]:invalid+[contenteditable]:focus{box-shadow:0 0 0 .15em var(--focus-danger);}
+		[name]:invalid:focus, [name]:invalid+[contenteditable]:focus, [name]:invalid~.js-subinput>input:focus{box-shadow:0 0 0 .15em var(--focus-danger);}
 		/*form:not(:focus-within) input~.text-e, form:focus-within input:valid~.text-e{display:none;}*/
 		:valid~.text-e, :invalid~.text-y, /*.js-unhint :valid~.text-y,*/ .js-unhint :invalid~.text-e, .js-unhint:invalid~.text-e{display:none;}
 	input[type="range"], input[type="color"]{vertical-align:middle;padding:unset;}
