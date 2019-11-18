@@ -236,7 +236,7 @@ var main = new(function() {
   }
   
   this.toggle = function(n) {
-    d1.setState(n, !d1.getState(n));
+    this.setState(n, !this.getState(n));
   }
   
   this.targetState = function(n, e, on) {
