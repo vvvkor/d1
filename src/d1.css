@@ -301,7 +301,7 @@ mark{background-color:var(--bg-warning);}
 	.row.let>*{flex:none;}
 .row>*{flex:1;/*1 0 auto;*/min-width:0;}
 .row>*:not(:last-child):not(.center){margin-right:var(--gap-n);}
-.row>.col-0{flex:initial;}
+.row>.col-0{flex:0 1 auto;/*for ie*/ /*flex:initial;*/}
 .row>.col-2{flex:2;}
 .row>.col-3{flex:3;}
 

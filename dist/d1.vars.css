@@ -1,4 +1,4 @@
-/*! d1css v1.2.73 https://github.com/vvvkor/d1 */
+/*! d1css v1.2.74 https://github.com/vvvkor/d1 */
 
 :root {
     --text: #222;
@@ -583,7 +583,7 @@ mark {
 }
 
 .row>.col-0 {
-    flex: initial;
+    flex: 0 1 auto;
 }
 
 .row>.col-2 {
