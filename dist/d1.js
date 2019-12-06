@@ -1,4 +1,4 @@
-/*! d1css v1.2.76 https://github.com/vvvkor/d1 */
+/*! d1css v1.2.77 https://github.com/vvvkor/d1 */
 /* Enhancements for d1css microframework */
 
 (function(window, document, Element) {
@@ -318,12 +318,12 @@ var main = new(function() {
   this.popFrom = function(n, w, ex, ey){
     var r = n.getBoundingClientRect();
     //x
-    var dx = (window.innerWidth - r.left) < Math.min(ex || 450, r.left);
+    var dx = (window.innerWidth - r.left) < Math.min(ex || 450, r.right);
     w.style.left = dx ? 'auto' : 0;
     //w.style.right = dx ? (in_pop ? 0 : -r.width + 'px') : 'auto';
     w.style.right = dx ? (w.parentNode.clientWidth - r.width) + 'px' : 'auto';
     //y
-    var dy = (window.innerHeight - r.bottom) < Math.min(ey || 250, r.top/2);
+    var dy = (window.innerHeight - r.bottom) < Math.min(ey || 250, r.top);
     w.style.top = dy ? 'auto' : '100%';
     w.style.bottom = dy ? r.height + 'px' : 'auto';
   }
