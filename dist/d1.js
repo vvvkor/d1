@@ -1,4 +1,4 @@
-/*! d1css v1.2.78 https://github.com/vvvkor/d1 */
+/*! d1css v1.2.79 https://github.com/vvvkor/d1 */
 /* Enhancements for d1css microframework */
 
 (function(window, document, Element) {
@@ -320,15 +320,27 @@ var main = new(function() {
   this.popFrom = function(w){
     var r = (w.vRel || w.parentNode).getBoundingClientRect();
     var d = (w.id=='pick-date') ? [450, 350] : [250, 200];
-    //x
-    var dx = (window.innerWidth - r.left) < Math.min(d[0], r.right);
-    w.style.left = dx ? 'auto' : 0;
-    //w.style.right = dx ? (in_pop ? 0 : -r.width + 'px') : 'auto';
-    w.style.right = dx ? Math.round(w.parentNode.clientWidth - r.width) + 'px' : 'auto';
-    //y
-    var dy = (window.innerHeight - r.bottom) < Math.min(d[1], r.top);
-    w.style.top = dy ? 'auto' : '100%';
-    w.style.bottom = dy ? r.height + 'px' : 'auto';
+    var vert = 0;
+    if(w.tagName=='UL'){
+      //keep css styles for vertical ul.nav
+      var p = this.ancestor('ul.nav', w.parentNode)
+      if(p){
+        var s = window.getComputedStyle(p);
+        vert = (s.display != 'flex');
+      }
+    }
+    if(vert) w.style.left = w.style.right = w.style.top = w.style.bottom = '';
+    else{
+      //x
+      var dx = (window.innerWidth - r.left) < Math.min(d[0], r.right);
+      w.style.left = dx ? 'auto' : 0;
+      //w.style.right = dx ? (in_pop ? 0 : -r.width + 'px') : 'auto';
+      w.style.right = dx ? Math.round(w.parentNode.clientWidth - r.width) + 'px' : 'auto';
+      //y
+      var dy = (window.innerHeight - r.bottom) < Math.min(d[1], r.top);
+      w.style.top = dy ? 'auto' : '100%';
+      w.style.bottom = dy ? r.height + 'px' : 'auto';
+    }
   }
   
   this.addHistory = function(h) {
