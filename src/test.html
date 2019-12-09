@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>d1 test</title>
+	<!-- CDN-- >
+	<link href="https://cdn.jsdelivr.net/npm/d1bundle/dist/d1.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/d1bundle/dist/d1bundle.min.js"></script>
+	<!-- local-npm-src REMOVE-->
+	<link href="../src/d1.css" rel="stylesheet">
+	<script src="../src/d1.js"></script>
+	<script src="../../d1dialog/d1dialog.js"></script>
+	<script src="../../d1gallery/d1gallery.js"></script>
+	<script src="../../d1tablex/d1tablex.js"></script>
+	<script src="../../d1calendar/d1calendar.js"></script>
+	<script src="../../d1lookup/d1lookup.js"></script>
+	<script src="../../d1edit/d1edit.js"></script>
+	<script src="../../d1valid/d1valid.js"></script>
+	<script> d1.load(); </script>
+	
+	<style>
+	  .input-lookup{width:8em;}
+	</style>
+</head>
+<body>
+	<div class="full c bg-y">
+		<a href="#content">Scroll to content</a>
+	</div>
+
+	<div class="row wrap full-" id="content">
+		<div class="pad">
+			<input type="datetime-local" class="calendar" name="dt">
+			<p>
+			<input type="text" name="lu" data-lookup="https://cdn.jsdelivr.net/npm/d1css/src/data.json?q={q}" data-url="#id-{id}">
+			</p>
+			<ul class="nav toggle bg hover">
+				<li><a href="#s1">open</a><ul id="s1"><li><a>sub</a></ul>
+				<li class="shift"><a href="#z1">open</a><ul id="z1"><li><a>sub</a></ul>
+			</ul>
+			<div class="mar">
+				[<div class="pop"><a href="#p1">pop</a><div id="p1" class="toggle pad">Hi!</div></div>]
+				<br>
+				Modals:
+				<a href="#d1" class="dialog" title="Confirm?">dialog</a>
+				<a href="#m1">small</a>
+				<a href="#m2">medium</a>
+				<a href="#m3">large</a>
+				<div id="m1" class="dlg hide pad">small</div>
+				<div id="m2" class="dlg hide pad let">medium</div>
+				<div id="m3" class="full hide pad c">large</div>
+			</div>
+		</div>
+		<div class="r bg pad">
+			<input type="datetime-local" class="calendar" name="dt">
+			<p>
+			<input type="text" name="lu" data-lookup="https://cdn.jsdelivr.net/npm/d1css/src/data.json?q={q}" data-url="#id-{id}">
+			</p>
+			<ul class="nav toggle bg hover l">
+				<li><a href="#s2">open</a><ul id="s2"><li><a>sub</a></ul>
+				<li class="shift"><a href="#z2">open</a><ul id="z2"><li><a>sub</a></ul>
+			</ul>
+			<div class="mar">
+				[<div class="pop"><a href="#p2">pop</a><div id="p2" class="toggle pad shift">Hi!</div></div>]
+				<div class="l">
+				Modals with overflow:
+				<a href="#m1x">small</a>
+				<a href="#m2x">medium</a>
+				<a href="#m3x">large</a>
+				<div id="m1x" class="dlg hide pad">small<p>WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW<p>.<p>.<p>.<p>.<p>.<p>.<p>.<p>.<p>.<p>.<p>.<p>.<p>.<p>.<p>.<p>.<p>.<p>.<p>.</div>
+				<div id="m2x" class="dlg hide pad let">medium<p>WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW<p>.<p>.<p>.<p>.<p>.<p>.<p>.<p>.<p>.<p>.<p>.<p>.<p>.<p>.<p>.<p>.<p>.<p>.<p>.<p>.</div>
+				<div id="m3x" class="full hide pad">large<p>WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW<p>.<p>.<p>.<p>.<p>.<p>.<p>.<p>.<p>.<p>.<p>.<p>.<p>.<p>.<p>.<p>.<p>.<p>.<p>.<p>.</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="full c bg-w">
+		Space
+	</div>
+</body>
+</html>

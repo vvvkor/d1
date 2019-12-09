@@ -36,6 +36,7 @@ var main = new(function() {
     cJsHide: 'js-hide',
     cHashed: 'js-hashed',
     attrStr: 'data-str',
+    detectPop: true,
     minDesktop: 880,
     qsEsc: ".pop>div.toggle, .nav.toggle ul",//, .dlg, .full
     qsMem: ".mem, ul.tabs.mem+div>div, ul.mem ul[id]",
@@ -229,6 +230,7 @@ var main = new(function() {
   this.setState = function(n, on) {
     n.classList.add(this.opt.cJsControl);
     n.classList[on ? "remove" : "add"](this.opt.cJsHide);
+    if(on && this.opt.detectPop && n.matches(this.opt.qsEsc)) this.popFrom(n);
   }
   
   this.getState = function(n) {
@@ -315,15 +317,16 @@ var main = new(function() {
     });
   }
 
-  this.popFrom = function(n, w, ex, ey){
-    var r = n.getBoundingClientRect();
+  this.popFrom = function(w){
+    var r = (w.vRel || w.parentNode).getBoundingClientRect();
+    var d = (w.id=='pick-date') ? [450, 350] : [250, 200];
     //x
-    var dx = (window.innerWidth - r.left) < Math.min(ex || 450, r.right);
+    var dx = (window.innerWidth - r.left) < Math.min(d[0], r.right);
     w.style.left = dx ? 'auto' : 0;
     //w.style.right = dx ? (in_pop ? 0 : -r.width + 'px') : 'auto';
-    w.style.right = dx ? (w.parentNode.clientWidth - r.width) + 'px' : 'auto';
+    w.style.right = dx ? Math.round(w.parentNode.clientWidth - r.width) + 'px' : 'auto';
     //y
-    var dy = (window.innerHeight - r.bottom) < Math.min(ey || 250, r.top);
+    var dy = (window.innerHeight - r.bottom) < Math.min(d[1], r.top);
     w.style.top = dy ? 'auto' : '100%';
     w.style.bottom = dy ? r.height + 'px' : 'auto';
   }

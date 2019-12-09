@@ -93,6 +93,11 @@ Default: ``"js-hide"``
 CSS class of form elements with Javascript-controlled validation messages.  
 Default: ``"js-validate"``
 
+### detectPop
+
+Automatically detect direction of popups.  
+Default: ``true``
+
 ### hashCancel
 
 Hash of "close" and "cancel" links.  
