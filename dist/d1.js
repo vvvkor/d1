@@ -1,4 +1,4 @@
-/*! d1css v1.2.79 https://github.com/vvvkor/d1 */
+/*! d1css v1.2.80 https://github.com/vvvkor/d1 */
 /* Enhancements for d1css microframework */
 
 (function(window, document, Element) {
@@ -322,8 +322,8 @@ var main = new(function() {
     var d = (w.id=='pick-date') ? [450, 350] : [250, 200];
     var vert = 0;
     if(w.tagName=='UL'){
-      //keep css styles for vertical ul.nav
-      var p = this.ancestor('ul.nav', w.parentNode)
+      //keep css styles for vertical ul
+      var p = this.ancestor('ul', w.parentNode)
       if(p){
         var s = window.getComputedStyle(p);
         vert = (s.display != 'flex');
