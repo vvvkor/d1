@@ -38,6 +38,7 @@ var main = new(function() {
     attrStr: 'data-str',
     detectPop: true,
     minDesktop: 880,
+    pub: true,
     qsEsc: ".pop>div.toggle, .nav.toggle ul",//, .dlg, .full
     qsMem: ".mem, ul.tabs.mem+div>div, ul.mem ul[id]",
     qsRehash: "",
@@ -590,11 +591,12 @@ var main = new(function() {
 // var isNode    = (typeof module !== 'undefined' && this.module !== module); // use module or global
 // var isBrowser = (typeof window !== 'undefined' && this.window === this);
 
-    if (typeof module !== "undefined") {
+    var m = (typeof module !== "undefined");
+    if (m) {
       //console.log("npm require d1", module);
       module.exports = main;
     }
-    else if (window) {
+    if (window && (!m || main.opt.pub)) {
       //console.log("browser include d1");
       window.d1 = main;
     }
