@@ -62,7 +62,6 @@ d1.load(function(e){
   //menu
   var a = [];
   h('Theme', d, 2);
-  //reset
   d1.b('', [d1.ins('a', 'Default', {href:'#', className: ''}, d)], 'click', unstyle);
   put('Background', ['#fff', '#eee', '#efe', '#e6fcf9', '#e3eeff', '#f9e9ff', '#ffeee6', '#ffe'], '--bg');
   put('Links', ['#000', '#777', '#090', '#088', '#00c', '#909', '#c00', '#c60'], ['--link', '--visited', '--hover']);
