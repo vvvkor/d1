@@ -25,12 +25,14 @@ d1.load(function(e){
     d1.ins('h'+(l || 3), s, {className: 'mar'}, d);
   }
   
-  var put = function(arr, func, el){
+  var put = function(hh, arr, func, el){
+    h(hh, d);
     var c = [];
     arr.forEach(function(v, k){
       var color = (v.substr(0, 1)=='#');
-      var a = d1.ins('a', color ? '' : v, {href:'#', title: v, className: 'pad hover bord'}, d);
+      var a = d1.ins('a', color ? '' : v, {href:'#', title: v, className: color ? 'pad hover bord' : 'pad hover'}, d);
       if(color) a.style.backgroundColor = v;
+      else if(typeof func === 'string') a.style[func] = v;
       c.push(a);
     });
     d1.b('', c, 'click', (func instanceof Function
@@ -60,23 +62,11 @@ d1.load(function(e){
   //menu
   var a = [];
   h('Theme', d, 2);
-  //bg
-  h('Background', d);
-  put(['#fff', '#eee', '#ffe', '#efe', '#eff', '#eef', '#f9e9ff', '#fee'], '--bg');
-  //text
-  h('Text', d);
-  put(['#000', '#222', '#444', '#555',  '#666', '#777', '#888', '#999'], '--text');
-  //color
-  h('Links', d);
-  put(['#000', '#777', '#c60', '#090', '#099', '#00c', '#909', '#b00'], ['--link', '--visited', '--hover']);
-  //font
-  h('Font', d);
-  put(['sans-serif', 'serif', 'monospace', 'Roboto', 'Open Sans', 'Georgia', 'PT Sans', 'PT Serif', 'PT Mono'], 'font-family');
-  //gap
-  h('Gaps', d);
-  put(['0.5', '0.7', '1', '1.2', '1.5'], '--gap');
   //reset
-  h('Reset', d);
-  var r = d1.ins('a', 'Defaults', {href:'#', className: ''}, d);
-  d1.b('', [r], 'click', unstyle);
+  d1.b('', [d1.ins('a', 'Default', {href:'#', className: ''}, d)], 'click', unstyle);
+  put('Background', ['#fff', '#eee', '#efe', '#e6fcf9', '#e3eeff', '#f9e9ff', '#ffeee6', '#ffe'], '--bg');
+  put('Links', ['#000', '#777', '#090', '#088', '#00c', '#909', '#c00', '#c60'], ['--link', '--visited', '--hover']);
+  put('Text', ['#000', '#222', '#444', '#555',  '#666', '#777', '#888', '#999'], '--text');
+  put('Font', ['sans-serif', 'serif', 'monospace', 'Roboto', 'Open Sans', 'Georgia', 'PT Sans', 'PT Serif', 'PT Mono'], 'font-family');
+  put('Gaps', ['0.5', '0.7', '1', '1.2', '1.5'], '--gap');
 });
