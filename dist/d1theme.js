@@ -1,6 +1,11 @@
 // live theme configurator for d1
 
-d1.load(function(e){
+window.addEventListener('DOMContentLoaded', function(e){
+  
+  if(!window.d1){
+    console.error('d1 is required');
+    return;
+  }
   
   var restore = function(n, v){
     var css = localStorage.getItem(v);
@@ -71,4 +76,4 @@ d1.load(function(e){
   put('Text', ['#000', '#222', '#444', '#555',  '#666', '#777', '#888', '#999'], '--text');
   put('Font', ['sans-serif', 'serif', 'monospace', 'Roboto', 'Open Sans', 'Georgia', 'PT Sans', 'PT Serif', 'PT Mono'], 'font-family');
   put('Gaps', ['0.5', '0.7', '1', '1.2', '1.5'], '--gap');
-});
+}, false);
