@@ -28,6 +28,7 @@ process:
 	<script src="https://cdn.jsdelivr.net/npm/d1lookup/d1lookup.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d1tablex/d1tablex.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/d1valid/d1valid.min.js"></script>
+	<script src="d1theme.js#"></script>
 	<!-- local-npm-src REMOVE-->
 	<link href="../src/d1.css" rel="stylesheet">
 	<script src="../src/d1.js"></script>
@@ -38,6 +39,7 @@ process:
 	<script src="../../d1lookup/d1lookup.js"></script>
 	<script src="../../d1edit/d1edit.js"></script>
 	<script src="../../d1valid/d1valid.js"></script>
+	<script src="../src/d1theme.js"></script>
 	<!-- local-npm-dist -- >
 	<link href="../dist/d1.min.css" rel="stylesheet">
 	<script src="../dist/d1.min.js"></script>
@@ -61,6 +63,23 @@ process:
 	<!-- -->
 	
 	<script>
+		var prepareCode = function(n) {
+			var s = d1.q(n.getAttribute("data-src"), 0);
+			if(s){
+			  n.textContent = s.innerHTML.
+				replace(/^\s*\r?\n|\s+$/g, "").
+				replace(/\t/g, "  ").
+				replace(/=""/g, "");
+			  n.classList.remove("hide");
+			  /*
+			  n.classList.add("toggle");
+			  n.id = 'pre-' + s.id;
+			  var a = d1.ins('a', 'Sample', {href: '#' + n.id, className: 'bg-i'});
+			  n.parentNode.insertBefore(a, n);
+			  */
+			}
+		}
+		
 		d1.load(function(){
 			d1.b('', "pre[data-src]", "", prepareCode);
 			//d1.ins('b','test',{},d1.q('code',0));
@@ -93,24 +112,7 @@ process:
 		});
 	</script>
 	
-	<script>
-		var prepareCode = function(n) {
-			var s = d1.q(n.getAttribute("data-src"), 0);
-			if(s){
-			  n.textContent = s.innerHTML.
-				replace(/^\s*\r?\n|\s+$/g, "").
-				replace(/\t/g, "  ").
-				replace(/=""/g, "");
-			  n.classList.remove("hide");
-			  /*
-			  n.classList.add("toggle");
-			  n.id = 'pre-' + s.id;
-			  var a = d1.ins('a', 'Sample', {href: '#' + n.id, className: 'bg-i'});
-			  n.parentNode.insertBefore(a, n);
-			  */
-			}
-		}
-		
+	<!--script>
 		//configurator
 		window.addEventListener('DOMContentLoaded', function(){//return;
 			var f = document.querySelector('#cfg');
@@ -164,7 +166,7 @@ process:
 		function hsla(h, s, l, a){
 			return h>0 ? 'hsla('+h+','+s+'%,'+l+'%,'+(a===undefined ? '1' : a)+')' : grey(255+parseInt(h,10), a);
 		}
-	</script>
+	</script-->
 </head>
 <body data-d1-x='{"opt":{"hashCancel":"#out"},"str":{"_date":"x"},"plug":{"calendar":{"hashNow":"#set"}}}'>
 
@@ -1926,41 +1928,34 @@ most important:
 	d1 is created by <a href="mailto:vadimkor@yandex.ru">Vadim Korolev</a>
 </footer-->
 
+<!--
 <a class="fix r pad hover hide-print" href="#customize">Customize</a>
 <div class="drawer shift pad hide-print" id="customize">
 	<a class="close pad" href="#cancel">&times;</a>
 	<form id="cfg" class="pad">
 		<h3>Style configurator</h3>
 		
-		<!--input type="color" name="text" value="#222222"> Text<br-->
 		<input type="range" name="text" value="-220" min="-255" max="360" data-func="dusk" data-alpha> Text<br>
 		<input type="range" name="text_alpha" value="0" min="0" max=".7" step=".01"> <small class="text-n">lightness</small><br>
-		<!--input type="color" name="bg" value="#ffffff"> Background<br-->
 		<input type="range" name="bg" value="-1" min="-128" max="360" data-func="lite" data-alpha> Background<br>
 		<input type="range" name="bg_alpha" value="1" min=".5" max="1" step=".01"> <small class="text-n">lightness</small><br>
-		<!--input type="color" name="bg-pane" value="#000000" data-alpha> Panel background<br-->
 		<input type="range" name="bg-pane" value="-255" min="-255" max="360" data-func="mid" data-alpha> Panel<br>
 		<input type="range" name="bg-pane_alpha" value=".05" min="0" max="1" step=".01"> <small class="text-n">opacity</small><br>
-		<!--input type="color" name="border" value="#000000" data-alpha data-width> Border<br-->
 		<input type="range" name="border" value="-255" min="-255" max="360" data-func="vivid" data-alpha data-width> Border<br>
 		<input type="range" name="border_alpha" value=".16" min="0" max="1" step=".01"> <small class="text-n">opacity</small><br>
 		<input type="range" name="border_width" value=".1" min="0" max="1" step=".1" data-suffix="em"> <small class="text-n">width</small><br>
-		<!--input type="color" name="text-hilite" value="#000000"> Highlight<br-->
 		<input type="range" name="text-hilite" value="-255" min="-255" max="360" data-func="vivid"> Highlight<br>
-		<!--input type="color" name="bg-hilite" value="#000000" data-alpha> Highlight background<br-->
 		<input type="range" name="bg-hilite" value="-255" min="-255" max="360" data-alpha data-func="vivid"> <small class="text-n">background</small><br>
 		<input type="range" name="bg-hilite_alpha" value=".05" min="0" max="1" step=".01"> <small class="text-n">opacity</small><br>
-		<!--input type="color" name="link" value="#0033bb"> Link<br-->
 		<input type="range" name="link" value="240" min="-255" max="360" data-func="vivid"> Link<br>
-		<!--input type="color" name="hover" value="#0088ff"> Hover link<br-->
 		<input type="range" name="hover" value="220" min="-255" max="360" data-func="bright"> <small class="text-n">hover</small><br>
-		<!--input type="color" name="visited" value="#888888"> Visited link<br-->
 		<input type="range" name="visited" value="280" min="-255" max="360" data-func="vivid"> <small class="text-n">visited</small><br>
 		<input type="range" name="rad" value=".2" min="0" max="2" step=".1"> Radius <br>
 		<input type="range" name="gap" value="1" min="0" max="2" step=".1"> Gap<br>
 		<pre class="small"></pre>
 	</form>
 </div>
+-->
 
 <svg class="hide" width="0" height="0">
 
