@@ -1,8 +1,8 @@
-# **DEPRECATED**  d1
+# d1
 
 **DEPRECATED**
 
-This is no longer supported.  
+This is no longer maintained.  
 Please consider using [d1-web](https://github.com/vvvkor/d1-web) instead.
 
 ---
