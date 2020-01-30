@@ -1,5 +1,12 @@
 # d1
 
+** DEPRECATED **
+
+This is no longer supported.  
+Please consider using [d1-web](https://github.com/vvvkor/d1-web) instead.
+
+---
+
 **d1** is a lightweight yet functional responsive CSS microframework with optional JavaScript enhancements.  
 It aims to implement most widely used interface components with less code.
 
