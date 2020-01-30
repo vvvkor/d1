@@ -1,6 +1,6 @@
-# d1
+# **DEPRECATED**  d1
 
-** DEPRECATED **
+**DEPRECATED**
 
 This is no longer supported.  
 Please consider using [d1-web](https://github.com/vvvkor/d1-web) instead.
